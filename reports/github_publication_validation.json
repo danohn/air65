@@ -2,9 +2,10 @@
   "scope": "GitHub publication preparation; original model validation is recorded separately",
   "repository": "https://github.com/danohn/air65",
   "release": "v0.1.0",
-  "status": "preflight_pass",
-  "tracked_file_count": 145,
-  "tracked_bytes": 31327471,
+  "status": "clean_checkout_pass",
+  "inspected_file_count": 145,
+  "inspected_bytes": 31327471,
+  "inventory_note": "The preflight inventory excludes this validation receipt, which was added after the scan.",
   "checks": {
     "no_gitlinks": true,
     "generated_output_and_archives_excluded": true,
@@ -14,6 +15,17 @@
     "site_tracked_files_identical_to_published_source": true,
     "source_contract_validation": "7 components, 12 instances",
     "tests": "22 passed (16 model contracts plus 6 release boundary/restore tests)",
+    "site_js_syntax": "pass"
+  },
+  "clean_checkout": {
+    "source_commit": "a84a3f3",
+    "python": "3.14.5",
+    "frozen_dependency_sync": "pass",
+    "tests": "22 passed",
+    "source_contract_validation": "7 components, 12 instances",
+    "offline_release_restore": "79 artifact files and 87 baseline files restored",
+    "repeat_restore": "0 files changed; identical files retained",
+    "numeric_conformance": "93 of 93 checks passed",
     "site_js_syntax": "pass"
   },
   "limits": [
