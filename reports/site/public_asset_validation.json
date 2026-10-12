@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-12T01:27:40.572665+00:00",
+  "status": "pass",
+  "method": "Anonymous curl HTTPS GET without cookies or authentication; full asset and code SHA-256 compared with reviewed local build. Hosted index may include platform-injected markup.",
+  "client_note": "An initial Python urllib request returned HTTP403; standard curl and the real browser succeeded. No authentication, custom browser headers or security overrides were used.",
+  "checks": [
+    {
+      "url": "https://air65-ii-explorer.danohn.chatgpt.site/",
+      "http_status": 200,
+      "bytes": 11040,
+      "sha256": "fb97e98bfb0c7c0e42135f4ba07188552bb6db751a7802793bdd165bbdf70882",
+      "matches_local": false,
+      "page_title_present": true
+    },
+    {
+      "url": "https://air65-ii-explorer.danohn.chatgpt.site/assets/air65-ii.glb",
+      "http_status": 200,
+      "bytes": 10417808,
+      "sha256": "8ddbc0195e22c59bc8dcf6de34885021e5cc099aea5b33a08817a11a7b6395a7",
+      "matches_local": true
+    },
+    {
+      "url": "https://air65-ii-explorer.danohn.chatgpt.site/assets/model-metadata.json",
+      "http_status": 200,
+      "bytes": 75434,
+      "sha256": "34ff92f944766988692b5a35a88b356bb0c1dae5812bdc3c97a2b12099fa1c84",
+      "matches_local": true
+    },
+    {
+      "url": "https://air65-ii-explorer.danohn.chatgpt.site/app.js",
+      "http_status": 200,
+      "bytes": 20390,
+      "sha256": "bf4cd9feccf5b9a591b63f3697ef3022a346ef49d381e59242d9f7f9689c13da",
+      "matches_local": true
+    },
+    {
+      "url": "https://air65-ii-explorer.danohn.chatgpt.site/styles.css",
+      "http_status": 200,
+      "bytes": 13920,
+      "sha256": "71abb9f929a2deff5a394b173f8b7645a45368211bc555b083b3ab2348b68eec",
+      "matches_local": true
+    }
+  ]
+}

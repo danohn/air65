@@ -1,0 +1,291 @@
+{
+  "research_version": "1.0",
+  "target": "BETAFPV Air65 II",
+  "scope": "Modelling methods and representation only. All component dimensions, configuration choices and mounting coordinates must be supplied by the consolidated design specification and spatial architect.",
+  "researched_on": "2026-10-12",
+  "recommended_pipeline": [
+    "One canonical, versioned parameter and evidence registry owned by the main agent",
+    "A spatial contract with immutable axis conventions, named anchors and locked shared dimensions",
+    "Separate component JSON documents conforming to one strict JSON Schema",
+    "Python wrapper validates JSON and semantic assembly constraints before launching Blender",
+    "Pinned local Blender executes a deterministic, allowlisted operation interpreter",
+    "Editable component objects, curves and modifiers are saved in one .blend",
+    "Orthographic geometry views and matched perspective reference views are rendered separately",
+    "Independent visual review ranks major shape and proportion errors before cosmetic details",
+    "Central parameter changes and component revisions produce a fresh build and validation report"
+  ],
+  "environment": {
+    "verification_method": "Read-only shell commands and headless factory-startup API introspection",
+    "uv_path": "/Users/daniel/.local/bin/uv",
+    "uv_version": "0.11.15",
+    "blender_on_path": false,
+    "blender_path": "/Applications/Blender.app/Contents/MacOS/Blender",
+    "blender_version": "5.2.2 LTS",
+    "blender_build_hash": "d13f752e3b9c",
+    "blender_python_version": "3.13.13",
+    "headless_startup_verified": true,
+    "mesh_from_pydata_verified": true,
+    "installation_or_environment_changes_performed": false,
+    "notes": [
+      "Use uv for the external Python wrapper, validation and report generation; Blender scripts use Blender's bundled Python.",
+      "A Python 3.14 wrapper must not assume its packages or interpreter are available inside Blender.",
+      "No Blender MCP connection, remote generation service or OpenAI API integration is necessary."
+    ]
+  },
+  "shared_json_recommendation": {
+    "schema_draft": "2020-12",
+    "unknown_properties": "Reject through additionalProperties:false on all structured objects",
+    "numeric_convention": "Millimetres and degrees in JSON; convert once in renderer or consistently use millimetre-scaled Blender units",
+    "scalar": {
+      "alternatives": [
+        "finite JSON number",
+        "object with required param:string, optional scale:number default 1 and offset:number default 0"
+      ],
+      "reference_semantics": "Resolve named canonical value, then multiply by scale and add offset. Units are inherited; scale is dimensionless.",
+      "restrictions": [
+        "No free-form expressions, eval, Python source, imports, shell commands or arbitrary file paths in component JSON",
+        "Precompute nontrivial derived dimensions centrally and record their derivation",
+        "Unknown references, nonfinite results and unresolved cycles are hard errors",
+        "Literal values in shared dimensions are rejected by semantic validation; use parameter references"
+      ]
+    },
+    "registry_parameter_fields": {
+      "id": "unique stable identifier",
+      "value": "finite numeric canonical value",
+      "unit": "mm | deg | g | dimensionless | count",
+      "status": "manufacturer_spec | measured_reference | derived | visual_estimate | modelling_assumption",
+      "confidence": "high | medium | low",
+      "confidence_basis": "short text distinguishing numeric confidence from evidence strength",
+      "source_ids": "array of source identifiers",
+      "uncertainty": "optional stated tolerance or estimate interval, with method; never invent manufacturer tolerance",
+      "derivation": "optional description and referenced input IDs",
+      "locked": "boolean; component agents cannot override locked parameters"
+    },
+    "evidence_source_fields": {
+      "id": "stable source identifier",
+      "url": "original primary source or manufacturer asset URL",
+      "title": "source title",
+      "accessed_on": "ISO date",
+      "kind": "manufacturer_text | dimensioned_drawing | photograph | mesh_reference | local_runtime | method_documentation",
+      "variant": "exact product revision/configuration depicted, or unresolved",
+      "asset_sha256": "optional hash of a locally obtained reference",
+      "license": "known license or unknown",
+      "locator": "section, image label, screenshot crop or drawing callout",
+      "notes": "limitations and interpretation"
+    },
+    "component_document_fields": {
+      "schema_version": "version string",
+      "component_id": "stable unique identifier",
+      "contract_version": "canonical design/spatial contract version",
+      "contract_sha256": "hash of immutable contract used by the component author",
+      "source_ids": "evidence used for component form",
+      "parameter_refs": "declared dependencies on canonical parameters",
+      "nodes": "ordered geometry operations with unique local IDs",
+      "anchors": "named local feature points; main architecture establishes assembly placements",
+      "uncertainties": "explicit unresolved or approximate features",
+      "validation": "component checks referring to canonical limits"
+    },
+    "geometry_node_fields": {
+      "id": "stable name, used for Blender object and report identity",
+      "op": "allowlisted operation name",
+      "args": "operation-specific, strictly validated object",
+      "material": "canonical material ID",
+      "transform": "location vector, rotation_deg XYZ vector and positive scale vector with documented application order",
+      "modifiers": "optional ordered allowlist such as bevel, solidify, subdivision, mirror",
+      "source_ids": "optional feature-level references",
+      "notes": "optional modelling assumption"
+    },
+    "assembly_fields": {
+      "coordinates": "fixed handedness, up axis, forward axis and origin",
+      "component_files": "manifest of component IDs and relative JSON paths",
+      "instances": "component reference, stable instance ID, parent anchor and transform",
+      "materials": "named Principled shader settings; estimated optical values labelled",
+      "views": "named camera positions/targets, projection type, orthographic scale or focal length, resolution and role",
+      "checks": "geometric, dimensional, evidence and coverage checks",
+      "build": "Blender version, seed, renderer settings, source hashes and quality tier"
+    },
+    "schema_sample": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$defs": {
+        "scalar": {
+          "oneOf": [
+            {"type": "number"},
+            {
+              "type": "object",
+              "required": ["param"],
+              "additionalProperties": false,
+              "properties": {
+                "param": {"type": "string", "minLength": 1},
+                "scale": {"type": "number"},
+                "offset": {"type": "number"}
+              }
+            }
+          ]
+        },
+        "vector3": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/scalar"},
+          "minItems": 3,
+          "maxItems": 3
+        }
+      }
+    }
+  },
+  "geometry_operations": [
+    {
+      "op": "box",
+      "inputs": ["size", "optional bevel"],
+      "use": "PCB substrate, chips, connector blocks and simple battery envelope",
+      "caution": "Box sizes must be modelled in mesh coordinates before dimensional bevel/solidify operations, rather than retained as nonuniform object scale."
+    },
+    {
+      "op": "cylinder",
+      "inputs": ["radius", "depth", "segments", "caps"],
+      "use": "Motor can, shaft, camera barrel, screw shank",
+      "caution": "Use coaxial ring or radial profile meshes for bores instead of pretending a solid cylinder is hollow."
+    },
+    {
+      "op": "annulus",
+      "inputs": ["inner_radius", "outer_radius", "z_bottom", "z_top", "segments"],
+      "use": "Thin propeller ducts, motor bearing rings and camera mount ring",
+      "implementation": "Explicit inner/outer loops and bridged top/bottom quads; fixed angular sample ordering.",
+      "extension": "A radial-z cross-section revolved about the duct axis supports taper, moulded lips and varying wall profile without booleans."
+    },
+    {
+      "op": "polyline_tube",
+      "inputs": ["points", "radius", "resolution", "cyclic", "caps"],
+      "use": "Wires, antenna lead and rounded thin struts",
+      "implementation": "Editable Curve data with bevel for round wire, or deterministic transported frames for explicit nonround strut profiles.",
+      "caution": "Straight cylindrical bars are only a prototype representation when reference struts have tapered or rectangular moulded sections."
+    },
+    {
+      "op": "polygon_extrusion",
+      "inputs": ["outline_2d", "holes_2d", "z", "thickness"],
+      "use": "PCB outline, flat braces, mounting tabs and strap loops",
+      "implementation": "Consistent winding; deterministic planar triangulation for caps; bridge side loops.",
+      "caution": "Concave outlines and holes require actual triangulation or constrained topology, never a single nonplanar n-gon."
+    },
+    {
+      "op": "loft_shell",
+      "inputs": ["sections", "axis", "thickness", "cap_start", "cap_end", "optional open regions"],
+      "use": "Hollow curved canopy and nonuniform moulded shapes",
+      "implementation": "Section positions and corresponding 2D profile samples define predictable quad topology; preserve intended open underside and apertures. An editable Solidify modifier can add thickness.",
+      "caution": "Equal vertex count/winding across profile sections is mandatory. Solidify thickness is an approximation on curved topology; measure evaluated geometry where exact thickness matters."
+    },
+    {
+      "op": "prop_blade",
+      "inputs": ["sections", "handedness", "hub_overlap", "profile_samples", "blade_count"],
+      "use": "Parametric propeller planform and pitch twist",
+      "implementation": "Each spanwise station defines radius, chord, sweep, vertical offset, twist and thickness; construct top/bottom foil surfaces with a closed tip. Instance one blade radially by the centrally specified blade count.",
+      "caution": "Propeller diameter, pitch and blade count are supplied by the Air65 II configuration contract. A photographed silhouette cannot verify its airfoil or exact pitch distribution."
+    },
+    {
+      "op": "mesh",
+      "inputs": ["vertices", "faces", "smooth"],
+      "use": "Compact escape hatch for explicit original topology under the same structured-data contract",
+      "implementation": "Mesh.from_pydata, mesh validation, deterministic vertex and face order.",
+      "caution": "Require provenance and sensible size limits. Raw mesh input must not bypass dimensional or shared-anchor checks."
+    }
+  ],
+  "editing_policy": [
+    "Give every component its own Blender collection and parent Empty; stable instance names prevent ambiguity.",
+    "Keep wires as editable curves and retain useful bevel/solidify/subdivision modifiers.",
+    "Keep cutters in a hidden named collection if any boolean apertures are needed; use robust solver and inspect evaluated output.",
+    "Preserve original JSON and build metadata in Blender Text datablocks or custom properties so edits can be traced.",
+    "Be explicit that JSON changes regenerate geometry; manual .blend edits are editable but are not automatically written back to JSON."
+  ],
+  "determinism_policy": [
+    "Run from factory startup with a documented Blender binary and --python-exit-code 1.",
+    "Use bpy.data and direct mesh creation rather than UI-state-dependent operators; use operators only for supported save/render steps.",
+    "Sort files and IDs, use fixed tessellation and sampling counts, fixed camera transforms and no random geometry.",
+    "Specify render engine, CPU or device, resolution, samples, random seed, world, light placement, color management and transparency.",
+    "Record canonical JSON hashes, Blender build hash, resolved parameters, object bounds and mesh statistics.",
+    "Compare semantic scene and rounded mesh-coordinate hashes for regeneration, rather than assuming byte-identical .blend files.",
+    "Exact pixels across different Blender builds or GPU devices are not guaranteed; limit a determinism claim to the tested build/device/settings."
+  ],
+  "validation_recommendation": {
+    "pre_blender": [
+      "JSON Schema validation for every document and operation",
+      "No duplicate IDs, missing materials, unresolved parameters or stale contract hashes",
+      "No shared dimension overrides by component documents",
+      "Positive wall thickness, valid segment counts, consistent loft samples and face indices",
+      "Unit and transform convention checks"
+    ],
+    "post_geometry": [
+      "Motor/duct/prop coaxiality and central architecture anchor agreement",
+      "Wheelbase and outer envelope derived from evaluated geometry",
+      "Prop swept radius versus duct inner radius and vertical clearance",
+      "PCB mounting holes, fastener axes and standoffs align",
+      "Camera optical axis equals contracted tilt and faces forward",
+      "Boundary/nonmanifold edges reported with explicit acceptable exceptions",
+      "Bounding boxes and nominal evaluated dimensions compared with declared tolerances"
+    ],
+    "visual": [
+      "Top, bottom, front, rear, left, right and three-quarter views",
+      "Neutral clay or silhouette views for geometry, separate material beauty render",
+      "Reference photo camera alignment before judging proportions",
+      "Landmark pixel deltas and silhouette overlap only when view and projection are matched",
+      "Reviewer ranks frame layout, duct-to-body proportion, canopy silhouette, camera placement, motor height, blade form, then colors/details",
+      "Mark unseen geometry, uncertain optical properties and estimated dimensions in final report"
+    ]
+  },
+  "open_source_options": [
+    {
+      "name": "Blender Python API",
+      "source_id": "blender_api",
+      "decision": "Recommended core runtime; already installed and verified locally.",
+      "reason": "Direct editable mesh/curve creation, materials, cameras, modifiers and headless rendering without extra add-ons."
+    },
+    {
+      "name": "Sverchok",
+      "source_id": "sverchok",
+      "license": "GPL-3.0 as declared by project",
+      "decision": "Relevant parametric-node reference; not needed for the initial renderer.",
+      "reason": "Supports procedural meshes, profiles, transforms, curves and surfaces, but adds add-on/version dependencies and a larger execution surface."
+    },
+    {
+      "name": "build123d",
+      "source_id": "build123d",
+      "license": "Apache-2.0 as declared by project",
+      "decision": "Optional future path for exact BREP and mechanical fit; not required for Blender-first visual recreation.",
+      "reason": "Open Cascade CAD kernel offers precise solids, while tessellation/import introduces another stack and does not by itself make photographic canopy geometry accurate."
+    },
+    {
+      "name": "TerminalSkills blender-scripting skill",
+      "source_id": "terminalskills",
+      "license": "Apache-2.0 declared in skill metadata",
+      "decision": "Read as a public implementation reference only; not installed or adopted as authority.",
+      "reason": "Covers headless invocation, direct meshes, modifiers, curves and version caveats. Verify recipes against installed Blender."
+    },
+    {
+      "name": "pinion05 blender-headless-skill",
+      "source_id": "headless_skill",
+      "license": "CC0 declared in repository README",
+      "decision": "Useful older headless example/test catalogue; no installation needed.",
+      "reason": "Targets Blender 4.2, so examples must be rechecked against local Blender 5.2.2."
+    }
+  ],
+  "reference_asset_policy": {
+    "official_stl_found_for_air65_ii": false,
+    "searched": [
+      "BETAFPV Air II Canopy product page",
+      "BETAFPV original Air Canopy product page",
+      "BETAFPV support search for Air STL"
+    ],
+    "interpretation": "No verified official downloadable Air65 II canopy or frame STL was established by this research; this is not a proof none exists.",
+    "policy": "If an official file is later found, record its exact revision, source, hash, units and license. It can serve as an explicitly labelled measurement or comparison reference; do not silently substitute it for generated component JSON or assume its reuse license."
+  },
+  "sources": [
+    {"id": "blender_cli", "url": "https://docs.blender.org/manual/en/3.6/advanced/command_line/arguments.html", "title": "Blender command-line arguments", "accessed_on": "2026-10-12", "supports": "Background mode, Python script arguments, factory startup and Python exception exit code; exact local command was also tested."},
+    {"id": "blender_api", "url": "https://docs.blender.org/api/current/bpy.types.Mesh.html", "title": "Blender Mesh API", "accessed_on": "2026-10-12", "supports": "Canonical API endpoint; web fetch was unavailable, so Mesh.from_pydata presence was checked directly in the installed Blender runtime."},
+    {"id": "blender_solidify", "url": "https://docs.blender.org/manual/en/5.3/modeling/modifiers/generate/solidify.html", "title": "Blender Solidify modifier", "accessed_on": "2026-10-12", "supports": "Shell thickness functionality and limitation that even thickness is an approximation; 5.3 documentation is not a compatibility claim for the installed 5.2 binary."},
+    {"id": "blender_curves", "url": "https://docs.blender.org/manual/de/4.5/modeling/curves/properties/geometry.html", "title": "Blender 4.5 curve geometry", "accessed_on": "2026-10-12", "supports": "Editable curve bevel, caps and custom cross sections."},
+    {"id": "json_schema", "url": "https://json-schema.org/draft/2020-12", "title": "JSON Schema Draft 2020-12", "accessed_on": "2026-10-12", "supports": "Recommended schema version and validation vocabulary."},
+    {"id": "sverchok", "url": "https://github.com/nortikin/sverchok", "title": "Sverchok project", "accessed_on": "2026-10-12", "supports": "Parametric geometry nodes, mesh data representation and declared GPL-3.0 license."},
+    {"id": "build123d", "url": "https://github.com/gumyr/build123d", "title": "build123d project", "accessed_on": "2026-10-12", "supports": "Python parametric BREP on Open Cascade and declared Apache-2.0 license."},
+    {"id": "terminalskills", "url": "https://github.com/TerminalSkills/skills/blob/main/skills/blender-scripting/SKILL.md", "title": "TerminalSkills Blender scripting skill", "accessed_on": "2026-10-12", "supports": "Public skill for Blender scripting patterns and version caveats."},
+    {"id": "headless_skill", "url": "https://github.com/pinion05/blender-headless-skill", "title": "Blender 4.2 headless skill", "accessed_on": "2026-10-12", "supports": "Public skill and headless feature-test examples; declared CC0 license."},
+    {"id": "air_ii_canopy", "url": "https://betafpv.com/products/air-ii-canopy", "title": "BETAFPV Air II Canopy", "accessed_on": "2026-10-12", "supports": "Revision-specific structural changes, cap vent, support brace and hollow design; no STL link established."},
+    {"id": "air_canopy", "url": "https://betafpv.com/products/air-canopy", "title": "BETAFPV original Air Canopy", "accessed_on": "2026-10-12", "supports": "Original-generation comparison only; no STL link established."}
+  ]
+}

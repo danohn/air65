@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "review_id": "visual_review_v1",
+  "date": "2026-10-12",
+  "contract": "air65-ii-racing-v1",
+  "reviewer_role": "independent_visual_reviewer",
+  "baseline_directory": "output/review_v1",
+  "model_files_modified": false,
+  "verdict": "requires_visual_revision",
+  "dimensional_certification": false,
+  "method": "Actual view_image inspection of seven assembly, four frame-only and two isolated propulsion renders, compared against catalog, dimensional and physical photo references.",
+  "numerical_validation": {"file": "output/review_v1/validation.json", "reported_status": "pass", "reported_check_count": 31, "independently_rerun": false, "note": "Numerical checks do not certify visual accuracy or real manufacturing tolerances."},
+  "render_files": ["output/review_v1/hero.png", "output/review_v1/top.png", "output/review_v1/front.png", "output/review_v1/right.png", "output/review_v1/rear.png", "output/review_v1/underside.png", "output/review_v1/reference.png", "output/frame/hero.png", "output/frame/top.png", "output/frame/front.png", "output/frame/underside.png"],
+  "reference_source_ids": ["air65_ii_racing_oblique", "air65_ii_racing_propulsion", "air65_ii_racing_underside", "air65_ii_frame_diagram", "air65_ii_frame_black_top", "air65_ii_frame_details", "air_ii_canopy_black", "air_ii_canopy_structure", "air_ii_canopy_side", "air_ii_canopy_diagram", "camera_drawing", "prop_drawing", "motor_drawing", "air65_ii_electronics", "photo_racing_oblique", "photo_freestyle_side_oblique", "photo_variants_low_front"],
+  "findings": [
+    {
+      "id": "VR-01", "rank": 1, "severity": "high", "category": "silhouette_and_topology", "component": "canopy", "confidence": "high", "status_at_review": "open",
+      "observation": "Canopy reads as thin ladder rails with rectangular crossbars and simple exposed lens collar; visible formed hood, shoulders and rounded arch apertures are too slight/rectilinear.",
+      "action": "Broaden and blend estimated curved cap around upper collar, retain small vent, shape rounded trapezoidal/oval arch openings and smooth transitions to lateral legs. Preserve open sides, camera PCB visibility, mounting anchors, 10.2 mm clamp and camera pose.",
+      "shared_dimension_change_recommended": false,
+      "source_ids": ["air_ii_canopy_black", "air_ii_canopy_structure", "air_ii_canopy_diagram", "air_ii_canopy_side", "photo_racing_oblique", "photo_freestyle_side_oblique"],
+      "render_files": ["output/review_v1/hero.png", "output/review_v1/front.png", "output/review_v1/top.png", "output/review_v1/reference.png"],
+      "uncertainty": "Unmeasured local cap depth, thickness and window contours remain visual estimates. Current hood object exists; finding concerns its rendered shape.",
+      "acceptance": "Formed hood and curved aperture shapes read in front and oblique views without closing real side spaces or changing locked dimensions."
+    },
+    {
+      "id": "VR-02", "rank": 2, "severity": "medium", "category": "silhouette", "component": "propeller", "confidence": "high_mismatch_medium_correction", "status_at_review": "open",
+      "observation": "Outer blade taper is more leaf-like than the broad rounded paddle ends in the GF1207 reference.",
+      "action": "Apply PR-01 estimated chord/sweep/terminal refinement. Main may evaluate PR-02 hub radius 2.4 mm trial within existing estimate range. Preserve 31 mm envelope, 6.8 mm maximum chord, 3.3 mm hub height and 1 mm bore.",
+      "shared_dimension_change_recommended": "Only centrally approved estimated hub-radius trial; no verified dimension change.",
+      "source_ids": ["prop_drawing", "air65_ii_racing_propulsion"],
+      "render_files": ["output/review_v1/top.png", "output/review_v1/hero.png", "output/propulsion/top.png"],
+      "related_report": "reports/propulsion_visual_review.json",
+      "uncertainty": "Exact airfoil/camber/twist and pixel contour are unverified.",
+      "acceptance": "Broad round-cornered terminal reads in matched top/oblique views; maximum evaluated radius remains nominal."
+    },
+    {
+      "id": "VR-03", "rank": 3, "severity": "medium", "category": "surface_geometry", "component": "frame", "confidence": "high_visual_medium_cause", "status_at_review": "open",
+      "observation": "Dark crescents/slivers surround motor-pad bores; dark bridge lines and some abrupt rib/rim joins differ from smooth continuous reference moulding.",
+      "action": "Inspect evaluated topology, coincident faces, non-planar triangulation, normals, touching Boolean boundaries and modifiers; fix confirmed defects. Preserve a continuous rounded triangular pad and intended screw protectors. Use diagnostic material to distinguish shadows from topology faults.",
+      "shared_dimension_change_recommended": false,
+      "source_ids": ["air65_ii_frame_black_top", "air65_ii_frame_details", "frame_drawing"],
+      "render_files": ["output/frame/top.png", "output/frame/hero.png", "output/frame/underside.png", "output/review_v1/underside.png"],
+      "uncertainty": "Exact cause has not been diagnosed by this reviewer; lighting may contribute to some edges.",
+      "acceptance": "No unintended sliver seams under neutral inspection lighting; hole sizes, pad continuity and frame dimensions preserved."
+    },
+    {
+      "id": "VR-04", "rank": 4, "severity": "low_to_medium", "category": "topology", "component": "frame_battery_cradle", "confidence": "high_difference_medium_construction", "status_at_review": "open",
+      "observation": "Reference plan shows narrow fore/aft transverse openings beside the large central cradle opening; model shows only the large opening between two simple bands.",
+      "action": "Recover narrow windows by refining estimated offset/sloped upper/lower band form, checking reference construction rather than adding arbitrary bars. Preserve 11.4 x 6.2 mm opening and optional battery clearance.",
+      "shared_dimension_change_recommended": false,
+      "source_ids": ["air65_ii_frame_black_top", "frame_drawing"],
+      "render_files": ["output/frame/top.png", "output/frame/underside.png"],
+      "uncertainty": "Plan-view openings may result from projected offset upper/lower cradle bands; detailed 3D construction is not fully established.",
+      "acceptance": "Corresponding plan apertures visible without blocking the verified battery opening."
+    },
+    {
+      "id": "VR-05", "rank": 5, "severity": "low", "category": "finish_and_optical_detail", "component": "camera", "confidence": "high_pcb_medium_optics", "status_at_review": "open_pcb_fix_reported_by_integrator",
+      "observation": "Visible PCB is olive green instead of black masked; lens reads as flat green disk with concentric rings rather than darker recessed optical stack.",
+      "action": "Verify already-reported mask surface correction in next render. Then improve estimated lens recess/glass shading without changing 10 mm barrel diameter or 15 mm front-to-board depth.",
+      "shared_dimension_change_recommended": false,
+      "source_ids": ["camera_drawing", "photo_racing_oblique", "photo_freestyle_side_oblique"],
+      "render_files": ["output/review_v1/hero.png", "output/review_v1/front.png", "output/review_v1/rear.png"],
+      "uncertainty": "Optical tint depends on viewpoint and illumination; exact internal lens construction is not established.",
+      "acceptance": "PCB has visible black mask with thin substrate edge and optical face has a plausible recessed dark/glass appearance."
+    },
+    {
+      "id": "VR-06", "rank": 6, "severity": "low", "category": "materials_and_small_detail", "component": "assembly", "confidence": "high_appearance_medium_cause", "status_at_review": "open",
+      "observation": "Frame/canopy are uniformly pastel and relatively opaque; props cloudy; PCB solder-pad/trace density and underside electronics are simplified.",
+      "action": "Tune transmission, roughness and lighting after geometry. Refine only supported electronic surface details. Keep a diagnostic view and avoid unverifiable labels.",
+      "shared_dimension_change_recommended": false,
+      "source_ids": ["air65_ii_racing_oblique", "air65_ii_racing_propulsion", "air65_ii_electronics", "photo_racing_oblique", "photo_freestyle_side_oblique"],
+      "render_files": ["output/review_v1/hero.png", "output/review_v1/top.png", "output/review_v1/underside.png"],
+      "uncertainty": "Catalog lighting/retouching may exaggerate transmission; small component placement is estimated.",
+      "acceptance": "Geometry remains legible while polymer transmission and board surface density better match both physical and catalog references."
+    }
+  ],
+  "supported_observations": [
+    {"feature": "global_frame", "assessment": "Four circular ducts, square motor pattern, rotated central mounting pattern, four arms per duct and open baskets agree qualitatively with the II frame references.", "recommendation": "No global frame dimension or motor-center change supported."},
+    {"feature": "camera_and_antenna", "assessment": "Overall exposed camera, open canopy and rearward/upward antenna arrangement appropriate.", "recommendation": "No global height change from unmatched perspective views; installed positions remain estimates."},
+    {"feature": "propulsion_and_wiring", "assessment": "Layered motor can/open crown plausible; integrated three-wire bundles now present.", "recommendation": "Exact internal motor topology and wire bends remain estimates; motor-side heatshrink secondary refinement."},
+    {"feature": "battery", "assessment": "Absent optional battery is consistent with baseline scope.", "recommendation": "Do not call absence a defect against battery-equipped underside reference."}
+  ],
+  "limitations": ["No physical metrology or manufacturer CAD", "No calibrated view alignment or silhouette-overlap score", "Catalog images may be rendered or retouched", "Physical photos have perspective, blur and specimen differences", "No numerical dimensional certification from photographs", "No manufacturing/flight-ready accuracy claim"],
+  "next_review": "Inspect preserved matching views after canopy/prop corrections, frame sliver diagnosis, and documented dispositions of remaining findings."
+}

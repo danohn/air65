@@ -1,0 +1,33 @@
+{
+  "site_title": "Air65 II — 3D Explorer",
+  "url": "https://air65-ii-explorer.danohn.chatgpt.site",
+  "access_mode": "public",
+  "anonymous_page_http": 200,
+  "anonymous_glb_http": 200,
+  "production_browser_model_loaded": true,
+  "production_browser_errors_or_warnings": 0,
+  "production_controls_checked": [
+    "zoom",
+    "keyboard orbit",
+    "bottom preset",
+    "optional battery",
+    "reset",
+    "390x844 responsive framing"
+  ],
+  "version_number": 2,
+  "project_id": "appgprj_6acc1dd67ef48191a83f2578cef3428e",
+  "version_id": "appgprj_6acc1dd67ef48191a83f2578cef3428e~appgver_14f5ca6b574881918d4c7d598f4e90c0",
+  "deployment_id": "appgdep_6acc3731bc408191a59574dfd1623fd3",
+  "commit_sha": "a127b54bce472d9e8ec3615589aa1c57a3b7cff2",
+  "deployment_status": "succeeded",
+  "updated_at": "2026-10-12T01:26:29.856398+00:00",
+  "public_glb_sha256": "8ddbc0195e22c59bc8dcf6de34885021e5cc099aea5b33a08817a11a7b6395a7",
+  "public_asset_evidence": "reports/site/public_asset_validation.json",
+  "screenshots": [
+    "reports/site/published_refinement_desktop.jpg",
+    "reports/site/published_refinement_zoom_orbit.jpg",
+    "reports/site/published_refinement_battery.jpg",
+    "reports/site/published_refinement_mobile.jpg"
+  ],
+  "previous_deployment": "reports/site/deployment_v1.json"
+}

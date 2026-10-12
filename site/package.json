@@ -1,0 +1,1 @@
+{"name":"air65-ii-explorer","version":"1.0.0","private":true,"type":"module","description":"Buildless Three.js viewer for the Air65 II reconstruction","scripts":{"check":"node --check dist/app.js"}}

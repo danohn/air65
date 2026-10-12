@@ -1,0 +1,319 @@
+{
+  "schema_version": "1.0",
+  "id": "air65-ii-racing-dry",
+  "architecture": "specs/spatial_architecture.json",
+  "materials": "specs/materials.json",
+  "components": {
+    "frame": "specs/components/frame.json",
+    "motor": "specs/components/motor.json",
+    "prop_cw": "specs/components/prop_cw.json",
+    "prop_ccw": "specs/components/prop_ccw.json",
+    "canopy": "specs/components/canopy.json",
+    "camera": "specs/components/camera.json",
+    "electronics": "specs/components/electronics.json"
+  },
+  "instances": [
+    {
+      "id": "frame",
+      "component": "frame"
+    },
+    {
+      "id": "electronics",
+      "component": "electronics"
+    },
+    {
+      "id": "camera",
+      "component": "camera"
+    },
+    {
+      "id": "canopy",
+      "component": "canopy"
+    },
+    {
+      "id": "motor_FL",
+      "component": "motor",
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": -1
+          },
+          {
+            "param": "motor_axis_offset"
+          },
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          30
+        ]
+      }
+    },
+    {
+      "id": "prop_FL",
+      "component": "prop_cw",
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": -1
+          },
+          {
+            "param": "motor_axis_offset"
+          },
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          20
+        ]
+      }
+    },
+    {
+      "id": "motor_FR",
+      "component": "motor",
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset"
+          },
+          {
+            "param": "motor_axis_offset"
+          },
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          -30
+        ]
+      }
+    },
+    {
+      "id": "prop_FR",
+      "component": "prop_ccw",
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset"
+          },
+          {
+            "param": "motor_axis_offset"
+          },
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          -15
+        ]
+      }
+    },
+    {
+      "id": "motor_RL",
+      "component": "motor",
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": -1
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": -1
+          },
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          30
+        ]
+      }
+    },
+    {
+      "id": "prop_RL",
+      "component": "prop_ccw",
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": -1
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": -1
+          },
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          50
+        ]
+      }
+    },
+    {
+      "id": "motor_RR",
+      "component": "motor",
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset"
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": -1
+          },
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          -30
+        ]
+      }
+    },
+    {
+      "id": "prop_RR",
+      "component": "prop_cw",
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset"
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": -1
+          },
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          -45
+        ]
+      }
+    }
+  ],
+  "notes": [
+    "Motor mounting rotations align frame screw pads. Prop phase is a deterministic presentation choice, not a measured static phase.",
+    "Dry aircraft; optional battery is provided as a separate assembly."
+  ],
+  "views": {
+    "hero": {
+      "position": [
+        112,
+        142,
+        119
+      ],
+      "target": [
+        0,
+        0,
+        18
+      ],
+      "projection": "ORTHO",
+      "scale": 112
+    },
+    "front": {
+      "position": [
+        0,
+        200,
+        26
+      ],
+      "target": [
+        0,
+        0,
+        26
+      ],
+      "projection": "ORTHO",
+      "scale": 99
+    },
+    "right": {
+      "position": [
+        200,
+        0,
+        26
+      ],
+      "target": [
+        0,
+        0,
+        26
+      ],
+      "projection": "ORTHO",
+      "scale": 99
+    },
+    "rear": {
+      "position": [
+        0,
+        -200,
+        26
+      ],
+      "target": [
+        0,
+        0,
+        26
+      ],
+      "projection": "ORTHO",
+      "scale": 99
+    },
+    "reference": {
+      "position": [
+        -105,
+        155,
+        114
+      ],
+      "target": [
+        0,
+        0,
+        18
+      ],
+      "projection": "PERSP",
+      "lens": 61
+    },
+    "left": {
+      "position": [
+        -200,
+        0,
+        26
+      ],
+      "target": [
+        0,
+        0,
+        26
+      ],
+      "projection": "ORTHO",
+      "scale": 99
+    },
+    "top": {
+      "position": [
+        0,
+        0,
+        200
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "projection": "ORTHO",
+      "scale": 99
+    },
+    "underside": {
+      "position": [
+        0,
+        0,
+        -200
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "projection": "ORTHO",
+      "scale": 99
+    }
+  }
+}

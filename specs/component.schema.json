@@ -1,0 +1,1652 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]+$"
+    },
+    "contract": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "feature": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "verified",
+              "derived",
+              "estimated",
+              "simplified"
+            ]
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "confidence": {
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "feature",
+          "status",
+          "source_ids",
+          "confidence",
+          "note"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.-]+$"
+          },
+          "op": {
+            "enum": [
+              "box",
+              "cylinder",
+              "annulus",
+              "ring_profile",
+              "sphere",
+              "beam",
+              "tube",
+              "ribbon",
+              "polygon_extrude",
+              "mesh",
+              "loft_shell",
+              "propeller_blade",
+              "text"
+            ]
+          },
+          "material": {
+            "type": "string"
+          },
+          "transform": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "param"
+                      ],
+                      "properties": {
+                        "param": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "scale": {
+                          "type": "number"
+                        },
+                        "offset": {
+                          "type": "number"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "rotation_deg": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "param"
+                      ],
+                      "properties": {
+                        "param": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "scale": {
+                          "type": "number"
+                        },
+                        "offset": {
+                          "type": "number"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "scale": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 3,
+                "maxItems": 3
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "args": {
+            "type": "object"
+          },
+          "modifiers": {
+            "type": "object",
+            "properties": {
+              "bevel": {
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "param"
+                    ],
+                    "properties": {
+                      "param": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "scale": {
+                        "type": "number"
+                      },
+                      "offset": {
+                        "type": "number"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "subdivision": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 3
+              },
+              "solidify": {
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "param"
+                    ],
+                    "properties": {
+                      "param": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "scale": {
+                        "type": "number"
+                      },
+                      "offset": {
+                        "type": "number"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "smooth": {
+            "type": "boolean"
+          },
+          "uv_projection": {
+            "type": "object",
+            "properties": {
+              "axes": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2
+                },
+                "minItems": 2,
+                "maxItems": 2,
+                "uniqueItems": true
+              },
+              "bounds": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "param"
+                      ],
+                      "properties": {
+                        "param": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "scale": {
+                          "type": "number"
+                        },
+                        "offset": {
+                          "type": "number"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "minItems": 4,
+                "maxItems": 4
+              },
+              "flip_u": {
+                "type": "boolean"
+              },
+              "flip_v": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "axes",
+              "bounds"
+            ],
+            "additionalProperties": false
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "op",
+          "material",
+          "args"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "op": {
+                  "const": "box"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "args": {
+                  "type": "object",
+                  "properties": {
+                    "size": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "param"
+                            ],
+                            "properties": {
+                              "param": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "scale": {
+                                "type": "number"
+                              },
+                              "offset": {
+                                "type": "number"
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "minItems": 3,
+                      "maxItems": 3
+                    }
+                  },
+                  "required": [
+                    "size"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "op": {
+                  "const": "cylinder"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "args": {
+                  "type": "object",
+                  "properties": {
+                    "radius": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "param"
+                          ],
+                          "properties": {
+                            "param": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "scale": {
+                              "type": "number"
+                            },
+                            "offset": {
+                              "type": "number"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "depth": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "param"
+                          ],
+                          "properties": {
+                            "param": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "scale": {
+                              "type": "number"
+                            },
+                            "offset": {
+                              "type": "number"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "segments": {
+                      "type": "integer",
+                      "minimum": 3,
+                      "maximum": 512
+                    }
+                  },
+                  "required": [
+                    "radius",
+                    "depth"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "op": {
+                  "const": "annulus"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "args": {
+                  "type": "object",
+                  "properties": {
+                    "inner_radius": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "param"
+                          ],
+                          "properties": {
+                            "param": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "scale": {
+                              "type": "number"
+                            },
+                            "offset": {
+                              "type": "number"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "outer_radius": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "param"
+                          ],
+                          "properties": {
+                            "param": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "scale": {
+                              "type": "number"
+                            },
+                            "offset": {
+                              "type": "number"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "depth": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "param"
+                          ],
+                          "properties": {
+                            "param": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "scale": {
+                              "type": "number"
+                            },
+                            "offset": {
+                              "type": "number"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "segments": {
+                      "type": "integer",
+                      "minimum": 3,
+                      "maximum": 512
+                    }
+                  },
+                  "required": [
+                    "inner_radius",
+                    "outer_radius",
+                    "depth"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "op": {
+                  "const": "ring_profile"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "args": {
+                  "type": "object",
+                  "properties": {
+                    "profile": {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "param"
+                              ],
+                              "properties": {
+                                "param": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "scale": {
+                                  "type": "number"
+                                },
+                                "offset": {
+                                  "type": "number"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "minItems": 2,
+                        "maxItems": 2
+                      }
+                    },
+                    "segments": {
+                      "type": "integer",
+                      "minimum": 3,
+                      "maximum": 512
+                    }
+                  },
+                  "required": [
+                    "profile"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "op": {
+                  "const": "sphere"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "args": {
+                  "type": "object",
+                  "properties": {
+                    "size": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "param"
+                            ],
+                            "properties": {
+                              "param": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "scale": {
+                                "type": "number"
+                              },
+                              "offset": {
+                                "type": "number"
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "minItems": 3,
+                      "maxItems": 3
+                    },
+                    "segments": {
+                      "type": "integer",
+                      "minimum": 3,
+                      "maximum": 512
+                    },
+                    "rings": {
+                      "type": "integer",
+                      "minimum": 3,
+                      "maximum": 512
+                    }
+                  },
+                  "required": [
+                    "size"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "op": {
+                  "const": "beam"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "args": {
+                  "type": "object",
+                  "properties": {
+                    "start": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "param"
+                            ],
+                            "properties": {
+                              "param": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "scale": {
+                                "type": "number"
+                              },
+                              "offset": {
+                                "type": "number"
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "minItems": 3,
+                      "maxItems": 3
+                    },
+                    "end": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "param"
+                            ],
+                            "properties": {
+                              "param": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "scale": {
+                                "type": "number"
+                              },
+                              "offset": {
+                                "type": "number"
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "minItems": 3,
+                      "maxItems": 3
+                    },
+                    "radius": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "param"
+                          ],
+                          "properties": {
+                            "param": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "scale": {
+                              "type": "number"
+                            },
+                            "offset": {
+                              "type": "number"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "segments": {
+                      "type": "integer",
+                      "minimum": 3,
+                      "maximum": 512
+                    }
+                  },
+                  "required": [
+                    "start",
+                    "end",
+                    "radius"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "op": {
+                  "const": "tube"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "args": {
+                  "type": "object",
+                  "properties": {
+                    "points": {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "param"
+                              ],
+                              "properties": {
+                                "param": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "scale": {
+                                  "type": "number"
+                                },
+                                "offset": {
+                                  "type": "number"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "minItems": 3,
+                        "maxItems": 3
+                      }
+                    },
+                    "radius": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "param"
+                          ],
+                          "properties": {
+                            "param": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "scale": {
+                              "type": "number"
+                            },
+                            "offset": {
+                              "type": "number"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "cyclic": {
+                      "type": "boolean"
+                    },
+                    "smooth": {
+                      "type": "boolean"
+                    },
+                    "resolution": {
+                      "type": "integer",
+                      "minimum": 3,
+                      "maximum": 512
+                    }
+                  },
+                  "required": [
+                    "points",
+                    "radius"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "op": {
+                  "const": "ribbon"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "args": {
+                  "type": "object",
+                  "properties": {
+                    "points": {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "param"
+                              ],
+                              "properties": {
+                                "param": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "scale": {
+                                  "type": "number"
+                                },
+                                "offset": {
+                                  "type": "number"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "minItems": 3,
+                        "maxItems": 3
+                      }
+                    },
+                    "width": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "param"
+                          ],
+                          "properties": {
+                            "param": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "scale": {
+                              "type": "number"
+                            },
+                            "offset": {
+                              "type": "number"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "widths": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "param"
+                            ],
+                            "properties": {
+                              "param": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "scale": {
+                                "type": "number"
+                              },
+                              "offset": {
+                                "type": "number"
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        ]
+                      }
+                    },
+                    "width_axis": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "param"
+                            ],
+                            "properties": {
+                              "param": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "scale": {
+                                "type": "number"
+                              },
+                              "offset": {
+                                "type": "number"
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "minItems": 3,
+                      "maxItems": 3
+                    },
+                    "thickness": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "param"
+                          ],
+                          "properties": {
+                            "param": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "scale": {
+                              "type": "number"
+                            },
+                            "offset": {
+                              "type": "number"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "points",
+                    "width",
+                    "width_axis",
+                    "thickness"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "op": {
+                  "const": "polygon_extrude"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "args": {
+                  "type": "object",
+                  "properties": {
+                    "outline": {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "param"
+                              ],
+                              "properties": {
+                                "param": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "scale": {
+                                  "type": "number"
+                                },
+                                "offset": {
+                                  "type": "number"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "minItems": 2,
+                        "maxItems": 2
+                      }
+                    },
+                    "depth": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "param"
+                          ],
+                          "properties": {
+                            "param": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "scale": {
+                              "type": "number"
+                            },
+                            "offset": {
+                              "type": "number"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "outline",
+                    "depth"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "op": {
+                  "const": "mesh"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "args": {
+                  "type": "object",
+                  "properties": {
+                    "vertices": {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "param"
+                              ],
+                              "properties": {
+                                "param": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "scale": {
+                                  "type": "number"
+                                },
+                                "offset": {
+                                  "type": "number"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "minItems": 3,
+                        "maxItems": 3
+                      }
+                    },
+                    "vertex_normals": {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "param"
+                              ],
+                              "properties": {
+                                "param": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "scale": {
+                                  "type": "number"
+                                },
+                                "offset": {
+                                  "type": "number"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "minItems": 3,
+                        "maxItems": 3
+                      }
+                    },
+                    "faces": {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer",
+                          "minimum": 0
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "vertices",
+                    "faces"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "op": {
+                  "const": "loft_shell"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "args": {
+                  "type": "object",
+                  "properties": {
+                    "sections": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "y": {
+                            "oneOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "param"
+                                ],
+                                "properties": {
+                                  "param": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "scale": {
+                                    "type": "number"
+                                  },
+                                  "offset": {
+                                    "type": "number"
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            ]
+                          },
+                          "profile": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "oneOf": [
+                                  {
+                                    "type": "number"
+                                  },
+                                  {
+                                    "type": "object",
+                                    "required": [
+                                      "param"
+                                    ],
+                                    "properties": {
+                                      "param": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "scale": {
+                                        "type": "number"
+                                      },
+                                      "offset": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  }
+                                ]
+                              },
+                              "minItems": 2,
+                              "maxItems": 2
+                            }
+                          }
+                        },
+                        "required": [
+                          "y",
+                          "profile"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "closed_profile": {
+                      "type": "boolean"
+                    },
+                    "cap_ends": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "sections"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "op": {
+                  "const": "propeller_blade"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "args": {
+                  "type": "object",
+                  "properties": {
+                    "sections": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "radius": {
+                            "oneOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "param"
+                                ],
+                                "properties": {
+                                  "param": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "scale": {
+                                    "type": "number"
+                                  },
+                                  "offset": {
+                                    "type": "number"
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            ]
+                          },
+                          "chord": {
+                            "oneOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "param"
+                                ],
+                                "properties": {
+                                  "param": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "scale": {
+                                    "type": "number"
+                                  },
+                                  "offset": {
+                                    "type": "number"
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            ]
+                          },
+                          "sweep": {
+                            "oneOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "param"
+                                ],
+                                "properties": {
+                                  "param": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "scale": {
+                                    "type": "number"
+                                  },
+                                  "offset": {
+                                    "type": "number"
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            ]
+                          },
+                          "z": {
+                            "oneOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "param"
+                                ],
+                                "properties": {
+                                  "param": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "scale": {
+                                    "type": "number"
+                                  },
+                                  "offset": {
+                                    "type": "number"
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            ]
+                          },
+                          "twist_deg": {
+                            "oneOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "param"
+                                ],
+                                "properties": {
+                                  "param": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "scale": {
+                                    "type": "number"
+                                  },
+                                  "offset": {
+                                    "type": "number"
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            ]
+                          },
+                          "thickness": {
+                            "oneOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "param"
+                                ],
+                                "properties": {
+                                  "param": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "scale": {
+                                    "type": "number"
+                                  },
+                                  "offset": {
+                                    "type": "number"
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "radius",
+                          "chord",
+                          "sweep",
+                          "z",
+                          "twist_deg",
+                          "thickness"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "handedness": {
+                      "enum": [
+                        -1,
+                        1
+                      ]
+                    },
+                    "profile_segments": {
+                      "type": "integer",
+                      "minimum": 3,
+                      "maximum": 512
+                    }
+                  },
+                  "required": [
+                    "sections",
+                    "handedness"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "op": {
+                  "const": "text"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "args": {
+                  "type": "object",
+                  "properties": {
+                    "body": {
+                      "type": "string"
+                    },
+                    "size": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "param"
+                          ],
+                          "properties": {
+                            "param": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "scale": {
+                              "type": "number"
+                            },
+                            "offset": {
+                              "type": "number"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "extrude": {
+                      "oneOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "param"
+                          ],
+                          "properties": {
+                            "param": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "scale": {
+                              "type": "number"
+                            },
+                            "offset": {
+                              "type": "number"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "align": {
+                      "enum": [
+                        "LEFT",
+                        "CENTER",
+                        "RIGHT"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "body",
+                    "size"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "contract",
+    "description",
+    "provenance",
+    "nodes"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.air65/component.schema.json",
+  "title": "Air65 II shared component contract"
+}

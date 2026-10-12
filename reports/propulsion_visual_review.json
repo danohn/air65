@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "review_id": "propulsion_visual_review_v1",
+  "date": "2026-10-12",
+  "contract": "air65-ii-racing-v1",
+  "reviewer_role": "independent_visual_reviewer",
+  "model_files_modified": false,
+  "method": "Actual image-viewer inspection of local component renders and four reference images; frozen design and architecture read.",
+  "scope": "Isolated motor and propeller. Full-assembly review pending.",
+  "verdict": "revise_blade_planform_then_recheck",
+  "dimensional_certification": false,
+  "render_files": ["output/propulsion/hero.png", "output/propulsion/top.png"],
+  "reference_files": [
+    {"file": "references/prop_diagram.jpg", "source_id": "prop_drawing"},
+    {"file": "references/motor_diagram.jpg", "source_id": "motor_drawing"},
+    {"file": "references/air65_ii_racing_propulsion.webp", "source_id": "air65_ii_racing_propulsion"},
+    {"file": "references/photo_racing_oblique.webp", "source_id": "photo_racing_oblique"}
+  ],
+  "findings": [
+    {
+      "id": "PR-01",
+      "rank": 1,
+      "severity": "medium",
+      "category": "silhouette",
+      "component_ids": ["prop_cw", "prop_ccw"],
+      "confidence": "high_mismatch_medium_correction",
+      "observation": "Model outer blades taper continuously into a leaf-like tip; reference GF1207 retains a wider round-cornered paddle terminal and a straighter outer edge on one side.",
+      "action": "Revise estimated outer chord/sweep stations, retaining chord farther outward and using a short rounded terminal cap. Match reference handedness and azimuth for comparison.",
+      "preserve_parameters": ["prop_diameter", "prop_swept_radius", "prop_max_chord", "prop_hub_thickness", "prop_shaft_bore_diameter"],
+      "requires_shared_parameter_change": false,
+      "source_ids": ["prop_drawing", "air65_ii_racing_propulsion"],
+      "render_files": ["output/propulsion/top.png", "output/propulsion/hero.png"],
+      "uncertainty": "Reference perspective and pitch affect projected chord; contour is not a verified CAD trace.",
+      "verification": "Inspect corrected top and oblique silhouettes; integrator rechecks evaluated maximum radius after twist/sweep."
+    },
+    {
+      "id": "PR-02",
+      "rank": 2,
+      "severity": "low_to_medium",
+      "category": "proportion",
+      "component_ids": ["prop_cw", "prop_ccw"],
+      "confidence": "medium",
+      "observation": "Open three-spoke hub is supported, but the outer cylinder appears modestly narrow relative to rotor and motor in both references.",
+      "action": "Main integrator may test prop_hub_radius=2.4 mm, comparing 2.5 mm if needed, preserving the published hub height/bore and shared seating.",
+      "trial_parameter": {"id": "prop_hub_radius", "value": 2.4, "comparison_upper": 2.5, "unit": "mm", "status": "proposed_visual_estimate", "existing_estimate_range": [1.9, 2.5]},
+      "requires_shared_parameter_change": true,
+      "source_ids": ["prop_drawing", "air65_ii_racing_propulsion"],
+      "render_files": ["output/propulsion/top.png", "output/propulsion/hero.png"],
+      "uncertainty": "Perspective, transmission and background affect apparent edges. Trial values are not measured or verified dimensions.",
+      "verification": "Accept only if both matched top and oblique views improve; recheck blade-root transitions and real apertures."
+    },
+    {
+      "id": "PR-03",
+      "rank": 3,
+      "severity": "low",
+      "category": "material_and_lighting",
+      "component_ids": ["prop_cw", "prop_ccw"],
+      "confidence": "high_appearance_medium_cause",
+      "observation": "Hub and blades render as frosted grey with weak edge contrast; references have clearer transmission and stronger clear-polymer edge highlights.",
+      "action": "Tune transmission/roughness and inspection background after contour changes. Do not alter blade thickness solely to fix appearance.",
+      "requires_shared_parameter_change": false,
+      "source_ids": ["air65_ii_racing_propulsion", "photo_racing_oblique"],
+      "render_files": ["output/propulsion/hero.png", "output/propulsion/top.png"],
+      "uncertainty": "Studio lighting, background and retouching contribute; polished catalog imagery may exaggerate clarity."
+    }
+  ],
+  "supported_observations": [
+    {"component": "motor", "observation": "Distinct lower mount, terminal plate, neck, short silver can and raised open crown agree qualitatively with the family diagram. No layer-height correction justified by this pass.", "source_ids": ["motor_drawing", "air65_ii_racing_propulsion"], "confidence": "medium"},
+    {"component": "motor", "observation": "Purple open crown and copper visibility match current Racing catalog target; physical specimen has turquoise accents, so its color is not authoritative for this target.", "source_ids": ["air65_ii_racing_propulsion", "photo_racing_oblique"], "confidence": "high"},
+    {"component": "propeller", "observation": "Three blades, spanwise twist, raised bored hub and three real hub apertures are present and qualitatively supported.", "source_ids": ["prop_drawing", "air65_ii_racing_propulsion"], "confidence": "high"}
+  ],
+  "deferred": [
+    "Motor-to-frame integration and screw visibility",
+    "Assembled wire and heatshrink route",
+    "Rotor-to-duct clearance and vertical placement",
+    "Opposite-handed rotor arrangement",
+    "Evaluated numerical dimension validation"
+  ],
+  "limitations": [
+    "No camera calibration or aligned silhouette metric",
+    "No physical object measurement or original manufacturer CAD",
+    "Perspective photographs cannot certify numerical dimensions",
+    "Motor internals, exact airfoil, camber, twist and hidden details remain estimated",
+    "Reference manufacturer's imagery may include renders or retouching"
+  ]
+}

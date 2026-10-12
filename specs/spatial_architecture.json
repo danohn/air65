@@ -1,0 +1,2444 @@
+{
+  "schema_version": "1.0",
+  "contract": "air65-ii-racing-v1",
+  "coordinates": {
+    "length_unit": "mm",
+    "angle_unit": "degrees",
+    "handedness": "right",
+    "axes": {
+      "X": "aircraft right",
+      "Y": "forward",
+      "Z": "up"
+    },
+    "origin": "XY center of the square motor pattern at lowest frame-plastic datumZ0. Aircraft bounds including antenna differ from frame bounds.",
+    "rotations": "EulerXYZ degrees. Motor/prop local+Z is shaft axis. Camera local+Y is optical axis, local+Z is image up.",
+    "source_resolution": "source_ids resolve in specs/design_spec.json sources / research/dimensions.json sources or references/manifest.json ids.",
+    "confidence_policy": "Confidence describes evidence, not tolerance. uncertainty is null for published nominals without tolerances; estimated ranges describe plausible reconstruction choices. Derived placements inherit estimates and are not independently verified.",
+    "registry_policy": "Only main integrator may revise this registry after architecture handoff. Component authors reference stable scalar ids and may propose changes; no independent shared-dimension overrides."
+  },
+  "parameters": {
+    "wheelbase": {
+      "value": 65,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "Diagonal distance between motor axes."
+    },
+    "frame_span_x": {
+      "value": 82.6,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "Frame-only nominal envelope; not full aircraft envelope."
+    },
+    "frame_span_y": {
+      "value": 82.6,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "Frame-only nominal envelope; not full aircraft envelope."
+    },
+    "frame_height": {
+      "value": 15.1,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "Frame-only nominal envelope; includes lowest protective feet."
+    },
+    "motor_axis_offset": {
+      "value": 22.9809703886,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "65/(2*sqrt(2)); square motor layout."
+    },
+    "motor_adjacent_distance": {
+      "value": 45.9619407771,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "65/sqrt(2)."
+    },
+    "duct_inner_diameter": {
+      "value": 33,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "duct_inner_radius": {
+      "value": 16.5,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "33/2."
+    },
+    "duct_outer_radius": {
+      "value": 18.3190296114,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "(82.6-65/sqrt(2))/2. Maximum circular rim envelope, not a uniform wall thickness."
+    },
+    "duct_band_height": {
+      "value": 3.8,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "Continuous upper wall only; open bowed supports extend below it."
+    },
+    "duct_top_z": {
+      "value": 15.1,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "Top of rim assumed to define maximum frame height at z=15.1."
+    },
+    "duct_bottom_z": {
+      "value": 11.3,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "15.1-3.8; bottom of continuous upper wall, not whole duct basket."
+    },
+    "duct_wall_outer_radius": {
+      "value": 17.15,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_frame_diagram",
+        "air65_ii_frame_details"
+      ],
+      "uncertainty": [
+        16.9,
+        17.5
+      ],
+      "note": "Estimated main vertical wall outer radius beneath projecting lip."
+    },
+    "duct_lip_height": {
+      "value": 0.55,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_frame_diagram",
+        "air65_ii_frame_details"
+      ],
+      "uncertainty": [
+        0.3,
+        0.8
+      ],
+      "note": "Estimated short rolled/rounded lip; outer radius must not exceed duct_outer_radius."
+    },
+    "frame_arm_width": {
+      "value": 1.25,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_frame_diagram",
+        "air65_ii_frame_details"
+      ],
+      "uncertainty": [
+        1.0,
+        1.6
+      ],
+      "note": "Ribbon width; four curved support arms per duct."
+    },
+    "frame_arm_thickness": {
+      "value": 0.8,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_frame_diagram",
+        "air65_ii_frame_details"
+      ],
+      "uncertainty": [
+        0.6,
+        1.1
+      ],
+      "note": "Estimated slender PP rib thickness."
+    },
+    "motor_pad_thickness": {
+      "value": 1.25,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_frame_diagram",
+        "air65_ii_frame_details"
+      ],
+      "uncertainty": [
+        1.0,
+        1.6
+      ],
+      "note": "Pad between z=1.45 and z=2.7, excluding downward screw protectors."
+    },
+    "motor_base_z": {
+      "value": 2.7,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_frame_diagram",
+        "air65_ii_frame_details"
+      ],
+      "uncertainty": [
+        2.0,
+        3.5
+      ],
+      "note": "Estimated from side drawing and 12.4-mm lowered-duct illustration:15.1-12.4. Detail datum not explicit enough to call this verified."
+    },
+    "motor_pad_bottom_z": {
+      "value": 1.45,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_frame_diagram",
+        "air65_ii_frame_details"
+      ],
+      "uncertainty": [
+        0.4,
+        2.5
+      ],
+      "note": "motor_base_z-motor_pad_thickness; inherits estimated vertical stack."
+    },
+    "motor_pad_outer_radius": {
+      "value": 4.6,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_frame_black_top",
+        "air65_ii_frame_details"
+      ],
+      "uncertainty": [
+        4.1,
+        5.1
+      ],
+      "note": "Maximum rounded triangular pad radius, not motor radius."
+    },
+    "motor_mount_pcd": {
+      "value": 6.6,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "frame_drawing",
+        "motors2026"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "motor_mount_hole_radius": {
+      "value": 3.3,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "source_ids": [
+        "frame_drawing",
+        "motors2026"
+      ],
+      "uncertainty": null,
+      "note": "Bolt-circle radius6.6/2; three equally spaced axes."
+    },
+    "motor_mount_bore_diameter": {
+      "value": 1.4,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "frame_drawing",
+        "motors2026"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "motor_pad_center_bore_diameter": {
+      "value": 4,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "frame_mount_top_z": {
+      "value": 13.0,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_frame_diagram",
+        "air65_ii_frame_details"
+      ],
+      "uncertainty": [
+        12.0,
+        14.2
+      ],
+      "note": "Estimated flat top of four cardinal frame bosses."
+    },
+    "frame_mount_boss_radius": {
+      "value": 2.35,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_frame_black_top"
+      ],
+      "uncertainty": [
+        2.0,
+        2.7
+      ],
+      "note": "Estimated boss outer radius."
+    },
+    "frame_mount_pitch": {
+      "value": 25.5,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "Adjacent-hole side length of rotated mounting square."
+    },
+    "frame_mount_cardinal_offset": {
+      "value": 18.0312229203,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "25.5/sqrt(2). Canonical assembled screw axes."
+    },
+    "frame_mount_pilot_diameter": {
+      "value": 1.2,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "frameii"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "motor_body_diameter": {
+      "value": 9,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "motor_drawing"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "motor_body_radius": {
+      "value": 4.5,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "source_ids": [
+        "motor_drawing"
+      ],
+      "uncertainty": null,
+      "note": "9/2."
+    },
+    "motor_body_height": {
+      "value": 8.55,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "motor_drawing"
+      ],
+      "uncertainty": null,
+      "note": "Mounting base to top shoulder, excludes upper shaft."
+    },
+    "motor_top_z": {
+      "value": 11.25,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "motor_drawing",
+        "air65_ii_frame_diagram",
+        "air65_ii_frame_details"
+      ],
+      "uncertainty": [
+        10.55,
+        12.05
+      ],
+      "note": "motor_base_z+8.55; placement inherits estimate."
+    },
+    "motor_body_center_z": {
+      "value": 6.975,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "motor_drawing",
+        "air65_ii_frame_diagram",
+        "air65_ii_frame_details"
+      ],
+      "uncertainty": null,
+      "note": "motor_base_z+8.55/2."
+    },
+    "motor_shaft_diameter": {
+      "value": 1,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "motor_drawing",
+        "motors2026"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "motor_shaft_extension": {
+      "value": 3.4,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "motor_drawing",
+        "motors2026"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "motor_shaft_bottom_z": {
+      "value": 11.25,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "motor_drawing",
+        "air65_ii_frame_diagram",
+        "air65_ii_frame_details"
+      ],
+      "uncertainty": null,
+      "note": "motor_top_z; shaft start."
+    },
+    "motor_shaft_top_z": {
+      "value": 14.65,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "motor_drawing",
+        "air65_ii_frame_diagram",
+        "air65_ii_frame_details"
+      ],
+      "uncertainty": [
+        13.95,
+        15.45
+      ],
+      "note": "motor_top_z+3.4."
+    },
+    "motor_wire_length": {
+      "value": 35,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "motor_drawing"
+      ],
+      "uncertainty": null,
+      "note": "Published loose wire length with connector; routing model may be simplified."
+    },
+    "prop_diameter": {
+      "value": 31,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "props1207",
+        "prop_drawing"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "prop_swept_radius": {
+      "value": 15.5,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "source_ids": [
+        "props1207"
+      ],
+      "uncertainty": null,
+      "note": "31/2. Every blade vertex and modifier result must stay within this rotor radius."
+    },
+    "prop_radial_clearance": {
+      "value": 1,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "source_ids": [
+        "frame_drawing",
+        "props1207"
+      ],
+      "uncertainty": null,
+      "note": "duct_inner_radius-prop_swept_radius; nominal concentric undeformed clearance."
+    },
+    "prop_hub_thickness": {
+      "value": 3.3,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "props1207"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "prop_hub_radius": {
+      "value": 2.4,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_propulsion",
+        "prop_drawing"
+      ],
+      "uncertainty": [
+        1.9,
+        2.5
+      ],
+      "note": "Visual estimate revised centrally from2.2 to2.4mm after independent review PR-02. Within original1.9\u20132.5mm estimate interval. No published hub OD exists."
+    },
+    "prop_shaft_bore_diameter": {
+      "value": 1,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "props1207"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "prop_hub_bottom_z": {
+      "value": 11.35,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front"
+      ],
+      "uncertainty": [
+        10.65,
+        12.15
+      ],
+      "note": "Hub is seated0.1 above motor shoulder;0.1 is visual assembly assumption."
+    },
+    "prop_hub_top_z": {
+      "value": 14.65,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "props1207",
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front"
+      ],
+      "uncertainty": null,
+      "note": "prop_hub_bottom_z+3.3. Nominally coincides with shaft tip."
+    },
+    "prop_hub_center_z": {
+      "value": 13.0,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "props1207",
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front"
+      ],
+      "uncertainty": null,
+      "note": "prop_hub_bottom_z+3.3/2."
+    },
+    "prop_blade_reference_z": {
+      "value": 12.5,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_propulsion",
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front"
+      ],
+      "uncertainty": [
+        11.7,
+        13.2
+      ],
+      "note": "Blade airfoil midline reference; twist changes local Z."
+    },
+    "prop_blade_min_z": {
+      "value": 11.4,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_propulsion"
+      ],
+      "uncertainty": [
+        10.6,
+        12.2
+      ],
+      "note": "Target blade envelope, excluding hub; visual estimate."
+    },
+    "prop_blade_max_z": {
+      "value": 14.4,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_propulsion"
+      ],
+      "uncertainty": [
+        13.6,
+        15.2
+      ],
+      "note": "Target blade envelope, excluding hub; visual estimate."
+    },
+    "prop_max_chord": {
+      "value": 6.8,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "props1207"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "prop_nominal_pitch": {
+      "value": 17.78,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "source_ids": [
+        "props1207"
+      ],
+      "uncertainty": null,
+      "note": "0.7inch*25.4mm/inch. Does not uniquely establish blade airfoil, camber or twist."
+    },
+    "fc_mount_pitch": {
+      "value": 26,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "fc_matrixii"
+      ],
+      "uncertainty": null,
+      "note": "Preserve published26mm even though frame is25.5mm."
+    },
+    "fc_mount_cardinal_offset": {
+      "value": 18.3847763109,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "fc_matrixii"
+      ],
+      "uncertainty": null,
+      "note": "26/sqrt(2). Three nominal board lug centers; front omitted."
+    },
+    "fc_grommet_radial_deflection": {
+      "value": 0.3535533906,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "fc_matrixii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "Nominal board lug radius minus frame screw radius. Compliance is a modelling inference, not a manufacturer tolerance."
+    },
+    "fc_board_thickness": {
+      "value": 1,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "fc_matrixii"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "fc_body_side": {
+      "value": 26.4,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "fc_top_image",
+        "air65_ii_electronics"
+      ],
+      "uncertainty": [
+        25.9,
+        26.9
+      ],
+      "note": "Central refinement approved from manufacturer top-diagram straight-edge spacing normalized by verified26mm lug pitch; two estimates26.33/26.38mm. Photographic estimate, no calibrated scan. See reports/refinement_pcb_dimension_check.md."
+    },
+    "fc_body_corner_radius": {
+      "value": 18.667619023324853,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "fc_top_image"
+      ],
+      "uncertainty": null,
+      "note": "fc_body_side/sqrt(2), hypothetical diamond tip before corner clipping; do not use for lug centres."
+    },
+    "fc_front_clip_y": {
+      "value": 16.2,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "fc_top_image",
+        "air65_ii_electronics"
+      ],
+      "uncertainty": [
+        15.8,
+        16.6
+      ],
+      "note": "Estimated front substrate truncation from same normalized manufacturer photo; no front lug."
+    },
+    "fc_lug_outer_radius": {
+      "value": 2.45,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "fc_top_image",
+        "air65_ii_electronics"
+      ],
+      "uncertainty": [
+        2.1,
+        2.8
+      ],
+      "note": "Circular rear/left/right lug envelope centered on nominal26mm board axes."
+    },
+    "fc_lug_hole_radius": {
+      "value": 1.55,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "fc_top_image"
+      ],
+      "uncertainty": [
+        1.3,
+        1.8
+      ],
+      "note": "Estimated board hole around compliant grommet; not screw radius."
+    },
+    "fc_pcb_bottom_z": {
+      "value": 15,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front"
+      ],
+      "uncertainty": [
+        14,
+        16
+      ],
+      "note": "Estimated PCB bottom slightly below rim top; exposed board above frame."
+    },
+    "fc_pcb_center_z": {
+      "value": 15.5,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front",
+        "fc_matrixii"
+      ],
+      "uncertainty": null,
+      "note": "fc_pcb_bottom_z+0.5."
+    },
+    "fc_pcb_top_z": {
+      "value": 16,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front",
+        "fc_matrixii"
+      ],
+      "uncertainty": null,
+      "note": "fc_pcb_bottom_z+1.0."
+    },
+    "fc_component_top_z": {
+      "value": 18.1,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front"
+      ],
+      "uncertainty": [
+        17,
+        19.4
+      ],
+      "note": "Estimated upper electronic component/connector envelope; not universal package height."
+    },
+    "fc_component_bottom_z": {
+      "value": 12.0,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_underside"
+      ],
+      "uncertainty": [
+        10.5,
+        13.0
+      ],
+      "note": "Estimated underside package envelope, clear of battery upper face."
+    },
+    "grommet_outer_radius": {
+      "value": 2.25,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front"
+      ],
+      "uncertainty": [
+        2,
+        2.6
+      ],
+      "note": "Estimated silicone grommet flange radius."
+    },
+    "grommet_bottom_z": {
+      "value": 13.0,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front"
+      ],
+      "uncertainty": [
+        12,
+        14
+      ],
+      "note": "Touches frame boss; surrounds board at mid groove."
+    },
+    "grommet_top_z": {
+      "value": 17.2,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front"
+      ],
+      "uncertainty": [
+        16.2,
+        18.2
+      ],
+      "note": "Estimated top flange and canopy-foot support plane."
+    },
+    "canopy_mount_z": {
+      "value": 17.2,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front"
+      ],
+      "uncertainty": [
+        16.2,
+        18.2
+      ],
+      "note": "All four canopy feet share assembly screw plane; front foot uses no PCB lug."
+    },
+    "canopy_front_bore_diameter": {
+      "value": 1.5,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "canopy_drawing"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "canopy_clamp_cross_bore_diameter": {
+      "value": 1.1,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "canopy_drawing"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "canopy_clamp_inner_diameter": {
+      "value": 10.2,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "canopy_drawing"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "canopy_clamp_inner_radius": {
+      "value": 5.1,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "source_ids": [
+        "canopy_drawing"
+      ],
+      "uncertainty": null,
+      "note": "10.2/2."
+    },
+    "canopy_antenna_aperture_width": {
+      "value": 4.9,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "canopy_drawing"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "canopy_strap_width": {
+      "value": 1.6,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": [
+        1.1,
+        2.1
+      ],
+      "note": "Slender lateral legs and rear arch rails; broad collar and perforated tabs differ."
+    },
+    "canopy_strap_thickness": {
+      "value": 0.65,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": [
+        0.45,
+        0.9
+      ],
+      "note": "Estimated moulded PP strap thickness."
+    },
+    "canopy_arch_peak_z": {
+      "value": 39.4,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": [
+        36.5,
+        42.0
+      ],
+      "note": "Estimated peak above17.2mm screw plane; rise22.2mm /36.06mm span=0.616."
+    },
+    "canopy_arch_peak_y": {
+      "value": -2.0,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": [
+        -5,
+        1
+      ],
+      "note": "Estimated peak behind lens collar."
+    },
+    "canopy_half_width": {
+      "value": 20.23,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": [
+        18.5,
+        20.5
+      ],
+      "note": "Informational half-envelope of authored formed shell including side feet, rounded from20.229862mm. Corrected from19.0mm; foot transform axes unchanged. Photographic surface estimate, not a measured product dimension."
+    },
+    "camera_pcb_width": {
+      "value": 11,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "c03",
+        "camera_drawing"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "camera_pcb_height": {
+      "value": 14,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "c03",
+        "camera_drawing"
+      ],
+      "uncertainty": null,
+      "note": "Includes lower tab; broad rectangle is permissible prototype only."
+    },
+    "camera_pcb_thickness": {
+      "value": 0.8,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": [
+        0.6,
+        1.0
+      ],
+      "note": "No published PCB thickness found; visual estimate."
+    },
+    "camera_depth": {
+      "value": 15,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "c03",
+        "camera_drawing"
+      ],
+      "uncertainty": null,
+      "note": "Measured along optical axis from PCB plane to front lens plane."
+    },
+    "camera_lens_diameter": {
+      "value": 10,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "camera_drawing"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "camera_lens_radius": {
+      "value": 5,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "source_ids": [
+        "camera_drawing"
+      ],
+      "uncertainty": null,
+      "note": "10/2."
+    },
+    "camera_tilt_deg": {
+      "value": 25,
+      "unit": "degrees",
+      "status": "estimated",
+      "confidence": "high",
+      "source_ids": [
+        "canopyii",
+        "air_ii_canopy_side"
+      ],
+      "uncertainty": null,
+      "note": "Chosen documented25deg setting; actual stock photo setting is not verified."
+    },
+    "camera_front_center_y": {
+      "value": 10.0,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique",
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front"
+      ],
+      "uncertainty": [
+        8.5,
+        11.5
+      ],
+      "note": "Front lens plane center; estimated installed position."
+    },
+    "camera_front_center_z": {
+      "value": 31.5,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique",
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front"
+      ],
+      "uncertainty": [
+        29.5,
+        33.5
+      ],
+      "note": "Lens rise14.3mm /36.06mm screw span=0.397; matches photographic ratio within estimated uncertainty."
+    },
+    "camera_pcb_center_y": {
+      "value": -3.5946168055,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "camera_drawing",
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": null,
+      "note": "camera_front_center_y-camera_depth*cos25; follows exact chosen tilt, estimated front placement."
+    },
+    "camera_pcb_center_z": {
+      "value": 25.1607260739,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "camera_drawing",
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": null,
+      "note": "camera_front_center_z-camera_depth*sin25."
+    },
+    "camera_body_center_y": {
+      "value": 3.2026915972,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "camera_drawing",
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": null,
+      "note": "Midpoint of camera axial depth, not center of mass."
+    },
+    "camera_body_center_z": {
+      "value": 28.3303630369,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "camera_drawing",
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": null,
+      "note": "Midpoint of camera axial depth, not center of mass."
+    },
+    "canopy_collar_axial_inset": {
+      "value": 2.0,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": [
+        1,
+        3
+      ],
+      "note": "Camera collar plane sits2mm behind front lens plane."
+    },
+    "canopy_collar_center_y": {
+      "value": 8.1873844259,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": null,
+      "note": "camera_front_center_y-2*cos25."
+    },
+    "canopy_collar_center_z": {
+      "value": 30.6547634765,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": null,
+      "note": "camera_front_center_z-2*sin25."
+    },
+    "camera_clamp_radial_clearance": {
+      "value": 0.1,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "source_ids": [
+        "camera_drawing",
+        "canopy_drawing"
+      ],
+      "uncertainty": null,
+      "note": "(10.2-10)/2; undeformed nominal clearance, not clamping tolerance."
+    },
+    "antenna_base_y": {
+      "value": -9.0,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front",
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": [
+        -12,
+        -6
+      ],
+      "note": "Thick heatshrink base, behind camera PCB."
+    },
+    "antenna_base_z": {
+      "value": 34.0,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front",
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": [
+        31,
+        37
+      ],
+      "note": "Heatshrink centerline at tube start."
+    },
+    "antenna_tip_y": {
+      "value": -24.0,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front",
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": [
+        -28,
+        -20
+      ],
+      "note": "Rearward-sloping tube endpoint, not craft rear bound."
+    },
+    "antenna_tip_z": {
+      "value": 54.0,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front",
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": [
+        49,
+        59
+      ],
+      "note": "Unverified antenna height; use as visual silhouette estimate."
+    },
+    "antenna_tube_radius": {
+      "value": 1.35,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front",
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": [
+        1.0,
+        1.7
+      ],
+      "note": "Black copper-tube antenna main sleeve."
+    },
+    "antenna_base_radius": {
+      "value": 2.65,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_oblique",
+        "photo_variants_low_front",
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": [
+        2.1,
+        3.2
+      ],
+      "note": "Tapered lower heatshrink maximum radius."
+    },
+    "antenna_feed_radius": {
+      "value": 0.65,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "photo_freestyle_side_oblique"
+      ],
+      "uncertainty": [
+        0.45,
+        0.85
+      ],
+      "note": "Flexible feed cable visible below antenna."
+    },
+    "battery_slot_inner_width": {
+      "value": 11.4,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "battery_slot_inner_height": {
+      "value": 6.2,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "battery_slot_floor_z": {
+      "value": 1.1,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_frame_diagram",
+        "air65_ii_frame_details"
+      ],
+      "uncertainty": [
+        0.6,
+        1.6
+      ],
+      "note": "Inside lower face of cradle; low exterior ribs may extend toz0."
+    },
+    "battery_slot_ceiling_z": {
+      "value": 7.3,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_frame_diagram",
+        "air65_ii_frame_details",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "battery_slot_floor_z+6.2; exact nominal opening, estimated vertical placement."
+    },
+    "battery_cradle_wall_thickness": {
+      "value": 1.05,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_frame_diagram",
+        "air65_ii_frame_details"
+      ],
+      "uncertainty": [
+        0.8,
+        1.3
+      ],
+      "note": "Estimated PP cradle side and upper/lower band thickness."
+    },
+    "battery_cradle_loop_y": {
+      "value": 7.2,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_frame_black_top",
+        "air65_ii_racing_underside"
+      ],
+      "uncertainty": [
+        6,
+        8.5
+      ],
+      "note": "Two support loops centered at y=+/-7.2."
+    },
+    "battery_cradle_loop_width": {
+      "value": 2.0,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_frame_black_top"
+      ],
+      "uncertainty": [
+        1.6,
+        2.5
+      ],
+      "note": "Loop band width measured along aircraftY."
+    },
+    "battery_length": {
+      "value": 54,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "batteryii",
+        "battery_drawing"
+      ],
+      "uncertainty": null,
+      "note": "Optional280mAh body including main cap; projecting BT2.0 nose excluded."
+    },
+    "battery_width": {
+      "value": 10,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "batteryii",
+        "battery_drawing"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "battery_height": {
+      "value": 6,
+      "unit": "mm",
+      "status": "verified",
+      "confidence": "high",
+      "source_ids": [
+        "batteryii",
+        "battery_drawing"
+      ],
+      "uncertainty": null,
+      "note": ""
+    },
+    "battery_center_y": {
+      "value": 0,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "air65_ii_racing_underside"
+      ],
+      "uncertainty": [
+        -3,
+        3
+      ],
+      "note": "Optional pack centered longitudinally; actual insertion depth varies."
+    },
+    "battery_center_z": {
+      "value": 4.2,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "battery_drawing",
+        "air65_ii_frame_diagram"
+      ],
+      "uncertainty": null,
+      "note": "Centered in6.2mm slot:1.1+6.2/2."
+    },
+    "battery_floor_clearance": {
+      "value": 0.1,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "source_ids": [
+        "battery_drawing",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "(6.2-6)/2 assuming centered slot."
+    },
+    "battery_side_clearance": {
+      "value": 0.7,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "source_ids": [
+        "battery_drawing",
+        "frame_drawing"
+      ],
+      "uncertainty": null,
+      "note": "(11.4-10)/2 assuming centered slot."
+    },
+    "fc_side_rear_clip_radius": {
+      "value": 16.3,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "fc_top_image"
+      ],
+      "uncertainty": [
+        16,
+        16.6
+      ],
+      "note": "Absolute left/right/back substrate truncation before circular lug. Kept inside nearest hole edge16.8348mm; photographic estimate."
+    },
+    "fc_side_clip_half_width": {
+      "value": 2.3676190233248526,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "fc_top_image"
+      ],
+      "uncertainty": null,
+      "note": "fc_body_corner_radius minus fc_side_rear_clip_radius. Shared half-width at clipped diamond edge."
+    },
+    "fc_front_clip_half_width": {
+      "value": 2.467619023324854,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "fc_top_image"
+      ],
+      "uncertainty": null,
+      "note": "fc_body_corner_radius minus fc_front_clip_y. Shared half-width at clipped diamond edge."
+    }
+  },
+  "anchors": {
+    "motor_axes": {
+      "front_left": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": -1
+          },
+          {
+            "param": "motor_axis_offset"
+          },
+          {
+            "param": "motor_base_z"
+          }
+        ],
+        "axis": [
+          0,
+          0,
+          1
+        ],
+        "prop_handedness": 1,
+        "note": "Handedness convention is modelling assignment; opposite corners match. No flight-controller motor numbering inferred."
+      },
+      "front_right": {
+        "location": [
+          {
+            "param": "motor_axis_offset"
+          },
+          {
+            "param": "motor_axis_offset"
+          },
+          {
+            "param": "motor_base_z"
+          }
+        ],
+        "axis": [
+          0,
+          0,
+          1
+        ],
+        "prop_handedness": -1,
+        "note": "Handedness convention is modelling assignment; opposite corners match. No flight-controller motor numbering inferred."
+      },
+      "rear_left": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": -1
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": -1
+          },
+          {
+            "param": "motor_base_z"
+          }
+        ],
+        "axis": [
+          0,
+          0,
+          1
+        ],
+        "prop_handedness": -1,
+        "note": "Handedness convention is modelling assignment; opposite corners match. No flight-controller motor numbering inferred."
+      },
+      "rear_right": {
+        "location": [
+          {
+            "param": "motor_axis_offset"
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": -1
+          },
+          {
+            "param": "motor_base_z"
+          }
+        ],
+        "axis": [
+          0,
+          0,
+          1
+        ],
+        "prop_handedness": 1,
+        "note": "Handedness convention is modelling assignment; opposite corners match. No flight-controller motor numbering inferred."
+      }
+    },
+    "frame_mounts": {
+      "front": {
+        "location": [
+          0,
+          {
+            "param": "frame_mount_cardinal_offset"
+          },
+          {
+            "param": "frame_mount_top_z"
+          }
+        ],
+        "axis": [
+          0,
+          0,
+          1
+        ]
+      },
+      "rear": {
+        "location": [
+          0,
+          {
+            "param": "frame_mount_cardinal_offset",
+            "scale": -1
+          },
+          {
+            "param": "frame_mount_top_z"
+          }
+        ],
+        "axis": [
+          0,
+          0,
+          1
+        ]
+      },
+      "left": {
+        "location": [
+          {
+            "param": "frame_mount_cardinal_offset",
+            "scale": -1
+          },
+          0,
+          {
+            "param": "frame_mount_top_z"
+          }
+        ],
+        "axis": [
+          0,
+          0,
+          1
+        ]
+      },
+      "right": {
+        "location": [
+          {
+            "param": "frame_mount_cardinal_offset"
+          },
+          0,
+          {
+            "param": "frame_mount_top_z"
+          }
+        ],
+        "axis": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    "fc_nominal_lugs": {
+      "rear": {
+        "location": [
+          0,
+          {
+            "param": "fc_mount_cardinal_offset",
+            "scale": -1
+          },
+          {
+            "param": "fc_pcb_center_z"
+          }
+        ],
+        "screw_axis": "rear",
+        "radial_compliance_required": {
+          "param": "fc_grommet_radial_deflection"
+        }
+      },
+      "left": {
+        "location": [
+          {
+            "param": "fc_mount_cardinal_offset",
+            "scale": -1
+          },
+          0,
+          {
+            "param": "fc_pcb_center_z"
+          }
+        ],
+        "screw_axis": "left",
+        "radial_compliance_required": {
+          "param": "fc_grommet_radial_deflection"
+        }
+      },
+      "right": {
+        "location": [
+          {
+            "param": "fc_mount_cardinal_offset"
+          },
+          0,
+          {
+            "param": "fc_pcb_center_z"
+          }
+        ],
+        "screw_axis": "right",
+        "radial_compliance_required": {
+          "param": "fc_grommet_radial_deflection"
+        }
+      }
+    },
+    "assembled_screw_axes": {
+      "front": {
+        "location": [
+          0,
+          {
+            "param": "frame_mount_cardinal_offset"
+          },
+          {
+            "param": "canopy_mount_z"
+          }
+        ],
+        "axis": [
+          0,
+          0,
+          1
+        ],
+        "note": "Matches frame25.5mm pitch; canopy feet center here."
+      },
+      "rear": {
+        "location": [
+          0,
+          {
+            "param": "frame_mount_cardinal_offset",
+            "scale": -1
+          },
+          {
+            "param": "canopy_mount_z"
+          }
+        ],
+        "axis": [
+          0,
+          0,
+          1
+        ],
+        "note": "Matches frame25.5mm pitch; canopy feet center here."
+      },
+      "left": {
+        "location": [
+          {
+            "param": "frame_mount_cardinal_offset",
+            "scale": -1
+          },
+          0,
+          {
+            "param": "canopy_mount_z"
+          }
+        ],
+        "axis": [
+          0,
+          0,
+          1
+        ],
+        "note": "Matches frame25.5mm pitch; canopy feet center here."
+      },
+      "right": {
+        "location": [
+          {
+            "param": "frame_mount_cardinal_offset"
+          },
+          0,
+          {
+            "param": "canopy_mount_z"
+          }
+        ],
+        "axis": [
+          0,
+          0,
+          1
+        ],
+        "note": "Matches frame25.5mm pitch; canopy feet center here."
+      }
+    },
+    "camera_front": {
+      "location": [
+        0,
+        {
+          "param": "camera_front_center_y"
+        },
+        {
+          "param": "camera_front_center_z"
+        }
+      ],
+      "rotation_deg": [
+        {
+          "param": "camera_tilt_deg"
+        },
+        0,
+        0
+      ],
+      "note": "Local+Y is optical axis. Local+Z is camera up. Camera front plane is localXZ."
+    },
+    "camera_pcb": {
+      "location": [
+        0,
+        {
+          "param": "camera_pcb_center_y"
+        },
+        {
+          "param": "camera_pcb_center_z"
+        }
+      ],
+      "rotation_deg": [
+        {
+          "param": "camera_tilt_deg"
+        },
+        0,
+        0
+      ],
+      "plane_basis": {
+        "right": [
+          1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          -0.42261826174069944,
+          0.9063077870366499
+        ],
+        "normal_optical": [
+          0,
+          0.9063077870366499,
+          0.42261826174069944
+        ]
+      },
+      "note": "PCB nominal front reference plane at this center. Lens front is15mm along normal_optical."
+    },
+    "camera_body_center": {
+      "location": [
+        0,
+        {
+          "param": "camera_body_center_y"
+        },
+        {
+          "param": "camera_body_center_z"
+        }
+      ]
+    },
+    "canopy_collar": {
+      "location": [
+        0,
+        {
+          "param": "canopy_collar_center_y"
+        },
+        {
+          "param": "canopy_collar_center_z"
+        }
+      ],
+      "rotation_deg": [
+        {
+          "param": "camera_tilt_deg"
+        },
+        0,
+        0
+      ]
+    },
+    "canopy_arch_peak": {
+      "location": [
+        0,
+        {
+          "param": "canopy_arch_peak_y"
+        },
+        {
+          "param": "canopy_arch_peak_z"
+        }
+      ]
+    },
+    "antenna_base": {
+      "location": [
+        0,
+        {
+          "param": "antenna_base_y"
+        },
+        {
+          "param": "antenna_base_z"
+        }
+      ]
+    },
+    "antenna_tip": {
+      "location": [
+        0,
+        {
+          "param": "antenna_tip_y"
+        },
+        {
+          "param": "antenna_tip_z"
+        }
+      ]
+    },
+    "battery": {
+      "location": [
+        0,
+        {
+          "param": "battery_center_y"
+        },
+        {
+          "param": "battery_center_z"
+        }
+      ],
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        {
+          "param": "battery_width"
+        },
+        {
+          "param": "battery_length"
+        },
+        {
+          "param": "battery_height"
+        }
+      ],
+      "note": "Long axisY, connector at rear-Y. Optional separate removable assembly."
+    },
+    "fc_pcb": {
+      "location": [
+        0,
+        0,
+        {
+          "param": "fc_pcb_center_z"
+        }
+      ],
+      "rotation_deg": [
+        0,
+        0,
+        45
+      ],
+      "note": "Central body photographic estimate26.4mm before corner clipping; nominal lug locations already expressed in world axes. See refinement dimensional audit."
+    },
+    "canopy_paths": {
+      "status": "estimated",
+      "source_ids": [
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "note": "Representative installed strap centerlines for shared assembly; component agents may refine local curvature within uncertainty but may not move endpoints or enclosing peak without integration approval.",
+      "front_tongue": [
+        [
+          0,
+          18.0312229203,
+          17.2
+        ],
+        [
+          0,
+          16.0,
+          18.0
+        ],
+        [
+          0,
+          13.8,
+          21.6
+        ],
+        [
+          0,
+          12.2,
+          25.7
+        ]
+      ],
+      "left_leg": [
+        [
+          -18.0312229203,
+          0,
+          17.2
+        ],
+        [
+          -14.0,
+          3.3,
+          17.3
+        ],
+        [
+          -10.0,
+          7.6,
+          18.1
+        ],
+        [
+          -7.0,
+          10.9,
+          22.5
+        ],
+        [
+          -5.7,
+          10.3,
+          28.5
+        ]
+      ],
+      "right_leg": [
+        [
+          18.0312229203,
+          0,
+          17.2
+        ],
+        [
+          14.0,
+          3.3,
+          17.3
+        ],
+        [
+          10.0,
+          7.6,
+          18.1
+        ],
+        [
+          7.0,
+          10.9,
+          22.5
+        ],
+        [
+          5.7,
+          10.3,
+          28.5
+        ]
+      ],
+      "rear_arch_center": [
+        [
+          0,
+          -18.0312229203,
+          17.2
+        ],
+        [
+          0,
+          -15.5,
+          17.5
+        ],
+        [
+          0,
+          -12.1,
+          20.3
+        ],
+        [
+          0,
+          -9.3,
+          28.7
+        ],
+        [
+          0,
+          -6.0,
+          36.6
+        ],
+        [
+          0,
+          -2.0,
+          39.4
+        ],
+        [
+          0,
+          2.2,
+          38.0
+        ],
+        [
+          0,
+          5.6,
+          35.4
+        ]
+      ],
+      "rear_arch_half_width": 2.9,
+      "rear_arch_openings": "Two slender rails with cross bridges retain large real openings; do not fill the arch path with an opaque broad sheet."
+    },
+    "motor_mount_local_holes": {
+      "status": "derived",
+      "source_ids": [
+        "frame_drawing",
+        "motors2026"
+      ],
+      "note": "Local pad axes; one representative120deg pattern. Rotate entire pad locally to match traced arm arrangement; do not alter bolt circle.",
+      "points": [
+        [
+          2.0206672185931328e-16,
+          3.3,
+          0
+        ],
+        [
+          -2.857883832488647,
+          -1.6500000000000004,
+          0
+        ],
+        [
+          2.8578838324886466,
+          -1.6500000000000015,
+          0
+        ]
+      ]
+    }
+  },
+  "constraints": [
+    {
+      "id": "frame_nominal_bounds",
+      "type": "envelope",
+      "expected_mm": [
+        82.6,
+        82.6,
+        15.1
+      ],
+      "applies_to": "frame_only",
+      "numerical_tolerance_mm": 0.01,
+      "note": "CAD verification tolerance only; no manufacturer tolerance is known. Tiny screw hardware is not frame plastic."
+    },
+    {
+      "id": "square_wheelbase",
+      "type": "distance",
+      "anchors": [
+        "motor_axes.front_left",
+        "motor_axes.rear_right"
+      ],
+      "expected_mm": 65,
+      "numerical_tolerance_mm": 0.0001
+    },
+    {
+      "id": "ring_band_not_basket",
+      "type": "difference",
+      "parameters": [
+        "duct_top_z",
+        "duct_bottom_z"
+      ],
+      "expected_mm": 3.8,
+      "numerical_tolerance_mm": 0.0001,
+      "note": "No continuous cylindrical wall below11.3mm; bowed open ribs extend to pad."
+    },
+    {
+      "id": "prop_tip_clearance",
+      "type": "radial_clearance",
+      "inner_boundary_param": "duct_inner_radius",
+      "swept_radius_param": "prop_swept_radius",
+      "expected_mm": 1,
+      "numerical_tolerance_mm": 0.01,
+      "note": "Apply to evaluated maximum radius of complete twisted blade, not just station centerline radius. Hub and rotor concentric with motor axis."
+    },
+    {
+      "id": "hub_seats_on_shaft",
+      "type": "axial",
+      "expected_hub_bottom_z": 11.35,
+      "expected_hub_top_z": 14.65,
+      "shaft_top_z": 14.65,
+      "note": "Assembly estimate; preserve3.3mm hub thickness and3.4mm shaft."
+    },
+    {
+      "id": "distinct_mount_patterns",
+      "type": "two_nominals",
+      "frame_pitch_mm": 25.5,
+      "fc_pitch_mm": 26,
+      "radial_difference_mm": 0.35355339059327373,
+      "note": "Never scale FC or frame to hide mismatch. Silicone groove may be eccentric/deformed by0.353553mm; screw bores remain on frame axes."
+    },
+    {
+      "id": "three_fc_lugs",
+      "type": "topology",
+      "required": [
+        "rear",
+        "left",
+        "right"
+      ],
+      "forbidden": [
+        "front"
+      ],
+      "note": "Front canopy screw still exists at the fourth frame boss."
+    },
+    {
+      "id": "camera_axial_depth",
+      "type": "distance",
+      "anchors": [
+        "camera_front",
+        "camera_pcb"
+      ],
+      "expected_mm": 15,
+      "numerical_tolerance_mm": 0.0001,
+      "note": "PCB normal equals selected optical axis and front-to-PCB displacement is parallel to it."
+    },
+    {
+      "id": "camera_clamp_clearance",
+      "type": "radial_clearance",
+      "expected_mm": 0.1,
+      "numerical_tolerance_mm": 0.0001
+    },
+    {
+      "id": "camera_pcb_fc_clearance",
+      "type": "vertical_clearance",
+      "expected_nominal_mm": 2.8165715646329588,
+      "minimum_mm": 0.5,
+      "note": "Computed board lower extreme versus bare FC top. Check discrete components separately; pose/thickness estimated."
+    },
+    {
+      "id": "battery_slot",
+      "type": "opening",
+      "expected_mm": [
+        11.4,
+        6.2
+      ],
+      "expected_floor_z": 1.1,
+      "expected_ceiling_z": 7.3,
+      "note": "Opening entirely inside frame envelope; lower band must not extend belowz0."
+    },
+    {
+      "id": "battery_fit",
+      "type": "clearance",
+      "side_each_mm": 0.7,
+      "vertical_each_mm": 0.1,
+      "note": "Optional54x10x6mm battery body; connector nose additional estimated geometry."
+    },
+    {
+      "id": "canopy_arch_ratio",
+      "type": "ratio",
+      "expected": 0.6155988447962308,
+      "visual_range": [
+        0.55,
+        0.69
+      ],
+      "note": "Reference-photo ratio; not a metrology tolerance."
+    },
+    {
+      "id": "lens_height_ratio",
+      "type": "ratio",
+      "expected": 0.39653439101739196,
+      "visual_range": [
+        0.35,
+        0.49
+      ],
+      "note": "Lens center rise above screw plane divided by front-rear screw span."
+    },
+    {
+      "id": "frame_arm_count",
+      "type": "topology",
+      "per_motor": 4,
+      "note": "Use angular trace from appearance research; four arms are not three motor screw holes."
+    },
+    {
+      "id": "canopy_open_skeleton",
+      "type": "topology",
+      "note": "Four mounting feet, open lateral legs, lens collar and perforated arch; camera PCB and FC remain visible."
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "duct12_4_datum",
+      "severity": "medium",
+      "note": "12.4mm lowered duct dimension is visually compatible with motor mounting pad below top but datum is not explicit. motor_base_z2.7 remains estimated; frame15.1 and ring3.8 remain exact published nominals."
+    },
+    {
+      "id": "full_craft_height",
+      "severity": "medium",
+      "note": "Canopy peak and antenna tip are unverified. Estimated tip centerz54 plus sleeve radius is not published overall aircraft height."
+    },
+    {
+      "id": "fc_compliance",
+      "severity": "medium",
+      "note": "Physical grommet dimensions/deformation unmeasured.26 vs25.5 discrepancy preserved; animated/functional compliance simulation outside scope."
+    },
+    {
+      "id": "camera_tilt",
+      "severity": "low",
+      "note": "25deg is a documented chosen setting. Reference photographs may show different setting; comparisons must account for this."
+    },
+    {
+      "id": "uncalibrated_images",
+      "severity": "high",
+      "note": "No orthographic calibrated full-aircraft photographs, original CAD or caliper measurements. Estimated shapes cannot establish manufacturing interchangeability."
+    },
+    {
+      "id": "prop_shape",
+      "severity": "medium",
+      "note": "31mm diameter,6.8mm maximum width and3.3mm hub are published; camber, twist, sweep, hub diameter and seating are visual reconstructions."
+    },
+    {
+      "id": "frame_detail_thickness",
+      "severity": "medium",
+      "note": "Lip, ribs, pads, guards and bosses estimated; preserve verified overall envelope and openings."
+    },
+    {
+      "id": "canopy_installed_shape",
+      "severity": "medium",
+      "note": "Flexible straps can vary with installation. Canonical path points encode one plausible installed bend, not flat mould dimensions."
+    },
+    {
+      "id": "battery_reference_variant",
+      "severity": "low",
+      "note": "Underside image shows320mAh label; selected optional battery uses independently documented280mAh54mm length, so underside length cannot be copied directly."
+    }
+  ],
+  "revision_history": [
+    {
+      "revision": 2,
+      "date": "2026-10-12",
+      "change": "prop_hub_radius2.2 ->2.4mm",
+      "reason": "Independent review PR-02: narrow hub silhouette relative to GF1207 reference diagram. Main integrator approved a trial within existing estimate interval.",
+      "verified_dimensions_changed": false
+    }
+  ]
+}

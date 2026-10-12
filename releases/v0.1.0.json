@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "version": "v0.1.0",
+  "repository": "danohn/air65",
+  "public_glb_sha256": "8ddbc0195e22c59bc8dcf6de34885021e5cc099aea5b33a08817a11a7b6395a7",
+  "archives": [
+    {
+      "name": "air65-ii-artifacts-v0.1.0.zip",
+      "bytes": 97931196,
+      "sha256": "74319e5b642ca1c7397fd8dfaf883d8e1c79d78f5d21cb823d719784a864d0f4",
+      "file_count": 79,
+      "profile": "artifacts",
+      "url": "https://github.com/danohn/air65/releases/download/v0.1.0/air65-ii-artifacts-v0.1.0.zip"
+    },
+    {
+      "name": "air65-ii-baseline-v0.1.0.zip",
+      "bytes": 38994880,
+      "sha256": "a4cf6a0db66fab6724c9ff976f61ac463dbd46ef00d773d18dec675b16b101d9",
+      "file_count": 87,
+      "profile": "baseline",
+      "url": "https://github.com/danohn/air65/releases/download/v0.1.0/air65-ii-baseline-v0.1.0.zip"
+    }
+  ],
+  "downloads": [
+    {
+      "name": "air65-ii.blend",
+      "bytes": 8252361,
+      "sha256": "4ebcce83e5facbf056989f8449425afd5b11ae6373b584057dedaf45e83013ce",
+      "url": "https://github.com/danohn/air65/releases/download/v0.1.0/air65-ii.blend"
+    },
+    {
+      "name": "air65-ii-with-battery.blend",
+      "bytes": 8264986,
+      "sha256": "1c9424baa3c92dde8e2ff1fc77fa05cf8c3136f20f21e76cee3351ad59b63e8a",
+      "url": "https://github.com/danohn/air65/releases/download/v0.1.0/air65-ii-with-battery.blend"
+    },
+    {
+      "name": "air65-ii.glb",
+      "bytes": 10417808,
+      "sha256": "8ddbc0195e22c59bc8dcf6de34885021e5cc099aea5b33a08817a11a7b6395a7",
+      "url": "https://github.com/danohn/air65/releases/download/v0.1.0/air65-ii.glb"
+    },
+    {
+      "name": "air65-ii-multiview.png",
+      "bytes": 755486,
+      "sha256": "b8307ffd242c8146c0dd6fd59b0277694decc65d89ec6b94a95f7caa792da70e",
+      "url": "https://github.com/danohn/air65/releases/download/v0.1.0/air65-ii-multiview.png"
+    }
+  ]
+}

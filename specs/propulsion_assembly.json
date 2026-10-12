@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "id": "propulsion-inspection",
+  "architecture": "specs/spatial_architecture.json",
+  "materials": "specs/materials.json",
+  "components": {
+    "motor": "specs/components/motor.json",
+    "prop_cw": "specs/components/prop_cw.json"
+  },
+  "instances": [
+    {
+      "id": "motor",
+      "component": "motor"
+    },
+    {
+      "id": "prop",
+      "component": "prop_cw"
+    }
+  ],
+  "views": {
+    "hero": {
+      "position": [
+        45,
+        70,
+        55
+      ],
+      "target": [
+        0,
+        0,
+        9
+      ],
+      "projection": "ORTHO",
+      "scale": 38
+    },
+    "top": {
+      "position": [
+        0,
+        0,
+        100
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "projection": "ORTHO",
+      "scale": 38
+    }
+  }
+}

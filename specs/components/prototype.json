@@ -1,0 +1,664 @@
+{
+  "schema_version": "1.0",
+  "id": "prototype",
+  "contract": "air65-ii-racing-v1",
+  "description": "Minimal JSON-to-Blender validation fixture. Not the final recreation.",
+  "provenance": [
+    {
+      "feature": "prototype simplifications",
+      "status": "simplified",
+      "source_ids": [
+        "frame_drawing"
+      ],
+      "confidence": "low",
+      "note": "Cylindrical motor proxies, rectangular ring cross-section, clearance circles and PCB proxy validate the pipeline before detailed modelling."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "duct_FL",
+      "op": "ring_profile",
+      "material": "frame_lavender",
+      "args": {
+        "profile": [
+          [
+            {
+              "param": "duct_inner_radius",
+              "scale": 1,
+              "offset": 0
+            },
+            {
+              "param": "duct_bottom_z",
+              "scale": 1,
+              "offset": 0
+            }
+          ],
+          [
+            {
+              "param": "duct_outer_radius",
+              "scale": 1,
+              "offset": 0
+            },
+            {
+              "param": "duct_bottom_z",
+              "scale": 1,
+              "offset": 0
+            }
+          ],
+          [
+            {
+              "param": "duct_outer_radius",
+              "scale": 1,
+              "offset": 0
+            },
+            {
+              "param": "duct_top_z",
+              "scale": 1,
+              "offset": 0
+            }
+          ],
+          [
+            {
+              "param": "duct_inner_radius",
+              "scale": 1,
+              "offset": 0
+            },
+            {
+              "param": "duct_top_z",
+              "scale": 1,
+              "offset": 0
+            }
+          ]
+        ],
+        "segments": 96
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": -1,
+            "offset": 0
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": 1,
+            "offset": 0
+          },
+          0
+        ]
+      }
+    },
+    {
+      "id": "motor_FL",
+      "op": "cylinder",
+      "material": "motor_silver",
+      "args": {
+        "radius": {
+          "param": "motor_body_radius",
+          "scale": 1,
+          "offset": 0
+        },
+        "depth": {
+          "param": "motor_body_height",
+          "scale": 1,
+          "offset": 0
+        }
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": -1,
+            "offset": 0
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": 1,
+            "offset": 0
+          },
+          {
+            "param": "motor_body_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "prop_swept_clearance_FL",
+      "op": "annulus",
+      "material": "prop_clear",
+      "args": {
+        "inner_radius": {
+          "param": "prop_swept_radius",
+          "scale": 1,
+          "offset": -0.18
+        },
+        "outer_radius": {
+          "param": "prop_swept_radius",
+          "scale": 1,
+          "offset": 0
+        },
+        "depth": 0.12
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": -1,
+            "offset": 0
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": 1,
+            "offset": 0
+          },
+          {
+            "param": "prop_blade_reference_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "duct_FR",
+      "op": "ring_profile",
+      "material": "frame_lavender",
+      "args": {
+        "profile": [
+          [
+            {
+              "param": "duct_inner_radius",
+              "scale": 1,
+              "offset": 0
+            },
+            {
+              "param": "duct_bottom_z",
+              "scale": 1,
+              "offset": 0
+            }
+          ],
+          [
+            {
+              "param": "duct_outer_radius",
+              "scale": 1,
+              "offset": 0
+            },
+            {
+              "param": "duct_bottom_z",
+              "scale": 1,
+              "offset": 0
+            }
+          ],
+          [
+            {
+              "param": "duct_outer_radius",
+              "scale": 1,
+              "offset": 0
+            },
+            {
+              "param": "duct_top_z",
+              "scale": 1,
+              "offset": 0
+            }
+          ],
+          [
+            {
+              "param": "duct_inner_radius",
+              "scale": 1,
+              "offset": 0
+            },
+            {
+              "param": "duct_top_z",
+              "scale": 1,
+              "offset": 0
+            }
+          ]
+        ],
+        "segments": 96
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": 1,
+            "offset": 0
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": 1,
+            "offset": 0
+          },
+          0
+        ]
+      }
+    },
+    {
+      "id": "motor_FR",
+      "op": "cylinder",
+      "material": "motor_silver",
+      "args": {
+        "radius": {
+          "param": "motor_body_radius",
+          "scale": 1,
+          "offset": 0
+        },
+        "depth": {
+          "param": "motor_body_height",
+          "scale": 1,
+          "offset": 0
+        }
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": 1,
+            "offset": 0
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": 1,
+            "offset": 0
+          },
+          {
+            "param": "motor_body_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "prop_swept_clearance_FR",
+      "op": "annulus",
+      "material": "prop_clear",
+      "args": {
+        "inner_radius": {
+          "param": "prop_swept_radius",
+          "scale": 1,
+          "offset": -0.18
+        },
+        "outer_radius": {
+          "param": "prop_swept_radius",
+          "scale": 1,
+          "offset": 0
+        },
+        "depth": 0.12
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": 1,
+            "offset": 0
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": 1,
+            "offset": 0
+          },
+          {
+            "param": "prop_blade_reference_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "duct_RL",
+      "op": "ring_profile",
+      "material": "frame_lavender",
+      "args": {
+        "profile": [
+          [
+            {
+              "param": "duct_inner_radius",
+              "scale": 1,
+              "offset": 0
+            },
+            {
+              "param": "duct_bottom_z",
+              "scale": 1,
+              "offset": 0
+            }
+          ],
+          [
+            {
+              "param": "duct_outer_radius",
+              "scale": 1,
+              "offset": 0
+            },
+            {
+              "param": "duct_bottom_z",
+              "scale": 1,
+              "offset": 0
+            }
+          ],
+          [
+            {
+              "param": "duct_outer_radius",
+              "scale": 1,
+              "offset": 0
+            },
+            {
+              "param": "duct_top_z",
+              "scale": 1,
+              "offset": 0
+            }
+          ],
+          [
+            {
+              "param": "duct_inner_radius",
+              "scale": 1,
+              "offset": 0
+            },
+            {
+              "param": "duct_top_z",
+              "scale": 1,
+              "offset": 0
+            }
+          ]
+        ],
+        "segments": 96
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": -1,
+            "offset": 0
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": -1,
+            "offset": 0
+          },
+          0
+        ]
+      }
+    },
+    {
+      "id": "motor_RL",
+      "op": "cylinder",
+      "material": "motor_silver",
+      "args": {
+        "radius": {
+          "param": "motor_body_radius",
+          "scale": 1,
+          "offset": 0
+        },
+        "depth": {
+          "param": "motor_body_height",
+          "scale": 1,
+          "offset": 0
+        }
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": -1,
+            "offset": 0
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": -1,
+            "offset": 0
+          },
+          {
+            "param": "motor_body_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "prop_swept_clearance_RL",
+      "op": "annulus",
+      "material": "prop_clear",
+      "args": {
+        "inner_radius": {
+          "param": "prop_swept_radius",
+          "scale": 1,
+          "offset": -0.18
+        },
+        "outer_radius": {
+          "param": "prop_swept_radius",
+          "scale": 1,
+          "offset": 0
+        },
+        "depth": 0.12
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": -1,
+            "offset": 0
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": -1,
+            "offset": 0
+          },
+          {
+            "param": "prop_blade_reference_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "duct_RR",
+      "op": "ring_profile",
+      "material": "frame_lavender",
+      "args": {
+        "profile": [
+          [
+            {
+              "param": "duct_inner_radius",
+              "scale": 1,
+              "offset": 0
+            },
+            {
+              "param": "duct_bottom_z",
+              "scale": 1,
+              "offset": 0
+            }
+          ],
+          [
+            {
+              "param": "duct_outer_radius",
+              "scale": 1,
+              "offset": 0
+            },
+            {
+              "param": "duct_bottom_z",
+              "scale": 1,
+              "offset": 0
+            }
+          ],
+          [
+            {
+              "param": "duct_outer_radius",
+              "scale": 1,
+              "offset": 0
+            },
+            {
+              "param": "duct_top_z",
+              "scale": 1,
+              "offset": 0
+            }
+          ],
+          [
+            {
+              "param": "duct_inner_radius",
+              "scale": 1,
+              "offset": 0
+            },
+            {
+              "param": "duct_top_z",
+              "scale": 1,
+              "offset": 0
+            }
+          ]
+        ],
+        "segments": 96
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": 1,
+            "offset": 0
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": -1,
+            "offset": 0
+          },
+          0
+        ]
+      }
+    },
+    {
+      "id": "motor_RR",
+      "op": "cylinder",
+      "material": "motor_silver",
+      "args": {
+        "radius": {
+          "param": "motor_body_radius",
+          "scale": 1,
+          "offset": 0
+        },
+        "depth": {
+          "param": "motor_body_height",
+          "scale": 1,
+          "offset": 0
+        }
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": 1,
+            "offset": 0
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": -1,
+            "offset": 0
+          },
+          {
+            "param": "motor_body_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "prop_swept_clearance_RR",
+      "op": "annulus",
+      "material": "prop_clear",
+      "args": {
+        "inner_radius": {
+          "param": "prop_swept_radius",
+          "scale": 1,
+          "offset": -0.18
+        },
+        "outer_radius": {
+          "param": "prop_swept_radius",
+          "scale": 1,
+          "offset": 0
+        },
+        "depth": 0.12
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "motor_axis_offset",
+            "scale": 1,
+            "offset": 0
+          },
+          {
+            "param": "motor_axis_offset",
+            "scale": -1,
+            "offset": 0
+          },
+          {
+            "param": "prop_blade_reference_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "frame_datum",
+      "op": "box",
+      "material": "frame_lavender",
+      "args": {
+        "size": [
+          11.4,
+          18,
+          0.7
+        ]
+      },
+      "transform": {
+        "location": [
+          0,
+          0,
+          0.35
+        ]
+      },
+      "notes": "Prototype datum marker only, not final battery cradle."
+    },
+    {
+      "id": "pcb_proxy",
+      "op": "box",
+      "material": "pcb_black",
+      "args": {
+        "size": [
+          {
+            "param": "fc_body_side",
+            "scale": 1,
+            "offset": 0
+          },
+          {
+            "param": "fc_body_side",
+            "scale": 1,
+            "offset": 0
+          },
+          {
+            "param": "fc_board_thickness",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      },
+      "transform": {
+        "location": [
+          0,
+          0,
+          {
+            "param": "fc_pcb_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          45
+        ]
+      },
+      "notes": "Prototype PCB square; actual outline and lugs are added only in detailed modelling."
+    }
+  ]
+}

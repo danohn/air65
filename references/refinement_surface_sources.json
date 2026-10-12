@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "inspected_at": "2026-10-12",
+  "scope": "Matrix II surface refinement and selected LAVA II280 reference",
+  "license_context": "BETAFPV manufacturer product imagery. No open image-reuse license identified. References for research only; model textures drawn independently without any reference image pixels.",
+  "sources": [
+    {
+      "id": "lava_ii_280_surface_photo",
+      "page_url": "https://betafpv.com/products/lava-ii-1s-battery",
+      "image_url": "https://betafpv.com/cdn/shop/files/LAVA_II_1S_280mAh_Battery_top_view.jpg?v=1763545157",
+      "local_path": "references/lava_ii_280_top.jpg",
+      "sha256": "7bda1ab3e48918b2cc175d7529ef7668728f6f71f584e20d89f6f7e9e588f816",
+      "observations": [
+        "Black cap/BT2.0 connector",
+        "BETAFPV",
+        "280",
+        "95C",
+        "mAh",
+        "LiHV 3.8V 1.06Wh",
+        "LAVA; no II or 1S on visible face"
+      ],
+      "confidence": "high for readable labels and colour; proportions remain photographic estimates"
+    },
+    {
+      "id": "fc_top_surface_photo",
+      "page_url": "https://betafpv.com/products/matrix-1s-5in1-ii-brushless-flight-controller",
+      "image_url": "https://betafpv.com/cdn/shop/files/Matrix_1S_5IN1_II_Brushless_Flight_Controller_unsoldered_front.jpg?v=1769154868",
+      "observations": [
+        "Physical left print G/T1/R1/5V; four pads",
+        "Physical right print5V/L/GND; three pads",
+        "CAM/GND/5V diagonal pads",
+        "ST, PUYA, R001 readable; smaller codes omitted"
+      ],
+      "confidence": "high for readable spelling/counts; package positions estimated",
+      "local_path": "references/matrix_ii_front.jpg",
+      "sha256": "9a98d1cbf6580b0259f21279a049bcef5811542d9e8e77927bb7f9d29ae0e02a"
+    },
+    {
+      "id": "fc_bottom_surface_diagram",
+      "page_url": "https://betafpv.com/products/matrix-1s-5in1-ii-brushless-flight-controller",
+      "image_url": "https://cdn.shopify.com/s/files/1/1778/6615/files/Matrix_1S_5IN1_II_Brushless_Flight_Controller_bottom_front.jpg?v=1769053662",
+      "observations": [
+        "Solder-free board with motor sockets",
+        "Matrix 5IN1",
+        "V2.1",
+        "Central AT7456E package and forward VTX square",
+        "Four controller regions and eight discrete outer power package outlines visible"
+      ],
+      "confidence": "high for visible physical print and main package presence; no dimensional calibration",
+      "local_path": "references/matrix_ii_bottom.jpg",
+      "sha256": "2fb58bfcb7dc42ca52a28bc8d49b4a34ea4576df40c95cbdd24fb0304b753285"
+    },
+    {
+      "id": "fc_bottom_surface_photo",
+      "page_url": "https://betafpv.com/products/matrix-1s-5in1-ii-brushless-flight-controller",
+      "image_url": "https://betafpv.com/cdn/shop/files/Matrix_1S_5IN1_II_Brushless_Flight_Controller_unsoldered_back.jpg?v=1769154868",
+      "observations": [
+        "Unobstructed underside package layout",
+        "Visible V2.0 sample differs from V2.1 solder-free diagram; no V2.0 print copied to selected variant"
+      ],
+      "confidence": "medium for geometry layout due variant/version difference; not exact installed specimen",
+      "local_path": "references/matrix_ii_back.jpg",
+      "sha256": "3ef6e1a2671a36888edb18a0d99ca1504b17a8991f572f1231e7a6dedb95d861"
+    }
+  ]
+}

@@ -1,0 +1,1369 @@
+{
+  "schema_version": "1.0",
+  "contract": "air65-ii-racing-v1",
+  "title": "BETAFPV Air65 II Racing \u2014 consolidated design specification",
+  "date": "2026-10-12",
+  "target": {
+    "model": "Air65 II",
+    "variant": "Racing",
+    "reference_revision": "Current manufacturer 2026 configuration",
+    "frame": "Standard Air65 II, translucent lavender PP",
+    "canopy": "Air II, translucent white",
+    "motor": "0702 (2026), 30000KV, silver/purple",
+    "propeller": "GF1207, clear, three blades",
+    "flight_controller": "Matrix 1S 5IN1 II, motor sockets",
+    "camera": "C03 V2",
+    "camera_tilt_deg": 25,
+    "antenna": "Copper tube, black heatshrink",
+    "battery": "Optional LAVA II 280mAh 1S (54 x 10 x 6 mm); separate removable collection"
+  },
+  "scope": {
+    "priority": "Visual and dimensional accuracy, with uncertain form explicitly estimated",
+    "claim_limit": "A reference-based visual reconstruction; no caliper measurements, calibrated photo set or original CAD ground truth available",
+    "editable": "Separate meshes, curves, modifiers, materials, collections and cameras; source JSON embedded in blend",
+    "orchestration": "Codex subagents only; no OpenAI API integration"
+  },
+  "authority": {
+    "shared_dimensions": "specs/spatial_architecture.json, main-agent approved after architect handoff",
+    "component_contract": "specs/component.schema.json",
+    "coordinates": "Right handed, +X aircraft right, +Y forward, +Z up; millimetres in JSON",
+    "proposed_origin": "Aircraft center in XY, lowest frame datum Z=0. Architect must establish exact vertical stack.",
+    "component_overrides": "Forbidden for shared dimensions. Proposed changes return to main integrator."
+  },
+  "measurements": [
+    {
+      "id": "wheelbase",
+      "component": "frame",
+      "quantity": "diagonal motor-axis separation",
+      "value": 65.0,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "air65ii",
+        "frameii",
+        "frame_drawing"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Drawing establishes diagonal motor-center distance, not total width."
+    },
+    {
+      "id": "frame_envelope",
+      "component": "frame",
+      "quantity": "maximum frame envelope",
+      "value": [
+        82.6,
+        82.6,
+        15.1
+      ],
+      "unit": "mm",
+      "status": "published",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Frame only. Excludes canopy, antenna, motor shaft, propeller and optional battery."
+    },
+    {
+      "id": "duct_inner_diameter",
+      "component": "frame",
+      "quantity": "clear duct diameter",
+      "value": 33.0,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Red diameter annotation follows inner circle in drawing."
+    },
+    {
+      "id": "duct_top_wall_band_height",
+      "component": "frame",
+      "quantity": "height of continuous upper duct wall band",
+      "value": 3.8,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Not the full height of the open basket beneath the ring."
+    },
+    {
+      "id": "duct_lowered_height_text",
+      "component": "frame",
+      "quantity": "manufacturer prose lowered ducts height",
+      "value": 12.4,
+      "unit": "mm",
+      "status": "published",
+      "confidence": "medium",
+      "source_ids": [
+        "frameii"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Datum is not defined in prose; do not replace 15.1 mm overall envelope or 3.8 mm wall band with this value."
+    },
+    {
+      "id": "frame_fc_mount_pitch",
+      "component": "frame",
+      "quantity": "adjacent mounting-hole spacing in rotated square",
+      "value": [
+        25.5,
+        25.5
+      ],
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Four frame mounts sit at front, rear, left and right of body center; square mounting pattern is rotated 45 degrees relative to motor-center square."
+    },
+    {
+      "id": "frame_fc_pilot_hole",
+      "component": "frame",
+      "quantity": "FC screw pilot-hole diameter",
+      "value": 1.2,
+      "unit": "mm",
+      "status": "published",
+      "confidence": "high",
+      "source_ids": [
+        "frameii"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Prose states enlarged 1.2 mm holes accepting 1.4 mm screws; this is not the FC board grommet hole diameter."
+    },
+    {
+      "id": "battery_slot",
+      "component": "frame",
+      "quantity": "internal battery retention opening width and height",
+      "value": [
+        11.4,
+        6.2
+      ],
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "manufacturing_tolerance": null
+    },
+    {
+      "id": "motor_mount_pcd",
+      "component": "frame_and_motor",
+      "quantity": "three-hole motor bolt circle diameter",
+      "value": 6.6,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "frame_drawing",
+        "motors2026"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Three equally spaced M1.4 holes on diameter 6.6 mm. This is not adjacent hole spacing."
+    },
+    {
+      "id": "motor_mount_thread",
+      "component": "frame_and_motor",
+      "quantity": "motor screw nominal diameter",
+      "value": 1.4,
+      "unit": "mm",
+      "status": "published",
+      "confidence": "high",
+      "source_ids": [
+        "frameii",
+        "motors2026"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "M1.4 mounting; frame drawing shows phi 1.4 mm holes."
+    },
+    {
+      "id": "motor_mount_central_bore",
+      "component": "frame",
+      "quantity": "central motor-mount opening diameter",
+      "value": 4.0,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "frame_drawing"
+      ],
+      "manufacturing_tolerance": null
+    },
+    {
+      "id": "motor_body_diameter",
+      "component": "motor",
+      "quantity": "motor outer diameter",
+      "value": 9.0,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "motor_drawing"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Shared 2026 motor dimension image depicts Champion color; apply dimensions to common family, not its orange color to Racing."
+    },
+    {
+      "id": "motor_body_height",
+      "component": "motor",
+      "quantity": "motor mounting-base to shaft-shoulder height",
+      "value": 8.55,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "motor_drawing"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Image dimension excludes 3.4 mm upper shaft and small lower axle nub."
+    },
+    {
+      "id": "motor_shaft_diameter",
+      "component": "motor",
+      "quantity": "shaft diameter",
+      "value": 1.0,
+      "unit": "mm",
+      "status": "published",
+      "confidence": "high",
+      "source_ids": [
+        "motors2026",
+        "motor_drawing"
+      ],
+      "manufacturing_tolerance": null
+    },
+    {
+      "id": "motor_shaft_extension",
+      "component": "motor",
+      "quantity": "upper shaft extension",
+      "value": 3.4,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "motors2026",
+        "motor_drawing"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Do not use older 0702SE/II 4.2 mm shaft."
+    },
+    {
+      "id": "motor_wire_length",
+      "component": "motor",
+      "quantity": "wire length including connector",
+      "value": 35.0,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "motors2026",
+        "motor_drawing"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "30AWG wires and JST1.25 3-pin connector; assembled wire routing remains estimated."
+    },
+    {
+      "id": "prop_diameter",
+      "component": "propeller",
+      "quantity": "swept diameter",
+      "value": 31.0,
+      "unit": "mm",
+      "status": "published",
+      "confidence": "high",
+      "source_ids": [
+        "props1207",
+        "prop_drawing"
+      ],
+      "manufacturing_tolerance": null
+    },
+    {
+      "id": "prop_hub_thickness",
+      "component": "propeller",
+      "quantity": "central hub axial thickness",
+      "value": 3.3,
+      "unit": "mm",
+      "status": "published",
+      "confidence": "high",
+      "source_ids": [
+        "props1207"
+      ],
+      "manufacturing_tolerance": null
+    },
+    {
+      "id": "prop_max_width",
+      "component": "propeller",
+      "quantity": "maximum blade width",
+      "value": 6.8,
+      "unit": "mm",
+      "status": "published",
+      "confidence": "high",
+      "source_ids": [
+        "props1207"
+      ],
+      "manufacturing_tolerance": null
+    },
+    {
+      "id": "prop_shaft_hole",
+      "component": "propeller",
+      "quantity": "central shaft bore diameter",
+      "value": 1.0,
+      "unit": "mm",
+      "status": "published",
+      "confidence": "high",
+      "source_ids": [
+        "props1207",
+        "prop_drawing"
+      ],
+      "manufacturing_tolerance": null
+    },
+    {
+      "id": "prop_pitch",
+      "component": "propeller",
+      "quantity": "nominal helical pitch",
+      "value": 0.7,
+      "unit": "inch",
+      "status": "published",
+      "confidence": "high",
+      "source_ids": [
+        "props1207"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Pitch does not fully specify real blade twist, camber, chord distribution or local airfoil."
+    },
+    {
+      "id": "fc_board_thickness",
+      "component": "flight_controller",
+      "quantity": "PCB thickness",
+      "value": 1.0,
+      "unit": "mm",
+      "status": "published",
+      "confidence": "high",
+      "source_ids": [
+        "air65ii",
+        "fc_matrixii"
+      ],
+      "manufacturing_tolerance": null
+    },
+    {
+      "id": "fc_mount_pitch",
+      "component": "flight_controller",
+      "quantity": "nominal square mounting pitch",
+      "value": [
+        26.0,
+        26.0
+      ],
+      "unit": "mm",
+      "status": "published",
+      "confidence": "high",
+      "source_ids": [
+        "fc_matrixii"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Three board lugs only: front omitted. Frame has different published 25.5 mm pitch. Preserve discrepancy in assembly design rather than silently normalizing."
+    },
+    {
+      "id": "camera_pcb_width",
+      "component": "camera",
+      "quantity": "C03 V2 PCB width",
+      "value": 11.0,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "c03",
+        "camera_drawing"
+      ],
+      "manufacturing_tolerance": null
+    },
+    {
+      "id": "camera_pcb_height",
+      "component": "camera",
+      "quantity": "C03 V2 PCB height including lower pad tab",
+      "value": 14.0,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "c03",
+        "camera_drawing"
+      ],
+      "manufacturing_tolerance": null
+    },
+    {
+      "id": "camera_depth",
+      "component": "camera",
+      "quantity": "C03 V2 front lens-to-board depth",
+      "value": 15.0,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "c03",
+        "camera_drawing"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Dimensional line ends at board plane; rear component protrusion not separately specified."
+    },
+    {
+      "id": "camera_lens_od",
+      "component": "camera",
+      "quantity": "front lens barrel outer diameter",
+      "value": 10.0,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "camera_drawing"
+      ],
+      "manufacturing_tolerance": null
+    },
+    {
+      "id": "camera_wire_length",
+      "component": "camera",
+      "quantity": "camera wire and connector length",
+      "value": 40.0,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "camera_drawing"
+      ],
+      "manufacturing_tolerance": null
+    },
+    {
+      "id": "canopy_camera_clamp_id",
+      "component": "canopy",
+      "quantity": "camera clamp opening diameter",
+      "value": 10.2,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "canopy_drawing"
+      ],
+      "manufacturing_tolerance": null
+    },
+    {
+      "id": "canopy_antenna_aperture",
+      "component": "canopy",
+      "quantity": "large tail antenna aperture width",
+      "value": 4.9,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "canopy_drawing"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Labeled width across large aperture, not across slender tail strip."
+    },
+    {
+      "id": "canopy_front_mount_bore",
+      "component": "canopy",
+      "quantity": "front mounting-foot hole diameter",
+      "value": 1.5,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "canopy_drawing"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Drawing explicitly dimensions the center/front foot; do not infer all unlabelled holes have this diameter."
+    },
+    {
+      "id": "canopy_clamp_cross_bore",
+      "component": "canopy",
+      "quantity": "camera-clamp transverse screw bore diameter",
+      "value": 1.1,
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "canopy_drawing"
+      ],
+      "manufacturing_tolerance": null
+    },
+    {
+      "id": "canopy_camera_tilts",
+      "component": "canopy",
+      "quantity": "available nominal camera tilt settings",
+      "value": [
+        15,
+        25,
+        35,
+        45
+      ],
+      "unit": "degrees",
+      "status": "published",
+      "confidence": "high",
+      "source_ids": [
+        "canopyii"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Range 15 to 45 in 10-degree increments. Stock photo angle should be estimated separately."
+    },
+    {
+      "id": "battery_280_envelope",
+      "component": "battery",
+      "quantity": "LAVA II 280mAh body dimensions",
+      "value": [
+        54.0,
+        10.0,
+        6.0
+      ],
+      "unit": "mm",
+      "status": "published_diagram",
+      "confidence": "high",
+      "source_ids": [
+        "batteryii",
+        "battery_drawing"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Drawing length includes main plastic terminal cap but excludes projecting BT2.0 connector nose."
+    },
+    {
+      "id": "battery_320_envelope",
+      "component": "battery",
+      "quantity": "LAVA II 320mAh nominal body dimensions",
+      "value": [
+        64.0,
+        10.0,
+        6.0
+      ],
+      "unit": "mm",
+      "status": "published",
+      "confidence": "high",
+      "source_ids": [
+        "batteryii"
+      ],
+      "manufacturing_tolerance": null,
+      "note": "Only 280mAh has an explicit linked length drawing; analogous terminal extent is inferred for 320mAh."
+    }
+  ],
+  "derived_constraints": [
+    {
+      "id": "motor_center_square_side",
+      "quantity": "adjacent motor-axis distance",
+      "value": 45.9619407771,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "expression": "65 / sqrt(2)",
+      "source_measurement_ids": [
+        "wheelbase"
+      ],
+      "assumption": "Square motor arrangement visible in manufacturer plan drawing."
+    },
+    {
+      "id": "motor_axis_offset",
+      "quantity": "absolute motor x and y offsets if centered and aligned to body axes",
+      "value": 22.9809703886,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "expression": "65 / (2 * sqrt(2))",
+      "source_measurement_ids": [
+        "wheelbase"
+      ],
+      "assumption": "Main architect chooses signs, forward direction, and z datum."
+    },
+    {
+      "id": "frame_mount_cardinal_offset",
+      "quantity": "front/rear/left/right frame mount radial distance",
+      "value": 18.0312229203,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "expression": "25.5 / sqrt(2)",
+      "source_measurement_ids": [
+        "frame_fc_mount_pitch"
+      ],
+      "assumption": "Diamond mounting layout from manufacturer drawing."
+    },
+    {
+      "id": "fc_mount_cardinal_offset",
+      "quantity": "FC lug radial distance from nominal pitch",
+      "value": 18.3847763109,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "expression": "26 / sqrt(2)",
+      "source_measurement_ids": [
+        "fc_mount_pitch"
+      ],
+      "assumption": "Same diamond mounting convention; a 0.354 mm radial discrepancy exists versus frame mounts."
+    },
+    {
+      "id": "duct_max_outer_diameter",
+      "quantity": "maximum outer duct circular envelope",
+      "value": 36.6380592229,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "expression": "82.6 - 65 / sqrt(2)",
+      "source_measurement_ids": [
+        "frame_envelope",
+        "wheelbase"
+      ],
+      "assumption": "Overall XY bounds are circular duct outer rims in a square arrangement. Cross-section varies; do not treat difference from ID as uniform wall thickness."
+    },
+    {
+      "id": "prop_radial_clearance",
+      "quantity": "nominal prop-tip-to-duct radial clearance",
+      "value": 1.0,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "expression": "(33 - 31) / 2",
+      "source_measurement_ids": [
+        "duct_inner_diameter",
+        "prop_diameter"
+      ],
+      "assumption": "Concentric, undeformed circular rotor swept envelope and duct."
+    },
+    {
+      "id": "camera_clamp_radial_clearance",
+      "quantity": "nominal camera barrel radial clearance",
+      "value": 0.1,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "high",
+      "expression": "(10.2 - 10.0) / 2",
+      "source_measurement_ids": [
+        "canopy_camera_clamp_id",
+        "camera_lens_od"
+      ],
+      "assumption": "Unclamped circular aperture; flex and lens-barrel section variation ignored."
+    }
+  ],
+  "technical_specifications": {
+    "air65ii_racing": {
+      "dry_mass_g": 17.7,
+      "wheelbase_mm": 65,
+      "esc_continuous_a": 12,
+      "vtx_mw": [
+        25,
+        100,
+        200,
+        400
+      ],
+      "rx": "Serial ELRS 2.4GHz",
+      "source_ids": [
+        "air65ii"
+      ]
+    },
+    "frame": {
+      "mass_g": 2.65,
+      "material": "PP",
+      "arm_braces_per_motor": 4,
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ]
+    },
+    "canopy": {
+      "mass_g_excluding_fixing_screw": 0.5,
+      "material": "PP",
+      "source_ids": [
+        "canopyii"
+      ]
+    },
+    "motor": {
+      "kv": 30000,
+      "bearing": "brass bushings",
+      "mass_g": 1.5,
+      "wire_awg": 30,
+      "connector": "JST1.25 3Pin",
+      "input": "1S",
+      "source_ids": [
+        "motors2026"
+      ]
+    },
+    "propeller": {
+      "blades": 3,
+      "material": "PC",
+      "mass_g": 0.15,
+      "source_ids": [
+        "props1207"
+      ]
+    },
+    "fc": {
+      "mount_lugs": 3,
+      "omitted_lug": "front",
+      "pcb_mm": 1.0,
+      "esc_continuous_a": 12,
+      "esc_peak_a": 18,
+      "mcu": "STM32G473CEU6",
+      "usb_connector": "SH1.0-4Pin",
+      "mass_g_solder_free": 4.1,
+      "published_mass_tolerance_g": 0.1,
+      "source_ids": [
+        "fc_matrixii",
+        "fc_top_image"
+      ]
+    },
+    "camera": {
+      "resolution_tvl": 1200,
+      "focal_length_mm": 2.1,
+      "fov_degrees": 160,
+      "mass_g": 1.45,
+      "connector": "JST-0.8",
+      "source_ids": [
+        "c03"
+      ]
+    },
+    "battery280": {
+      "capacity_mah": 280,
+      "mass_g": 6.8,
+      "chemistry": "LiHV",
+      "connector": "BT2.0",
+      "source_ids": [
+        "batteryii"
+      ]
+    },
+    "battery320": {
+      "capacity_mah": 320,
+      "mass_g": 8.2,
+      "chemistry": "LiHV",
+      "connector": "BT2.0",
+      "source_ids": [
+        "batteryii"
+      ]
+    }
+  },
+  "appearance": [
+    {
+      "component": "frame",
+      "finding": "Four separate round low duct rims arranged in a square, with a narrow open central area. Adjacent rims do not overlap. Four bowed radial braces descend from each ring to a low triangular motor pad. Braces are not coplanar with ring or motor.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air65_ii_frame_black_top",
+        "air65_ii_frame_details",
+        "photo_variants_low_front"
+      ]
+    },
+    {
+      "component": "frame",
+      "finding": "Each motor pad has a central shaft clearance hole and three smaller bolt holes. Three local raised retaining/screw guards surround bolt locations. Four brace attachment directions per duct are irregularly spaced and mirrored across vehicle axes.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air65_ii_frame_black_top",
+        "air65_ii_frame_details"
+      ]
+    },
+    {
+      "component": "frame",
+      "finding": "Connecting structure includes two narrow front/rear bridges with small outward triangular nose/tail markers, two curved lateral connecting braces and four cardinal mounting bosses around the battery cradle. Large negative spaces are essential.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air65_ii_frame_black_top",
+        "air65_ii_racing_underside"
+      ]
+    },
+    {
+      "component": "canopy",
+      "finding": "Very open flexible skeleton. Camera collar with short protective upper lip and an opening above lens; front central mounting tongue; two long slender side legs; narrow rear perforated strip bends into arch when installed. Exposed camera PCB and electronics remain visible through large side openings.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air_ii_canopy_black",
+        "air_ii_canopy_diagram",
+        "air_ii_canopy_side",
+        "photo_racing_oblique",
+        "photo_freestyle_side_oblique"
+      ]
+    },
+    {
+      "component": "camera",
+      "finding": "Large black circular lens housing in milky collar, smaller recessed green/blue reflective optical element, dark rectangular PCB directly behind lens tilted back from vertical. Optical axis points forward and upward. Do not model as a sphere.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "photo_racing_oblique",
+        "photo_freestyle_side_oblique",
+        "air65_ii_racing_oblique"
+      ]
+    },
+    {
+      "component": "propellers",
+      "finding": "Three clear low-pitch blades per motor, 120 degrees apart, broad curved paddle/swept profiles with rounded tips and narrow roots. Raised cylindrical hub has central shaft opening. Curvature/twist changes which blades appear edge-on.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air65_ii_racing_propulsion",
+        "photo_racing_oblique"
+      ]
+    },
+    {
+      "component": "motors",
+      "finding": "Short silver cylindrical bells, exposed colored top spokes and copper windings, black lower mounting region. Three black wires leave each motor as a parallel bundle and terminate at small white plugs under board perimeter.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air65_ii_racing_propulsion",
+        "air65_ii_racing_underside",
+        "photo_racing_oblique"
+      ]
+    },
+    {
+      "component": "electronics",
+      "finding": "Black PCB is an elevated thin square/diamond relative to motor grid, with green/gold edge, tiny flat black chips, silver/gold pads and white motor connectors. Camera is prominent and central-front, board extends visibly behind and to sides. Red/yellow/black camera wires are flexible, with a red diagonal lead over board in manufacturer view.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air65_ii_racing_oblique",
+        "air65_ii_racing_underside",
+        "photo_freestyle_side_oblique"
+      ]
+    },
+    {
+      "component": "battery",
+      "finding": "Optional long narrow rectangular LAVA II pack sits lengthwise under center inside integrated two-loop plastic cradle; label green/yellow/black, silver side foil, black end cap and white BT2.0 connector. Battery is absent from main top product view, present in underside reference.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air65_ii_racing_underside"
+      ]
+    },
+    {
+      "component": "antenna",
+      "finding": "Prominent black straight tubular top with a wider tapered heatshrink base, supported in rear canopy opening and angled upward/backward; this is substantially thicker than Champion whip. White/blue battery U-pigtail also visible near rear board edge.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air65_ii_racing_oblique",
+        "photo_racing_oblique",
+        "air65_ii_racing_underside"
+      ]
+    }
+  ],
+  "proportion_estimates": [
+    {
+      "id": "frame_outer_duct_to_span",
+      "quantity": "duct outer diameter / complete frame width",
+      "value": 0.442,
+      "uncertainty_abs": 0.005,
+      "unit": "ratio",
+      "status": "image estimate",
+      "confidence": "high",
+      "reference": "air65_ii_frame_black_top",
+      "method": "Manual pixel landmarks: full span about811 px, one outer duct about358-360 px. Near-plan product view, no camera calibration."
+    },
+    {
+      "id": "adjacent_motor_spacing_to_span",
+      "quantity": "adjacent motor center distance / complete frame width",
+      "value": 0.553,
+      "uncertainty_abs": 0.004,
+      "unit": "ratio",
+      "status": "image estimate",
+      "confidence": "high",
+      "reference": "air65_ii_frame_black_top",
+      "method": "About449 px center spacing /811 px frame width; cross-check only, canonical spacing derives from wheelbase."
+    },
+    {
+      "id": "clear_duct_to_span",
+      "quantity": "clear duct diameter / complete frame width",
+      "value": 0.398,
+      "uncertainty_abs": 0.006,
+      "unit": "ratio",
+      "status": "image estimate",
+      "confidence": "medium",
+      "reference": "air65_ii_frame_black_top",
+      "method": "About323 px inside ring /811 px frame span; dark rim highlights make exact edge uncertain."
+    },
+    {
+      "id": "lens_to_clear_duct",
+      "quantity": "lens barrel diameter / clear duct diameter",
+      "value": 0.303,
+      "uncertainty_abs": 0.025,
+      "unit": "ratio",
+      "status": "visual cross-check, nominal dimensions elsewhere",
+      "confidence": "medium",
+      "references": [
+        "air65_ii_racing_oblique",
+        "photo_racing_oblique"
+      ],
+      "method": "10 mm C03 lens and33 mm clear duct reported by manufacturer; visual obliquity prevents precision optical measurement."
+    },
+    {
+      "id": "canopy_arch_to_mount_span",
+      "quantity": "mounted canopy arch height above screw plane / front-to-rear mounting span",
+      "value": 0.62,
+      "uncertainty_abs": 0.07,
+      "unit": "ratio",
+      "status": "image estimate",
+      "confidence": "medium",
+      "reference": "air_ii_canopy_side",
+      "method": "LEFT Air II panel only, approximate top341 px and screw648 px; fore-aft mount baseline about490 px. Flexible canopy height changes with selected camera-angle hole."
+    },
+    {
+      "id": "lens_center_to_mount_span",
+      "quantity": "lens center height above screw plane / front-to-rear mounting span",
+      "value": 0.42,
+      "uncertainty_abs": 0.07,
+      "unit": "ratio",
+      "status": "image estimate",
+      "confidence": "medium",
+      "reference": "air_ii_canopy_side",
+      "method": "LEFT Air II panel only; approximate lenscenter440 px, screwplane648 px, mountspan490 px. Avoid treating marketing perspective as CAD."
+    },
+    {
+      "id": "camera_angle",
+      "quantity": "photographed camera optical elevation",
+      "value": 25,
+      "uncertainty_abs": 10,
+      "unit": "degree",
+      "status": "estimate; use selected official15/25/35/45 setting in shared spec",
+      "confidence": "low",
+      "references": [
+        "air_ii_canopy_side",
+        "air65_ii_racing_oblique",
+        "photo_freestyle_side_oblique"
+      ],
+      "method": "Camera axis estimated from PCB/lens side orientation. No exact camera calibration or confirmed adjustment hole for photographs."
+    },
+    {
+      "id": "canopy_side_brace_width",
+      "quantity": "slender side leg width / lens collar opening diameter",
+      "value": 0.15,
+      "uncertainty_abs": 0.05,
+      "unit": "ratio",
+      "status": "image estimate",
+      "confidence": "medium",
+      "references": [
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "method": "Visual near-plan strip width away from widened mounting feet."
+    }
+  ],
+  "priorities": [
+    {
+      "rank": 1,
+      "task": "Lock square motor centers, circular rims, total frame outline and prop clearance against dimension drawing; compare top silhouettes before cosmetic detail."
+    },
+    {
+      "rank": 2,
+      "task": "Reproduce low upper duct rim and deep downward bowed support arms with4 per duct, triangular pads, central narrow cradle and open negative spaces."
+    },
+    {
+      "rank": 3,
+      "task": "Reproduce skeletal canopy, lens diameter/pose, high exposed camera PCB and antenna direction; never use a closed generic bubble."
+    },
+    {
+      "rank": 4,
+      "task": "Match short motor can height, raised prop hubs and broad swept three-blade outlines, with alternating handedness."
+    },
+    {
+      "rank": 5,
+      "task": "Match board layering, grommets, cable bundles, connectors and optional battery fit; detailed chip markings come later."
+    },
+    {
+      "rank": 6,
+      "task": "Tune translucent lavender and white PP, clear props, metal roughness and optical tint using real photographs; manufacturer image whites are heavily studio-lit."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "variant_lock",
+      "decision": "Use standard Racing, not Champion, Freestyle, Wisp or original.",
+      "basis": "Dimensions and visual researchers agree; user specified II."
+    },
+    {
+      "id": "mount_conflict",
+      "decision": "Retain both frame25.5 and PCB26 source nominals; architect must model nominal PCB lug locations separately from assembled screw axes and describe grommet accommodation.",
+      "status": "Published discrepancy; compliant alignment is an assumption, not tolerance evidence."
+    },
+    {
+      "id": "duct_wall",
+      "decision": "Use 33 mm clear ID, derived 36.638 mm maximum OD and 3.8 mm upper wall band. Do not turn entire15.1 mm height into a solid cylinder.",
+      "status": "Source nominals plus derived OD; wall profile is estimated."
+    },
+    {
+      "id": "canopy_topology",
+      "decision": "Open skeleton: collar, front tongue, slender side legs, arched perforated rear strap; expose camera board.",
+      "status": "Observed in manufacturer imagery and real photos."
+    },
+    {
+      "id": "camera_pose",
+      "decision": "Choose official25 degree adjustment; exact sample pose and lens center remain visual estimates.",
+      "status": "Chosen supported setting, not verified stock tilt."
+    },
+    {
+      "id": "battery_option",
+      "decision": "Deliver main build dry to match top gallery, plus battery-equipped assembly for underside comparison.",
+      "status": "Accessory configuration; battery is not part of17.7 g dry weight."
+    },
+    {
+      "id": "reference_policy",
+      "decision": "Manufacturer images may be polished renders; also use actual physical review photos. Do not claim perspective-based pixel comparisons as physical dimensional measurements."
+    },
+    {
+      "id": "geometry_interpreter",
+      "decision": "Allowlisted procedural geometry, safe scalar references, no eval or executable JSON; fixed sampling and Cycles CPU seed."
+    }
+  ],
+  "sources": [
+    {
+      "id": "air65ii",
+      "title": "BETAFPV Air65 II Brushless Whoop Quadcopter",
+      "url": "https://betafpv.com/products/air65-ii-brushless-whoop-quadcopter",
+      "kind": "manufacturer_product_page"
+    },
+    {
+      "id": "frameii",
+      "title": "BETAFPV Air65 II Brushless Whoop Frame",
+      "url": "https://betafpv.com/products/air65-ii-brushless-whoop-frame",
+      "kind": "manufacturer_product_page"
+    },
+    {
+      "id": "frame_drawing",
+      "title": "Air65 II frame dimensioned plan and side drawing",
+      "url": "https://cdn.shopify.com/s/files/1/1778/6615/files/Air65_II_Brushless_Whoop_Frame_diagram.jpg?v=1750838480",
+      "kind": "manufacturer_dimensioned_image",
+      "visually_inspected": true
+    },
+    {
+      "id": "canopyii",
+      "title": "BETAFPV Air II Canopy",
+      "url": "https://betafpv.com/products/air-ii-canopy",
+      "kind": "manufacturer_product_page"
+    },
+    {
+      "id": "canopy_drawing",
+      "title": "Air II Canopy diagram",
+      "url": "https://cdn.shopify.com/s/files/1/1778/6615/files/Air_II_Canopy_Diagram.jpg?v=1760929267",
+      "kind": "manufacturer_dimensioned_image",
+      "visually_inspected": true
+    },
+    {
+      "id": "motors2026",
+      "title": "BETAFPV 0702 Brushless Motors (2026)",
+      "url": "https://betafpv.com/products/0702-brushless-motors-2026",
+      "kind": "manufacturer_product_page"
+    },
+    {
+      "id": "motor_drawing",
+      "title": "0702 Brushless Motors 2026 dimension image",
+      "url": "https://cdn.shopify.com/s/files/1/1778/6615/files/0702_Brushless_Motors_2026_diagram.jpg?v=1769070401",
+      "kind": "manufacturer_dimensioned_image",
+      "visually_inspected": true
+    },
+    {
+      "id": "props1207",
+      "title": "BETAFPV Gemfan 1207 3-Blade Propellers (1.0mm Shaft)",
+      "url": "https://betafpv.com/products/gemfan-1207-3-blade-propellers-1-0mm-shaft",
+      "kind": "manufacturer_supplier_product_page"
+    },
+    {
+      "id": "prop_drawing",
+      "title": "GF1207 propeller diameter diagram",
+      "url": "https://cdn.shopify.com/s/files/1/1778/6615/files/GF_1207_3B_Props_diagram.jpg?v=1770017008",
+      "kind": "manufacturer_dimensioned_image",
+      "visually_inspected": true
+    },
+    {
+      "id": "fc_matrixii",
+      "title": "BETAFPV Matrix 1S Brushless Flight Controller (5IN1 II)",
+      "url": "https://betafpv.com/products/matrix-1s-5in1-ii-brushless-flight-controller",
+      "kind": "manufacturer_product_page"
+    },
+    {
+      "id": "fc_top_image",
+      "title": "Matrix 1S 5IN1 II top/front component image",
+      "url": "https://cdn.shopify.com/s/files/1/1778/6615/files/Matrix_1S_5IN1_II_Brushless_Flight_Controller_top_front_gyro_update.jpg?v=1777532692",
+      "kind": "manufacturer_annotated_image",
+      "visually_inspected": true
+    },
+    {
+      "id": "c03",
+      "title": "BETAFPV C03 FPV Camera",
+      "url": "https://betafpv.com/products/c03-fpv-micro-camera",
+      "kind": "manufacturer_product_page"
+    },
+    {
+      "id": "camera_drawing",
+      "title": "C03 FPV Micro Camera V2 dimensional image",
+      "url": "https://cdn.shopify.com/s/files/1/1778/6615/files/C03_FPV_Micro_Camera_V2_diagram.jpg?v=1752743122",
+      "kind": "manufacturer_dimensioned_image",
+      "visually_inspected": true
+    },
+    {
+      "id": "batteryii",
+      "title": "BETAFPV LAVA II 1S Battery",
+      "url": "https://betafpv.com/products/lava-ii-1s-battery",
+      "kind": "manufacturer_product_page"
+    },
+    {
+      "id": "battery_drawing",
+      "title": "LAVA II 1S 280mAh dimensioned image",
+      "url": "https://cdn.shopify.com/s/files/1/1778/6615/files/LAVA_II_1S_280mAh_Battery_dimensions.jpg?v=1763610020",
+      "kind": "manufacturer_dimensioned_image",
+      "visually_inspected": true
+    },
+    {
+      "id": "racing_photo",
+      "title": "Air65 II Racing official assembly product image",
+      "url": "https://betafpv.com/cdn/shop/files/Air65_II_Brushless_Whoop_Quadcopter_Racing.jpg?v=1779348712",
+      "kind": "manufacturer_product_image",
+      "visually_inspected": true,
+      "note": "Highly polished catalog image may be a render or retouched image; not a calibrated metrology photograph."
+    },
+    {
+      "id": "original_air65",
+      "title": "BETAFPV original Air65 product page (variant exclusion only)",
+      "url": "https://betafpv.com/products/air65-brushless-whoop-quadcopter",
+      "kind": "manufacturer_product_page"
+    },
+    {
+      "id": "wisp",
+      "title": "BETAFPV Air65 and Air75 Wisp (variant exclusion only)",
+      "url": "https://betafpv.com/products/air65-air75-wisp-brushless-whoop-quadcopter-limited-edition",
+      "kind": "manufacturer_product_page"
+    },
+    {
+      "id": "appearance_product",
+      "url": "https://betafpv.com/products/air65-ii-brushless-whoop-quadcopter",
+      "owner": "BETAFPV",
+      "type": "manufacturer current product page and gallery"
+    },
+    {
+      "id": "appearance_frame",
+      "url": "https://betafpv.com/products/air65-ii-brushless-whoop-frame",
+      "owner": "BETAFPV",
+      "type": "manufacturer frame gallery and drawing"
+    },
+    {
+      "id": "appearance_canopy",
+      "url": "https://betafpv.com/products/air-ii-canopy",
+      "owner": "BETAFPV",
+      "type": "manufacturer canopy gallery and drawing"
+    },
+    {
+      "id": "appearance_physical",
+      "url": "https://thedronevortex.com/betafpv-air65ii-review/",
+      "owner": "Demetrios / The Drone Vortex",
+      "published_date": "2026-06-02",
+      "type": "firsthand review with physical photographs/video stills; text contains technical mistakes, so used for visual evidence only"
+    },
+    {
+      "id": "blender_cli",
+      "url": "https://docs.blender.org/manual/en/3.6/advanced/command_line/arguments.html",
+      "title": "Blender command-line arguments",
+      "accessed_on": "2026-10-12",
+      "supports": "Background mode, Python script arguments, factory startup and Python exception exit code; exact local command was also tested."
+    },
+    {
+      "id": "blender_api",
+      "url": "https://docs.blender.org/api/current/bpy.types.Mesh.html",
+      "title": "Blender Mesh API",
+      "accessed_on": "2026-10-12",
+      "supports": "Canonical API endpoint; web fetch was unavailable, so Mesh.from_pydata presence was checked directly in the installed Blender runtime."
+    },
+    {
+      "id": "blender_solidify",
+      "url": "https://docs.blender.org/manual/en/5.3/modeling/modifiers/generate/solidify.html",
+      "title": "Blender Solidify modifier",
+      "accessed_on": "2026-10-12",
+      "supports": "Shell thickness functionality and limitation that even thickness is an approximation; 5.3 documentation is not a compatibility claim for the installed 5.2 binary."
+    },
+    {
+      "id": "blender_curves",
+      "url": "https://docs.blender.org/manual/de/4.5/modeling/curves/properties/geometry.html",
+      "title": "Blender 4.5 curve geometry",
+      "accessed_on": "2026-10-12",
+      "supports": "Editable curve bevel, caps and custom cross sections."
+    },
+    {
+      "id": "json_schema",
+      "url": "https://json-schema.org/draft/2020-12",
+      "title": "JSON Schema Draft 2020-12",
+      "accessed_on": "2026-10-12",
+      "supports": "Recommended schema version and validation vocabulary."
+    },
+    {
+      "id": "sverchok",
+      "url": "https://github.com/nortikin/sverchok",
+      "title": "Sverchok project",
+      "accessed_on": "2026-10-12",
+      "supports": "Parametric geometry nodes, mesh data representation and declared GPL-3.0 license."
+    },
+    {
+      "id": "build123d",
+      "url": "https://github.com/gumyr/build123d",
+      "title": "build123d project",
+      "accessed_on": "2026-10-12",
+      "supports": "Python parametric BREP on Open Cascade and declared Apache-2.0 license."
+    },
+    {
+      "id": "terminalskills",
+      "url": "https://github.com/TerminalSkills/skills/blob/main/skills/blender-scripting/SKILL.md",
+      "title": "TerminalSkills Blender scripting skill",
+      "accessed_on": "2026-10-12",
+      "supports": "Public skill for Blender scripting patterns and version caveats."
+    },
+    {
+      "id": "headless_skill",
+      "url": "https://github.com/pinion05/blender-headless-skill",
+      "title": "Blender 4.2 headless skill",
+      "accessed_on": "2026-10-12",
+      "supports": "Public skill and headless feature-test examples; declared CC0 license."
+    },
+    {
+      "id": "air_ii_canopy",
+      "url": "https://betafpv.com/products/air-ii-canopy",
+      "title": "BETAFPV Air II Canopy",
+      "accessed_on": "2026-10-12",
+      "supports": "Revision-specific structural changes, cap vent, support brace and hollow design; no STL link established."
+    },
+    {
+      "id": "air_canopy",
+      "url": "https://betafpv.com/products/air-canopy",
+      "title": "BETAFPV original Air Canopy",
+      "accessed_on": "2026-10-12",
+      "supports": "Original-generation comparison only; no STL link established."
+    },
+    {
+      "id": "lava_ii_280_surface_photo",
+      "url": "https://betafpv.com/cdn/shop/files/LAVA_II_1S_280mAh_Battery_top_view.jpg?v=1763545157",
+      "title": "lava ii 280 surface photo",
+      "source_type": "manufacturer reference photograph",
+      "inspected_at": "2026-10-12",
+      "observations": [
+        "Black cap/BT2.0 connector",
+        "BETAFPV",
+        "280",
+        "95C",
+        "mAh",
+        "LiHV 3.8V 1.06Wh",
+        "LAVA; no II or 1S on visible face"
+      ],
+      "limitations": "high for readable labels and colour; proportions remain photographic estimates"
+    },
+    {
+      "id": "fc_top_surface_photo",
+      "url": "https://betafpv.com/cdn/shop/files/Matrix_1S_5IN1_II_Brushless_Flight_Controller_unsoldered_front.jpg?v=1769154868",
+      "title": "fc top surface photo",
+      "source_type": "manufacturer reference photograph",
+      "inspected_at": "2026-10-12",
+      "observations": [
+        "Physical left print G/T1/R1/5V; four pads",
+        "Physical right print5V/L/GND; three pads",
+        "CAM/GND/5V diagonal pads",
+        "ST, PUYA, R001 readable; smaller codes omitted"
+      ],
+      "limitations": "high for readable spelling/counts; package positions estimated"
+    },
+    {
+      "id": "fc_bottom_surface_diagram",
+      "url": "https://cdn.shopify.com/s/files/1/1778/6615/files/Matrix_1S_5IN1_II_Brushless_Flight_Controller_bottom_front.jpg?v=1769053662",
+      "title": "fc bottom surface diagram",
+      "source_type": "manufacturer reference photograph",
+      "inspected_at": "2026-10-12",
+      "observations": [
+        "Solder-free board with motor sockets",
+        "Matrix 5IN1",
+        "V2.1",
+        "Central AT7456E package and forward VTX square",
+        "Four controller regions and eight discrete outer power package outlines visible"
+      ],
+      "limitations": "high for visible physical print and main package presence; no dimensional calibration"
+    },
+    {
+      "id": "fc_bottom_surface_photo",
+      "url": "https://betafpv.com/cdn/shop/files/Matrix_1S_5IN1_II_Brushless_Flight_Controller_unsoldered_back.jpg?v=1769154868",
+      "title": "fc bottom surface photo",
+      "source_type": "manufacturer reference photograph",
+      "inspected_at": "2026-10-12",
+      "observations": [
+        "Unobstructed underside package layout",
+        "Visible V2.0 sample differs from V2.1 solder-free diagram; no V2.0 print copied to selected variant"
+      ],
+      "limitations": "medium for geometry layout due variant/version difference; not exact installed specimen"
+    }
+  ],
+  "unknowns": [
+    {
+      "quantity": "Complete aircraft envelope and total antenna height",
+      "status": "not_published_in_reviewed_sources",
+      "action": "Estimate from selected reference views, with uncertainty; do not use frame-only envelope as overall craft dimensions."
+    },
+    {
+      "quantity": "Frame-to-PCB mount pitch discrepancy 25.5 versus 26 mm",
+      "status": "conflicting_manufacturer_nominals",
+      "action": "Record both and choose an explicit assembly accommodation. Flexible grommets are a plausible explanation, not a manufacturer dimensional tolerance."
+    },
+    {
+      "quantity": "Exact frame wall thickness, basket ribs, fillets and mounting-plane z positions",
+      "status": "not_dimensioned",
+      "action": "Trace/reference-scale manufacturer plan and side drawing; retain estimate labels."
+    },
+    {
+      "quantity": "Canopy assembled 3D coordinates, bend curvature, strip thickness and total height",
+      "status": "not_dimensioned",
+      "action": "Constrain aperture to 10.2 mm, mount to common architecture, then fit to reference images."
+    },
+    {
+      "quantity": "FC outline, lug bore diameters and component heights",
+      "status": "not_dimensioned",
+      "action": "Scale official orthogonal photograph by nominal mount pattern; call resulting dimensions image-derived."
+    },
+    {
+      "quantity": "Motor bell/stator subpart heights, vents and lower axle protrusion",
+      "status": "not_dimensioned",
+      "action": "Use published outer size and image-derived subdivision."
+    },
+    {
+      "quantity": "Propeller exact blade surface",
+      "status": "not_dimensioned",
+      "action": "Use stated diameter, maximum width, hub thickness and pitch; infer planform/twist. Shape is not aerodynamically certified."
+    },
+    {
+      "quantity": "Antenna sleeve length, diameter and cable routing",
+      "status": "not_dimensioned",
+      "action": "Use Racing imagery, not Champion whip antenna."
+    },
+    {
+      "quantity": "C03 version in every production batch",
+      "status": "not_explicitly_version_locked",
+      "action": "Current linked C03 V2 diagram is appropriate for current Air65 II; report this choice explicitly."
+    }
+  ],
+  "validation": {
+    "dimensional": "Source nominal conformance for frame, centers, clearances, motors, prop sweep, camera and battery. Unknown manufacturing tolerances stay null.",
+    "visual": {
+      "required_comparisons": [
+        "Frame-only top orthographic vs air65_ii_frame_black_top and diagram",
+        "Frame side orthographic vs dimension drawing and frame_details lower-right",
+        "Whole assembly front oblique vs photo_racing_oblique and manufacturer racing image",
+        "Low front/side silhouette vs photo_variants_low_front middle craft",
+        "Canopy side vs LEFT panel air_ii_canopy_side",
+        "Underside with battery vs air65_ii_racing_underside"
+      ],
+      "report_limits": [
+        "No true calibrated whole-craft top/front/side photograph set found.",
+        "Manufacturer gallery may use CAD renders/retouching; do not claim independent physical measurements from those images.",
+        "Physical review camera angle, lens distortion, camera lens intrinsics and exact sample variant date are unknown.",
+        "Physical sample accent colors differ from current gallery.",
+        "Image matching supports visual accuracy; no caliper or original CAD ground truth was available."
+      ]
+    },
+    "repeatability": "Compare regenerated evaluated mesh-coordinate fingerprints under the same Blender build; no claim of byte-identical blend files or cross-device pixels."
+  }
+}

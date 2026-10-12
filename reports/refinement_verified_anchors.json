@@ -1,0 +1,376 @@
+{
+  "status": "pass",
+  "count": 35,
+  "checks": [
+    {
+      "parameter": "wheelbase",
+      "before": 65,
+      "after": 65,
+      "unit": "mm",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "frame_span_x",
+      "before": 82.6,
+      "after": 82.6,
+      "unit": "mm",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "frame_span_y",
+      "before": 82.6,
+      "after": 82.6,
+      "unit": "mm",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "frame_height",
+      "before": 15.1,
+      "after": 15.1,
+      "unit": "mm",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "duct_inner_diameter",
+      "before": 33,
+      "after": 33,
+      "unit": "mm",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "duct_band_height",
+      "before": 3.8,
+      "after": 3.8,
+      "unit": "mm",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "motor_mount_pcd",
+      "before": 6.6,
+      "after": 6.6,
+      "unit": "mm",
+      "source_ids": [
+        "frame_drawing",
+        "motors2026"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "motor_mount_bore_diameter",
+      "before": 1.4,
+      "after": 1.4,
+      "unit": "mm",
+      "source_ids": [
+        "frame_drawing",
+        "motors2026"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "motor_pad_center_bore_diameter",
+      "before": 4,
+      "after": 4,
+      "unit": "mm",
+      "source_ids": [
+        "frame_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "frame_mount_pitch",
+      "before": 25.5,
+      "after": 25.5,
+      "unit": "mm",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "frame_mount_pilot_diameter",
+      "before": 1.2,
+      "after": 1.2,
+      "unit": "mm",
+      "source_ids": [
+        "frameii"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "motor_body_diameter",
+      "before": 9,
+      "after": 9,
+      "unit": "mm",
+      "source_ids": [
+        "motor_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "motor_body_height",
+      "before": 8.55,
+      "after": 8.55,
+      "unit": "mm",
+      "source_ids": [
+        "motor_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "motor_shaft_diameter",
+      "before": 1,
+      "after": 1,
+      "unit": "mm",
+      "source_ids": [
+        "motor_drawing",
+        "motors2026"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "motor_shaft_extension",
+      "before": 3.4,
+      "after": 3.4,
+      "unit": "mm",
+      "source_ids": [
+        "motor_drawing",
+        "motors2026"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "motor_wire_length",
+      "before": 35,
+      "after": 35,
+      "unit": "mm",
+      "source_ids": [
+        "motor_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "prop_diameter",
+      "before": 31,
+      "after": 31,
+      "unit": "mm",
+      "source_ids": [
+        "props1207",
+        "prop_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "prop_hub_thickness",
+      "before": 3.3,
+      "after": 3.3,
+      "unit": "mm",
+      "source_ids": [
+        "props1207"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "prop_shaft_bore_diameter",
+      "before": 1,
+      "after": 1,
+      "unit": "mm",
+      "source_ids": [
+        "props1207"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "prop_max_chord",
+      "before": 6.8,
+      "after": 6.8,
+      "unit": "mm",
+      "source_ids": [
+        "props1207"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "fc_mount_pitch",
+      "before": 26,
+      "after": 26,
+      "unit": "mm",
+      "source_ids": [
+        "fc_matrixii"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "fc_board_thickness",
+      "before": 1,
+      "after": 1,
+      "unit": "mm",
+      "source_ids": [
+        "fc_matrixii"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "canopy_front_bore_diameter",
+      "before": 1.5,
+      "after": 1.5,
+      "unit": "mm",
+      "source_ids": [
+        "canopy_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "canopy_clamp_cross_bore_diameter",
+      "before": 1.1,
+      "after": 1.1,
+      "unit": "mm",
+      "source_ids": [
+        "canopy_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "canopy_clamp_inner_diameter",
+      "before": 10.2,
+      "after": 10.2,
+      "unit": "mm",
+      "source_ids": [
+        "canopy_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "canopy_antenna_aperture_width",
+      "before": 4.9,
+      "after": 4.9,
+      "unit": "mm",
+      "source_ids": [
+        "canopy_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "camera_pcb_width",
+      "before": 11,
+      "after": 11,
+      "unit": "mm",
+      "source_ids": [
+        "c03",
+        "camera_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "camera_pcb_height",
+      "before": 14,
+      "after": 14,
+      "unit": "mm",
+      "source_ids": [
+        "c03",
+        "camera_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "camera_depth",
+      "before": 15,
+      "after": 15,
+      "unit": "mm",
+      "source_ids": [
+        "c03",
+        "camera_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "camera_lens_diameter",
+      "before": 10,
+      "after": 10,
+      "unit": "mm",
+      "source_ids": [
+        "camera_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "battery_slot_inner_width",
+      "before": 11.4,
+      "after": 11.4,
+      "unit": "mm",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "battery_slot_inner_height",
+      "before": 6.2,
+      "after": 6.2,
+      "unit": "mm",
+      "source_ids": [
+        "frameii",
+        "frame_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "battery_length",
+      "before": 54,
+      "after": 54,
+      "unit": "mm",
+      "source_ids": [
+        "batteryii",
+        "battery_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "battery_width",
+      "before": 10,
+      "after": 10,
+      "unit": "mm",
+      "source_ids": [
+        "batteryii",
+        "battery_drawing"
+      ],
+      "unchanged": true
+    },
+    {
+      "parameter": "battery_height",
+      "before": 6,
+      "after": 6,
+      "unit": "mm",
+      "source_ids": [
+        "batteryii",
+        "battery_drawing"
+      ],
+      "unchanged": true
+    }
+  ]
+}

@@ -1,0 +1,371 @@
+{
+  "research_version": "1.0",
+  "target": "BETAFPV Air65 II",
+  "recommended_coherent_variant": "Racing, standard Air65 II frame, current manufacturer gallery configuration",
+  "captured_date": "2026-10-12",
+  "authority_note": "Research observations and tentative ratios only. Main integrator/spatial architect must establish all canonical dimensions. This file must not override their shared specification.",
+  "sources": [
+    {
+      "id": "appearance_product",
+      "url": "https://betafpv.com/products/air65-ii-brushless-whoop-quadcopter",
+      "owner": "BETAFPV",
+      "type": "manufacturer current product page and gallery"
+    },
+    {
+      "id": "appearance_frame",
+      "url": "https://betafpv.com/products/air65-ii-brushless-whoop-frame",
+      "owner": "BETAFPV",
+      "type": "manufacturer frame gallery and drawing"
+    },
+    {
+      "id": "appearance_canopy",
+      "url": "https://betafpv.com/products/air-ii-canopy",
+      "owner": "BETAFPV",
+      "type": "manufacturer canopy gallery and drawing"
+    },
+    {
+      "id": "appearance_physical",
+      "url": "https://thedronevortex.com/betafpv-air65ii-review/",
+      "owner": "Demetrios / The Drone Vortex",
+      "published_date": "2026-06-02",
+      "type": "firsthand review with physical photographs/video stills; text contains technical mistakes, so used for visual evidence only"
+    }
+  ],
+  "reference_manifest": "references/manifest.json",
+  "variant_control": {
+    "racing": {
+      "frame": "translucent lavender/purple standard II",
+      "canopy": "translucent milky white Air II",
+      "propellers": "clear GF1207 three-blade",
+      "motors": "silver bell with purple upper spokes in current manufacturer gallery",
+      "antenna": "long black heatshrink-covered copper-tube antenna rising aft of canopy",
+      "reference": "air65_ii_racing_oblique"
+    },
+    "physical_sample_difference": "June 2026 review Racing specimen has turquoise motor accents instead of purple; keep geometry shared, record this color difference rather than silently mixing eras.",
+    "excluded_mixing": [
+      "Original Air65 uses different frame/canopy and is excluded.",
+      "Champion uses a lighter different 3-spoke frame and thin whip antenna; do not copy into Racing.",
+      "Freestyle shares standard frame/canopy but uses GF1219S props and turquoise frame; use physical side photo only for shared structure."
+    ]
+  },
+  "visual_observations": [
+    {
+      "component": "frame",
+      "finding": "Four separate round low duct rims arranged in a square, with a narrow open central area. Adjacent rims do not overlap. Four bowed radial braces descend from each ring to a low triangular motor pad. Braces are not coplanar with ring or motor.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air65_ii_frame_black_top",
+        "air65_ii_frame_details",
+        "photo_variants_low_front"
+      ]
+    },
+    {
+      "component": "frame",
+      "finding": "Each motor pad has a central shaft clearance hole and three smaller bolt holes. Three local raised retaining/screw guards surround bolt locations. Four brace attachment directions per duct are irregularly spaced and mirrored across vehicle axes.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air65_ii_frame_black_top",
+        "air65_ii_frame_details"
+      ]
+    },
+    {
+      "component": "frame",
+      "finding": "Connecting structure includes two narrow front/rear bridges with small outward triangular nose/tail markers, two curved lateral connecting braces and four cardinal mounting bosses around the battery cradle. Large negative spaces are essential.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air65_ii_frame_black_top",
+        "air65_ii_racing_underside"
+      ]
+    },
+    {
+      "component": "canopy",
+      "finding": "Very open flexible skeleton. Camera collar with short protective upper lip and an opening above lens; front central mounting tongue; two long slender side legs; narrow rear perforated strip bends into arch when installed. Exposed camera PCB and electronics remain visible through large side openings.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air_ii_canopy_black",
+        "air_ii_canopy_diagram",
+        "air_ii_canopy_side",
+        "photo_racing_oblique",
+        "photo_freestyle_side_oblique"
+      ]
+    },
+    {
+      "component": "camera",
+      "finding": "Large black circular lens housing in milky collar, smaller recessed green/blue reflective optical element, dark rectangular PCB directly behind lens tilted back from vertical. Optical axis points forward and upward. Do not model as a sphere.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "photo_racing_oblique",
+        "photo_freestyle_side_oblique",
+        "air65_ii_racing_oblique"
+      ]
+    },
+    {
+      "component": "propellers",
+      "finding": "Three clear low-pitch blades per motor, 120 degrees apart, broad curved paddle/swept profiles with rounded tips and narrow roots. Raised cylindrical hub has central shaft opening. Curvature/twist changes which blades appear edge-on.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air65_ii_racing_propulsion",
+        "photo_racing_oblique"
+      ]
+    },
+    {
+      "component": "motors",
+      "finding": "Short silver cylindrical bells, exposed colored top spokes and copper windings, black lower mounting region. Three black wires leave each motor as a parallel bundle and terminate at small white plugs under board perimeter.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air65_ii_racing_propulsion",
+        "air65_ii_racing_underside",
+        "photo_racing_oblique"
+      ]
+    },
+    {
+      "component": "electronics",
+      "finding": "Black PCB is an elevated thin square/diamond relative to motor grid, with green/gold edge, tiny flat black chips, silver/gold pads and white motor connectors. Camera is prominent and central-front, board extends visibly behind and to sides. Red/yellow/black camera wires are flexible, with a red diagonal lead over board in manufacturer view.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air65_ii_racing_oblique",
+        "air65_ii_racing_underside",
+        "photo_freestyle_side_oblique"
+      ]
+    },
+    {
+      "component": "battery",
+      "finding": "Optional long narrow rectangular LAVA II pack sits lengthwise under center inside integrated two-loop plastic cradle; label green/yellow/black, silver side foil, black end cap and white BT2.0 connector. Battery is absent from main top product view, present in underside reference.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air65_ii_racing_underside"
+      ]
+    },
+    {
+      "component": "antenna",
+      "finding": "Prominent black straight tubular top with a wider tapered heatshrink base, supported in rear canopy opening and angled upward/backward; this is substantially thicker than Champion whip. White/blue battery U-pigtail also visible near rear board edge.",
+      "status": "observed",
+      "confidence": "high",
+      "references": [
+        "air65_ii_racing_oblique",
+        "photo_racing_oblique",
+        "air65_ii_racing_underside"
+      ]
+    }
+  ],
+  "proportion_estimates": [
+    {
+      "id": "frame_outer_duct_to_span",
+      "quantity": "duct outer diameter / complete frame width",
+      "value": 0.442,
+      "uncertainty_abs": 0.005,
+      "unit": "ratio",
+      "status": "image estimate",
+      "confidence": "high",
+      "reference": "air65_ii_frame_black_top",
+      "method": "Manual pixel landmarks: full span about811 px, one outer duct about358-360 px. Near-plan product view, no camera calibration."
+    },
+    {
+      "id": "adjacent_motor_spacing_to_span",
+      "quantity": "adjacent motor center distance / complete frame width",
+      "value": 0.553,
+      "uncertainty_abs": 0.004,
+      "unit": "ratio",
+      "status": "image estimate",
+      "confidence": "high",
+      "reference": "air65_ii_frame_black_top",
+      "method": "About449 px center spacing /811 px frame width; cross-check only, canonical spacing derives from wheelbase."
+    },
+    {
+      "id": "clear_duct_to_span",
+      "quantity": "clear duct diameter / complete frame width",
+      "value": 0.398,
+      "uncertainty_abs": 0.006,
+      "unit": "ratio",
+      "status": "image estimate",
+      "confidence": "medium",
+      "reference": "air65_ii_frame_black_top",
+      "method": "About323 px inside ring /811 px frame span; dark rim highlights make exact edge uncertain."
+    },
+    {
+      "id": "lens_to_clear_duct",
+      "quantity": "lens barrel diameter / clear duct diameter",
+      "value": 0.303,
+      "uncertainty_abs": 0.025,
+      "unit": "ratio",
+      "status": "visual cross-check, nominal dimensions elsewhere",
+      "confidence": "medium",
+      "references": [
+        "air65_ii_racing_oblique",
+        "photo_racing_oblique"
+      ],
+      "method": "10 mm C03 lens and33 mm clear duct reported by manufacturer; visual obliquity prevents precision optical measurement."
+    },
+    {
+      "id": "canopy_arch_to_mount_span",
+      "quantity": "mounted canopy arch height above screw plane / front-to-rear mounting span",
+      "value": 0.62,
+      "uncertainty_abs": 0.07,
+      "unit": "ratio",
+      "status": "image estimate",
+      "confidence": "medium",
+      "reference": "air_ii_canopy_side",
+      "method": "LEFT Air II panel only, approximate top341 px and screw648 px; fore-aft mount baseline about490 px. Flexible canopy height changes with selected camera-angle hole."
+    },
+    {
+      "id": "lens_center_to_mount_span",
+      "quantity": "lens center height above screw plane / front-to-rear mounting span",
+      "value": 0.42,
+      "uncertainty_abs": 0.07,
+      "unit": "ratio",
+      "status": "image estimate",
+      "confidence": "medium",
+      "reference": "air_ii_canopy_side",
+      "method": "LEFT Air II panel only; approximate lenscenter440 px, screwplane648 px, mountspan490 px. Avoid treating marketing perspective as CAD."
+    },
+    {
+      "id": "camera_angle",
+      "quantity": "photographed camera optical elevation",
+      "value": 25,
+      "uncertainty_abs": 10,
+      "unit": "degree",
+      "status": "estimate; use selected official15/25/35/45 setting in shared spec",
+      "confidence": "low",
+      "references": [
+        "air_ii_canopy_side",
+        "air65_ii_racing_oblique",
+        "photo_freestyle_side_oblique"
+      ],
+      "method": "Camera axis estimated from PCB/lens side orientation. No exact camera calibration or confirmed adjustment hole for photographs."
+    },
+    {
+      "id": "canopy_side_brace_width",
+      "quantity": "slender side leg width / lens collar opening diameter",
+      "value": 0.15,
+      "uncertainty_abs": 0.05,
+      "unit": "ratio",
+      "status": "image estimate",
+      "confidence": "medium",
+      "references": [
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ],
+      "method": "Visual near-plan strip width away from widened mounting feet."
+    }
+  ],
+  "reference_landmarks": {
+    "image": "air65_ii_frame_black_top",
+    "pixel_size": [
+      1080,
+      1080
+    ],
+    "approximate_frame_bounds_px": [
+      135,
+      135,
+      946,
+      946
+    ],
+    "motor_centers_px": [
+      [
+        318,
+        318
+      ],
+      [
+        766,
+        318
+      ],
+      [
+        318,
+        765
+      ],
+      [
+        766,
+        765
+      ]
+    ],
+    "top_left_duct_arm_ring_attachment_px": [
+      [
+        319,
+        151
+      ],
+      [
+        177,
+        228
+      ],
+      [
+        469,
+        361
+      ],
+      [
+        263,
+        477
+      ]
+    ],
+    "mount_boss_centers_px": [
+      [
+        540,
+        363
+      ],
+      [
+        363,
+        539
+      ],
+      [
+        716,
+        539
+      ],
+      [
+        540,
+        715
+      ]
+    ],
+    "meaning": "Pixel-space tracing hints only; top of image does not establish canonical forward axis. Features are approximately mirrored. Do not mistake photographic pixels for verified dimensions."
+  },
+  "modelling_priorities": [
+    {
+      "rank": 1,
+      "task": "Lock square motor centers, circular rims, total frame outline and prop clearance against dimension drawing; compare top silhouettes before cosmetic detail."
+    },
+    {
+      "rank": 2,
+      "task": "Reproduce low upper duct rim and deep downward bowed support arms with4 per duct, triangular pads, central narrow cradle and open negative spaces."
+    },
+    {
+      "rank": 3,
+      "task": "Reproduce skeletal canopy, lens diameter/pose, high exposed camera PCB and antenna direction; never use a closed generic bubble."
+    },
+    {
+      "rank": 4,
+      "task": "Match short motor can height, raised prop hubs and broad swept three-blade outlines, with alternating handedness."
+    },
+    {
+      "rank": 5,
+      "task": "Match board layering, grommets, cable bundles, connectors and optional battery fit; detailed chip markings come later."
+    },
+    {
+      "rank": 6,
+      "task": "Tune translucent lavender and white PP, clear props, metal roughness and optical tint using real photographs; manufacturer image whites are heavily studio-lit."
+    }
+  ],
+  "validation_guidance": {
+    "required_comparisons": [
+      "Frame-only top orthographic vs air65_ii_frame_black_top and diagram",
+      "Frame side orthographic vs dimension drawing and frame_details lower-right",
+      "Whole assembly front oblique vs photo_racing_oblique and manufacturer racing image",
+      "Low front/side silhouette vs photo_variants_low_front middle craft",
+      "Canopy side vs LEFT panel air_ii_canopy_side",
+      "Underside with battery vs air65_ii_racing_underside"
+    ],
+    "report_limits": [
+      "No true calibrated whole-craft top/front/side photograph set found.",
+      "Manufacturer gallery may use CAD renders/retouching; do not claim independent physical measurements from those images.",
+      "Physical review camera angle, lens distortion, camera lens intrinsics and exact sample variant date are unknown.",
+      "Physical sample accent colors differ from current gallery.",
+      "Image matching supports visual accuracy; no caliper or original CAD ground truth was available."
+    ]
+  }
+}

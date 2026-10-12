@@ -1,0 +1,344 @@
+{
+  "frame_lavender": {
+    "base_color": [
+      0.52,
+      0.18,
+      0.61,
+      1
+    ],
+    "roughness": 0.36,
+    "transmission": 0.32,
+    "ior": 1.49,
+    "coat": 0.11,
+    "note": "Photographic refinement: slightly warmer violet, diffuse milky body and restrained surface gloss. Optical values remain estimates; same studio illumination as baseline."
+  },
+  "canopy_white": {
+    "base_color": [
+      0.86,
+      0.87,
+      0.86,
+      1
+    ],
+    "roughness": 0.26,
+    "transmission": 0.46,
+    "ior": 1.49,
+    "coat": 0.1,
+    "note": "Thin milky canopy from Air II macro and physical review; transmission/roughness estimated, not a measured optical material."
+  },
+  "prop_clear": {
+    "base_color": [
+      0.92,
+      0.96,
+      1,
+      1
+    ],
+    "roughness": 0.115,
+    "transmission": 0.84,
+    "ior": 1.49,
+    "coat": 0.18,
+    "note": "Reference-based compromise between clear substrate and readable molded blade reflection. Optical estimate; response must be checked in Blender and Three.js."
+  },
+  "motor_silver": {
+    "base_color": [
+      0.65,
+      0.67,
+      0.7,
+      1
+    ],
+    "roughness": 0.2,
+    "metallic": 0.96,
+    "note": "Silver motor bell reflection estimated from current Racing imagery; purple crown remains selected manufacturer variant."
+  },
+  "motor_purple": {
+    "base_color": [
+      0.28,
+      0.04,
+      0.56,
+      1
+    ],
+    "roughness": 0.25,
+    "metallic": 0.7,
+    "note": "Current manufacturer Racing accent, not the turquoise accent on the physical review sample."
+  },
+  "copper": {
+    "base_color": [
+      0.46,
+      0.125,
+      0.035,
+      1
+    ],
+    "roughness": 0.3,
+    "metallic": 0.88,
+    "note": "Estimated darker enamelled copper winding response; no new winding geometry."
+  },
+  "steel": {
+    "base_color": [
+      0.5,
+      0.54,
+      0.59,
+      1
+    ],
+    "roughness": 0.23,
+    "metallic": 0.95
+  },
+  "screw_black": {
+    "base_color": [
+      0.016,
+      0.02,
+      0.025,
+      1
+    ],
+    "roughness": 0.28,
+    "metallic": 0.65
+  },
+  "rubber_black": {
+    "base_color": [
+      0.009,
+      0.012,
+      0.016,
+      1
+    ],
+    "roughness": 0.53
+  },
+  "pcb_black": {
+    "base_color": [
+      0.012,
+      0.019,
+      0.018,
+      1
+    ],
+    "roughness": 0.43
+  },
+  "pcb_edge": {
+    "base_color": [
+      0.2,
+      0.25,
+      0.075,
+      1
+    ],
+    "roughness": 0.48
+  },
+  "chip_black": {
+    "base_color": [
+      0.021,
+      0.026,
+      0.031,
+      1
+    ],
+    "roughness": 0.58
+  },
+  "gold": {
+    "base_color": [
+      0.8,
+      0.54,
+      0.14,
+      1
+    ],
+    "roughness": 0.29,
+    "metallic": 0.8
+  },
+  "solder": {
+    "base_color": [
+      0.53,
+      0.57,
+      0.61,
+      1
+    ],
+    "roughness": 0.27,
+    "metallic": 0.91
+  },
+  "ceramic_tan": {
+    "base_color": [
+      0.42,
+      0.33,
+      0.19,
+      1
+    ],
+    "roughness": 0.66
+  },
+  "connector_white": {
+    "base_color": [
+      0.82,
+      0.84,
+      0.8,
+      1
+    ],
+    "roughness": 0.46
+  },
+  "wire_red": {
+    "base_color": [
+      0.55,
+      0.015,
+      0.026,
+      1
+    ],
+    "roughness": 0.37
+  },
+  "wire_yellow": {
+    "base_color": [
+      0.78,
+      0.52,
+      0.015,
+      1
+    ],
+    "roughness": 0.4
+  },
+  "wire_blue": {
+    "base_color": [
+      0.025,
+      0.16,
+      0.55,
+      1
+    ],
+    "roughness": 0.37
+  },
+  "wire_black": {
+    "base_color": [
+      0.006,
+      0.008,
+      0.01,
+      1
+    ],
+    "roughness": 0.37
+  },
+  "lens_black": {
+    "base_color": [
+      0.008,
+      0.012,
+      0.016,
+      1
+    ],
+    "roughness": 0.25,
+    "coat": 0.3
+  },
+  "lens_glass": {
+    "base_color": [
+      0.012,
+      0.07,
+      0.033,
+      1
+    ],
+    "roughness": 0.035,
+    "metallic": 0,
+    "transmission": 0.82,
+    "ior": 1.52,
+    "coat": 0.5,
+    "note": "Green optical coating estimated from actual C03 V2 photographs; not a simulated multi-element lens."
+  },
+  "lens_coating": {
+    "base_color": [
+      0.017,
+      0.056,
+      0.028,
+      1
+    ],
+    "roughness": 0.17,
+    "metallic": 0.16,
+    "coat": 0.5,
+    "note": "Estimated green coating beneath the lens surface; exposure and lights retained for comparable renders."
+  },
+  "silkscreen": {
+    "base_color": [
+      0.8,
+      0.83,
+      0.79,
+      1
+    ],
+    "roughness": 0.7
+  },
+  "battery_foil": {
+    "base_color": [
+      0.58,
+      0.6,
+      0.61,
+      1
+    ],
+    "roughness": 0.31,
+    "metallic": 0.85
+  },
+  "battery_green": {
+    "base_color": [
+      0.36,
+      0.75,
+      0.015,
+      1
+    ],
+    "roughness": 0.35
+  },
+  "battery_yellow": {
+    "base_color": [
+      0.9,
+      0.81,
+      0.025,
+      1
+    ],
+    "roughness": 0.4
+  },
+  "fc_top_print": {
+    "base_color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "base_color_texture": "assets/textures/fc_top.png",
+    "roughness": 0.56,
+    "note": "Authored Matrix II top silkscreen and pad markings; readable labels sourced, print placement and optical response estimated."
+  },
+  "fc_bottom_print": {
+    "base_color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "base_color_texture": "assets/textures/fc_bottom.png",
+    "roughness": 0.56,
+    "note": "Authored Matrix II underside silkscreen from own component references; no manufacturer photograph used as texture."
+  },
+  "chip_markings_print": {
+    "base_color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "base_color_texture": "assets/textures/chip_markings.png",
+    "roughness": 0.63,
+    "note": "Authored readable chip legends only; lettering scale and package response estimated."
+  },
+  "battery_sleeve": {
+    "base_color": [
+      0.015,
+      0.018,
+      0.016,
+      1
+    ],
+    "roughness": 0.35,
+    "coat": 0.08,
+    "note": "Black shrink-wrapped LAVA II pouch and black BT2.0 connector, from selected 280mAh reference. Optical estimates."
+  },
+  "battery_wrapper_print": {
+    "base_color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "base_color_texture": "assets/textures/battery_280_wrapper.png",
+    "roughness": 0.4,
+    "coat": 0.12,
+    "note": "Own deterministic redraw of legible LAVA II280 label; exact typeface and motif layout estimated."
+  },
+  "battery_cap_print": {
+    "base_color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "base_color_texture": "assets/textures/battery_cap.png",
+    "roughness": 0.62,
+    "note": "Green BETAFPV legend on black LAVA II cap from selected280 reference; own printed texture."
+  }
+}

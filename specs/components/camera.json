@@ -1,0 +1,2795 @@
+{
+  "schema_version": "1.0",
+  "id": "camera",
+  "contract": "air65-ii-racing-v1",
+  "description": "C03 V2 camera with dimensioned 11 x 14 mm tabbed PCB, 15 mm optical-axis depth, 10 mm lens, exposed components and recessed optical elements.",
+  "provenance": [
+    {
+      "feature": "PCB width, total height, lens OD and depth",
+      "status": "verified",
+      "source_ids": [
+        "c03",
+        "camera_drawing"
+      ],
+      "confidence": "high",
+      "note": "References the published 11 x 14 mm PCB, 10 mm lens OD and 15 mm PCB-reference-to-lens-front depth. Lens front is exactly on the architecture anchor; rotation maps local cylinder Z onto +Y/up at the selected 25 degree tilt."
+    },
+    {
+      "feature": "installed pose",
+      "status": "derived",
+      "source_ids": [
+        "air_ii_canopy_side",
+        "photo_racing_oblique"
+      ],
+      "confidence": "medium",
+      "note": "Camera front and PCB centers are the frozen shared anchors. The selected documented 25 degree canopy setting is an assembly estimate, not an independently measured stock pose."
+    },
+    {
+      "feature": "PCB outline and package layout",
+      "status": "estimated",
+      "source_ids": [
+        "camera_drawing",
+        "photo_racing_oblique"
+      ],
+      "confidence": "medium",
+      "note": "Lower connection tab and exposed edge passives follow the C03 V2 photograph. Corner cuts, 0.8 mm board thickness and all package dimensions are estimates."
+    },
+    {
+      "feature": "lens optical and mechanical detail",
+      "status": "simplified",
+      "source_ids": [
+        "camera_drawing",
+        "photo_racing_oblique"
+      ],
+      "confidence": "medium",
+      "note": "Stepped barrel, focus rings, black recessed cup and green/coated small lens elements reproduce visible structure. No optical prescription, thread standard or hidden sensor geometry is claimed."
+    },
+    {
+      "feature": "Recessed optical appearance revisionVR-05",
+      "status": "estimated",
+      "source_ids": [
+        "camera_drawing",
+        "photo_racing_oblique"
+      ],
+      "confidence": "medium",
+      "note": "Main integrator replaced the flat green face treatment with a smaller convex glass element and darker recessed pupil/coating. Published10mm barrel and15mm depth unchanged; optical dimensions and tint remain unmeasured."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "c03_shaped_pcb_substrate",
+      "op": "polygon_extrude",
+      "material": "pcb_edge",
+      "args": {
+        "outline": [
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": -0.5
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.4357142857
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": -0.2
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.4357142857
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": -0.2
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.5
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": 0.2
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.5
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": 0.2
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.4357142857
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": 0.5
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.4357142857
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": 0.5
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": 0.5
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": -0.5
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": 0.5
+            }
+          ]
+        ],
+        "depth": {
+          "param": "camera_pcb_thickness"
+        }
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_pcb_center_y"
+          },
+          {
+            "param": "camera_pcb_center_z"
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": 90
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.06
+      },
+      "notes": "The full 11 x 14 mm outline includes the lower connection tab. PCB thickness is estimated at 0.8 mm."
+    },
+    {
+      "id": "c03_pcb_mask_rear",
+      "op": "polygon_extrude",
+      "material": "pcb_black",
+      "args": {
+        "outline": [
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": -0.5
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.4357142857
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": -0.2
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.4357142857
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": -0.2
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.5
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": 0.2
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.5
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": 0.2
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.4357142857
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": 0.5
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.4357142857
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": 0.5
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": 0.5
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": -0.5
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": 0.5
+            }
+          ]
+        ],
+        "depth": 0.016
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -0.37067988
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -0.17285087
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": 90
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "c03_pcb_mask_front",
+      "op": "polygon_extrude",
+      "material": "pcb_black",
+      "args": {
+        "outline": [
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": -0.5
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.4357142857
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": -0.2
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.4357142857
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": -0.2
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.5
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": 0.2
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.5
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": 0.2
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.4357142857
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": 0.5
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": -0.4357142857
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": 0.5
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": 0.5
+            }
+          ],
+          [
+            {
+              "param": "camera_pcb_width",
+              "scale": -0.5
+            },
+            {
+              "param": "camera_pcb_height",
+              "scale": 0.5
+            }
+          ]
+        ],
+        "depth": 0.016
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 0.37067988
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 0.17285087
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": 90
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "sensor_mount",
+      "op": "box",
+      "material": "lens_black",
+      "args": {
+        "size": [
+          8.15,
+          3.9,
+          8.0
+        ]
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 2.17513869
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 1.01428383
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.22
+      }
+    },
+    {
+      "id": "barrel_rear_shoulder",
+      "op": "cylinder",
+      "material": "lens_black",
+      "args": {
+        "radius": 3.85,
+        "depth": 2.4,
+        "segments": 72
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -8.79118553
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -4.09939714
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.15
+      },
+      "smooth": true
+    },
+    {
+      "id": "barrel_thread_core",
+      "op": "cylinder",
+      "material": "lens_black",
+      "args": {
+        "radius": 3.35,
+        "depth": 4.2,
+        "segments": 72
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -5.84568523
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -2.72588779
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "smooth": true
+    },
+    {
+      "id": "focus_thread_0",
+      "op": "annulus",
+      "material": "lens_black",
+      "args": {
+        "inner_radius": 3.3,
+        "outer_radius": 3.53,
+        "depth": 0.18,
+        "segments": 72
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -7.52235463
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -3.50773157
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      },
+      "smooth": true,
+      "notes": "Estimated visible focusing thread ridges; pitch is not mechanically certified."
+    },
+    {
+      "id": "focus_thread_1",
+      "op": "annulus",
+      "material": "lens_black",
+      "args": {
+        "inner_radius": 3.3,
+        "outer_radius": 3.53,
+        "depth": 0.18,
+        "segments": 72
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -7.19608383
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -3.355589
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      },
+      "smooth": true,
+      "notes": "Estimated visible focusing thread ridges; pitch is not mechanically certified."
+    },
+    {
+      "id": "focus_thread_2",
+      "op": "annulus",
+      "material": "lens_black",
+      "args": {
+        "inner_radius": 3.3,
+        "outer_radius": 3.53,
+        "depth": 0.18,
+        "segments": 72
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -6.86981303
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -3.20344642
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      },
+      "smooth": true,
+      "notes": "Estimated visible focusing thread ridges; pitch is not mechanically certified."
+    },
+    {
+      "id": "focus_thread_3",
+      "op": "annulus",
+      "material": "lens_black",
+      "args": {
+        "inner_radius": 3.3,
+        "outer_radius": 3.53,
+        "depth": 0.18,
+        "segments": 72
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -6.54354222
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -3.05130385
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      },
+      "smooth": true,
+      "notes": "Estimated visible focusing thread ridges; pitch is not mechanically certified."
+    },
+    {
+      "id": "focus_thread_4",
+      "op": "annulus",
+      "material": "lens_black",
+      "args": {
+        "inner_radius": 3.3,
+        "outer_radius": 3.53,
+        "depth": 0.18,
+        "segments": 72
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -6.21727142
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -2.89916128
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      },
+      "smooth": true,
+      "notes": "Estimated visible focusing thread ridges; pitch is not mechanically certified."
+    },
+    {
+      "id": "focus_thread_5",
+      "op": "annulus",
+      "material": "lens_black",
+      "args": {
+        "inner_radius": 3.3,
+        "outer_radius": 3.53,
+        "depth": 0.18,
+        "segments": 72
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -5.89100062
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -2.7470187
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      },
+      "smooth": true,
+      "notes": "Estimated visible focusing thread ridges; pitch is not mechanically certified."
+    },
+    {
+      "id": "focus_thread_6",
+      "op": "annulus",
+      "material": "lens_black",
+      "args": {
+        "inner_radius": 3.3,
+        "outer_radius": 3.53,
+        "depth": 0.18,
+        "segments": 72
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -5.56472981
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -2.59487613
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      },
+      "smooth": true,
+      "notes": "Estimated visible focusing thread ridges; pitch is not mechanically certified."
+    },
+    {
+      "id": "focus_thread_7",
+      "op": "annulus",
+      "material": "lens_black",
+      "args": {
+        "inner_radius": 3.3,
+        "outer_radius": 3.53,
+        "depth": 0.18,
+        "segments": 72
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -5.23845901
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -2.44273355
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      },
+      "smooth": true,
+      "notes": "Estimated visible focusing thread ridges; pitch is not mechanically certified."
+    },
+    {
+      "id": "focus_thread_8",
+      "op": "annulus",
+      "material": "lens_black",
+      "args": {
+        "inner_radius": 3.3,
+        "outer_radius": 3.53,
+        "depth": 0.18,
+        "segments": 72
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -4.91218821
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -2.29059098
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      },
+      "smooth": true,
+      "notes": "Estimated visible focusing thread ridges; pitch is not mechanically certified."
+    },
+    {
+      "id": "focus_thread_9",
+      "op": "annulus",
+      "material": "lens_black",
+      "args": {
+        "inner_radius": 3.3,
+        "outer_radius": 3.53,
+        "depth": 0.18,
+        "segments": 72
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -4.5859174
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -2.1384484
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      },
+      "smooth": true,
+      "notes": "Estimated visible focusing thread ridges; pitch is not mechanically certified."
+    },
+    {
+      "id": "lens_front_cup",
+      "op": "ring_profile",
+      "material": "lens_black",
+      "args": {
+        "profile": [
+          [
+            3.3,
+            -4.55
+          ],
+          [
+            4.5,
+            -4.55
+          ],
+          [
+            {
+              "param": "camera_lens_radius"
+            },
+            -3.75
+          ],
+          [
+            {
+              "param": "camera_lens_radius"
+            },
+            0
+          ],
+          [
+            4.12,
+            0
+          ],
+          [
+            3.77,
+            -0.47
+          ],
+          [
+            3.33,
+            -1.16
+          ]
+        ],
+        "segments": 112
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y"
+          },
+          {
+            "param": "camera_front_center_z"
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "smooth": true
+    },
+    {
+      "id": "front_optical_recess",
+      "op": "cylinder",
+      "material": "lens_black",
+      "args": {
+        "radius": 3.25,
+        "depth": 0.22,
+        "segments": 96
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -1.7219847953696348
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -0.802974697307329
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "smooth": true
+    },
+    {
+      "id": "recessed_green_optical_surface",
+      "op": "sphere",
+      "material": "lens_glass",
+      "args": {
+        "size": [
+          5.6,
+          5.6,
+          1.3
+        ],
+        "segments": 80,
+        "rings": 32
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -0.8972447091662834
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -0.41839207912329246
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "smooth": true,
+      "notes": "Revised estimated convex front element; recessed0.34mm at apex within the fixed10mm barrel, real glass highlights replace a broad flat green disk."
+    },
+    {
+      "id": "optical_inner_coating_ring",
+      "op": "annulus",
+      "material": "lens_coating",
+      "args": {
+        "inner_radius": 1.26,
+        "outer_radius": 1.65,
+        "depth": 0.05,
+        "segments": 72
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -1.5407232379623048
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -0.718451044959189
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "smooth": true
+    },
+    {
+      "id": "optical_central_element",
+      "op": "cylinder",
+      "material": "lens_black",
+      "args": {
+        "radius": 1.24,
+        "depth": 0.1,
+        "segments": 80
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -1.576975549443771
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -0.735355775428817
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "smooth": true,
+      "notes": "Dark internal pupil behind front glass; optical internals are visual estimates, not an optical prescription."
+    },
+    {
+      "id": "optical_retainer_ring",
+      "op": "annulus",
+      "material": "lens_black",
+      "args": {
+        "inner_radius": 3.5,
+        "outer_radius": 3.88,
+        "depth": 0.1,
+        "segments": 96
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_front_center_y",
+            "offset": -0.28095541
+          },
+          {
+            "param": "camera_front_center_z",
+            "offset": -0.13101166
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "smooth": true
+    },
+    {
+      "id": "camera_pad_top_0",
+      "op": "annulus",
+      "material": "gold",
+      "args": {
+        "inner_radius": 0.15,
+        "outer_radius": 0.46,
+        "depth": 0.045,
+        "segments": 32
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.3954545455
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -2.23052087
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 5.80083413
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "smooth": true
+    },
+    {
+      "id": "camera_pad_top_1",
+      "op": "annulus",
+      "material": "gold",
+      "args": {
+        "inner_radius": 0.15,
+        "outer_radius": 0.46,
+        "depth": 0.045,
+        "segments": 32
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.2745454545
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -2.23052087
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 5.80083413
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "smooth": true
+    },
+    {
+      "id": "camera_pad_top_2",
+      "op": "annulus",
+      "material": "gold",
+      "args": {
+        "inner_radius": 0.15,
+        "outer_radius": 0.46,
+        "depth": 0.045,
+        "segments": 32
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.1527272727
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -2.23052087
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 5.80083413
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "smooth": true
+    },
+    {
+      "id": "camera_pad_tab_0",
+      "op": "annulus",
+      "material": "gold",
+      "args": {
+        "inner_radius": 0.15,
+        "outer_radius": 0.46,
+        "depth": 0.045,
+        "segments": 32
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.1345454545
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 3.10714777
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -5.64583322
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "smooth": true
+    },
+    {
+      "id": "camera_pad_tab_1",
+      "op": "annulus",
+      "material": "gold",
+      "args": {
+        "inner_radius": 0.15,
+        "outer_radius": 0.46,
+        "depth": 0.045,
+        "segments": 32
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 3.10714777
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -5.64583322
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "smooth": true
+    },
+    {
+      "id": "camera_pad_tab_2",
+      "op": "annulus",
+      "material": "gold",
+      "args": {
+        "inner_radius": 0.15,
+        "outer_radius": 0.46,
+        "depth": 0.045,
+        "segments": 32
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.1345454545
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 3.10714777
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -5.64583322
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg",
+            "offset": -90
+          },
+          0,
+          0
+        ]
+      },
+      "smooth": true
+    },
+    {
+      "id": "camera_edge_passive_n1_0",
+      "op": "box",
+      "material": "ceramic_tan",
+      "args": {
+        "size": [
+          0.65,
+          0.42,
+          1.1
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 2.62367723
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -4.18311102
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      }
+    },
+    {
+      "id": "camera_passive_solder_n1_0_n1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 2.78967097
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -4.65739582
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_passive_solder_n1_0_1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 2.36705271
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -3.75108804
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_edge_passive_n1_1",
+      "op": "box",
+      "material": "chip_black",
+      "args": {
+        "size": [
+          0.65,
+          0.42,
+          1.1
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 1.86296436
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -2.551757
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      }
+    },
+    {
+      "id": "camera_passive_solder_n1_1_n1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 2.0289581
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -3.02604181
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_passive_solder_n1_1_1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 1.60633984
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -2.11973402
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_edge_passive_n1_2",
+      "op": "box",
+      "material": "chip_black",
+      "args": {
+        "size": [
+          0.65,
+          0.42,
+          1.1
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 1.10225149
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -0.92040298
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      }
+    },
+    {
+      "id": "camera_passive_solder_n1_2_n1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 1.26824523
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -1.39468779
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_passive_solder_n1_2_1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 0.84562697
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -0.48838
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_edge_passive_n1_3",
+      "op": "box",
+      "material": "chip_black",
+      "args": {
+        "size": [
+          0.65,
+          0.42,
+          1.1
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 0.04570584
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 1.34536648
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      }
+    },
+    {
+      "id": "camera_passive_solder_n1_3_n1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 0.21169958
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 0.87108168
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_passive_solder_n1_3_1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -0.21091868
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 1.77738946
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_edge_passive_n1_4",
+      "op": "box",
+      "material": "ceramic_tan",
+      "args": {
+        "size": [
+          0.65,
+          0.42,
+          1.1
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -0.8206616
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 3.20329745
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      }
+    },
+    {
+      "id": "camera_passive_solder_n1_4_n1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -0.65466786
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 2.72901264
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_passive_solder_n1_4_1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -1.07728612
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 3.63532043
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_edge_passive_n1_5",
+      "op": "box",
+      "material": "chip_black",
+      "args": {
+        "size": [
+          0.65,
+          0.42,
+          1.1
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -1.56024356
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 4.78933607
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      }
+    },
+    {
+      "id": "camera_passive_solder_n1_5_n1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -1.39424982
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 4.31505127
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_passive_solder_n1_5_1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -1.81686808
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 5.22135906
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_edge_passive_1_0",
+      "op": "box",
+      "material": "ceramic_tan",
+      "args": {
+        "size": [
+          0.65,
+          0.42,
+          1.1
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 2.62367723
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -4.18311102
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      }
+    },
+    {
+      "id": "camera_passive_solder_1_0_n1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 2.78967097
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -4.65739582
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_passive_solder_1_0_1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 2.36705271
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -3.75108804
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_edge_passive_1_1",
+      "op": "box",
+      "material": "chip_black",
+      "args": {
+        "size": [
+          0.65,
+          0.42,
+          1.1
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 1.86296436
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -2.551757
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      }
+    },
+    {
+      "id": "camera_passive_solder_1_1_n1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 2.0289581
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -3.02604181
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_passive_solder_1_1_1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 1.60633984
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -2.11973402
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_edge_passive_1_2",
+      "op": "box",
+      "material": "chip_black",
+      "args": {
+        "size": [
+          0.65,
+          0.42,
+          1.1
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 1.10225149
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -0.92040298
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      }
+    },
+    {
+      "id": "camera_passive_solder_1_2_n1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 1.26824523
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -1.39468779
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_passive_solder_1_2_1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 0.84562697
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -0.48838
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_edge_passive_1_3",
+      "op": "box",
+      "material": "chip_black",
+      "args": {
+        "size": [
+          0.65,
+          0.42,
+          1.1
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 0.04570584
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 1.34536648
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      }
+    },
+    {
+      "id": "camera_passive_solder_1_3_n1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 0.21169958
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 0.87108168
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_passive_solder_1_3_1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -0.21091868
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 1.77738946
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_edge_passive_1_4",
+      "op": "box",
+      "material": "ceramic_tan",
+      "args": {
+        "size": [
+          0.65,
+          0.42,
+          1.1
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -0.8206616
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 3.20329745
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      }
+    },
+    {
+      "id": "camera_passive_solder_1_4_n1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -0.65466786
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 2.72901264
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_passive_solder_1_4_1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -1.07728612
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 3.63532043
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_edge_passive_1_5",
+      "op": "box",
+      "material": "chip_black",
+      "args": {
+        "size": [
+          0.65,
+          0.42,
+          1.1
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -1.56024356
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 4.78933607
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      }
+    },
+    {
+      "id": "camera_passive_solder_1_5_n1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -1.39424982
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 4.31505127
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_passive_solder_1_5_1",
+      "op": "box",
+      "material": "solder",
+      "args": {
+        "size": [
+          0.72,
+          0.17,
+          0.24
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.4318181818
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -1.81686808
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 5.22135906
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "camera_rear_processor",
+      "op": "box",
+      "material": "chip_black",
+      "args": {
+        "size": [
+          5.3,
+          0.7,
+          5.7
+        ]
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "camera_pcb_center_y",
+            "offset": -1.14461093
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": 0.67997487
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.08
+      }
+    },
+    {
+      "id": "camera_rear_package_0",
+      "op": "box",
+      "material": "chip_black",
+      "args": {
+        "size": [
+          1.1,
+          0.6,
+          2.2
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.3772727273
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 0.84474847
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -3.46791004
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      }
+    },
+    {
+      "id": "camera_rear_package_1",
+      "op": "box",
+      "material": "chip_black",
+      "args": {
+        "size": [
+          1.1,
+          0.6,
+          2.2
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": -0.2454545455
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 0.84474847
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -3.46791004
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      }
+    },
+    {
+      "id": "camera_rear_package_2",
+      "op": "box",
+      "material": "chip_black",
+      "args": {
+        "size": [
+          1.1,
+          0.6,
+          2.2
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.2454545455
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 0.84474847
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -3.46791004
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      }
+    },
+    {
+      "id": "camera_rear_package_3",
+      "op": "box",
+      "material": "chip_black",
+      "args": {
+        "size": [
+          1.1,
+          0.6,
+          2.2
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "camera_pcb_width",
+            "scale": 0.3772727273
+          },
+          {
+            "param": "camera_pcb_center_y",
+            "offset": 0.84474847
+          },
+          {
+            "param": "camera_pcb_center_z",
+            "offset": -3.46791004
+          }
+        ],
+        "rotation_deg": [
+          {
+            "param": "camera_tilt_deg"
+          },
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.035
+      }
+    }
+  ]
+}

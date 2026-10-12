@@ -1,0 +1,2194 @@
+{
+  "accuracy_note": "The web asset preserves the completed model; it does not increase the certainty of dimensions estimated from uncalibrated reference photographs.",
+  "asset": "air65-ii.glb",
+  "asset_bytes": 10417808,
+  "asset_sha256": "8ddbc0195e22c59bc8dcf6de34885021e5cc099aea5b33a08817a11a7b6395a7",
+  "blender_version": "5.2.2 LTS",
+  "components": [
+    {
+      "bound_delta_mm": {
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "min": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "component_id": "battery",
+      "expected_bounds_y_up_m": {
+        "max": [
+          0.004999999888241291,
+          0.007199999876320362,
+          0.03305500000715256
+        ],
+        "min": [
+          -0.004999999888241291,
+          0.001199999824166298,
+          -0.027000000700354576
+        ]
+      },
+      "exported_bounds_y_up_m": {
+        "max": [
+          0.004999999888241291,
+          0.007199999876320362,
+          0.03305500000715256
+        ],
+        "min": [
+          -0.004999999888241291,
+          0.001199999824166298,
+          -0.027000000700354576
+        ]
+      },
+      "id": "battery",
+      "material_primitives": 6,
+      "maximum_bound_error_mm": 0.0,
+      "maximum_sampled_surface_deviation_mm": 0.021561671019298956,
+      "optimized_bounds_z_up_mm": {
+        "max": [
+          4.999999888241291,
+          27.000000700354576,
+          7.199999876320362
+        ],
+        "min": [
+          -4.999999888241291,
+          -33.05500000715256,
+          1.199999824166298
+        ]
+      },
+      "optimized_evaluated_vertices": 766,
+      "source_bounds_z_up_mm": {
+        "max": [
+          4.999999888241291,
+          27.000000700354576,
+          7.199999876320362
+        ],
+        "min": [
+          -4.999999888241291,
+          -33.05500000715256,
+          1.199999824166298
+        ]
+      },
+      "source_evaluated_vertices": 1240,
+      "source_object_count": 14,
+      "source_objects": [
+        "battery.contact_recess_left",
+        "battery.contact_recess_right",
+        "battery.contact_rim_left",
+        "battery.contact_rim_right",
+        "battery.foil_cell",
+        "battery.label_bottom",
+        "battery.label_top",
+        "battery.pouch_fold_1",
+        "battery.pouch_fold_n1",
+        "battery.sealed_end_lip",
+        "battery.terminal_cap",
+        "battery.terminal_cap_top_print",
+        "battery.terminal_connector",
+        "battery.terminal_neck"
+      ],
+      "source_triangles": 2334,
+      "translation_y_up_m": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "triangle_reduction_percent": 38.56041131105399,
+      "triangles": 1434
+    },
+    {
+      "bound_delta_mm": {
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "min": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "component_id": "camera",
+      "expected_bounds_y_up_m": {
+        "max": [
+          0.005499999970197678,
+          0.03603154048323631,
+          0.006930875591933727
+        ],
+        "min": [
+          -0.005499999970197678,
+          0.018640339374542236,
+          -0.012113090604543686
+        ]
+      },
+      "exported_bounds_y_up_m": {
+        "max": [
+          0.005499999970197678,
+          0.03603154048323631,
+          0.006930875591933727
+        ],
+        "min": [
+          -0.005499999970197678,
+          0.018640339374542236,
+          -0.012113090604543686
+        ]
+      },
+      "id": "camera",
+      "material_primitives": 9,
+      "maximum_bound_error_mm": 0.0,
+      "maximum_sampled_surface_deviation_mm": 0.0,
+      "optimized_bounds_z_up_mm": {
+        "max": [
+          5.499999970197678,
+          12.113090604543686,
+          36.03154048323631
+        ],
+        "min": [
+          -5.499999970197678,
+          -6.930875591933727,
+          18.640339374542236
+        ]
+      },
+      "optimized_evaluated_vertices": 19442,
+      "source_bounds_z_up_mm": {
+        "max": [
+          5.499999970197678,
+          12.113090604543686,
+          36.03154048323631
+        ],
+        "min": [
+          -5.499999970197678,
+          -6.930875591933727,
+          18.640339374542236
+        ]
+      },
+      "source_evaluated_vertices": 19442,
+      "source_object_count": 69,
+      "source_objects": [
+        "camera.barrel_rear_shoulder",
+        "camera.barrel_thread_core",
+        "camera.c03_pcb_mask_front",
+        "camera.c03_pcb_mask_rear",
+        "camera.c03_shaped_pcb_substrate",
+        "camera.camera_edge_passive_1_0",
+        "camera.camera_edge_passive_1_1",
+        "camera.camera_edge_passive_1_2",
+        "camera.camera_edge_passive_1_3",
+        "camera.camera_edge_passive_1_4",
+        "camera.camera_edge_passive_1_5",
+        "camera.camera_edge_passive_n1_0",
+        "camera.camera_edge_passive_n1_1",
+        "camera.camera_edge_passive_n1_2",
+        "camera.camera_edge_passive_n1_3",
+        "camera.camera_edge_passive_n1_4",
+        "camera.camera_edge_passive_n1_5",
+        "camera.camera_pad_tab_0",
+        "camera.camera_pad_tab_1",
+        "camera.camera_pad_tab_2",
+        "camera.camera_pad_top_0",
+        "camera.camera_pad_top_1",
+        "camera.camera_pad_top_2",
+        "camera.camera_passive_solder_1_0_1",
+        "camera.camera_passive_solder_1_0_n1",
+        "camera.camera_passive_solder_1_1_1",
+        "camera.camera_passive_solder_1_1_n1",
+        "camera.camera_passive_solder_1_2_1",
+        "camera.camera_passive_solder_1_2_n1",
+        "camera.camera_passive_solder_1_3_1",
+        "camera.camera_passive_solder_1_3_n1",
+        "camera.camera_passive_solder_1_4_1",
+        "camera.camera_passive_solder_1_4_n1",
+        "camera.camera_passive_solder_1_5_1",
+        "camera.camera_passive_solder_1_5_n1",
+        "camera.camera_passive_solder_n1_0_1",
+        "camera.camera_passive_solder_n1_0_n1",
+        "camera.camera_passive_solder_n1_1_1",
+        "camera.camera_passive_solder_n1_1_n1",
+        "camera.camera_passive_solder_n1_2_1",
+        "camera.camera_passive_solder_n1_2_n1",
+        "camera.camera_passive_solder_n1_3_1",
+        "camera.camera_passive_solder_n1_3_n1",
+        "camera.camera_passive_solder_n1_4_1",
+        "camera.camera_passive_solder_n1_4_n1",
+        "camera.camera_passive_solder_n1_5_1",
+        "camera.camera_passive_solder_n1_5_n1",
+        "camera.camera_rear_package_0",
+        "camera.camera_rear_package_1",
+        "camera.camera_rear_package_2",
+        "camera.camera_rear_package_3",
+        "camera.camera_rear_processor",
+        "camera.focus_thread_0",
+        "camera.focus_thread_1",
+        "camera.focus_thread_2",
+        "camera.focus_thread_3",
+        "camera.focus_thread_4",
+        "camera.focus_thread_5",
+        "camera.focus_thread_6",
+        "camera.focus_thread_7",
+        "camera.focus_thread_8",
+        "camera.focus_thread_9",
+        "camera.front_optical_recess",
+        "camera.lens_front_cup",
+        "camera.optical_central_element",
+        "camera.optical_inner_coating_ring",
+        "camera.optical_retainer_ring",
+        "camera.recessed_green_optical_surface",
+        "camera.sensor_mount"
+      ],
+      "source_triangles": 38684,
+      "translation_y_up_m": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "triangle_reduction_percent": 0.0,
+      "triangles": 38684
+    },
+    {
+      "bound_delta_mm": {
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "min": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "component_id": "canopy",
+      "expected_bounds_y_up_m": {
+        "max": [
+          0.02022986114025116,
+          0.03975272923707962,
+          0.020228311419487
+        ],
+        "min": [
+          -0.02022986114025116,
+          0.016863489523530006,
+          -0.020008644089102745
+        ]
+      },
+      "exported_bounds_y_up_m": {
+        "max": [
+          0.02022986114025116,
+          0.03975272923707962,
+          0.020228311419487
+        ],
+        "min": [
+          -0.02022986114025116,
+          0.016863489523530006,
+          -0.020008644089102745
+        ]
+      },
+      "id": "canopy",
+      "material_primitives": 3,
+      "maximum_bound_error_mm": 0.0,
+      "maximum_sampled_surface_deviation_mm": 0.022075158994994126,
+      "optimized_bounds_z_up_mm": {
+        "max": [
+          20.22986114025116,
+          20.008644089102745,
+          39.75272923707962
+        ],
+        "min": [
+          -20.22986114025116,
+          -20.228311419487,
+          16.863489523530006
+        ]
+      },
+      "optimized_evaluated_vertices": 10584,
+      "source_bounds_z_up_mm": {
+        "max": [
+          20.22986114025116,
+          20.008644089102745,
+          39.75272923707962
+        ],
+        "min": [
+          -20.22986114025116,
+          -20.228311419487,
+          16.863489523530006
+        ]
+      },
+      "source_evaluated_vertices": 11704,
+      "source_object_count": 15,
+      "source_objects": [
+        "canopy.clamp_cross_screw",
+        "canopy.clamp_cross_screw_head",
+        "canopy.clamp_head_slot",
+        "canopy.clamp_tab_1",
+        "canopy.clamp_tab_neg1",
+        "canopy.foot_front",
+        "canopy.foot_left",
+        "canopy.foot_rear",
+        "canopy.foot_right",
+        "canopy.formed_collar_shoulders_with_vent",
+        "canopy.formed_front_tongue_with_slot",
+        "canopy.formed_rear_arch_with_rounded_apertures",
+        "canopy.left_leg",
+        "canopy.lens_clamp_annulus",
+        "canopy.right_leg"
+      ],
+      "source_triangles": 22692,
+      "translation_y_up_m": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "triangle_reduction_percent": 9.87132028908867,
+      "triangles": 20452
+    },
+    {
+      "bound_delta_mm": {
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "min": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "component_id": "electronics",
+      "expected_bounds_y_up_m": {
+        "max": [
+          0.020834777504205704,
+          0.05481000244617462,
+          0.029461223632097244
+        ],
+        "min": [
+          -0.020834777504205704,
+          0.004150933586061001,
+          -0.020581889897584915
+        ]
+      },
+      "exported_bounds_y_up_m": {
+        "max": [
+          0.020834777504205704,
+          0.05481000244617462,
+          0.029461223632097244
+        ],
+        "min": [
+          -0.020834777504205704,
+          0.004150933586061001,
+          -0.020581889897584915
+        ]
+      },
+      "id": "electronics",
+      "material_primitives": 17,
+      "maximum_bound_error_mm": 0.0,
+      "maximum_sampled_surface_deviation_mm": 0.034158179914811626,
+      "optimized_bounds_z_up_mm": {
+        "max": [
+          20.834777504205704,
+          20.581889897584915,
+          54.81000244617462
+        ],
+        "min": [
+          -20.834777504205704,
+          -29.461223632097244,
+          4.150933586061001
+        ]
+      },
+      "optimized_evaluated_vertices": 23664,
+      "source_bounds_z_up_mm": {
+        "max": [
+          20.834777504205704,
+          20.581889897584915,
+          54.81000244617462
+        ],
+        "min": [
+          -20.834777504205704,
+          -29.461223632097244,
+          4.150933586061001
+        ]
+      },
+      "source_evaluated_vertices": 32824,
+      "source_object_count": 556,
+      "source_objects": [
+        "electronics.antenna_feed",
+        "electronics.antenna_heatshrink_taper",
+        "electronics.assembly_screw_cross_front_0",
+        "electronics.assembly_screw_cross_front_90",
+        "electronics.assembly_screw_cross_left_0",
+        "electronics.assembly_screw_cross_left_90",
+        "electronics.assembly_screw_cross_rear_0",
+        "electronics.assembly_screw_cross_rear_90",
+        "electronics.assembly_screw_cross_right_0",
+        "electronics.assembly_screw_cross_right_90",
+        "electronics.assembly_screw_head_front",
+        "electronics.assembly_screw_head_left",
+        "electronics.assembly_screw_head_rear",
+        "electronics.assembly_screw_head_right",
+        "electronics.assembly_screw_recess_floor_front",
+        "electronics.assembly_screw_recess_floor_left",
+        "electronics.assembly_screw_recess_floor_rear",
+        "electronics.assembly_screw_recess_floor_right",
+        "electronics.assembly_screw_shank_front",
+        "electronics.assembly_screw_shank_left",
+        "electronics.assembly_screw_shank_rear",
+        "electronics.assembly_screw_shank_right",
+        "electronics.camera_connector_base",
+        "electronics.camera_connector_contact_0",
+        "electronics.camera_connector_contact_1",
+        "electronics.camera_connector_contact_n1",
+        "electronics.camera_connector_socket",
+        "electronics.camera_wire_0",
+        "electronics.camera_wire_1",
+        "electronics.camera_wire_2",
+        "electronics.compliant_grommet_left",
+        "electronics.compliant_grommet_rear",
+        "electronics.compliant_grommet_right",
+        "electronics.copper_pipe_antenna_black_sleeve",
+        "electronics.fc_crystal_oscillator",
+        "electronics.fc_current_sensor",
+        "electronics.fc_current_sensor_pin_1_0",
+        "electronics.fc_current_sensor_pin_1_1",
+        "electronics.fc_current_sensor_pin_1_2",
+        "electronics.fc_current_sensor_pin_1_3",
+        "electronics.fc_current_sensor_pin_1_4",
+        "electronics.fc_current_sensor_pin_n1_0",
+        "electronics.fc_current_sensor_pin_n1_1",
+        "electronics.fc_current_sensor_pin_n1_2",
+        "electronics.fc_current_sensor_pin_n1_3",
+        "electronics.fc_current_sensor_pin_n1_4",
+        "electronics.fc_esp8285",
+        "electronics.fc_esp8285_pin_1_0",
+        "electronics.fc_esp8285_pin_1_1",
+        "electronics.fc_esp8285_pin_1_2",
+        "electronics.fc_esp8285_pin_1_3",
+        "electronics.fc_esp8285_pin_1_4",
+        "electronics.fc_esp8285_pin_1_5",
+        "electronics.fc_esp8285_pin_1_6",
+        "electronics.fc_esp8285_pin_1_7",
+        "electronics.fc_esp8285_pin_n1_0",
+        "electronics.fc_esp8285_pin_n1_1",
+        "electronics.fc_esp8285_pin_n1_2",
+        "electronics.fc_esp8285_pin_n1_3",
+        "electronics.fc_esp8285_pin_n1_4",
+        "electronics.fc_esp8285_pin_n1_5",
+        "electronics.fc_esp8285_pin_n1_6",
+        "electronics.fc_esp8285_pin_n1_7",
+        "electronics.fc_flash16m",
+        "electronics.fc_flash16m_pin_1_0",
+        "electronics.fc_flash16m_pin_1_1",
+        "electronics.fc_flash16m_pin_1_2",
+        "electronics.fc_flash16m_pin_1_3",
+        "electronics.fc_flash16m_pin_1_4",
+        "electronics.fc_flash16m_pin_1_5",
+        "electronics.fc_flash16m_pin_1_6",
+        "electronics.fc_flash16m_pin_1_7",
+        "electronics.fc_flash16m_pin_n1_0",
+        "electronics.fc_flash16m_pin_n1_1",
+        "electronics.fc_flash16m_pin_n1_2",
+        "electronics.fc_flash16m_pin_n1_3",
+        "electronics.fc_flash16m_pin_n1_4",
+        "electronics.fc_flash16m_pin_n1_5",
+        "electronics.fc_flash16m_pin_n1_6",
+        "electronics.fc_flash16m_pin_n1_7",
+        "electronics.fc_gyro",
+        "electronics.fc_gyro_pin_1_0",
+        "electronics.fc_gyro_pin_1_1",
+        "electronics.fc_gyro_pin_1_2",
+        "electronics.fc_gyro_pin_1_3",
+        "electronics.fc_gyro_pin_1_4",
+        "electronics.fc_gyro_pin_n1_0",
+        "electronics.fc_gyro_pin_n1_1",
+        "electronics.fc_gyro_pin_n1_2",
+        "electronics.fc_gyro_pin_n1_3",
+        "electronics.fc_gyro_pin_n1_4",
+        "electronics.fc_left_regulator",
+        "electronics.fc_left_regulator_pin_1_0",
+        "electronics.fc_left_regulator_pin_1_1",
+        "electronics.fc_left_regulator_pin_1_2",
+        "electronics.fc_left_regulator_pin_1_3",
+        "electronics.fc_left_regulator_pin_1_4",
+        "electronics.fc_left_regulator_pin_n1_0",
+        "electronics.fc_left_regulator_pin_n1_1",
+        "electronics.fc_left_regulator_pin_n1_2",
+        "electronics.fc_left_regulator_pin_n1_3",
+        "electronics.fc_left_regulator_pin_n1_4",
+        "electronics.fc_lug_gold_rim_left",
+        "electronics.fc_lug_gold_rim_rear",
+        "electronics.fc_lug_gold_rim_right",
+        "electronics.fc_lug_left",
+        "electronics.fc_lug_rear",
+        "electronics.fc_lug_right",
+        "electronics.fc_mm32f003",
+        "electronics.fc_mm32f003_pin_1_0",
+        "electronics.fc_mm32f003_pin_1_1",
+        "electronics.fc_mm32f003_pin_1_2",
+        "electronics.fc_mm32f003_pin_1_3",
+        "electronics.fc_mm32f003_pin_1_4",
+        "electronics.fc_mm32f003_pin_n1_0",
+        "electronics.fc_mm32f003_pin_n1_1",
+        "electronics.fc_mm32f003_pin_n1_2",
+        "electronics.fc_mm32f003_pin_n1_3",
+        "electronics.fc_mm32f003_pin_n1_4",
+        "electronics.fc_passive_0",
+        "electronics.fc_passive_1",
+        "electronics.fc_passive_10",
+        "electronics.fc_passive_11",
+        "electronics.fc_passive_12",
+        "electronics.fc_passive_13",
+        "electronics.fc_passive_14",
+        "electronics.fc_passive_15",
+        "electronics.fc_passive_16",
+        "electronics.fc_passive_17",
+        "electronics.fc_passive_18",
+        "electronics.fc_passive_19",
+        "electronics.fc_passive_2",
+        "electronics.fc_passive_20",
+        "electronics.fc_passive_21",
+        "electronics.fc_passive_22",
+        "electronics.fc_passive_23",
+        "electronics.fc_passive_24",
+        "electronics.fc_passive_3",
+        "electronics.fc_passive_4",
+        "electronics.fc_passive_5",
+        "electronics.fc_passive_6",
+        "electronics.fc_passive_7",
+        "electronics.fc_passive_8",
+        "electronics.fc_passive_9",
+        "electronics.fc_passive_solder_0_1",
+        "electronics.fc_passive_solder_0_n1",
+        "electronics.fc_passive_solder_10_1",
+        "electronics.fc_passive_solder_10_n1",
+        "electronics.fc_passive_solder_11_1",
+        "electronics.fc_passive_solder_11_n1",
+        "electronics.fc_passive_solder_12_1",
+        "electronics.fc_passive_solder_12_n1",
+        "electronics.fc_passive_solder_13_1",
+        "electronics.fc_passive_solder_13_n1",
+        "electronics.fc_passive_solder_14_1",
+        "electronics.fc_passive_solder_14_n1",
+        "electronics.fc_passive_solder_15_1",
+        "electronics.fc_passive_solder_15_n1",
+        "electronics.fc_passive_solder_16_1",
+        "electronics.fc_passive_solder_16_n1",
+        "electronics.fc_passive_solder_17_1",
+        "electronics.fc_passive_solder_17_n1",
+        "electronics.fc_passive_solder_18_1",
+        "electronics.fc_passive_solder_18_n1",
+        "electronics.fc_passive_solder_19_1",
+        "electronics.fc_passive_solder_19_n1",
+        "electronics.fc_passive_solder_1_1",
+        "electronics.fc_passive_solder_1_n1",
+        "electronics.fc_passive_solder_20_1",
+        "electronics.fc_passive_solder_20_n1",
+        "electronics.fc_passive_solder_21_1",
+        "electronics.fc_passive_solder_21_n1",
+        "electronics.fc_passive_solder_22_1",
+        "electronics.fc_passive_solder_22_n1",
+        "electronics.fc_passive_solder_23_1",
+        "electronics.fc_passive_solder_23_n1",
+        "electronics.fc_passive_solder_24_1",
+        "electronics.fc_passive_solder_24_n1",
+        "electronics.fc_passive_solder_2_1",
+        "electronics.fc_passive_solder_2_n1",
+        "electronics.fc_passive_solder_3_1",
+        "electronics.fc_passive_solder_3_n1",
+        "electronics.fc_passive_solder_4_1",
+        "electronics.fc_passive_solder_4_n1",
+        "electronics.fc_passive_solder_5_1",
+        "electronics.fc_passive_solder_5_n1",
+        "electronics.fc_passive_solder_6_1",
+        "electronics.fc_passive_solder_6_n1",
+        "electronics.fc_passive_solder_7_1",
+        "electronics.fc_passive_solder_7_n1",
+        "electronics.fc_passive_solder_8_1",
+        "electronics.fc_passive_solder_8_n1",
+        "electronics.fc_passive_solder_9_1",
+        "electronics.fc_passive_solder_9_n1",
+        "electronics.fc_refine_bottom_at7456e",
+        "electronics.fc_refine_bottom_at7456e_lead_0_0",
+        "electronics.fc_refine_bottom_at7456e_lead_0_1",
+        "electronics.fc_refine_bottom_at7456e_lead_0_2",
+        "electronics.fc_refine_bottom_at7456e_lead_0_3",
+        "electronics.fc_refine_bottom_at7456e_lead_0_4",
+        "electronics.fc_refine_bottom_at7456e_lead_1_0",
+        "electronics.fc_refine_bottom_at7456e_lead_1_1",
+        "electronics.fc_refine_bottom_at7456e_lead_1_2",
+        "electronics.fc_refine_bottom_at7456e_lead_1_3",
+        "electronics.fc_refine_bottom_at7456e_lead_1_4",
+        "electronics.fc_refine_bottom_esc_control_fl",
+        "electronics.fc_refine_bottom_esc_control_fl_lead_0_0",
+        "electronics.fc_refine_bottom_esc_control_fl_lead_0_1",
+        "electronics.fc_refine_bottom_esc_control_fl_lead_0_2",
+        "electronics.fc_refine_bottom_esc_control_fl_lead_0_3",
+        "electronics.fc_refine_bottom_esc_control_fl_lead_1_0",
+        "electronics.fc_refine_bottom_esc_control_fl_lead_1_1",
+        "electronics.fc_refine_bottom_esc_control_fl_lead_1_2",
+        "electronics.fc_refine_bottom_esc_control_fl_lead_1_3",
+        "electronics.fc_refine_bottom_esc_control_fl_lead_2_0",
+        "electronics.fc_refine_bottom_esc_control_fl_lead_2_1",
+        "electronics.fc_refine_bottom_esc_control_fl_lead_2_2",
+        "electronics.fc_refine_bottom_esc_control_fl_lead_2_3",
+        "electronics.fc_refine_bottom_esc_control_fl_lead_3_0",
+        "electronics.fc_refine_bottom_esc_control_fl_lead_3_1",
+        "electronics.fc_refine_bottom_esc_control_fl_lead_3_2",
+        "electronics.fc_refine_bottom_esc_control_fl_lead_3_3",
+        "electronics.fc_refine_bottom_esc_control_fr",
+        "electronics.fc_refine_bottom_esc_control_fr_lead_0_0",
+        "electronics.fc_refine_bottom_esc_control_fr_lead_0_1",
+        "electronics.fc_refine_bottom_esc_control_fr_lead_0_2",
+        "electronics.fc_refine_bottom_esc_control_fr_lead_0_3",
+        "electronics.fc_refine_bottom_esc_control_fr_lead_1_0",
+        "electronics.fc_refine_bottom_esc_control_fr_lead_1_1",
+        "electronics.fc_refine_bottom_esc_control_fr_lead_1_2",
+        "electronics.fc_refine_bottom_esc_control_fr_lead_1_3",
+        "electronics.fc_refine_bottom_esc_control_fr_lead_2_0",
+        "electronics.fc_refine_bottom_esc_control_fr_lead_2_1",
+        "electronics.fc_refine_bottom_esc_control_fr_lead_2_2",
+        "electronics.fc_refine_bottom_esc_control_fr_lead_2_3",
+        "electronics.fc_refine_bottom_esc_control_fr_lead_3_0",
+        "electronics.fc_refine_bottom_esc_control_fr_lead_3_1",
+        "electronics.fc_refine_bottom_esc_control_fr_lead_3_2",
+        "electronics.fc_refine_bottom_esc_control_fr_lead_3_3",
+        "electronics.fc_refine_bottom_esc_control_rl",
+        "electronics.fc_refine_bottom_esc_control_rl_lead_0_0",
+        "electronics.fc_refine_bottom_esc_control_rl_lead_0_1",
+        "electronics.fc_refine_bottom_esc_control_rl_lead_0_2",
+        "electronics.fc_refine_bottom_esc_control_rl_lead_0_3",
+        "electronics.fc_refine_bottom_esc_control_rl_lead_1_0",
+        "electronics.fc_refine_bottom_esc_control_rl_lead_1_1",
+        "electronics.fc_refine_bottom_esc_control_rl_lead_1_2",
+        "electronics.fc_refine_bottom_esc_control_rl_lead_1_3",
+        "electronics.fc_refine_bottom_esc_control_rl_lead_2_0",
+        "electronics.fc_refine_bottom_esc_control_rl_lead_2_1",
+        "electronics.fc_refine_bottom_esc_control_rl_lead_2_2",
+        "electronics.fc_refine_bottom_esc_control_rl_lead_2_3",
+        "electronics.fc_refine_bottom_esc_control_rl_lead_3_0",
+        "electronics.fc_refine_bottom_esc_control_rl_lead_3_1",
+        "electronics.fc_refine_bottom_esc_control_rl_lead_3_2",
+        "electronics.fc_refine_bottom_esc_control_rl_lead_3_3",
+        "electronics.fc_refine_bottom_esc_control_rr",
+        "electronics.fc_refine_bottom_esc_control_rr_lead_0_0",
+        "electronics.fc_refine_bottom_esc_control_rr_lead_0_1",
+        "electronics.fc_refine_bottom_esc_control_rr_lead_0_2",
+        "electronics.fc_refine_bottom_esc_control_rr_lead_0_3",
+        "electronics.fc_refine_bottom_esc_control_rr_lead_1_0",
+        "electronics.fc_refine_bottom_esc_control_rr_lead_1_1",
+        "electronics.fc_refine_bottom_esc_control_rr_lead_1_2",
+        "electronics.fc_refine_bottom_esc_control_rr_lead_1_3",
+        "electronics.fc_refine_bottom_esc_control_rr_lead_2_0",
+        "electronics.fc_refine_bottom_esc_control_rr_lead_2_1",
+        "electronics.fc_refine_bottom_esc_control_rr_lead_2_2",
+        "electronics.fc_refine_bottom_esc_control_rr_lead_2_3",
+        "electronics.fc_refine_bottom_esc_control_rr_lead_3_0",
+        "electronics.fc_refine_bottom_esc_control_rr_lead_3_1",
+        "electronics.fc_refine_bottom_esc_control_rr_lead_3_2",
+        "electronics.fc_refine_bottom_esc_control_rr_lead_3_3",
+        "electronics.fc_refine_bottom_passive_between_cap_a",
+        "electronics.fc_refine_bottom_passive_between_cap_a_termination_-1",
+        "electronics.fc_refine_bottom_passive_between_cap_a_termination_1",
+        "electronics.fc_refine_bottom_passive_between_cap_c",
+        "electronics.fc_refine_bottom_passive_between_cap_c_termination_-1",
+        "electronics.fc_refine_bottom_passive_between_cap_c_termination_1",
+        "electronics.fc_refine_bottom_passive_between_dark",
+        "electronics.fc_refine_bottom_passive_between_dark_termination_-1",
+        "electronics.fc_refine_bottom_passive_between_dark_termination_1",
+        "electronics.fc_refine_bottom_passive_centre_rear_cap_a",
+        "electronics.fc_refine_bottom_passive_centre_rear_cap_a_termination_-1",
+        "electronics.fc_refine_bottom_passive_centre_rear_cap_a_termination_1",
+        "electronics.fc_refine_bottom_passive_centre_rear_cap_b",
+        "electronics.fc_refine_bottom_passive_centre_rear_cap_b_termination_-1",
+        "electronics.fc_refine_bottom_passive_centre_rear_cap_b_termination_1",
+        "electronics.fc_refine_bottom_passive_centre_rear_dark",
+        "electronics.fc_refine_bottom_passive_centre_rear_dark_termination_-1",
+        "electronics.fc_refine_bottom_passive_centre_rear_dark_termination_1",
+        "electronics.fc_refine_bottom_passive_fore_cap_a",
+        "electronics.fc_refine_bottom_passive_fore_cap_a_termination_-1",
+        "electronics.fc_refine_bottom_passive_fore_cap_a_termination_1",
+        "electronics.fc_refine_bottom_passive_fore_cap_b",
+        "electronics.fc_refine_bottom_passive_fore_cap_b_termination_-1",
+        "electronics.fc_refine_bottom_passive_fore_cap_b_termination_1",
+        "electronics.fc_refine_bottom_passive_fore_dark_a",
+        "electronics.fc_refine_bottom_passive_fore_dark_a_termination_-1",
+        "electronics.fc_refine_bottom_passive_fore_dark_a_termination_1",
+        "electronics.fc_refine_bottom_passive_fore_dark_b",
+        "electronics.fc_refine_bottom_passive_fore_dark_b_termination_-1",
+        "electronics.fc_refine_bottom_passive_fore_dark_b_termination_1",
+        "electronics.fc_refine_bottom_passive_left_rear_cap_a",
+        "electronics.fc_refine_bottom_passive_left_rear_cap_a_termination_-1",
+        "electronics.fc_refine_bottom_passive_left_rear_cap_a_termination_1",
+        "electronics.fc_refine_bottom_passive_left_rear_cap_b",
+        "electronics.fc_refine_bottom_passive_left_rear_cap_b_termination_-1",
+        "electronics.fc_refine_bottom_passive_left_rear_cap_b_termination_1",
+        "electronics.fc_refine_bottom_passive_right_cap_a",
+        "electronics.fc_refine_bottom_passive_right_cap_a_termination_-1",
+        "electronics.fc_refine_bottom_passive_right_cap_a_termination_1",
+        "electronics.fc_refine_bottom_passive_right_cap_b",
+        "electronics.fc_refine_bottom_passive_right_cap_b_termination_-1",
+        "electronics.fc_refine_bottom_passive_right_cap_b_termination_1",
+        "electronics.fc_refine_bottom_passive_right_cap_c",
+        "electronics.fc_refine_bottom_passive_right_cap_c_termination_-1",
+        "electronics.fc_refine_bottom_passive_right_cap_c_termination_1",
+        "electronics.fc_refine_bottom_passive_right_dark",
+        "electronics.fc_refine_bottom_passive_right_dark_termination_-1",
+        "electronics.fc_refine_bottom_passive_right_dark_termination_1",
+        "electronics.fc_refine_bottom_passive_right_rear_dark",
+        "electronics.fc_refine_bottom_passive_right_rear_dark_termination_-1",
+        "electronics.fc_refine_bottom_passive_right_rear_dark_termination_1",
+        "electronics.fc_refine_bottom_power_fl_outer",
+        "electronics.fc_refine_bottom_power_fl_outer_lead_0_0",
+        "electronics.fc_refine_bottom_power_fl_outer_lead_0_1",
+        "electronics.fc_refine_bottom_power_fl_outer_lead_0_2",
+        "electronics.fc_refine_bottom_power_fl_outer_lead_0_3",
+        "electronics.fc_refine_bottom_power_fl_outer_lead_1_0",
+        "electronics.fc_refine_bottom_power_fl_outer_lead_1_1",
+        "electronics.fc_refine_bottom_power_fl_outer_lead_1_2",
+        "electronics.fc_refine_bottom_power_fl_outer_lead_1_3",
+        "electronics.fc_refine_bottom_power_fr_outer",
+        "electronics.fc_refine_bottom_power_fr_outer_lead_0_0",
+        "electronics.fc_refine_bottom_power_fr_outer_lead_0_1",
+        "electronics.fc_refine_bottom_power_fr_outer_lead_0_2",
+        "electronics.fc_refine_bottom_power_fr_outer_lead_0_3",
+        "electronics.fc_refine_bottom_power_fr_outer_lead_1_0",
+        "electronics.fc_refine_bottom_power_fr_outer_lead_1_1",
+        "electronics.fc_refine_bottom_power_fr_outer_lead_1_2",
+        "electronics.fc_refine_bottom_power_fr_outer_lead_1_3",
+        "electronics.fc_refine_bottom_power_left_inner",
+        "electronics.fc_refine_bottom_power_left_inner_lead_0_0",
+        "electronics.fc_refine_bottom_power_left_inner_lead_0_1",
+        "electronics.fc_refine_bottom_power_left_inner_lead_0_2",
+        "electronics.fc_refine_bottom_power_left_inner_lead_0_3",
+        "electronics.fc_refine_bottom_power_left_inner_lead_1_0",
+        "electronics.fc_refine_bottom_power_left_inner_lead_1_1",
+        "electronics.fc_refine_bottom_power_left_inner_lead_1_2",
+        "electronics.fc_refine_bottom_power_left_inner_lead_1_3",
+        "electronics.fc_refine_bottom_power_left_mid",
+        "electronics.fc_refine_bottom_power_left_mid_lead_0_0",
+        "electronics.fc_refine_bottom_power_left_mid_lead_0_1",
+        "electronics.fc_refine_bottom_power_left_mid_lead_0_2",
+        "electronics.fc_refine_bottom_power_left_mid_lead_0_3",
+        "electronics.fc_refine_bottom_power_left_mid_lead_1_0",
+        "electronics.fc_refine_bottom_power_left_mid_lead_1_1",
+        "electronics.fc_refine_bottom_power_left_mid_lead_1_2",
+        "electronics.fc_refine_bottom_power_left_mid_lead_1_3",
+        "electronics.fc_refine_bottom_power_right_inner",
+        "electronics.fc_refine_bottom_power_right_inner_lead_0_0",
+        "electronics.fc_refine_bottom_power_right_inner_lead_0_1",
+        "electronics.fc_refine_bottom_power_right_inner_lead_0_2",
+        "electronics.fc_refine_bottom_power_right_inner_lead_0_3",
+        "electronics.fc_refine_bottom_power_right_inner_lead_1_0",
+        "electronics.fc_refine_bottom_power_right_inner_lead_1_1",
+        "electronics.fc_refine_bottom_power_right_inner_lead_1_2",
+        "electronics.fc_refine_bottom_power_right_inner_lead_1_3",
+        "electronics.fc_refine_bottom_power_right_mid",
+        "electronics.fc_refine_bottom_power_right_mid_lead_0_0",
+        "electronics.fc_refine_bottom_power_right_mid_lead_0_1",
+        "electronics.fc_refine_bottom_power_right_mid_lead_0_2",
+        "electronics.fc_refine_bottom_power_right_mid_lead_0_3",
+        "electronics.fc_refine_bottom_power_right_mid_lead_1_0",
+        "electronics.fc_refine_bottom_power_right_mid_lead_1_1",
+        "electronics.fc_refine_bottom_power_right_mid_lead_1_2",
+        "electronics.fc_refine_bottom_power_right_mid_lead_1_3",
+        "electronics.fc_refine_bottom_power_rl_outer",
+        "electronics.fc_refine_bottom_power_rl_outer_lead_0_0",
+        "electronics.fc_refine_bottom_power_rl_outer_lead_0_1",
+        "electronics.fc_refine_bottom_power_rl_outer_lead_0_2",
+        "electronics.fc_refine_bottom_power_rl_outer_lead_0_3",
+        "electronics.fc_refine_bottom_power_rl_outer_lead_1_0",
+        "electronics.fc_refine_bottom_power_rl_outer_lead_1_1",
+        "electronics.fc_refine_bottom_power_rl_outer_lead_1_2",
+        "electronics.fc_refine_bottom_power_rl_outer_lead_1_3",
+        "electronics.fc_refine_bottom_power_rr_outer",
+        "electronics.fc_refine_bottom_power_rr_outer_lead_0_0",
+        "electronics.fc_refine_bottom_power_rr_outer_lead_0_1",
+        "electronics.fc_refine_bottom_power_rr_outer_lead_0_2",
+        "electronics.fc_refine_bottom_power_rr_outer_lead_0_3",
+        "electronics.fc_refine_bottom_power_rr_outer_lead_1_0",
+        "electronics.fc_refine_bottom_power_rr_outer_lead_1_1",
+        "electronics.fc_refine_bottom_power_rr_outer_lead_1_2",
+        "electronics.fc_refine_bottom_power_rr_outer_lead_1_3",
+        "electronics.fc_refine_bottom_vtx",
+        "electronics.fc_refine_bottom_vtx_lead_0_0",
+        "electronics.fc_refine_bottom_vtx_lead_0_1",
+        "electronics.fc_refine_bottom_vtx_lead_0_2",
+        "electronics.fc_refine_bottom_vtx_lead_0_3",
+        "electronics.fc_refine_bottom_vtx_lead_0_4",
+        "electronics.fc_refine_bottom_vtx_lead_0_5",
+        "electronics.fc_refine_bottom_vtx_lead_0_6",
+        "electronics.fc_refine_bottom_vtx_lead_0_7",
+        "electronics.fc_refine_bottom_vtx_lead_1_0",
+        "electronics.fc_refine_bottom_vtx_lead_1_1",
+        "electronics.fc_refine_bottom_vtx_lead_1_2",
+        "electronics.fc_refine_bottom_vtx_lead_1_3",
+        "electronics.fc_refine_bottom_vtx_lead_1_4",
+        "electronics.fc_refine_bottom_vtx_lead_1_5",
+        "electronics.fc_refine_bottom_vtx_lead_1_6",
+        "electronics.fc_refine_bottom_vtx_lead_1_7",
+        "electronics.fc_refine_bottom_vtx_lead_2_0",
+        "electronics.fc_refine_bottom_vtx_lead_2_1",
+        "electronics.fc_refine_bottom_vtx_lead_2_2",
+        "electronics.fc_refine_bottom_vtx_lead_2_3",
+        "electronics.fc_refine_bottom_vtx_lead_2_4",
+        "electronics.fc_refine_bottom_vtx_lead_2_5",
+        "electronics.fc_refine_bottom_vtx_lead_2_6",
+        "electronics.fc_refine_bottom_vtx_lead_2_7",
+        "electronics.fc_refine_bottom_vtx_lead_3_0",
+        "electronics.fc_refine_bottom_vtx_lead_3_1",
+        "electronics.fc_refine_bottom_vtx_lead_3_2",
+        "electronics.fc_refine_bottom_vtx_lead_3_3",
+        "electronics.fc_refine_bottom_vtx_lead_3_4",
+        "electronics.fc_refine_bottom_vtx_lead_3_5",
+        "electronics.fc_refine_bottom_vtx_lead_3_6",
+        "electronics.fc_refine_bottom_vtx_lead_3_7",
+        "electronics.fc_right_lower_power",
+        "electronics.fc_right_lower_power_pin_1_0",
+        "electronics.fc_right_lower_power_pin_1_1",
+        "electronics.fc_right_lower_power_pin_1_2",
+        "electronics.fc_right_lower_power_pin_1_3",
+        "electronics.fc_right_lower_power_pin_1_4",
+        "electronics.fc_right_lower_power_pin_n1_0",
+        "electronics.fc_right_lower_power_pin_n1_1",
+        "electronics.fc_right_lower_power_pin_n1_2",
+        "electronics.fc_right_lower_power_pin_n1_3",
+        "electronics.fc_right_lower_power_pin_n1_4",
+        "electronics.fc_right_regulator",
+        "electronics.fc_right_regulator_pin_1_0",
+        "electronics.fc_right_regulator_pin_1_1",
+        "electronics.fc_right_regulator_pin_1_2",
+        "electronics.fc_right_regulator_pin_1_3",
+        "electronics.fc_right_regulator_pin_1_4",
+        "electronics.fc_right_regulator_pin_n1_0",
+        "electronics.fc_right_regulator_pin_n1_1",
+        "electronics.fc_right_regulator_pin_n1_2",
+        "electronics.fc_right_regulator_pin_n1_3",
+        "electronics.fc_right_regulator_pin_n1_4",
+        "electronics.fc_round_testpad_0",
+        "electronics.fc_round_testpad_1",
+        "electronics.fc_round_testpad_2",
+        "electronics.fc_round_testpad_3",
+        "electronics.fc_round_testpad_4",
+        "electronics.fc_round_testpad_5",
+        "electronics.fc_round_testpad_6",
+        "electronics.fc_round_testpad_7",
+        "electronics.fc_side_pad_left_0",
+        "electronics.fc_side_pad_left_1",
+        "electronics.fc_side_pad_left_2",
+        "electronics.fc_side_pad_left_3",
+        "electronics.fc_side_pad_right_0",
+        "electronics.fc_side_pad_right_1",
+        "electronics.fc_side_pad_right_2",
+        "electronics.fc_soldermask_bottom",
+        "electronics.fc_soldermask_top",
+        "electronics.fc_stm32g473",
+        "electronics.fc_stm32g473_pin_1_0",
+        "electronics.fc_stm32g473_pin_1_1",
+        "electronics.fc_stm32g473_pin_1_2",
+        "electronics.fc_stm32g473_pin_1_3",
+        "electronics.fc_stm32g473_pin_1_4",
+        "electronics.fc_stm32g473_pin_1_5",
+        "electronics.fc_stm32g473_pin_1_6",
+        "electronics.fc_stm32g473_pin_1_7",
+        "electronics.fc_stm32g473_pin_n1_0",
+        "electronics.fc_stm32g473_pin_n1_1",
+        "electronics.fc_stm32g473_pin_n1_2",
+        "electronics.fc_stm32g473_pin_n1_3",
+        "electronics.fc_stm32g473_pin_n1_4",
+        "electronics.fc_stm32g473_pin_n1_5",
+        "electronics.fc_stm32g473_pin_n1_6",
+        "electronics.fc_stm32g473_pin_n1_7",
+        "electronics.fc_stm32g473_pin_side_-1_0",
+        "electronics.fc_stm32g473_pin_side_-1_1",
+        "electronics.fc_stm32g473_pin_side_-1_2",
+        "electronics.fc_stm32g473_pin_side_-1_3",
+        "electronics.fc_stm32g473_pin_side_-1_4",
+        "electronics.fc_stm32g473_pin_side_-1_5",
+        "electronics.fc_stm32g473_pin_side_-1_6",
+        "electronics.fc_stm32g473_pin_side_-1_7",
+        "electronics.fc_stm32g473_pin_side_1_0",
+        "electronics.fc_stm32g473_pin_side_1_1",
+        "electronics.fc_stm32g473_pin_side_1_2",
+        "electronics.fc_stm32g473_pin_side_1_3",
+        "electronics.fc_stm32g473_pin_side_1_4",
+        "electronics.fc_stm32g473_pin_side_1_5",
+        "electronics.fc_stm32g473_pin_side_1_6",
+        "electronics.fc_stm32g473_pin_side_1_7",
+        "electronics.fc_substrate_diamond",
+        "electronics.fc_sx128x",
+        "electronics.fc_sx128x_pin_1_0",
+        "electronics.fc_sx128x_pin_1_1",
+        "electronics.fc_sx128x_pin_1_2",
+        "electronics.fc_sx128x_pin_1_3",
+        "electronics.fc_sx128x_pin_1_4",
+        "electronics.fc_sx128x_pin_n1_0",
+        "electronics.fc_sx128x_pin_n1_1",
+        "electronics.fc_sx128x_pin_n1_2",
+        "electronics.fc_sx128x_pin_n1_3",
+        "electronics.fc_sx128x_pin_n1_4",
+        "electronics.fc_vtx_processor",
+        "electronics.fc_vtx_processor_pin_1_0",
+        "electronics.fc_vtx_processor_pin_1_1",
+        "electronics.fc_vtx_processor_pin_1_2",
+        "electronics.fc_vtx_processor_pin_1_3",
+        "electronics.fc_vtx_processor_pin_1_4",
+        "electronics.fc_vtx_processor_pin_1_5",
+        "electronics.fc_vtx_processor_pin_1_6",
+        "electronics.fc_vtx_processor_pin_1_7",
+        "electronics.fc_vtx_processor_pin_n1_0",
+        "electronics.fc_vtx_processor_pin_n1_1",
+        "electronics.fc_vtx_processor_pin_n1_2",
+        "electronics.fc_vtx_processor_pin_n1_3",
+        "electronics.fc_vtx_processor_pin_n1_4",
+        "electronics.fc_vtx_processor_pin_n1_5",
+        "electronics.fc_vtx_processor_pin_n1_6",
+        "electronics.fc_vtx_processor_pin_n1_7",
+        "electronics.front_canopy_spacer_no_pcb_lug",
+        "electronics.motor_connector_front_left",
+        "electronics.motor_connector_front_right",
+        "electronics.motor_connector_rear_left",
+        "electronics.motor_connector_rear_right",
+        "electronics.motor_wire_front_left_0",
+        "electronics.motor_wire_front_left_1",
+        "electronics.motor_wire_front_left_n1",
+        "electronics.motor_wire_front_right_0",
+        "electronics.motor_wire_front_right_1",
+        "electronics.motor_wire_front_right_n1",
+        "electronics.motor_wire_rear_left_0",
+        "electronics.motor_wire_rear_left_1",
+        "electronics.motor_wire_rear_left_n1",
+        "electronics.motor_wire_rear_right_0",
+        "electronics.motor_wire_rear_right_1",
+        "electronics.motor_wire_rear_right_n1",
+        "electronics.power_connector_housing",
+        "electronics.power_connector_socket",
+        "electronics.power_connector_terminal_1",
+        "electronics.power_connector_terminal_n1",
+        "electronics.power_pigtail_0",
+        "electronics.power_pigtail_1",
+        "electronics.vtx_ufl_center_pin",
+        "electronics.vtx_ufl_gold_socket",
+        "electronics.vtx_ufl_insulator"
+      ],
+      "source_triangles": 62632,
+      "translation_y_up_m": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "triangle_reduction_percent": 29.250223527909057,
+      "triangles": 44312
+    },
+    {
+      "bound_delta_mm": {
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "min": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "component_id": "frame",
+      "expected_bounds_y_up_m": {
+        "max": [
+          0.04129999876022339,
+          0.01510000042617321,
+          0.04129999876022339
+        ],
+        "min": [
+          -0.04129999876022339,
+          0.0,
+          -0.04129999876022339
+        ]
+      },
+      "exported_bounds_y_up_m": {
+        "max": [
+          0.04129999876022339,
+          0.01510000042617321,
+          0.04129999876022339
+        ],
+        "min": [
+          -0.04129999876022339,
+          0.0,
+          -0.04129999876022339
+        ]
+      },
+      "id": "frame",
+      "material_primitives": 1,
+      "maximum_bound_error_mm": 0.0,
+      "maximum_sampled_surface_deviation_mm": 0.02292035242135171,
+      "optimized_bounds_z_up_mm": {
+        "max": [
+          41.29999876022339,
+          41.29999876022339,
+          15.10000042617321
+        ],
+        "min": [
+          -41.29999876022339,
+          -41.29999876022339,
+          0.0
+        ]
+      },
+      "optimized_evaluated_vertices": 13624,
+      "source_bounds_z_up_mm": {
+        "max": [
+          41.29999876022339,
+          41.29999876022339,
+          15.10000042617321
+        ],
+        "min": [
+          -41.29999876022339,
+          -41.29999876022339,
+          0.0
+        ]
+      },
+      "source_evaluated_vertices": 24964,
+      "source_object_count": 72,
+      "source_objects": [
+        "frame.battery_cradle_loop_front",
+        "frame.battery_cradle_loop_rear",
+        "frame.bowed_lateral_tie_left",
+        "frame.bowed_lateral_tie_right",
+        "frame.bowed_rib_FL_1",
+        "frame.bowed_rib_FL_2",
+        "frame.bowed_rib_FL_3",
+        "frame.bowed_rib_FL_4",
+        "frame.bowed_rib_FR_1",
+        "frame.bowed_rib_FR_2",
+        "frame.bowed_rib_FR_3",
+        "frame.bowed_rib_FR_4",
+        "frame.bowed_rib_RL_1",
+        "frame.bowed_rib_RL_2",
+        "frame.bowed_rib_RL_3",
+        "frame.bowed_rib_RL_4",
+        "frame.bowed_rib_RR_1",
+        "frame.bowed_rib_RR_2",
+        "frame.bowed_rib_RR_3",
+        "frame.bowed_rib_RR_4",
+        "frame.cradle_rail_left",
+        "frame.cradle_rail_right",
+        "frame.cradle_rise_left_front",
+        "frame.cradle_rise_left_rear",
+        "frame.cradle_rise_right_front",
+        "frame.cradle_rise_right_rear",
+        "frame.duct_FL",
+        "frame.duct_FR",
+        "frame.duct_RL",
+        "frame.duct_RR",
+        "frame.motor_pad_FL",
+        "frame.motor_pad_FR",
+        "frame.motor_pad_RL",
+        "frame.motor_pad_RR",
+        "frame.motor_slot_FL_1",
+        "frame.motor_slot_FL_2",
+        "frame.motor_slot_FL_3",
+        "frame.motor_slot_FR_1",
+        "frame.motor_slot_FR_2",
+        "frame.motor_slot_FR_3",
+        "frame.motor_slot_RL_1",
+        "frame.motor_slot_RL_2",
+        "frame.motor_slot_RL_3",
+        "frame.motor_slot_RR_1",
+        "frame.motor_slot_RR_2",
+        "frame.motor_slot_RR_3",
+        "frame.mount_boss_front",
+        "frame.mount_boss_left",
+        "frame.mount_boss_rear",
+        "frame.mount_boss_right",
+        "frame.mount_bridge_front_0",
+        "frame.mount_bridge_front_2",
+        "frame.mount_bridge_left_0",
+        "frame.mount_bridge_left_2",
+        "frame.mount_bridge_rear_0",
+        "frame.mount_bridge_rear_2",
+        "frame.mount_bridge_right_0",
+        "frame.mount_bridge_right_2",
+        "frame.rim_marker_bridge_front",
+        "frame.rim_marker_bridge_rear",
+        "frame.screw_guard_FL_1",
+        "frame.screw_guard_FL_2",
+        "frame.screw_guard_FL_3",
+        "frame.screw_guard_FR_1",
+        "frame.screw_guard_FR_2",
+        "frame.screw_guard_FR_3",
+        "frame.screw_guard_RL_1",
+        "frame.screw_guard_RL_2",
+        "frame.screw_guard_RL_3",
+        "frame.screw_guard_RR_1",
+        "frame.screw_guard_RR_2",
+        "frame.screw_guard_RR_3"
+      ],
+      "source_triangles": 49744,
+      "translation_y_up_m": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "triangle_reduction_percent": 45.59343840463171,
+      "triangles": 27064
+    },
+    {
+      "bound_delta_mm": {
+        "max": [
+          -0.00963360071182251,
+          -0.00963360071182251,
+          0.0
+        ],
+        "min": [
+          0.00963360071182251,
+          0.00963360071182251,
+          0.0
+        ]
+      },
+      "component_id": "motor",
+      "expected_bounds_y_up_m": {
+        "max": [
+          -0.018490605056285858,
+          0.014650000259280205,
+          -0.018490605056285858
+        ],
+        "min": [
+          -0.027471337467432022,
+          0.0009449999779462814,
+          -0.027471337467432022
+        ]
+      },
+      "exported_bounds_y_up_m": {
+        "max": [
+          -0.018490605056285858,
+          0.014650000259280205,
+          -0.018490605056285858
+        ],
+        "min": [
+          -0.027471337467432022,
+          0.0009449999779462814,
+          -0.027471337467432022
+        ]
+      },
+      "id": "motor_FL",
+      "material_primitives": 8,
+      "maximum_bound_error_mm": 0.0,
+      "maximum_sampled_surface_deviation_mm": 0.02920739643741399,
+      "optimized_bounds_z_up_mm": {
+        "max": [
+          -18.490605056285858,
+          27.471337467432022,
+          14.650000259280205
+        ],
+        "min": [
+          -27.471337467432022,
+          18.490605056285858,
+          0.9449999779462814
+        ]
+      },
+      "optimized_evaluated_vertices": 13594,
+      "source_bounds_z_up_mm": {
+        "max": [
+          -18.480971455574036,
+          27.480971068143845,
+          14.650000259280205
+        ],
+        "min": [
+          -27.480971068143845,
+          18.480971455574036,
+          0.9449999779462814
+        ]
+      },
+      "source_evaluated_vertices": 27660,
+      "source_object_count": 46,
+      "source_objects": [
+        "motor_FL.bell_lower_rolled_edge",
+        "motor_FL.copper_winding_01",
+        "motor_FL.copper_winding_02",
+        "motor_FL.copper_winding_03",
+        "motor_FL.copper_winding_04",
+        "motor_FL.copper_winding_05",
+        "motor_FL.copper_winding_06",
+        "motor_FL.copper_winding_07",
+        "motor_FL.copper_winding_08",
+        "motor_FL.copper_winding_09",
+        "motor_FL.crown_center_boss",
+        "motor_FL.exposed_lower_stator_neck",
+        "motor_FL.inner_stator_core",
+        "motor_FL.lower_axle_tip",
+        "motor_FL.lower_bushing",
+        "motor_FL.lower_mount_center",
+        "motor_FL.mount_ear_1",
+        "motor_FL.mount_ear_2",
+        "motor_FL.mount_ear_3",
+        "motor_FL.mount_screw_head_1",
+        "motor_FL.mount_screw_head_2",
+        "motor_FL.mount_screw_head_3",
+        "motor_FL.mount_screw_shank_1",
+        "motor_FL.mount_screw_shank_2",
+        "motor_FL.mount_screw_shank_3",
+        "motor_FL.mount_web_1",
+        "motor_FL.mount_web_2",
+        "motor_FL.mount_web_3",
+        "motor_FL.open_purple_crown_rim",
+        "motor_FL.purple_crown_spoke_1",
+        "motor_FL.purple_crown_spoke_2",
+        "motor_FL.purple_crown_spoke_3",
+        "motor_FL.silver_bell",
+        "motor_FL.stator_tooth_01",
+        "motor_FL.stator_tooth_02",
+        "motor_FL.stator_tooth_03",
+        "motor_FL.stator_tooth_04",
+        "motor_FL.stator_tooth_05",
+        "motor_FL.stator_tooth_06",
+        "motor_FL.stator_tooth_07",
+        "motor_FL.stator_tooth_08",
+        "motor_FL.stator_tooth_09",
+        "motor_FL.terminal_plate_edge",
+        "motor_FL.terminal_plate_face",
+        "motor_FL.upper_bushing",
+        "motor_FL.upper_shaft"
+      ],
+      "source_triangles": 54752,
+      "translation_y_up_m": [
+        -0.02298097126185894,
+        0.0,
+        -0.02298097126185894
+      ],
+      "triangle_reduction_percent": 50.98626534190531,
+      "triangles": 26836
+    },
+    {
+      "bound_delta_mm": {
+        "max": [
+          -0.00963360071182251,
+          -0.00963360071182251,
+          0.0
+        ],
+        "min": [
+          0.00963360071182251,
+          0.00963360071182251,
+          0.0
+        ]
+      },
+      "component_id": "motor",
+      "expected_bounds_y_up_m": {
+        "max": [
+          0.027471337467432022,
+          0.014650000259280205,
+          -0.018490605056285858
+        ],
+        "min": [
+          0.018490605056285858,
+          0.0009449999779462814,
+          -0.027471337467432022
+        ]
+      },
+      "exported_bounds_y_up_m": {
+        "max": [
+          0.027471337467432022,
+          0.014650000259280205,
+          -0.018490605056285858
+        ],
+        "min": [
+          0.018490605056285858,
+          0.0009449999779462814,
+          -0.027471337467432022
+        ]
+      },
+      "id": "motor_FR",
+      "material_primitives": 8,
+      "maximum_bound_error_mm": 0.0,
+      "maximum_sampled_surface_deviation_mm": 0.02920739643741399,
+      "optimized_bounds_z_up_mm": {
+        "max": [
+          27.471337467432022,
+          27.471337467432022,
+          14.650000259280205
+        ],
+        "min": [
+          18.490605056285858,
+          18.490605056285858,
+          0.9449999779462814
+        ]
+      },
+      "optimized_evaluated_vertices": 13594,
+      "source_bounds_z_up_mm": {
+        "max": [
+          27.480971068143845,
+          27.480971068143845,
+          14.650000259280205
+        ],
+        "min": [
+          18.480971455574036,
+          18.480971455574036,
+          0.9449999779462814
+        ]
+      },
+      "source_evaluated_vertices": 27660,
+      "source_object_count": 46,
+      "source_objects": [
+        "motor_FR.bell_lower_rolled_edge",
+        "motor_FR.copper_winding_01",
+        "motor_FR.copper_winding_02",
+        "motor_FR.copper_winding_03",
+        "motor_FR.copper_winding_04",
+        "motor_FR.copper_winding_05",
+        "motor_FR.copper_winding_06",
+        "motor_FR.copper_winding_07",
+        "motor_FR.copper_winding_08",
+        "motor_FR.copper_winding_09",
+        "motor_FR.crown_center_boss",
+        "motor_FR.exposed_lower_stator_neck",
+        "motor_FR.inner_stator_core",
+        "motor_FR.lower_axle_tip",
+        "motor_FR.lower_bushing",
+        "motor_FR.lower_mount_center",
+        "motor_FR.mount_ear_1",
+        "motor_FR.mount_ear_2",
+        "motor_FR.mount_ear_3",
+        "motor_FR.mount_screw_head_1",
+        "motor_FR.mount_screw_head_2",
+        "motor_FR.mount_screw_head_3",
+        "motor_FR.mount_screw_shank_1",
+        "motor_FR.mount_screw_shank_2",
+        "motor_FR.mount_screw_shank_3",
+        "motor_FR.mount_web_1",
+        "motor_FR.mount_web_2",
+        "motor_FR.mount_web_3",
+        "motor_FR.open_purple_crown_rim",
+        "motor_FR.purple_crown_spoke_1",
+        "motor_FR.purple_crown_spoke_2",
+        "motor_FR.purple_crown_spoke_3",
+        "motor_FR.silver_bell",
+        "motor_FR.stator_tooth_01",
+        "motor_FR.stator_tooth_02",
+        "motor_FR.stator_tooth_03",
+        "motor_FR.stator_tooth_04",
+        "motor_FR.stator_tooth_05",
+        "motor_FR.stator_tooth_06",
+        "motor_FR.stator_tooth_07",
+        "motor_FR.stator_tooth_08",
+        "motor_FR.stator_tooth_09",
+        "motor_FR.terminal_plate_edge",
+        "motor_FR.terminal_plate_face",
+        "motor_FR.upper_bushing",
+        "motor_FR.upper_shaft"
+      ],
+      "source_triangles": 54752,
+      "translation_y_up_m": [
+        0.02298097126185894,
+        0.0,
+        -0.02298097126185894
+      ],
+      "triangle_reduction_percent": 50.98626534190531,
+      "triangles": 26836
+    },
+    {
+      "bound_delta_mm": {
+        "max": [
+          -0.00963360071182251,
+          -0.00963360071182251,
+          0.0
+        ],
+        "min": [
+          0.00963360071182251,
+          0.00963360071182251,
+          0.0
+        ]
+      },
+      "component_id": "motor",
+      "expected_bounds_y_up_m": {
+        "max": [
+          -0.018490605056285858,
+          0.014650000259280205,
+          0.027471337467432022
+        ],
+        "min": [
+          -0.027471337467432022,
+          0.0009449999779462814,
+          0.018490605056285858
+        ]
+      },
+      "exported_bounds_y_up_m": {
+        "max": [
+          -0.018490605056285858,
+          0.014650000259280205,
+          0.027471337467432022
+        ],
+        "min": [
+          -0.027471337467432022,
+          0.0009449999779462814,
+          0.018490605056285858
+        ]
+      },
+      "id": "motor_RL",
+      "material_primitives": 8,
+      "maximum_bound_error_mm": 0.0,
+      "maximum_sampled_surface_deviation_mm": 0.02920739643741399,
+      "optimized_bounds_z_up_mm": {
+        "max": [
+          -18.490605056285858,
+          -18.490605056285858,
+          14.650000259280205
+        ],
+        "min": [
+          -27.471337467432022,
+          -27.471337467432022,
+          0.9449999779462814
+        ]
+      },
+      "optimized_evaluated_vertices": 13594,
+      "source_bounds_z_up_mm": {
+        "max": [
+          -18.480971455574036,
+          -18.480971455574036,
+          14.650000259280205
+        ],
+        "min": [
+          -27.480971068143845,
+          -27.480971068143845,
+          0.9449999779462814
+        ]
+      },
+      "source_evaluated_vertices": 27660,
+      "source_object_count": 46,
+      "source_objects": [
+        "motor_RL.bell_lower_rolled_edge",
+        "motor_RL.copper_winding_01",
+        "motor_RL.copper_winding_02",
+        "motor_RL.copper_winding_03",
+        "motor_RL.copper_winding_04",
+        "motor_RL.copper_winding_05",
+        "motor_RL.copper_winding_06",
+        "motor_RL.copper_winding_07",
+        "motor_RL.copper_winding_08",
+        "motor_RL.copper_winding_09",
+        "motor_RL.crown_center_boss",
+        "motor_RL.exposed_lower_stator_neck",
+        "motor_RL.inner_stator_core",
+        "motor_RL.lower_axle_tip",
+        "motor_RL.lower_bushing",
+        "motor_RL.lower_mount_center",
+        "motor_RL.mount_ear_1",
+        "motor_RL.mount_ear_2",
+        "motor_RL.mount_ear_3",
+        "motor_RL.mount_screw_head_1",
+        "motor_RL.mount_screw_head_2",
+        "motor_RL.mount_screw_head_3",
+        "motor_RL.mount_screw_shank_1",
+        "motor_RL.mount_screw_shank_2",
+        "motor_RL.mount_screw_shank_3",
+        "motor_RL.mount_web_1",
+        "motor_RL.mount_web_2",
+        "motor_RL.mount_web_3",
+        "motor_RL.open_purple_crown_rim",
+        "motor_RL.purple_crown_spoke_1",
+        "motor_RL.purple_crown_spoke_2",
+        "motor_RL.purple_crown_spoke_3",
+        "motor_RL.silver_bell",
+        "motor_RL.stator_tooth_01",
+        "motor_RL.stator_tooth_02",
+        "motor_RL.stator_tooth_03",
+        "motor_RL.stator_tooth_04",
+        "motor_RL.stator_tooth_05",
+        "motor_RL.stator_tooth_06",
+        "motor_RL.stator_tooth_07",
+        "motor_RL.stator_tooth_08",
+        "motor_RL.stator_tooth_09",
+        "motor_RL.terminal_plate_edge",
+        "motor_RL.terminal_plate_face",
+        "motor_RL.upper_bushing",
+        "motor_RL.upper_shaft"
+      ],
+      "source_triangles": 54752,
+      "translation_y_up_m": [
+        -0.02298097126185894,
+        0.0,
+        0.02298097126185894
+      ],
+      "triangle_reduction_percent": 50.98626534190531,
+      "triangles": 26836
+    },
+    {
+      "bound_delta_mm": {
+        "max": [
+          -0.00963360071182251,
+          -0.00963360071182251,
+          0.0
+        ],
+        "min": [
+          0.00963360071182251,
+          0.00963360071182251,
+          0.0
+        ]
+      },
+      "component_id": "motor",
+      "expected_bounds_y_up_m": {
+        "max": [
+          0.027471337467432022,
+          0.014650000259280205,
+          0.027471337467432022
+        ],
+        "min": [
+          0.018490605056285858,
+          0.0009449999779462814,
+          0.018490605056285858
+        ]
+      },
+      "exported_bounds_y_up_m": {
+        "max": [
+          0.027471337467432022,
+          0.014650000259280205,
+          0.027471337467432022
+        ],
+        "min": [
+          0.018490605056285858,
+          0.0009449999779462814,
+          0.018490605056285858
+        ]
+      },
+      "id": "motor_RR",
+      "material_primitives": 8,
+      "maximum_bound_error_mm": 0.0,
+      "maximum_sampled_surface_deviation_mm": 0.02920739643741399,
+      "optimized_bounds_z_up_mm": {
+        "max": [
+          27.471337467432022,
+          -18.490605056285858,
+          14.650000259280205
+        ],
+        "min": [
+          18.490605056285858,
+          -27.471337467432022,
+          0.9449999779462814
+        ]
+      },
+      "optimized_evaluated_vertices": 13594,
+      "source_bounds_z_up_mm": {
+        "max": [
+          27.480971068143845,
+          -18.480971455574036,
+          14.650000259280205
+        ],
+        "min": [
+          18.480971455574036,
+          -27.480971068143845,
+          0.9449999779462814
+        ]
+      },
+      "source_evaluated_vertices": 27660,
+      "source_object_count": 46,
+      "source_objects": [
+        "motor_RR.bell_lower_rolled_edge",
+        "motor_RR.copper_winding_01",
+        "motor_RR.copper_winding_02",
+        "motor_RR.copper_winding_03",
+        "motor_RR.copper_winding_04",
+        "motor_RR.copper_winding_05",
+        "motor_RR.copper_winding_06",
+        "motor_RR.copper_winding_07",
+        "motor_RR.copper_winding_08",
+        "motor_RR.copper_winding_09",
+        "motor_RR.crown_center_boss",
+        "motor_RR.exposed_lower_stator_neck",
+        "motor_RR.inner_stator_core",
+        "motor_RR.lower_axle_tip",
+        "motor_RR.lower_bushing",
+        "motor_RR.lower_mount_center",
+        "motor_RR.mount_ear_1",
+        "motor_RR.mount_ear_2",
+        "motor_RR.mount_ear_3",
+        "motor_RR.mount_screw_head_1",
+        "motor_RR.mount_screw_head_2",
+        "motor_RR.mount_screw_head_3",
+        "motor_RR.mount_screw_shank_1",
+        "motor_RR.mount_screw_shank_2",
+        "motor_RR.mount_screw_shank_3",
+        "motor_RR.mount_web_1",
+        "motor_RR.mount_web_2",
+        "motor_RR.mount_web_3",
+        "motor_RR.open_purple_crown_rim",
+        "motor_RR.purple_crown_spoke_1",
+        "motor_RR.purple_crown_spoke_2",
+        "motor_RR.purple_crown_spoke_3",
+        "motor_RR.silver_bell",
+        "motor_RR.stator_tooth_01",
+        "motor_RR.stator_tooth_02",
+        "motor_RR.stator_tooth_03",
+        "motor_RR.stator_tooth_04",
+        "motor_RR.stator_tooth_05",
+        "motor_RR.stator_tooth_06",
+        "motor_RR.stator_tooth_07",
+        "motor_RR.stator_tooth_08",
+        "motor_RR.stator_tooth_09",
+        "motor_RR.terminal_plate_edge",
+        "motor_RR.terminal_plate_face",
+        "motor_RR.upper_bushing",
+        "motor_RR.upper_shaft"
+      ],
+      "source_triangles": 54752,
+      "translation_y_up_m": [
+        0.02298097126185894,
+        0.0,
+        0.02298097126185894
+      ],
+      "triangle_reduction_percent": 50.98626534190531,
+      "triangles": 26836
+    },
+    {
+      "bound_delta_mm": {
+        "max": [
+          -0.003003515303134918,
+          0.0,
+          0.0
+        ],
+        "min": [
+          0.0004246830940246582,
+          0.0,
+          0.0
+        ]
+      },
+      "component_id": "prop_cw",
+      "expected_bounds_y_up_m": {
+        "max": [
+          -0.0081226397305727,
+          0.014650000259280205,
+          -0.007565418258309364
+        ],
+        "min": [
+          -0.03572266176342964,
+          0.011350000277161598,
+          -0.03389239311218262
+        ]
+      },
+      "exported_bounds_y_up_m": {
+        "max": [
+          -0.0081226397305727,
+          0.014650000259280205,
+          -0.007565418258309364
+        ],
+        "min": [
+          -0.03572266176342964,
+          0.011350000277161598,
+          -0.03389239311218262
+        ]
+      },
+      "id": "prop_FL",
+      "material_primitives": 1,
+      "maximum_bound_error_mm": 0.0,
+      "maximum_sampled_surface_deviation_mm": 0.03409543205634691,
+      "optimized_bounds_z_up_mm": {
+        "max": [
+          -8.1226397305727,
+          33.89239311218262,
+          14.650000259280205
+        ],
+        "min": [
+          -35.72266176342964,
+          7.565418258309364,
+          11.350000277161598
+        ]
+      },
+      "optimized_evaluated_vertices": 2952,
+      "source_bounds_z_up_mm": {
+        "max": [
+          -8.119636215269566,
+          33.89239311218262,
+          14.650000259280205
+        ],
+        "min": [
+          -35.723086446523666,
+          7.565418258309364,
+          11.350000277161598
+        ]
+      },
+      "source_evaluated_vertices": 11632,
+      "source_object_count": 8,
+      "source_objects": [
+        "prop_FL.blade_1",
+        "prop_FL.blade_2",
+        "prop_FL.blade_3",
+        "prop_FL.center_shaft_socket",
+        "prop_FL.hub_radial_web_1",
+        "prop_FL.hub_radial_web_2",
+        "prop_FL.hub_radial_web_3",
+        "prop_FL.outer_hub_barrel"
+      ],
+      "source_triangles": 23240,
+      "translation_y_up_m": [
+        -0.02298097126185894,
+        0.0,
+        -0.02298097126185894
+      ],
+      "triangle_reduction_percent": 74.69879518072288,
+      "triangles": 5880
+    },
+    {
+      "bound_delta_mm": {
+        "max": [
+          -0.0003390014171600342,
+          -0.002302229404449463,
+          0.0
+        ],
+        "min": [
+          0.0,
+          0.0020135194063186646,
+          0.0
+        ]
+      },
+      "component_id": "prop_ccw",
+      "expected_bounds_y_up_m": {
+        "max": [
+          0.03814828023314476,
+          0.014650000259280205,
+          -0.011182579211890697
+        ],
+        "min": [
+          0.011033275164663792,
+          0.011350000277161598,
+          -0.038210395723581314
+        ]
+      },
+      "exported_bounds_y_up_m": {
+        "max": [
+          0.03814828023314476,
+          0.014650000259280205,
+          -0.011182579211890697
+        ],
+        "min": [
+          0.011033275164663792,
+          0.011350000277161598,
+          -0.038210395723581314
+        ]
+      },
+      "id": "prop_FR",
+      "material_primitives": 1,
+      "maximum_bound_error_mm": 0.0,
+      "maximum_sampled_surface_deviation_mm": 0.03409590135561302,
+      "optimized_bounds_z_up_mm": {
+        "max": [
+          38.14828023314476,
+          38.210395723581314,
+          14.650000259280205
+        ],
+        "min": [
+          11.033275164663792,
+          11.182579211890697,
+          11.350000277161598
+        ]
+      },
+      "optimized_evaluated_vertices": 2952,
+      "source_bounds_z_up_mm": {
+        "max": [
+          38.14861923456192,
+          38.21269795298576,
+          14.650000259280205
+        ],
+        "min": [
+          11.033275164663792,
+          11.180565692484379,
+          11.350000277161598
+        ]
+      },
+      "source_evaluated_vertices": 11632,
+      "source_object_count": 8,
+      "source_objects": [
+        "prop_FR.blade_1",
+        "prop_FR.blade_2",
+        "prop_FR.blade_3",
+        "prop_FR.center_shaft_socket",
+        "prop_FR.hub_radial_web_1",
+        "prop_FR.hub_radial_web_2",
+        "prop_FR.hub_radial_web_3",
+        "prop_FR.outer_hub_barrel"
+      ],
+      "source_triangles": 23240,
+      "translation_y_up_m": [
+        0.02298097126185894,
+        0.0,
+        -0.02298097126185894
+      ],
+      "triangle_reduction_percent": 74.69879518072288,
+      "triangles": 5880
+    },
+    {
+      "bound_delta_mm": {
+        "max": [
+          -9.220093488693237e-05,
+          0.0,
+          0.0
+        ],
+        "min": [
+          0.0,
+          0.0003986060619354248,
+          0.0
+        ]
+      },
+      "component_id": "prop_ccw",
+      "expected_bounds_y_up_m": {
+        "max": [
+          -0.01190742664039135,
+          0.014650000259280205,
+          0.03792138770222664
+        ],
+        "min": [
+          -0.03835206851363182,
+          0.011350000277161598,
+          0.01037500612437725
+        ]
+      },
+      "exported_bounds_y_up_m": {
+        "max": [
+          -0.01190742664039135,
+          0.014650000259280205,
+          0.03792138770222664
+        ],
+        "min": [
+          -0.03835206851363182,
+          0.011350000277161598,
+          0.01037500612437725
+        ]
+      },
+      "id": "prop_RL",
+      "material_primitives": 1,
+      "maximum_bound_error_mm": 0.0,
+      "maximum_sampled_surface_deviation_mm": 0.034095111914211884,
+      "optimized_bounds_z_up_mm": {
+        "max": [
+          -11.90742664039135,
+          -10.37500612437725,
+          14.650000259280205
+        ],
+        "min": [
+          -38.35206851363182,
+          -37.92138770222664,
+          11.350000277161598
+        ]
+      },
+      "optimized_evaluated_vertices": 2952,
+      "source_bounds_z_up_mm": {
+        "max": [
+          -11.907334439456463,
+          -10.37500612437725,
+          14.650000259280205
+        ],
+        "min": [
+          -38.35206851363182,
+          -37.921786308288574,
+          11.350000277161598
+        ]
+      },
+      "source_evaluated_vertices": 11632,
+      "source_object_count": 8,
+      "source_objects": [
+        "prop_RL.blade_1",
+        "prop_RL.blade_2",
+        "prop_RL.blade_3",
+        "prop_RL.center_shaft_socket",
+        "prop_RL.hub_radial_web_1",
+        "prop_RL.hub_radial_web_2",
+        "prop_RL.hub_radial_web_3",
+        "prop_RL.outer_hub_barrel"
+      ],
+      "source_triangles": 23240,
+      "translation_y_up_m": [
+        -0.02298097126185894,
+        0.0,
+        0.02298097126185894
+      ],
+      "triangle_reduction_percent": 74.69879518072288,
+      "triangles": 5880
+    },
+    {
+      "bound_delta_mm": {
+        "max": [
+          0.0,
+          -0.0023031607270240784,
+          0.0
+        ],
+        "min": [
+          0.0003390014171600342,
+          0.0020153820514678955,
+          0.0
+        ]
+      },
+      "component_id": "prop_cw",
+      "expected_bounds_y_up_m": {
+        "max": [
+          0.03492866829037666,
+          0.014650000259280205,
+          0.03477936238050461
+        ],
+        "min": [
+          0.007813663221895695,
+          0.011350000277161598,
+          0.007751546800136566
+        ]
+      },
+      "exported_bounds_y_up_m": {
+        "max": [
+          0.03492866829037666,
+          0.014650000259280205,
+          0.03477936238050461
+        ],
+        "min": [
+          0.007813663221895695,
+          0.011350000277161598,
+          0.007751546800136566
+        ]
+      },
+      "id": "prop_RR",
+      "material_primitives": 1,
+      "maximum_bound_error_mm": 0.0,
+      "maximum_sampled_surface_deviation_mm": 0.03409590135561302,
+      "optimized_bounds_z_up_mm": {
+        "max": [
+          34.92866829037666,
+          -7.751546800136566,
+          14.650000259280205
+        ],
+        "min": [
+          7.813663221895695,
+          -34.77936238050461,
+          11.350000277161598
+        ]
+      },
+      "optimized_evaluated_vertices": 2952,
+      "source_bounds_z_up_mm": {
+        "max": [
+          34.92866829037666,
+          -7.749243639409542,
+          14.650000259280205
+        ],
+        "min": [
+          7.813324220478535,
+          -34.781377762556076,
+          11.350000277161598
+        ]
+      },
+      "source_evaluated_vertices": 11632,
+      "source_object_count": 8,
+      "source_objects": [
+        "prop_RR.blade_1",
+        "prop_RR.blade_2",
+        "prop_RR.blade_3",
+        "prop_RR.center_shaft_socket",
+        "prop_RR.hub_radial_web_1",
+        "prop_RR.hub_radial_web_2",
+        "prop_RR.hub_radial_web_3",
+        "prop_RR.outer_hub_barrel"
+      ],
+      "source_triangles": 23240,
+      "translation_y_up_m": [
+        0.02298097126185894,
+        0.0,
+        0.02298097126185894
+      ],
+      "triangle_reduction_percent": 74.69879518072288,
+      "triangles": 5880
+    }
+  ],
+  "configuration": "Air65 II Racing, optional 280 mAh battery",
+  "coordinate_system": {
+    "forward": "-Z",
+    "right": "+X",
+    "source_to_glTF": "(x, y, z) -> (x, z, -y)",
+    "units": "metres",
+    "up": "+Y"
+  },
+  "embedded_textures": [
+    {
+      "bytes": 9157,
+      "mime_type": "image/png",
+      "name": "battery_cap.png",
+      "sha256": "c45dcb101be871523d8318e10e7052258aef8e100bab1e4fee92539a3c483295"
+    },
+    {
+      "bytes": 109444,
+      "mime_type": "image/png",
+      "name": "battery_280_wrapper.png",
+      "sha256": "204078e07d2ea94d71d6dabfdf10c0aabb6acea05a853aa21a30724181b10899"
+    },
+    {
+      "bytes": 433831,
+      "mime_type": "image/png",
+      "name": "chip_markings.png",
+      "sha256": "f4be8868b9df6f2c65101ca059ca96703d5127ef3043d3f2065e76e54f89f3dd"
+    },
+    {
+      "bytes": 1619632,
+      "mime_type": "image/png",
+      "name": "fc_bottom.png",
+      "sha256": "bde7ed3dcbbe1474ac596358475e66a81e632fea8dbb4ee6a65aece9e10a536f"
+    },
+    {
+      "bytes": 1635420,
+      "mime_type": "image/png",
+      "name": "fc_top.png",
+      "sha256": "801012af89c2f8757c3fc9661a7f99c57c873b5bcc490f16fbd32f22dd56a0a0"
+    }
+  ],
+  "export_mode": "optimized",
+  "export_script_sha256": "42f9606d6ceb579bfe485a22ad608ab12ed41fafc95128db8f2a69b22afd7494",
+  "gltf_extensions": [
+    "KHR_materials_clearcoat",
+    "KHR_materials_ior",
+    "KHR_materials_transmission"
+  ],
+  "nominal_dimensions_mm": {
+    "frame_height": 15.1,
+    "frame_length": 82.6,
+    "frame_width": 82.6,
+    "motor_diagonal": 65.0,
+    "propeller_diameter": 31.0
+  },
+  "optimization": {
+    "accepted_objects": 314,
+    "config_sha256": "45a90d6d85521b53ee8a630c6a15c0da974506cf1680e1c414646f57a0301709",
+    "deviation_method": "Two-way evaluated vertex and triangle-centroid samples against closest triangle surfaces, capped deterministically per object and direction; not a certified continuous Hausdorff bound.",
+    "maximum_component_bound_delta_mm": 0.00963360071182251,
+    "maximum_sampled_surface_deviation_mm": 0.034158179914811626,
+    "metrics_file": "optimization-metrics.json",
+    "optimized_triangles": 262810,
+    "profile": "air65-bounded-web-v2",
+    "reverted_objects": 22,
+    "source_triangles": 488054,
+    "triangle_reduction_percent": 46.151450454253016,
+    "unchanged_objects": 606
+  },
+  "schema_version": 1,
+  "source_blend": "output/with_battery/air65_ii.blend",
+  "source_blend_sha256": "1c9424baa3c92dde8e2ff1fc77fa05cf8c3136f20f21e76cee3351ad59b63e8a",
+  "source_bounds_z_up_mm": {
+    "max": [
+      41.29999876022339,
+      41.29999876022339,
+      54.81000244617462
+    ],
+    "min": [
+      -41.29999876022339,
+      -41.29999876022339,
+      0.0
+    ]
+  },
+  "source_evaluated_vertex_count": 247342,
+  "source_geometry_fingerprint_sha256": "da3ecbc92189f1d4569bfa665412e2d0746c78d1c33aa5207f0bf989193875e4",
+  "source_geometry_object_count": 942,
+  "title": "BETAFPV Air65 II Racing",
+  "uv_serialization": {
+    "decimal_places": 6,
+    "maximum_normalized_rounding_error": 5e-07,
+    "note": "Canonicalized after evaluated modifier interpolation for deterministic serialization. At 2048 pixels this is at most 0.001024 pixel per coordinate; geometry and source UVs are unchanged."
+  },
+  "validation": {
+    "bounds_y_up_m": {
+      "max": [
+        0.04129999876022339,
+        0.05481000244617462,
+        0.04129999876022339
+      ],
+      "min": [
+        -0.04129999876022339,
+        0.0,
+        -0.04129999876022339
+      ]
+    },
+    "component_count": 13,
+    "exported_triangles": 262810,
+    "exported_vertices": 206782,
+    "group_checks": [
+      {
+        "group": "battery",
+        "maximum_bound_error_mm": 0.0,
+        "status": "pass",
+        "triangle_count": 1434
+      },
+      {
+        "group": "camera",
+        "maximum_bound_error_mm": 0.0,
+        "status": "pass",
+        "triangle_count": 38684
+      },
+      {
+        "group": "canopy",
+        "maximum_bound_error_mm": 0.0,
+        "status": "pass",
+        "triangle_count": 20452
+      },
+      {
+        "group": "electronics",
+        "maximum_bound_error_mm": 0.0,
+        "status": "pass",
+        "triangle_count": 44312
+      },
+      {
+        "group": "frame",
+        "maximum_bound_error_mm": 0.0,
+        "status": "pass",
+        "triangle_count": 27064
+      },
+      {
+        "group": "motor_FL",
+        "maximum_bound_error_mm": 0.0,
+        "status": "pass",
+        "triangle_count": 26836
+      },
+      {
+        "group": "motor_FR",
+        "maximum_bound_error_mm": 0.0,
+        "status": "pass",
+        "triangle_count": 26836
+      },
+      {
+        "group": "motor_RL",
+        "maximum_bound_error_mm": 0.0,
+        "status": "pass",
+        "triangle_count": 26836
+      },
+      {
+        "group": "motor_RR",
+        "maximum_bound_error_mm": 0.0,
+        "status": "pass",
+        "triangle_count": 26836
+      },
+      {
+        "group": "prop_FL",
+        "maximum_bound_error_mm": 0.0,
+        "status": "pass",
+        "triangle_count": 5880
+      },
+      {
+        "group": "prop_FR",
+        "maximum_bound_error_mm": 0.0,
+        "status": "pass",
+        "triangle_count": 5880
+      },
+      {
+        "group": "prop_RL",
+        "maximum_bound_error_mm": 0.0,
+        "status": "pass",
+        "triangle_count": 5880
+      },
+      {
+        "group": "prop_RR",
+        "maximum_bound_error_mm": 0.0,
+        "status": "pass",
+        "triangle_count": 5880
+      }
+    ],
+    "material_count": 30,
+    "material_primitives": 72,
+    "mesh_count": 13,
+    "self_contained": true,
+    "single_pass_draw_calls_upper_bound": 72,
+    "status": "pass",
+    "tolerance_mm": 0.0001
+  },
+  "web_material_limitations": [
+    "Principled base colour, metallic, roughness, alpha, IOR, transmission and clearcoat are preserved as glTF factors. Direct base-colour image textures and active loop UVs are supported; PNG/JPEG bytes are embedded unchanged.",
+    "Blender area lights, world illumination, Cycles path tracing and AgX display transform are not part of the model asset. Web lighting and tone mapping will affect appearance.",
+    "glTF transmission is a thin-surface approximation: source solid refraction thickness, internal multiple scattering, nested optics and caustics are not reproduced as Cycles renders them.",
+    "All source components remain present. Lossless mode retains evaluated surfaces; explicit optimized mode uses geometry-aware sampling with reported deviation checks. Editable source modifiers, curves and text become static mesh surfaces in GLB.",
+    "The single-pass draw-call count counts material primitives. Transmission, shadows and other Three.js rendering passes may increase real frame draw calls."
+  ]
+}

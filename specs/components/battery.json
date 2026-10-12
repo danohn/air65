@@ -1,0 +1,3415 @@
+{
+  "schema_version": "1.0",
+  "id": "battery",
+  "contract": "air65-ii-racing-v1",
+  "description": "Optional LAVA II 280mAh reference accessory: folded pouch, authored printed wrapper, black BT2.0 terminal; unplugged display pose.",
+  "provenance": [
+    {
+      "feature": "body envelope",
+      "status": "verified",
+      "source_ids": [
+        "batteryii",
+        "battery_drawing"
+      ],
+      "confidence": "high",
+      "note": "54 x 10 x 6 mm nominal body; connector nose excluded by published drawing. Published anchor values unchanged."
+    },
+    {
+      "feature": "wrapper text and black terminal color",
+      "status": "verified",
+      "source_ids": [
+        "batteryii",
+        "battery_drawing",
+        "lava_ii_280_surface_photo"
+      ],
+      "confidence": "high",
+      "note": "Visible 280,95C,mAh,LiHV 3.8V 1.06Wh,LAVA and cap BETAFPV are transcribed from the selected 280mAh product photo. No II or 1S text invented on this face."
+    },
+    {
+      "feature": "graphic layout, pouch folds and terminal recesses",
+      "status": "estimated",
+      "source_ids": [
+        "battery_drawing",
+        "lava_ii_280_surface_photo"
+      ],
+      "confidence": "medium",
+      "note": "Own deterministic redraw; typography, color values, motif placement and local crease/shell depths are approximate. Black shroud replaces incorrect prior white connector. Printed detail is a UV texture with no raised lettering. Reverse-face graphic is unverified and repeats the visible front label as an explicit estimate. Body remains in nominal envelope."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "foil_cell",
+      "op": "loft_shell",
+      "material": "battery_sleeve",
+      "args": {
+        "sections": [
+          {
+            "y": {
+              "param": "battery_length",
+              "scale": -0.5,
+              "offset": 5
+            },
+            "profile": [
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.47767499999999996,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.36669999999999997,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.47643267230447084,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.3877226079499212,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.47275343117451724,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4079373288659414,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.46677866778342114,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.42656732235980394,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.45873798893761625,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.44289664822936037,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4489403934158823,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.45629777963903506,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4377623973195649,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.46625571862419535,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4256335647699528,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.47238778717411806,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.41302000000000005,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.47445833333333326,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.41302000000000005,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.47445833333333326,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4256335647699528,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.47238778717411806,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4377623973195649,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.46625571862419535,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.44894039341588243,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.45629777963903506,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.45873798893761625,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.44289664822936037,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.46677866778342114,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.42656732235980394,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.47275343117451724,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4079373288659414,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.47643267230447084,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.3877226079499212,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.47767499999999996,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.36669999999999997,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.47767499999999996,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.36669999999999997,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.47643267230447084,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.38772260794992125,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.47275343117451724,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4079373288659414,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.46677866778342114,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.42656732235980394,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4587379889376163,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.44289664822936037,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4489403934158823,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.45629777963903506,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4377623973195649,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.46625571862419535,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4256335647699528,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.47238778717411806,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.41302000000000005,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.47445833333333326,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.41302000000000005,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.47445833333333326,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4256335647699528,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.47238778717411806,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4377623973195649,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.46625571862419535,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4489403934158823,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4562977796390351,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.45873798893761625,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.44289664822936037,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.46677866778342114,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.42656732235980394,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.47275343117451724,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4079373288659414,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.47643267230447084,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.38772260794992125,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.47767499999999996,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.36669999999999997,
+                  "offset": 0
+                }
+              ]
+            ]
+          },
+          {
+            "y": {
+              "param": "battery_length",
+              "scale": -0.5,
+              "offset": 5.8
+            },
+            "profile": [
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.495,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.37999999999999995,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4937126137870164,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.40178508595846757,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4898999286782562,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4227329832807683,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4837084640242706,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4420386760205222,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.47537615433949865,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4589602572324978,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.46522320561231334,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4728474400404508,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.45363978996846105,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.48316654779709367,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.44107105157508064,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4895210229783607,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.42800000000000005,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.49166666666666664,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.42800000000000005,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.49166666666666664,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.44107105157508064,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4895210229783607,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.45363978996846105,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.48316654779709367,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.46522320561231345,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4728474400404508,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.47537615433949865,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4589602572324978,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4837084640242706,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4420386760205222,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4898999286782562,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4227329832807683,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4937126137870164,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.40178508595846757,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.495,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.37999999999999995,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.495,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.37999999999999995,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4937126137870164,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4017850859584677,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4898999286782562,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4227329832807683,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4837084640242706,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4420386760205222,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.47537615433949876,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4589602572324978,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.46522320561231334,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4728474400404508,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.45363978996846105,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.48316654779709367,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.44107105157508064,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4895210229783607,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.42800000000000005,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.49166666666666664,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.42800000000000005,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.49166666666666664,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.44107105157508064,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4895210229783607,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.45363978996846105,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.48316654779709367,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.46522320561231334,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.47284744004045093,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.47537615433949865,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4589602572324978,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4837084640242706,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4420386760205222,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4898999286782562,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4227329832807683,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4937126137870164,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4017850859584677,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.495,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.37999999999999995,
+                  "offset": 0
+                }
+              ]
+            ]
+          },
+          {
+            "y": 0,
+            "profile": [
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.495,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.37999999999999995,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4937126137870164,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.40178508595846757,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4898999286782562,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4227329832807683,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4837084640242706,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4420386760205222,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.47537615433949865,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4589602572324978,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.46522320561231334,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4728474400404508,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.45363978996846105,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.48316654779709367,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.44107105157508064,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4895210229783607,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.42800000000000005,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.49166666666666664,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.42800000000000005,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.49166666666666664,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.44107105157508064,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4895210229783607,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.45363978996846105,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.48316654779709367,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.46522320561231345,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4728474400404508,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.47537615433949865,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4589602572324978,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4837084640242706,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4420386760205222,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4898999286782562,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4227329832807683,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4937126137870164,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.40178508595846757,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.495,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.37999999999999995,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.495,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.37999999999999995,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4937126137870164,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4017850859584677,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4898999286782562,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4227329832807683,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4837084640242706,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4420386760205222,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.47537615433949876,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4589602572324978,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.46522320561231334,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4728474400404508,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.45363978996846105,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.48316654779709367,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.44107105157508064,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4895210229783607,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.42800000000000005,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.49166666666666664,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.42800000000000005,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.49166666666666664,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.44107105157508064,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4895210229783607,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.45363978996846105,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.48316654779709367,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.46522320561231334,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.47284744004045093,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.47537615433949865,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4589602572324978,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4837084640242706,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4420386760205222,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4898999286782562,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4227329832807683,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4937126137870164,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4017850859584677,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.495,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.37999999999999995,
+                  "offset": 0
+                }
+              ]
+            ]
+          },
+          {
+            "y": {
+              "param": "battery_length",
+              "scale": 0.5,
+              "offset": -1
+            },
+            "profile": [
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.495,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.37999999999999995,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4937126137870164,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.40178508595846757,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4898999286782562,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4227329832807683,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4837084640242706,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4420386760205222,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.47537615433949865,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4589602572324978,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.46522320561231334,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4728474400404508,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.45363978996846105,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.48316654779709367,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.44107105157508064,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4895210229783607,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.42800000000000005,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.49166666666666664,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.42800000000000005,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.49166666666666664,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.44107105157508064,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4895210229783607,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.45363978996846105,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.48316654779709367,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.46522320561231345,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4728474400404508,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.47537615433949865,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4589602572324978,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4837084640242706,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4420386760205222,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4898999286782562,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4227329832807683,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4937126137870164,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.40178508595846757,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.495,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.37999999999999995,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.495,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.37999999999999995,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4937126137870164,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4017850859584677,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4898999286782562,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4227329832807683,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4837084640242706,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4420386760205222,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.47537615433949876,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4589602572324978,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.46522320561231334,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4728474400404508,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.45363978996846105,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.48316654779709367,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.44107105157508064,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4895210229783607,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.42800000000000005,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.49166666666666664,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.42800000000000005,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.49166666666666664,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.44107105157508064,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4895210229783607,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.45363978996846105,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.48316654779709367,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.46522320561231334,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.47284744004045093,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.47537615433949865,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4589602572324978,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4837084640242706,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4420386760205222,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4898999286782562,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4227329832807683,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4937126137870164,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4017850859584677,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.495,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.37999999999999995,
+                  "offset": 0
+                }
+              ]
+            ]
+          },
+          {
+            "y": {
+              "param": "battery_length",
+              "scale": 0.5,
+              "offset": 0
+            },
+            "profile": [
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.47519999999999996,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.36479999999999996,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4739641092355358,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.3857136825201289,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.47030393153112593,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.40582366394953756,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.46436012546329974,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4243571289797013,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4563611081659187,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4406018469431978,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.44661427738782083,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4539335424388328,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4354941983697226,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4638398858852099,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4234282095120774,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4699401820592262,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.41088,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.472,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.41088,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.472,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4234282095120774,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4699401820592262,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4354941983697226,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4638398858852099,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4466142773878209,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4539335424388328,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4563611081659187,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4406018469431978,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.46436012546329974,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.4243571289797013,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.47030393153112593,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.40582366394953756,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4739641092355358,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.3857136825201289,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.47519999999999996,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": 0.36479999999999996,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.47519999999999996,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.36479999999999996,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4739641092355358,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.3857136825201289,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.47030393153112593,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.40582366394953756,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.46436012546329974,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4243571289797013,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4563611081659188,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4406018469431978,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.44661427738782083,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4539335424388328,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4354941983697226,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4638398858852099,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.4234282095120774,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4699401820592262,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": -0.41088,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.472,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.41088,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.472,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4234282095120774,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4699401820592262,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4354941983697226,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4638398858852099,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.44661427738782083,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4539335424388329,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4563611081659187,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4406018469431978,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.46436012546329974,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.4243571289797013,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.47030393153112593,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.40582366394953756,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.4739641092355358,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.3857136825201289,
+                  "offset": 0
+                }
+              ],
+              [
+                {
+                  "param": "battery_width",
+                  "scale": 0.47519999999999996,
+                  "offset": 0
+                },
+                {
+                  "param": "battery_height",
+                  "scale": -0.36479999999999996,
+                  "offset": 0
+                }
+              ]
+            ]
+          }
+        ],
+        "closed_profile": true,
+        "cap_ends": true
+      },
+      "transform": {
+        "location": [
+          0,
+          0,
+          {
+            "param": "battery_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "terminal_cap",
+      "op": "box",
+      "material": "battery_sleeve",
+      "args": {
+        "size": [
+          {
+            "param": "battery_width",
+            "scale": 1,
+            "offset": 0
+          },
+          5,
+          {
+            "param": "battery_height",
+            "scale": 1,
+            "offset": -0.004
+          }
+        ]
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "battery_length",
+            "scale": -0.5,
+            "offset": 2.5
+          },
+          {
+            "param": "battery_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.24
+      }
+    },
+    {
+      "id": "terminal_cap_top_print",
+      "op": "mesh",
+      "material": "battery_cap_print",
+      "args": {
+        "vertices": [
+          [
+            -4.75,
+            -2.25,
+            3
+          ],
+          [
+            4.75,
+            -2.25,
+            3
+          ],
+          [
+            4.75,
+            2.25,
+            3
+          ],
+          [
+            -4.75,
+            2.25,
+            3
+          ]
+        ],
+        "faces": [
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ]
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "battery_length",
+            "scale": -0.5,
+            "offset": 2.5
+          },
+          {
+            "param": "battery_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      },
+      "uv_projection": {
+        "axes": [
+          1,
+          0
+        ],
+        "bounds": [
+          -2.5,
+          -5,
+          2.5,
+          5
+        ],
+        "flip_v": true
+      }
+    },
+    {
+      "id": "label_top",
+      "op": "mesh",
+      "material": "battery_wrapper_print",
+      "args": {
+        "vertices": [
+          [
+            -4.85,
+            -24,
+            2.56
+          ],
+          [
+            -4.72,
+            -24,
+            2.79
+          ],
+          [
+            -4.52,
+            -24,
+            2.94
+          ],
+          [
+            -4.28,
+            -24,
+            2.99
+          ],
+          [
+            0,
+            -24,
+            2.99
+          ],
+          [
+            4.28,
+            -24,
+            2.99
+          ],
+          [
+            4.52,
+            -24,
+            2.94
+          ],
+          [
+            4.72,
+            -24,
+            2.79
+          ],
+          [
+            4.85,
+            -24,
+            2.56
+          ],
+          [
+            -4.85,
+            -23.5,
+            2.56
+          ],
+          [
+            -4.72,
+            -23.5,
+            2.79
+          ],
+          [
+            -4.52,
+            -23.5,
+            2.94
+          ],
+          [
+            -4.28,
+            -23.5,
+            2.99
+          ],
+          [
+            0,
+            -23.5,
+            2.99
+          ],
+          [
+            4.28,
+            -23.5,
+            2.99
+          ],
+          [
+            4.52,
+            -23.5,
+            2.94
+          ],
+          [
+            4.72,
+            -23.5,
+            2.79
+          ],
+          [
+            4.85,
+            -23.5,
+            2.56
+          ],
+          [
+            -4.85,
+            23.5,
+            2.56
+          ],
+          [
+            -4.72,
+            23.5,
+            2.79
+          ],
+          [
+            -4.52,
+            23.5,
+            2.94
+          ],
+          [
+            -4.28,
+            23.5,
+            2.99
+          ],
+          [
+            0,
+            23.5,
+            2.99
+          ],
+          [
+            4.28,
+            23.5,
+            2.99
+          ],
+          [
+            4.52,
+            23.5,
+            2.94
+          ],
+          [
+            4.72,
+            23.5,
+            2.79
+          ],
+          [
+            4.85,
+            23.5,
+            2.56
+          ],
+          [
+            -4.85,
+            24,
+            2.56
+          ],
+          [
+            -4.72,
+            24,
+            2.79
+          ],
+          [
+            -4.52,
+            24,
+            2.94
+          ],
+          [
+            -4.28,
+            24,
+            2.99
+          ],
+          [
+            0,
+            24,
+            2.99
+          ],
+          [
+            4.28,
+            24,
+            2.99
+          ],
+          [
+            4.52,
+            24,
+            2.94
+          ],
+          [
+            4.72,
+            24,
+            2.79
+          ],
+          [
+            4.85,
+            24,
+            2.56
+          ]
+        ],
+        "faces": [
+          [
+            0,
+            1,
+            10,
+            9
+          ],
+          [
+            1,
+            2,
+            11,
+            10
+          ],
+          [
+            2,
+            3,
+            12,
+            11
+          ],
+          [
+            3,
+            4,
+            13,
+            12
+          ],
+          [
+            4,
+            5,
+            14,
+            13
+          ],
+          [
+            5,
+            6,
+            15,
+            14
+          ],
+          [
+            6,
+            7,
+            16,
+            15
+          ],
+          [
+            7,
+            8,
+            17,
+            16
+          ],
+          [
+            9,
+            10,
+            19,
+            18
+          ],
+          [
+            10,
+            11,
+            20,
+            19
+          ],
+          [
+            11,
+            12,
+            21,
+            20
+          ],
+          [
+            12,
+            13,
+            22,
+            21
+          ],
+          [
+            13,
+            14,
+            23,
+            22
+          ],
+          [
+            14,
+            15,
+            24,
+            23
+          ],
+          [
+            15,
+            16,
+            25,
+            24
+          ],
+          [
+            16,
+            17,
+            26,
+            25
+          ],
+          [
+            18,
+            19,
+            28,
+            27
+          ],
+          [
+            19,
+            20,
+            29,
+            28
+          ],
+          [
+            20,
+            21,
+            30,
+            29
+          ],
+          [
+            21,
+            22,
+            31,
+            30
+          ],
+          [
+            22,
+            23,
+            32,
+            31
+          ],
+          [
+            23,
+            24,
+            33,
+            32
+          ],
+          [
+            24,
+            25,
+            34,
+            33
+          ],
+          [
+            25,
+            26,
+            35,
+            34
+          ]
+        ]
+      },
+      "transform": {
+        "location": [
+          0,
+          2.5,
+          {
+            "param": "battery_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      },
+      "modifiers": {
+        "solidify": 0.02
+      },
+      "smooth": true,
+      "uv_projection": {
+        "axes": [
+          1,
+          0
+        ],
+        "bounds": [
+          -24,
+          -4.85,
+          24,
+          4.85
+        ],
+        "flip_v": true
+      }
+    },
+    {
+      "id": "label_bottom",
+      "op": "mesh",
+      "material": "battery_wrapper_print",
+      "args": {
+        "vertices": [
+          [
+            -4.85,
+            -24,
+            -2.56
+          ],
+          [
+            -4.72,
+            -24,
+            -2.79
+          ],
+          [
+            -4.52,
+            -24,
+            -2.94
+          ],
+          [
+            -4.28,
+            -24,
+            -2.99
+          ],
+          [
+            0,
+            -24,
+            -2.99
+          ],
+          [
+            4.28,
+            -24,
+            -2.99
+          ],
+          [
+            4.52,
+            -24,
+            -2.94
+          ],
+          [
+            4.72,
+            -24,
+            -2.79
+          ],
+          [
+            4.85,
+            -24,
+            -2.56
+          ],
+          [
+            -4.85,
+            -23.5,
+            -2.56
+          ],
+          [
+            -4.72,
+            -23.5,
+            -2.79
+          ],
+          [
+            -4.52,
+            -23.5,
+            -2.94
+          ],
+          [
+            -4.28,
+            -23.5,
+            -2.99
+          ],
+          [
+            0,
+            -23.5,
+            -2.99
+          ],
+          [
+            4.28,
+            -23.5,
+            -2.99
+          ],
+          [
+            4.52,
+            -23.5,
+            -2.94
+          ],
+          [
+            4.72,
+            -23.5,
+            -2.79
+          ],
+          [
+            4.85,
+            -23.5,
+            -2.56
+          ],
+          [
+            -4.85,
+            23.5,
+            -2.56
+          ],
+          [
+            -4.72,
+            23.5,
+            -2.79
+          ],
+          [
+            -4.52,
+            23.5,
+            -2.94
+          ],
+          [
+            -4.28,
+            23.5,
+            -2.99
+          ],
+          [
+            0,
+            23.5,
+            -2.99
+          ],
+          [
+            4.28,
+            23.5,
+            -2.99
+          ],
+          [
+            4.52,
+            23.5,
+            -2.94
+          ],
+          [
+            4.72,
+            23.5,
+            -2.79
+          ],
+          [
+            4.85,
+            23.5,
+            -2.56
+          ],
+          [
+            -4.85,
+            24,
+            -2.56
+          ],
+          [
+            -4.72,
+            24,
+            -2.79
+          ],
+          [
+            -4.52,
+            24,
+            -2.94
+          ],
+          [
+            -4.28,
+            24,
+            -2.99
+          ],
+          [
+            0,
+            24,
+            -2.99
+          ],
+          [
+            4.28,
+            24,
+            -2.99
+          ],
+          [
+            4.52,
+            24,
+            -2.94
+          ],
+          [
+            4.72,
+            24,
+            -2.79
+          ],
+          [
+            4.85,
+            24,
+            -2.56
+          ]
+        ],
+        "faces": [
+          [
+            0,
+            1,
+            10,
+            9
+          ],
+          [
+            1,
+            2,
+            11,
+            10
+          ],
+          [
+            2,
+            3,
+            12,
+            11
+          ],
+          [
+            3,
+            4,
+            13,
+            12
+          ],
+          [
+            4,
+            5,
+            14,
+            13
+          ],
+          [
+            5,
+            6,
+            15,
+            14
+          ],
+          [
+            6,
+            7,
+            16,
+            15
+          ],
+          [
+            7,
+            8,
+            17,
+            16
+          ],
+          [
+            9,
+            10,
+            19,
+            18
+          ],
+          [
+            10,
+            11,
+            20,
+            19
+          ],
+          [
+            11,
+            12,
+            21,
+            20
+          ],
+          [
+            12,
+            13,
+            22,
+            21
+          ],
+          [
+            13,
+            14,
+            23,
+            22
+          ],
+          [
+            14,
+            15,
+            24,
+            23
+          ],
+          [
+            15,
+            16,
+            25,
+            24
+          ],
+          [
+            16,
+            17,
+            26,
+            25
+          ],
+          [
+            18,
+            19,
+            28,
+            27
+          ],
+          [
+            19,
+            20,
+            29,
+            28
+          ],
+          [
+            20,
+            21,
+            30,
+            29
+          ],
+          [
+            21,
+            22,
+            31,
+            30
+          ],
+          [
+            22,
+            23,
+            32,
+            31
+          ],
+          [
+            23,
+            24,
+            33,
+            32
+          ],
+          [
+            24,
+            25,
+            34,
+            33
+          ],
+          [
+            25,
+            26,
+            35,
+            34
+          ]
+        ]
+      },
+      "transform": {
+        "location": [
+          0,
+          2.5,
+          {
+            "param": "battery_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      },
+      "modifiers": {
+        "solidify": 0.02
+      },
+      "smooth": true,
+      "uv_projection": {
+        "axes": [
+          1,
+          0
+        ],
+        "bounds": [
+          -24,
+          -4.85,
+          24,
+          4.85
+        ],
+        "flip_v": false
+      }
+    },
+    {
+      "id": "pouch_fold_n1",
+      "op": "tube",
+      "material": "battery_foil",
+      "args": {
+        "points": [
+          [
+            -4.86,
+            -21.5,
+            {
+              "param": "battery_center_z",
+              "scale": 1,
+              "offset": -2.46
+            }
+          ],
+          [
+            -4.975,
+            -18,
+            {
+              "param": "battery_center_z",
+              "scale": 1,
+              "offset": -2.51
+            }
+          ],
+          [
+            -4.975,
+            22.5,
+            {
+              "param": "battery_center_z",
+              "scale": 1,
+              "offset": -2.51
+            }
+          ],
+          [
+            -4.75,
+            26.9,
+            {
+              "param": "battery_center_z",
+              "scale": 1,
+              "offset": -2.41
+            }
+          ]
+        ],
+        "radius": 0.014,
+        "smooth": false,
+        "resolution": 8
+      },
+      "transform": {
+        "location": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "pouch_fold_1",
+      "op": "tube",
+      "material": "battery_foil",
+      "args": {
+        "points": [
+          [
+            4.86,
+            -21.5,
+            {
+              "param": "battery_center_z",
+              "scale": 1,
+              "offset": -2.46
+            }
+          ],
+          [
+            4.975,
+            -18,
+            {
+              "param": "battery_center_z",
+              "scale": 1,
+              "offset": -2.51
+            }
+          ],
+          [
+            4.975,
+            22.5,
+            {
+              "param": "battery_center_z",
+              "scale": 1,
+              "offset": -2.51
+            }
+          ],
+          [
+            4.75,
+            26.9,
+            {
+              "param": "battery_center_z",
+              "scale": 1,
+              "offset": -2.41
+            }
+          ]
+        ],
+        "radius": 0.014,
+        "smooth": false,
+        "resolution": 8
+      },
+      "transform": {
+        "location": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "sealed_end_lip",
+      "op": "box",
+      "material": "battery_foil",
+      "args": {
+        "size": [
+          9.4,
+          0.1,
+          5.15
+        ]
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "battery_length",
+            "scale": 0.5,
+            "offset": -0.11
+          },
+          {
+            "param": "battery_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.045
+      }
+    },
+    {
+      "id": "terminal_connector",
+      "op": "box",
+      "material": "battery_sleeve",
+      "args": {
+        "size": [
+          3.8,
+          5,
+          3.9
+        ]
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "battery_length",
+            "scale": -0.5,
+            "offset": -2.1
+          },
+          {
+            "param": "battery_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.28
+      }
+    },
+    {
+      "id": "terminal_neck",
+      "op": "box",
+      "material": "battery_sleeve",
+      "args": {
+        "size": [
+          2.3,
+          2,
+          2.8
+        ]
+      },
+      "transform": {
+        "location": [
+          0,
+          {
+            "param": "battery_length",
+            "scale": -0.5,
+            "offset": -4.9
+          },
+          {
+            "param": "battery_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.1
+      }
+    },
+    {
+      "id": "contact_rim_left",
+      "op": "annulus",
+      "material": "steel",
+      "args": {
+        "inner_radius": 0.32,
+        "outer_radius": 0.43,
+        "depth": 0.11,
+        "segments": 32
+      },
+      "transform": {
+        "location": [
+          -0.8,
+          {
+            "param": "battery_length",
+            "scale": -0.5,
+            "offset": -6.0
+          },
+          {
+            "param": "battery_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ],
+        "rotation_deg": [
+          90,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "contact_recess_left",
+      "op": "cylinder",
+      "material": "wire_black",
+      "args": {
+        "radius": 0.315,
+        "depth": 0.16,
+        "segments": 32
+      },
+      "transform": {
+        "location": [
+          -0.8,
+          {
+            "param": "battery_length",
+            "scale": -0.5,
+            "offset": -5.91
+          },
+          {
+            "param": "battery_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ],
+        "rotation_deg": [
+          90,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "contact_rim_right",
+      "op": "annulus",
+      "material": "steel",
+      "args": {
+        "inner_radius": 0.32,
+        "outer_radius": 0.43,
+        "depth": 0.11,
+        "segments": 32
+      },
+      "transform": {
+        "location": [
+          0.8,
+          {
+            "param": "battery_length",
+            "scale": -0.5,
+            "offset": -6.0
+          },
+          {
+            "param": "battery_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ],
+        "rotation_deg": [
+          90,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "contact_recess_right",
+      "op": "cylinder",
+      "material": "wire_black",
+      "args": {
+        "radius": 0.315,
+        "depth": 0.16,
+        "segments": 32
+      },
+      "transform": {
+        "location": [
+          0.8,
+          {
+            "param": "battery_length",
+            "scale": -0.5,
+            "offset": -5.91
+          },
+          {
+            "param": "battery_center_z",
+            "scale": 1,
+            "offset": 0
+          }
+        ],
+        "rotation_deg": [
+          90,
+          0,
+          0
+        ]
+      }
+    }
+  ]
+}

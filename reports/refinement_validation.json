@@ -1,0 +1,590 @@
+{
+  "date": "2026-10-12",
+  "published_anchors_unchanged": true,
+  "published_anchor_count": 35,
+  "revised_parameters": {
+    "fc_body_side": {
+      "before": 24.0,
+      "after": 26.4,
+      "status": "estimated",
+      "confidence": "medium",
+      "sources": [
+        "fc_top_image",
+        "air65_ii_electronics"
+      ]
+    },
+    "fc_body_corner_radius": {
+      "before": 16.9705627485,
+      "after": 18.667619023324853,
+      "status": "derived",
+      "confidence": "medium",
+      "sources": [
+        "fc_top_image"
+      ]
+    },
+    "fc_front_clip_y": {
+      "before": 14.2,
+      "after": 16.2,
+      "status": "estimated",
+      "confidence": "medium",
+      "sources": [
+        "fc_top_image",
+        "air65_ii_electronics"
+      ]
+    },
+    "canopy_half_width": {
+      "before": 19.0,
+      "after": 20.23,
+      "status": "estimated",
+      "confidence": "medium",
+      "sources": [
+        "air_ii_canopy_side",
+        "air_ii_canopy_diagram",
+        "photo_freestyle_side_oblique"
+      ]
+    }
+  },
+  "added_parameters": {
+    "fc_side_rear_clip_radius": {
+      "value": 16.3,
+      "unit": "mm",
+      "status": "estimated",
+      "confidence": "medium",
+      "source_ids": [
+        "fc_top_image"
+      ],
+      "uncertainty": [
+        16,
+        16.6
+      ],
+      "note": "Absolute left/right/back substrate truncation before circular lug. Kept inside nearest hole edge16.8348mm; photographic estimate."
+    },
+    "fc_side_clip_half_width": {
+      "value": 2.3676190233248526,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "fc_top_image"
+      ],
+      "uncertainty": null,
+      "note": "fc_body_corner_radius minus fc_side_rear_clip_radius. Shared half-width at clipped diamond edge."
+    },
+    "fc_front_clip_half_width": {
+      "value": 2.467619023324854,
+      "unit": "mm",
+      "status": "derived",
+      "confidence": "medium",
+      "source_ids": [
+        "fc_top_image"
+      ],
+      "uncertainty": null,
+      "note": "fc_body_corner_radius minus fc_front_clip_y. Shared half-width at clipped diamond edge."
+    }
+  },
+  "dry_validation": "pass",
+  "numeric_checks": 93,
+  "parameter_status_counts": {
+    "verified": 35,
+    "derived": 39,
+    "estimated": 48
+  },
+  "source_geometry_fingerprint_sha256": "630df06fdb96e43bbb6f372527c5e34baa45f05895e39a1de1e9ada1772d46e9",
+  "source_input_sha256": "118130e29685d692a02af0b37c6e2bcdc4232419a92dc864c805a80953eedc35",
+  "reopen": {
+    "status": "pass",
+    "saved_project": "/Users/daniel/Code/air65/output/final/air65_ii.blend",
+    "reopened_geometry_fingerprint_sha256": "630df06fdb96e43bbb6f372527c5e34baa45f05895e39a1de1e9ada1772d46e9",
+    "source_input_sha256": "118130e29685d692a02af0b37c6e2bcdc4232419a92dc864c805a80953eedc35",
+    "geometry_object_count": 928,
+    "editable_mesh_objects": 874,
+    "editable_curves": 54,
+    "editable_fonts": 0,
+    "retained_modifiers": 176,
+    "component_collections": [
+      "frame",
+      "electronics",
+      "camera",
+      "canopy",
+      "motor_FL",
+      "prop_FL",
+      "motor_FR",
+      "prop_FR",
+      "motor_RL",
+      "prop_RL",
+      "motor_RR",
+      "prop_RR"
+    ],
+    "camera_count": 8,
+    "embedded_source_present": true,
+    "packed_texture_sha256": {
+      "battery_280_wrapper.png": "204078e07d2ea94d71d6dabfdf10c0aabb6acea05a853aa21a30724181b10899",
+      "battery_cap.png": "c45dcb101be871523d8318e10e7052258aef8e100bab1e4fee92539a3c483295",
+      "chip_markings.png": "f4be8868b9df6f2c65101ca059ca96703d5127ef3043d3f2065e76e54f89f3dd",
+      "fc_bottom.png": "bde7ed3dcbbe1474ac596358475e66a81e632fea8dbb4ee6a65aece9e10a536f",
+      "fc_top.png": "801012af89c2f8757c3fc9661a7f99c57c873b5bcc490f16fbd32f22dd56a0a0"
+    },
+    "reopened_surface_fingerprint_sha256": "5a627e3cf3871a3ec2d8a479051466a71eb69aea66c991692261599d299c2b2c",
+    "editable_uv_meshes": 6
+  },
+  "repeatability": {
+    "status": "pass",
+    "method": "Independent no-render headless regeneration from the same current JSON, texture assets and renderer; evaluated geometry and surface fingerprints compared.",
+    "first": "output/final/air65_ii.blend",
+    "second": "output/rebuild_check/air65_ii.blend",
+    "blender_version": "5.2.2 LTS",
+    "checks": {
+      "geometry_input_sha256": {
+        "first": "118130e29685d692a02af0b37c6e2bcdc4232419a92dc864c805a80953eedc35",
+        "second": "118130e29685d692a02af0b37c6e2bcdc4232419a92dc864c805a80953eedc35",
+        "equal": true
+      },
+      "geometry_fingerprint_sha256": {
+        "first": "630df06fdb96e43bbb6f372527c5e34baa45f05895e39a1de1e9ada1772d46e9",
+        "second": "630df06fdb96e43bbb6f372527c5e34baa45f05895e39a1de1e9ada1772d46e9",
+        "equal": true
+      },
+      "surface_fingerprint_sha256": {
+        "first": "5a627e3cf3871a3ec2d8a479051466a71eb69aea66c991692261599d299c2b2c",
+        "second": "5a627e3cf3871a3ec2d8a479051466a71eb69aea66c991692261599d299c2b2c",
+        "equal": true
+      },
+      "geometry_object_count": {
+        "first": 928,
+        "second": 928,
+        "equal": true
+      },
+      "total_vertices": {
+        "first": 246102,
+        "second": 246102,
+        "equal": true
+      }
+    },
+    "limits": [
+      "Does not assert byte-identical blend files or pixel determinism across devices.",
+      "Geometry fingerprint quantizes evaluated coordinates to 0.000001 mm; surface fingerprint quantizes active UVs and authored corner normals to 0.000001."
+    ]
+  },
+  "battery_fit": {
+    "status": "pass",
+    "saved_project": "/Users/daniel/Code/air65/output/with_battery/air65_ii.blend",
+    "geometry_input_sha256": "050965ea825913b59c4ec078204d9af0e09fc851ed8a763b8d84cacf37676177",
+    "body_dimensions_mm": [
+      9.999999046325684,
+      53.99999809265137,
+      5.999999523162842
+    ],
+    "body_nominal_mm": [
+      10,
+      54,
+      6
+    ],
+    "body_bounds_min_mm": [
+      -4.999999523162842,
+      -26.999998092651367,
+      1.1999998092651367
+    ],
+    "body_bounds_max_mm": [
+      4.999999523162842,
+      27.0,
+      7.1999993324279785
+    ],
+    "body_dimensions_pass": true,
+    "frame_surface_intersections": [],
+    "frame_vertices_inside_conservative_body_box": [],
+    "battery_objects_checked": 14,
+    "frame_objects_checked": 72,
+    "claim": "No detected frame/battery surface intersections or frame vertices inside the conservative nominal body envelope in this saved display pose. Body excludes the connector nose; printed graphics are UV textures on the curved wrapper.",
+    "limitations": [
+      "Targeted geometric check, not a general solid collision/containment proof or insertion-path simulation.",
+      "Cradle construction, battery placement, labels and connector are estimates.",
+      "Power pigtail is displayed unplugged; mechanical/electrical connector mating is not modelled."
+    ]
+  },
+  "assets": {
+    "original": {
+      "bytes": 11850856,
+      "sha256": "9b48b97ebc2aceedfd66ec45654f4a34dbcfa91a3f73a3a995a977b34c94e1ec",
+      "triangles": 534490,
+      "vertices": 357745,
+      "materials": 27,
+      "textures": 0,
+      "components": 13
+    },
+    "refined_full": {
+      "bytes": 14935792,
+      "sha256": "6ea007a2a37bfabe00bc9904472eed24b80cefa485f8d6b97213a1246f8768b8",
+      "triangles": 488054,
+      "vertices": 338478,
+      "materials": 30,
+      "textures": 5,
+      "components": 13
+    },
+    "refined_optimized": {
+      "bytes": 10417808,
+      "sha256": "8ddbc0195e22c59bc8dcf6de34885021e5cc099aea5b33a08817a11a7b6395a7",
+      "triangles": 262810,
+      "vertices": 206782,
+      "materials": 30,
+      "textures": 5,
+      "components": 13
+    }
+  },
+  "optimization": {
+    "accepted_objects": 314,
+    "config_sha256": "45a90d6d85521b53ee8a630c6a15c0da974506cf1680e1c414646f57a0301709",
+    "deviation_method": "Two-way evaluated vertex and triangle-centroid samples against closest triangle surfaces, capped deterministically per object and direction; not a certified continuous Hausdorff bound.",
+    "maximum_component_bound_delta_mm": 0.00963360071182251,
+    "maximum_sampled_surface_deviation_mm": 0.034158179914811626,
+    "metrics_file": "optimization-metrics.json",
+    "optimized_triangles": 262810,
+    "profile": "air65-bounded-web-v2",
+    "reverted_objects": 22,
+    "source_triangles": 488054,
+    "triangle_reduction_percent": 46.151450454253016,
+    "unchanged_objects": 606
+  },
+  "web_anchor_validation": {
+    "status": "pass",
+    "source": "/Users/daniel/Code/air65/output/web_optimized/preview.blend",
+    "checks": [
+      {
+        "check": "Frame envelope X",
+        "actual_mm": 82.59999084472656,
+        "expected_mm": 82.6,
+        "numerical_tolerance_mm": 0.02,
+        "difference_mm": 9.155273431815658e-06,
+        "status": "pass"
+      },
+      {
+        "check": "Frame envelope Y",
+        "actual_mm": 82.59999084472656,
+        "expected_mm": 82.6,
+        "numerical_tolerance_mm": 0.02,
+        "difference_mm": 9.155273431815658e-06,
+        "status": "pass"
+      },
+      {
+        "check": "Frame envelope Z",
+        "actual_mm": 15.09999942779541,
+        "expected_mm": 15.1,
+        "numerical_tolerance_mm": 0.02,
+        "difference_mm": 5.722045894884786e-07,
+        "status": "pass"
+      },
+      {
+        "check": "Diagonal motor axes",
+        "actual_mm": 64.99999998339044,
+        "expected_mm": 65,
+        "numerical_tolerance_mm": 0.001,
+        "difference_mm": 1.660956172599981e-08,
+        "status": "pass"
+      },
+      {
+        "check": "FL prop swept diameter",
+        "actual_mm": 31.000003805772952,
+        "expected_mm": 31,
+        "numerical_tolerance_mm": 0.03,
+        "difference_mm": 3.80577295189255e-06,
+        "status": "pass"
+      },
+      {
+        "check": "FL motor maximum diameter",
+        "actual_mm": 9.000002116451322,
+        "expected_mm": 9,
+        "numerical_tolerance_mm": 0.02,
+        "difference_mm": 2.116451321754198e-06,
+        "status": "pass"
+      },
+      {
+        "check": "FL duct clear vertex diameter",
+        "actual_mm": 32.999996185302734,
+        "expected_mm": 33,
+        "numerical_tolerance_mm": 0.02,
+        "difference_mm": 3.814697265625e-06,
+        "status": "pass"
+      },
+      {
+        "check": "FL prop-to-duct nominal radial clearance",
+        "actual_mm": 0.9999961897648912,
+        "expected_mm": 1,
+        "numerical_tolerance_mm": 0.025,
+        "difference_mm": 3.810235108758775e-06,
+        "status": "pass"
+      },
+      {
+        "check": "FL prop/motor concentricity",
+        "actual_mm": 0.0,
+        "expected_mm": 0,
+        "numerical_tolerance_mm": 0.001,
+        "difference_mm": 0.0,
+        "status": "pass"
+      },
+      {
+        "check": "FR prop swept diameter",
+        "actual_mm": 30.99999551810232,
+        "expected_mm": 31,
+        "numerical_tolerance_mm": 0.03,
+        "difference_mm": 4.481897679653457e-06,
+        "status": "pass"
+      },
+      {
+        "check": "FR motor maximum diameter",
+        "actual_mm": 9.000002116451322,
+        "expected_mm": 9,
+        "numerical_tolerance_mm": 0.02,
+        "difference_mm": 2.116451321754198e-06,
+        "status": "pass"
+      },
+      {
+        "check": "FR duct clear vertex diameter",
+        "actual_mm": 32.999996185302734,
+        "expected_mm": 33,
+        "numerical_tolerance_mm": 0.02,
+        "difference_mm": 3.814697265625e-06,
+        "status": "pass"
+      },
+      {
+        "check": "FR prop-to-duct nominal radial clearance",
+        "actual_mm": 1.000000333600207,
+        "expected_mm": 1,
+        "numerical_tolerance_mm": 0.025,
+        "difference_mm": 3.3360020701422854e-07,
+        "status": "pass"
+      },
+      {
+        "check": "FR prop/motor concentricity",
+        "actual_mm": 0.0,
+        "expected_mm": 0,
+        "numerical_tolerance_mm": 0.001,
+        "difference_mm": 0.0,
+        "status": "pass"
+      },
+      {
+        "check": "RL prop swept diameter",
+        "actual_mm": 31.00000025859645,
+        "expected_mm": 31,
+        "numerical_tolerance_mm": 0.03,
+        "difference_mm": 2.5859645091941275e-07,
+        "status": "pass"
+      },
+      {
+        "check": "RL motor maximum diameter",
+        "actual_mm": 9.000002116451322,
+        "expected_mm": 9,
+        "numerical_tolerance_mm": 0.02,
+        "difference_mm": 2.116451321754198e-06,
+        "status": "pass"
+      },
+      {
+        "check": "RL duct clear vertex diameter",
+        "actual_mm": 32.999996185302734,
+        "expected_mm": 33,
+        "numerical_tolerance_mm": 0.02,
+        "difference_mm": 3.814697265625e-06,
+        "status": "pass"
+      },
+      {
+        "check": "RL prop-to-duct nominal radial clearance",
+        "actual_mm": 0.9999979633531417,
+        "expected_mm": 1,
+        "numerical_tolerance_mm": 0.025,
+        "difference_mm": 2.0366468582722064e-06,
+        "status": "pass"
+      },
+      {
+        "check": "RL prop/motor concentricity",
+        "actual_mm": 0.0,
+        "expected_mm": 0,
+        "numerical_tolerance_mm": 0.001,
+        "difference_mm": 0.0,
+        "status": "pass"
+      },
+      {
+        "check": "RR prop swept diameter",
+        "actual_mm": 30.99999976773952,
+        "expected_mm": 31,
+        "numerical_tolerance_mm": 0.03,
+        "difference_mm": 2.3226047929369997e-07,
+        "status": "pass"
+      },
+      {
+        "check": "RR motor maximum diameter",
+        "actual_mm": 9.000002116451322,
+        "expected_mm": 9,
+        "numerical_tolerance_mm": 0.02,
+        "difference_mm": 2.116451321754198e-06,
+        "status": "pass"
+      },
+      {
+        "check": "RR duct clear vertex diameter",
+        "actual_mm": 32.999996185302734,
+        "expected_mm": 33,
+        "numerical_tolerance_mm": 0.02,
+        "difference_mm": 3.814697265625e-06,
+        "status": "pass"
+      },
+      {
+        "check": "RR prop-to-duct nominal radial clearance",
+        "actual_mm": 0.9999982087816068,
+        "expected_mm": 1,
+        "numerical_tolerance_mm": 0.025,
+        "difference_mm": 1.79121839316565e-06,
+        "status": "pass"
+      },
+      {
+        "check": "RR prop/motor concentricity",
+        "actual_mm": 0.0,
+        "expected_mm": 0,
+        "numerical_tolerance_mm": 0.001,
+        "difference_mm": 0.0,
+        "status": "pass"
+      },
+      {
+        "check": "Frame mount pitch",
+        "actual_mm": 25.4999978355653,
+        "expected_mm": 25.5,
+        "numerical_tolerance_mm": 0.001,
+        "difference_mm": 2.164434700802076e-06,
+        "status": "pass"
+      },
+      {
+        "check": "FC lug pitch",
+        "actual_mm": 25.999998374917194,
+        "expected_mm": 26,
+        "numerical_tolerance_mm": 0.001,
+        "difference_mm": 1.6250828061004086e-06,
+        "status": "pass"
+      },
+      {
+        "check": "Camera barrel diameter",
+        "actual_mm": 9.999999046325684,
+        "expected_mm": 10,
+        "numerical_tolerance_mm": 0.02,
+        "difference_mm": 9.5367431640625e-07,
+        "status": "pass"
+      }
+    ],
+    "claim": "Nominal anchors on the exact evaluated meshes supplied to the GLB writer. Serialized GLB group bounds and vertex/index counts are checked separately by the exporter.",
+    "limits": [
+      "Numerical export tolerances are not physical manufacturing tolerances.",
+      "Ring clear diameter is sampled at vertices; the polygonal opening has smaller chord radii between vertices."
+    ]
+  },
+  "web_reproducibility": {
+    "status": "pass",
+    "method": "Independent second optimized export; byte equality with public asset copy. Evaluated UVs canonicalized to six decimal places after an earlier one-ULP discrepancy.",
+    "sha256": {
+      "output/web_optimized/air65-ii.glb": "8ddbc0195e22c59bc8dcf6de34885021e5cc099aea5b33a08817a11a7b6395a7",
+      "output/web_repeat/air65-ii.glb": "8ddbc0195e22c59bc8dcf6de34885021e5cc099aea5b33a08817a11a7b6395a7",
+      "site/dist/assets/air65-ii.glb": "8ddbc0195e22c59bc8dcf6de34885021e5cc099aea5b33a08817a11a7b6395a7"
+    },
+    "source_blend_sha256": "1c9424baa3c92dde8e2ff1fc77fa05cf8c3136f20f21e76cee3351ad59b63e8a"
+  },
+  "browser_timing_summary": {
+    "original": {
+      "rounds": 3,
+      "median_of_round_cpu_medians_ms": 1.400000000372529,
+      "median_of_round_cpu_p95_ms": 1.900000000372529,
+      "mean_of_round_fps": 93.45647905297935,
+      "median_of_round_gpu_medians_ms": 8.014708
+    },
+    "refined_full": {
+      "rounds": 3,
+      "median_of_round_cpu_medians_ms": 1.5,
+      "median_of_round_cpu_p95_ms": 2.099999999627471,
+      "mean_of_round_fps": 94.830572428539,
+      "median_of_round_gpu_medians_ms": 7.891625
+    },
+    "refined_optimized": {
+      "rounds": 3,
+      "median_of_round_cpu_medians_ms": 1.300000000745058,
+      "median_of_round_cpu_p95_ms": 1.699999999254942,
+      "mean_of_round_fps": 119.53825093831365,
+      "median_of_round_gpu_medians_ms": 6.344083
+    }
+  },
+  "browser_evidence_sha256": "1461b24b2690bad9a915f39a389c719134e21479ff20d1ae465cbce6941a6b73",
+  "claim_limits": [
+    "Photographic estimates have no calibrated physical error percentage.",
+    "Source-to-web sampled mesh distance does not establish physical accuracy or a continuous Hausdorff bound.",
+    "Browser timings describe one local GPU/browser at the recorded viewport, not internet loading or universal performance."
+  ],
+  "publication": {
+    "site_title": "Air65 II \u2014 3D Explorer",
+    "url": "https://air65-ii-explorer.danohn.chatgpt.site",
+    "access_mode": "public",
+    "anonymous_page_http": 200,
+    "anonymous_glb_http": 200,
+    "production_browser_model_loaded": true,
+    "production_browser_errors_or_warnings": 0,
+    "production_controls_checked": [
+      "zoom",
+      "keyboard orbit",
+      "bottom preset",
+      "optional battery",
+      "reset",
+      "390x844 responsive framing"
+    ],
+    "version_number": 2,
+    "project_id": "appgprj_6acc1dd67ef48191a83f2578cef3428e",
+    "version_id": "appgprj_6acc1dd67ef48191a83f2578cef3428e~appgver_14f5ca6b574881918d4c7d598f4e90c0",
+    "deployment_id": "appgdep_6acc3731bc408191a59574dfd1623fd3",
+    "commit_sha": "a127b54bce472d9e8ec3615589aa1c57a3b7cff2",
+    "deployment_status": "succeeded",
+    "updated_at": "2026-10-12T01:26:29.856398+00:00",
+    "public_glb_sha256": "8ddbc0195e22c59bc8dcf6de34885021e5cc099aea5b33a08817a11a7b6395a7",
+    "public_asset_evidence": "reports/site/public_asset_validation.json",
+    "screenshots": [
+      "reports/site/published_refinement_desktop.jpg",
+      "reports/site/published_refinement_zoom_orbit.jpg",
+      "reports/site/published_refinement_battery.jpg",
+      "reports/site/published_refinement_mobile.jpg"
+    ],
+    "previous_deployment": "reports/site/deployment_v1.json"
+  },
+  "public_asset_validation": {
+    "date": "2026-10-12T01:27:40.572665+00:00",
+    "status": "pass",
+    "method": "Anonymous curl HTTPS GET without cookies or authentication; full asset and code SHA-256 compared with reviewed local build. Hosted index may include platform-injected markup.",
+    "client_note": "An initial Python urllib request returned HTTP403; standard curl and the real browser succeeded. No authentication, custom browser headers or security overrides were used.",
+    "checks": [
+      {
+        "url": "https://air65-ii-explorer.danohn.chatgpt.site/",
+        "http_status": 200,
+        "bytes": 11040,
+        "sha256": "fb97e98bfb0c7c0e42135f4ba07188552bb6db751a7802793bdd165bbdf70882",
+        "matches_local": false,
+        "page_title_present": true
+      },
+      {
+        "url": "https://air65-ii-explorer.danohn.chatgpt.site/assets/air65-ii.glb",
+        "http_status": 200,
+        "bytes": 10417808,
+        "sha256": "8ddbc0195e22c59bc8dcf6de34885021e5cc099aea5b33a08817a11a7b6395a7",
+        "matches_local": true
+      },
+      {
+        "url": "https://air65-ii-explorer.danohn.chatgpt.site/assets/model-metadata.json",
+        "http_status": 200,
+        "bytes": 75434,
+        "sha256": "34ff92f944766988692b5a35a88b356bb0c1dae5812bdc3c97a2b12099fa1c84",
+        "matches_local": true
+      },
+      {
+        "url": "https://air65-ii-explorer.danohn.chatgpt.site/app.js",
+        "http_status": 200,
+        "bytes": 20390,
+        "sha256": "bf4cd9feccf5b9a591b63f3697ef3022a346ef49d381e59242d9f7f9689c13da",
+        "matches_local": true
+      },
+      {
+        "url": "https://air65-ii-explorer.danohn.chatgpt.site/styles.css",
+        "http_status": 200,
+        "bytes": 13920,
+        "sha256": "71abb9f929a2deff5a394b173f8b7645a45368211bc555b083b3ab2348b68eec",
+        "matches_local": true
+      }
+    ]
+  }
+}

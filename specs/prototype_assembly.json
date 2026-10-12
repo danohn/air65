@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "id": "prototype",
+  "architecture": "specs/spatial_architecture.json",
+  "materials": "specs/materials.json",
+  "components": {
+    "prototype": "specs/components/prototype.json"
+  },
+  "instances": [
+    {
+      "id": "prototype",
+      "component": "prototype"
+    }
+  ]
+}

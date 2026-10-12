@@ -1,0 +1,3982 @@
+{
+  "schema_version": "1.0",
+  "id": "prop_ccw",
+  "contract": "air65-ii-racing-v1",
+  "description": "One GF1207 clear three-blade rotor, handedness -1; editable parameterized blade sections and hollow webbed hub. Local Z is aircraft frame datum.",
+  "provenance": [
+    {
+      "feature": "diameter, maximum chord, shaft bore, hub height and blade count",
+      "status": "verified",
+      "source_ids": [
+        "props1207",
+        "prop_drawing"
+      ],
+      "confidence": "high",
+      "note": "31 mm swept diameter, 6.8 mm maximum unpitched section chord, 1 mm shaft bore, 3.3 mm hub height and three blades reference frozen central parameters. Their complete blade surface is not manufacturer CAD."
+    },
+    {
+      "feature": "swept radius under pitch and sweep",
+      "status": "derived",
+      "source_ids": [
+        "props1207",
+        "prop_drawing"
+      ],
+      "confidence": "high",
+      "note": "Span station X coordinates are normalized against the exact renderer elliptical-profile vertices. Maximum hypot(X,Y) is 15.5 mm, including all 48 samples per section and all caps; no blade modifiers change the envelope."
+    },
+    {
+      "feature": "hub world placement",
+      "status": "derived",
+      "source_ids": [
+        "air65_ii_racing_propulsion",
+        "air65_ii_racing_oblique"
+      ],
+      "confidence": "medium",
+      "note": "Shared estimated hub bottom z=11.35 mm, top z=14.65 mm, and blade midline reference z=12.5 mm. Component instance must translate only in XY."
+    },
+    {
+      "feature": "blade planform and twist",
+      "status": "estimated",
+      "source_ids": [
+        "prop_drawing",
+        "air65_ii_racing_propulsion",
+        "photo_racing_oblique"
+      ],
+      "confidence": "medium",
+      "note": "PR-01 revision uses 61 shape-preserving span stations. Edge locations were qualitatively traced from the upper blade of prop_drawing, with neutral-pixel edge checks from image rows 370-725; no pixel-derived value is claimed verified. The outer 20 percent keeps much more chord and terminates in a broad 1.44 mm cap with short rounded corners instead of a pointed 0.06 mm endpoint. The inboard side edge is straighter; root begins at about 2.14 mm X to join the updated hub. Estimated twist is 34-to-9.8 degrees. Blade midline offsets remain -0.11 to +0.23 mm."
+    },
+    {
+      "feature": "airfoil surface",
+      "status": "simplified",
+      "source_ids": [
+        "air65_ii_racing_propulsion"
+      ],
+      "confidence": "low",
+      "note": "48-sample elliptical sections provide real thickness, rolled edges and twist; exact camber, pressure/suction surfaces, leading-edge radii and moulding ridges are unmeasured. This is visual geometry, not an aerodynamically certified propeller."
+    },
+    {
+      "feature": "hub outside diameter and three web apertures",
+      "status": "estimated",
+      "source_ids": [
+        "prop_drawing",
+        "air65_ii_racing_propulsion"
+      ],
+      "confidence": "medium",
+      "note": "PR-02: shared hub outer radius is now 2.4 mm, centrally approved after independent review, still an estimate within the original 1.9-2.5 mm uncertainty. The outer barrel wall remains 0.38 mm; center socket radius 0.93 mm and three 0.46 mm webs remain estimated. Web spans now depend on hub radius to preserve solid connections and three real apertures. The 1 mm bore and 3.3 mm height are unchanged."
+    },
+    {
+      "feature": "independent review response PR-01 and PR-02",
+      "status": "estimated",
+      "source_ids": [
+        "prop_drawing",
+        "air65_ii_racing_propulsion"
+      ],
+      "confidence": "medium",
+      "note": "Corrected broad terminal planform and straighter side edge after independent comparison of output/propulsion/top.png with reference imagery. The 2.4 mm hub radius was approved centrally before this component revision. Source diameter, maximum chord, hub height and bore remain fixed. Exact contour under perspective and pitch is uncertain."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "outer_hub_barrel",
+      "op": "annulus",
+      "material": "prop_clear",
+      "args": {
+        "inner_radius": {
+          "param": "prop_hub_radius",
+          "offset": -0.38
+        },
+        "outer_radius": {
+          "param": "prop_hub_radius"
+        },
+        "depth": {
+          "param": "prop_hub_thickness"
+        },
+        "segments": 96
+      },
+      "transform": {
+        "location": [
+          0,
+          0,
+          {
+            "param": "prop_hub_center_z"
+          }
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.055
+      },
+      "notes": "True hollow ring. Three open cavities lie between outer ring and center socket."
+    },
+    {
+      "id": "center_shaft_socket",
+      "op": "annulus",
+      "material": "prop_clear",
+      "args": {
+        "inner_radius": {
+          "param": "prop_shaft_bore_diameter",
+          "scale": 0.5
+        },
+        "outer_radius": 0.93,
+        "depth": {
+          "param": "prop_hub_thickness"
+        },
+        "segments": 64
+      },
+      "transform": {
+        "location": [
+          0,
+          0,
+          {
+            "param": "prop_hub_center_z"
+          }
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.04
+      },
+      "notes": "Actual 1.0 mm cylindrical through bore; edge bevel only opens the bore at the faces."
+    },
+    {
+      "id": "hub_radial_web_1",
+      "op": "box",
+      "material": "prop_clear",
+      "args": {
+        "size": [
+          {
+            "param": "prop_hub_radius",
+            "offset": -1.1
+          },
+          0.46,
+          {
+            "param": "prop_hub_thickness"
+          }
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "prop_hub_radius",
+            "scale": 0.5,
+            "offset": 0.3
+          },
+          {
+            "param": "prop_hub_radius",
+            "scale": 0.0
+          },
+          {
+            "param": "prop_hub_center_z"
+          }
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.05
+      },
+      "notes": "Length and radial center adapt to shared hub radius; webs overlap center socket and outer barrel after PR-02 hub revision."
+    },
+    {
+      "id": "blade_1",
+      "op": "propeller_blade",
+      "material": "prop_clear",
+      "args": {
+        "sections": [
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.137818249417
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.25
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.0
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.08
+            },
+            "twist_deg": 34.0,
+            "thickness": 0.25
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.143885719517
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.31106151337
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.002083854297
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.098431983385
+            },
+            "twist_deg": 33.672364672,
+            "thickness": 0.25
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.149953189617
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.37212302674
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.004167708594
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.116863966771
+            },
+            "twist_deg": 33.344729345,
+            "thickness": 0.25
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.156020659717
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.419117647059
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.006451612903
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.13
+            },
+            "twist_deg": 33.0,
+            "thickness": 0.25
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.171189334967
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.493244781443
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.013288996406
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.148096243271
+            },
+            "twist_deg": 32.028615336,
+            "thickness": 0.248229728
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.186358010218
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.547800586364
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.021059946635
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.160543473043
+            },
+            "twist_deg": 30.988854603,
+            "thickness": 0.244237233
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.201526685468
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.595588235294
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.029032258065
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.17
+            },
+            "twist_deg": 30.0,
+            "thickness": 0.24
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.225363175147
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.668113648167
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.042193246026
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.181829885761
+            },
+            "twist_deg": 28.582056065,
+            "thickness": 0.233648343
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.249199664826
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.73213374501
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.055754655121
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.191057860073
+            },
+            "twist_deg": 27.242846943,
+            "thickness": 0.226728893
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.273036154505
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.786764705882
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.067741935484
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.2
+            },
+            "twist_deg": 26.0,
+            "thickness": 0.22
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.299039597791
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.838584791531
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.078632895526
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.212418383074
+            },
+            "twist_deg": 24.722333532,
+            "thickness": 0.212962763
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.325043041077
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.883713524621
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.088308535591
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.22454252487
+            },
+            "twist_deg": 23.531463879,
+            "thickness": 0.206121687
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.351046484363
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.919117647059
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.096774193548
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.23
+            },
+            "twist_deg": 22.5,
+            "thickness": 0.2
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.378133404453
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.949015903854
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.105075999716
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.22846320396
+            },
+            "twist_deg": 21.593314565,
+            "thickness": 0.194735048
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.405220324543
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.973766185634
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.112505587426
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.224704185698
+            },
+            "twist_deg": 20.797433301,
+            "thickness": 0.190017029
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.432307244633
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.988235294118
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.117419354839
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.22
+            },
+            "twist_deg": 20.1,
+            "thickness": 0.185
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.455060257508
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.994129253194
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.119917783405
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.214980822055
+            },
+            "twist_deg": 19.59836101,
+            "thickness": 0.179942687
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.477813270383
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.998371816139
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.121822690986
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.208177806978
+            },
+            "twist_deg": 19.15091462,
+            "thickness": 0.17460321
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.500566283259
+            },
+            "chord": {
+              "param": "prop_max_chord"
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.122580645161
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.2
+            },
+            "twist_deg": 18.7,
+            "thickness": 0.17
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.524402772938
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.996352779795
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.121986687148
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.18885758214
+            },
+            "twist_deg": 18.198684598,
+            "thickness": 0.166334324
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.548239262617
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.98747680142
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.120532514081
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.174922618231
+            },
+            "twist_deg": 17.693595172,
+            "thickness": 0.163167162
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.572075752296
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.976470588235
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.118709677419
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.16
+            },
+            "twist_deg": 17.2,
+            "thickness": 0.16
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.595912241975
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.961422980715
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.116121434352
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.144773662551
+            },
+            "twist_deg": 16.722340476,
+            "thickness": 0.156419753
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.619748731654
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.941316065521
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.112611532299
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.128312757202
+            },
+            "twist_deg": 16.255408921,
+            "thickness": 0.152839506
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.643585221333
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.920588235294
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.109032258065
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.11
+            },
+            "twist_deg": 15.8,
+            "thickness": 0.15
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.667421711012
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.900939455702
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.105963530489
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.088012047199
+            },
+            "twist_deg": 15.351392309,
+            "thickness": 0.14810435
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.691258200691
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.8806044016
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.102820805919
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.063431501805
+            },
+            "twist_deg": 14.913484207,
+            "thickness": 0.14657907
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.71509469037
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.858823529412
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.098709677419
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.04
+            },
+            "twist_deg": 14.5,
+            "thickness": 0.145
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.736764226442
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.8362499664
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.092467783638
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.021003829233
+            },
+            "twist_deg": 14.147190005,
+            "thickness": 0.143523252
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.758433762513
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.812109024702
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.084173705746
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.002882265304
+            },
+            "twist_deg": 13.81258051,
+            "thickness": 0.141994395
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.780103298585
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.789705882353
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.076129032258
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.015
+            },
+            "twist_deg": 13.5,
+            "thickness": 0.14
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.798522404246
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.774102166291
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.070305285464
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.029992164266
+            },
+            "twist_deg": 13.265665321,
+            "thickness": 0.137328943
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.816941509907
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.75961936
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.064663810159
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.044798843474
+            },
+            "twist_deg": 13.045939337,
+            "thickness": 0.133775814
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.835360615568
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.742647058824
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.058709677419
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.06
+            },
+            "twist_deg": 12.8,
+            "thickness": 0.13
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.850529290819
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.724437016252
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.053574281081
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.07467574083
+            },
+            "twist_deg": 12.550625242,
+            "thickness": 0.126898736
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.865697966069
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.703163728022
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.048156624558
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.089680212757
+            },
+            "twist_deg": 12.273164748,
+            "thickness": 0.123588703
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.880866641319
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.680882352941
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.041935483871
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.1
+            },
+            "twist_deg": 12.0,
+            "thickness": 0.12
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.892784886159
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.663007635678
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.035514403988
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.104794794795
+            },
+            "twist_deg": 11.798438816,
+            "thickness": 0.117065513
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.904703130998
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.644290999727
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.028209016092
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.108508508509
+            },
+            "twist_deg": 11.599851609,
+            "thickness": 0.11387379
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.916621375838
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.625
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.021935483871
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.11
+            },
+            "twist_deg": 11.4,
+            "thickness": 0.11
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.92637266707
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.609273699599
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.017874420641
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.108556832695
+            },
+            "twist_deg": 11.23760383,
+            "thickness": 0.105878304
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.936123958302
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.593066649893
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.014311568684
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.104891443167
+            },
+            "twist_deg": 11.074221969,
+            "thickness": 0.100799512
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.945875249535
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.575
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.011612903226
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.1
+            },
+            "twist_deg": 10.9,
+            "thickness": 0.095
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.952376110356
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.561523115535
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.010366732656
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.0945401094
+            },
+            "twist_deg": 10.773591817,
+            "thickness": 0.090660661
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.958876971178
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.54656265298
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.009356863082
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.086934624931
+            },
+            "twist_deg": 10.639595559,
+            "thickness": 0.085690691
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.965377831999
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.529411764706
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008387096774
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.08
+            },
+            "twist_deg": 10.5,
+            "thickness": 0.08
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.969711739214
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.516072931285
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007584530165
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.076610859441
+            },
+            "twist_deg": 10.401876628,
+            "thickness": 0.075391767
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.974045646428
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.500817475358
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.006803017771
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.07351521993
+            },
+            "twist_deg": 10.300078715,
+            "thickness": 0.070152904
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.978379553642
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.483823529412
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.006451612903
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.07
+            },
+            "twist_deg": 10.2,
+            "thickness": 0.065
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.981413288692
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.471486880219
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.006559766987
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.066816896117
+            },
+            "twist_deg": 10.130685928,
+            "thickness": 0.06195996
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.984447023742
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.45765475574
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.006811290246
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.06326083186
+            },
+            "twist_deg": 10.06239064,
+            "thickness": 0.058970859
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.987480758792
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.439705882353
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007096774194
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.06
+            },
+            "twist_deg": 10.0,
+            "thickness": 0.055
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.989431017039
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.423799242411
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007281914106
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.058328301371
+            },
+            "twist_deg": 9.963846327,
+            "thickness": 0.051089328
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.991381275285
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.402789317337
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007496425425
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.056784270806
+            },
+            "twist_deg": 9.930246014,
+            "thickness": 0.045905024
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.993331533532
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.376470588235
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007741935484
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.055
+            },
+            "twist_deg": 9.9,
+            "thickness": 0.04
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.994631705696
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.355522384309
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007986696374
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.053103103103
+            },
+            "twist_deg": 9.884711899,
+            "thickness": 0.035642643
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.99593187786
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.328200529037
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008258581162
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.050995995996
+            },
+            "twist_deg": 9.870891303,
+            "thickness": 0.030654655
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.997232050025
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.289705882353
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008387096774
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.05
+            },
+            "twist_deg": 9.85,
+            "thickness": 0.025
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.997665440746
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.268504811785
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008387096774
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.05
+            },
+            "twist_deg": 9.836700337,
+            "thickness": 0.022814815
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.998098831468
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.240134758834
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008387096774
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.05
+            },
+            "twist_deg": 9.818350168,
+            "thickness": 0.020407407
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.998532222189
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.211764705882
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008387096774
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.05
+            },
+            "twist_deg": 9.8,
+            "thickness": 0.018
+          }
+        ],
+        "handedness": -1,
+        "profile_segments": 48
+      },
+      "transform": {
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ]
+      },
+      "notes": "PR-01 revision: 61 shape-preserving span stations keep useful outer-span chord, a straighter edge and a broad 1.44 mm terminal cap with short rounded corners. X station coordinates are normalized after full twist/sweep evaluation; no silhouette-changing modifiers."
+    },
+    {
+      "id": "hub_radial_web_2",
+      "op": "box",
+      "material": "prop_clear",
+      "args": {
+        "size": [
+          {
+            "param": "prop_hub_radius",
+            "offset": -1.1
+          },
+          0.46,
+          {
+            "param": "prop_hub_thickness"
+          }
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "prop_hub_radius",
+            "scale": -0.25,
+            "offset": -0.15
+          },
+          {
+            "param": "prop_hub_radius",
+            "scale": 0.433012701892,
+            "offset": 0.259807621135
+          },
+          {
+            "param": "prop_hub_center_z"
+          }
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          120
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.05
+      },
+      "notes": "Length and radial center adapt to shared hub radius; webs overlap center socket and outer barrel after PR-02 hub revision."
+    },
+    {
+      "id": "blade_2",
+      "op": "propeller_blade",
+      "material": "prop_clear",
+      "args": {
+        "sections": [
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.137818249417
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.25
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.0
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.08
+            },
+            "twist_deg": 34.0,
+            "thickness": 0.25
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.143885719517
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.31106151337
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.002083854297
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.098431983385
+            },
+            "twist_deg": 33.672364672,
+            "thickness": 0.25
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.149953189617
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.37212302674
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.004167708594
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.116863966771
+            },
+            "twist_deg": 33.344729345,
+            "thickness": 0.25
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.156020659717
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.419117647059
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.006451612903
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.13
+            },
+            "twist_deg": 33.0,
+            "thickness": 0.25
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.171189334967
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.493244781443
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.013288996406
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.148096243271
+            },
+            "twist_deg": 32.028615336,
+            "thickness": 0.248229728
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.186358010218
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.547800586364
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.021059946635
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.160543473043
+            },
+            "twist_deg": 30.988854603,
+            "thickness": 0.244237233
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.201526685468
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.595588235294
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.029032258065
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.17
+            },
+            "twist_deg": 30.0,
+            "thickness": 0.24
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.225363175147
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.668113648167
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.042193246026
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.181829885761
+            },
+            "twist_deg": 28.582056065,
+            "thickness": 0.233648343
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.249199664826
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.73213374501
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.055754655121
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.191057860073
+            },
+            "twist_deg": 27.242846943,
+            "thickness": 0.226728893
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.273036154505
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.786764705882
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.067741935484
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.2
+            },
+            "twist_deg": 26.0,
+            "thickness": 0.22
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.299039597791
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.838584791531
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.078632895526
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.212418383074
+            },
+            "twist_deg": 24.722333532,
+            "thickness": 0.212962763
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.325043041077
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.883713524621
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.088308535591
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.22454252487
+            },
+            "twist_deg": 23.531463879,
+            "thickness": 0.206121687
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.351046484363
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.919117647059
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.096774193548
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.23
+            },
+            "twist_deg": 22.5,
+            "thickness": 0.2
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.378133404453
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.949015903854
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.105075999716
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.22846320396
+            },
+            "twist_deg": 21.593314565,
+            "thickness": 0.194735048
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.405220324543
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.973766185634
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.112505587426
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.224704185698
+            },
+            "twist_deg": 20.797433301,
+            "thickness": 0.190017029
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.432307244633
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.988235294118
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.117419354839
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.22
+            },
+            "twist_deg": 20.1,
+            "thickness": 0.185
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.455060257508
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.994129253194
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.119917783405
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.214980822055
+            },
+            "twist_deg": 19.59836101,
+            "thickness": 0.179942687
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.477813270383
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.998371816139
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.121822690986
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.208177806978
+            },
+            "twist_deg": 19.15091462,
+            "thickness": 0.17460321
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.500566283259
+            },
+            "chord": {
+              "param": "prop_max_chord"
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.122580645161
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.2
+            },
+            "twist_deg": 18.7,
+            "thickness": 0.17
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.524402772938
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.996352779795
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.121986687148
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.18885758214
+            },
+            "twist_deg": 18.198684598,
+            "thickness": 0.166334324
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.548239262617
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.98747680142
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.120532514081
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.174922618231
+            },
+            "twist_deg": 17.693595172,
+            "thickness": 0.163167162
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.572075752296
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.976470588235
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.118709677419
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.16
+            },
+            "twist_deg": 17.2,
+            "thickness": 0.16
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.595912241975
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.961422980715
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.116121434352
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.144773662551
+            },
+            "twist_deg": 16.722340476,
+            "thickness": 0.156419753
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.619748731654
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.941316065521
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.112611532299
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.128312757202
+            },
+            "twist_deg": 16.255408921,
+            "thickness": 0.152839506
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.643585221333
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.920588235294
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.109032258065
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.11
+            },
+            "twist_deg": 15.8,
+            "thickness": 0.15
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.667421711012
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.900939455702
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.105963530489
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.088012047199
+            },
+            "twist_deg": 15.351392309,
+            "thickness": 0.14810435
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.691258200691
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.8806044016
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.102820805919
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.063431501805
+            },
+            "twist_deg": 14.913484207,
+            "thickness": 0.14657907
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.71509469037
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.858823529412
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.098709677419
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.04
+            },
+            "twist_deg": 14.5,
+            "thickness": 0.145
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.736764226442
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.8362499664
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.092467783638
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.021003829233
+            },
+            "twist_deg": 14.147190005,
+            "thickness": 0.143523252
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.758433762513
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.812109024702
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.084173705746
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.002882265304
+            },
+            "twist_deg": 13.81258051,
+            "thickness": 0.141994395
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.780103298585
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.789705882353
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.076129032258
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.015
+            },
+            "twist_deg": 13.5,
+            "thickness": 0.14
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.798522404246
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.774102166291
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.070305285464
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.029992164266
+            },
+            "twist_deg": 13.265665321,
+            "thickness": 0.137328943
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.816941509907
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.75961936
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.064663810159
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.044798843474
+            },
+            "twist_deg": 13.045939337,
+            "thickness": 0.133775814
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.835360615568
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.742647058824
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.058709677419
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.06
+            },
+            "twist_deg": 12.8,
+            "thickness": 0.13
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.850529290819
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.724437016252
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.053574281081
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.07467574083
+            },
+            "twist_deg": 12.550625242,
+            "thickness": 0.126898736
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.865697966069
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.703163728022
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.048156624558
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.089680212757
+            },
+            "twist_deg": 12.273164748,
+            "thickness": 0.123588703
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.880866641319
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.680882352941
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.041935483871
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.1
+            },
+            "twist_deg": 12.0,
+            "thickness": 0.12
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.892784886159
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.663007635678
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.035514403988
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.104794794795
+            },
+            "twist_deg": 11.798438816,
+            "thickness": 0.117065513
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.904703130998
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.644290999727
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.028209016092
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.108508508509
+            },
+            "twist_deg": 11.599851609,
+            "thickness": 0.11387379
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.916621375838
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.625
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.021935483871
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.11
+            },
+            "twist_deg": 11.4,
+            "thickness": 0.11
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.92637266707
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.609273699599
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.017874420641
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.108556832695
+            },
+            "twist_deg": 11.23760383,
+            "thickness": 0.105878304
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.936123958302
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.593066649893
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.014311568684
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.104891443167
+            },
+            "twist_deg": 11.074221969,
+            "thickness": 0.100799512
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.945875249535
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.575
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.011612903226
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.1
+            },
+            "twist_deg": 10.9,
+            "thickness": 0.095
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.952376110356
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.561523115535
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.010366732656
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.0945401094
+            },
+            "twist_deg": 10.773591817,
+            "thickness": 0.090660661
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.958876971178
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.54656265298
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.009356863082
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.086934624931
+            },
+            "twist_deg": 10.639595559,
+            "thickness": 0.085690691
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.965377831999
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.529411764706
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008387096774
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.08
+            },
+            "twist_deg": 10.5,
+            "thickness": 0.08
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.969711739214
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.516072931285
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007584530165
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.076610859441
+            },
+            "twist_deg": 10.401876628,
+            "thickness": 0.075391767
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.974045646428
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.500817475358
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.006803017771
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.07351521993
+            },
+            "twist_deg": 10.300078715,
+            "thickness": 0.070152904
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.978379553642
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.483823529412
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.006451612903
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.07
+            },
+            "twist_deg": 10.2,
+            "thickness": 0.065
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.981413288692
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.471486880219
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.006559766987
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.066816896117
+            },
+            "twist_deg": 10.130685928,
+            "thickness": 0.06195996
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.984447023742
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.45765475574
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.006811290246
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.06326083186
+            },
+            "twist_deg": 10.06239064,
+            "thickness": 0.058970859
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.987480758792
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.439705882353
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007096774194
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.06
+            },
+            "twist_deg": 10.0,
+            "thickness": 0.055
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.989431017039
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.423799242411
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007281914106
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.058328301371
+            },
+            "twist_deg": 9.963846327,
+            "thickness": 0.051089328
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.991381275285
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.402789317337
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007496425425
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.056784270806
+            },
+            "twist_deg": 9.930246014,
+            "thickness": 0.045905024
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.993331533532
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.376470588235
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007741935484
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.055
+            },
+            "twist_deg": 9.9,
+            "thickness": 0.04
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.994631705696
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.355522384309
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007986696374
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.053103103103
+            },
+            "twist_deg": 9.884711899,
+            "thickness": 0.035642643
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.99593187786
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.328200529037
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008258581162
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.050995995996
+            },
+            "twist_deg": 9.870891303,
+            "thickness": 0.030654655
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.997232050025
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.289705882353
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008387096774
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.05
+            },
+            "twist_deg": 9.85,
+            "thickness": 0.025
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.997665440746
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.268504811785
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008387096774
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.05
+            },
+            "twist_deg": 9.836700337,
+            "thickness": 0.022814815
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.998098831468
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.240134758834
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008387096774
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.05
+            },
+            "twist_deg": 9.818350168,
+            "thickness": 0.020407407
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.998532222189
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.211764705882
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008387096774
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.05
+            },
+            "twist_deg": 9.8,
+            "thickness": 0.018
+          }
+        ],
+        "handedness": -1,
+        "profile_segments": 48
+      },
+      "transform": {
+        "rotation_deg": [
+          0,
+          0,
+          120
+        ]
+      },
+      "notes": "PR-01 revision: 61 shape-preserving span stations keep useful outer-span chord, a straighter edge and a broad 1.44 mm terminal cap with short rounded corners. X station coordinates are normalized after full twist/sweep evaluation; no silhouette-changing modifiers."
+    },
+    {
+      "id": "hub_radial_web_3",
+      "op": "box",
+      "material": "prop_clear",
+      "args": {
+        "size": [
+          {
+            "param": "prop_hub_radius",
+            "offset": -1.1
+          },
+          0.46,
+          {
+            "param": "prop_hub_thickness"
+          }
+        ]
+      },
+      "transform": {
+        "location": [
+          {
+            "param": "prop_hub_radius",
+            "scale": -0.25,
+            "offset": -0.15
+          },
+          {
+            "param": "prop_hub_radius",
+            "scale": -0.433012701892,
+            "offset": -0.259807621135
+          },
+          {
+            "param": "prop_hub_center_z"
+          }
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          240
+        ]
+      },
+      "modifiers": {
+        "bevel": 0.05
+      },
+      "notes": "Length and radial center adapt to shared hub radius; webs overlap center socket and outer barrel after PR-02 hub revision."
+    },
+    {
+      "id": "blade_3",
+      "op": "propeller_blade",
+      "material": "prop_clear",
+      "args": {
+        "sections": [
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.137818249417
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.25
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.0
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.08
+            },
+            "twist_deg": 34.0,
+            "thickness": 0.25
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.143885719517
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.31106151337
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.002083854297
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.098431983385
+            },
+            "twist_deg": 33.672364672,
+            "thickness": 0.25
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.149953189617
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.37212302674
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.004167708594
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.116863966771
+            },
+            "twist_deg": 33.344729345,
+            "thickness": 0.25
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.156020659717
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.419117647059
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.006451612903
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.13
+            },
+            "twist_deg": 33.0,
+            "thickness": 0.25
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.171189334967
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.493244781443
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.013288996406
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.148096243271
+            },
+            "twist_deg": 32.028615336,
+            "thickness": 0.248229728
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.186358010218
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.547800586364
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.021059946635
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.160543473043
+            },
+            "twist_deg": 30.988854603,
+            "thickness": 0.244237233
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.201526685468
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.595588235294
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.029032258065
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.17
+            },
+            "twist_deg": 30.0,
+            "thickness": 0.24
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.225363175147
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.668113648167
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.042193246026
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.181829885761
+            },
+            "twist_deg": 28.582056065,
+            "thickness": 0.233648343
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.249199664826
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.73213374501
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.055754655121
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.191057860073
+            },
+            "twist_deg": 27.242846943,
+            "thickness": 0.226728893
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.273036154505
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.786764705882
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.067741935484
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.2
+            },
+            "twist_deg": 26.0,
+            "thickness": 0.22
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.299039597791
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.838584791531
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.078632895526
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.212418383074
+            },
+            "twist_deg": 24.722333532,
+            "thickness": 0.212962763
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.325043041077
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.883713524621
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.088308535591
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.22454252487
+            },
+            "twist_deg": 23.531463879,
+            "thickness": 0.206121687
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.351046484363
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.919117647059
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.096774193548
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.23
+            },
+            "twist_deg": 22.5,
+            "thickness": 0.2
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.378133404453
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.949015903854
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.105075999716
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.22846320396
+            },
+            "twist_deg": 21.593314565,
+            "thickness": 0.194735048
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.405220324543
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.973766185634
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.112505587426
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.224704185698
+            },
+            "twist_deg": 20.797433301,
+            "thickness": 0.190017029
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.432307244633
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.988235294118
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.117419354839
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.22
+            },
+            "twist_deg": 20.1,
+            "thickness": 0.185
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.455060257508
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.994129253194
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.119917783405
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.214980822055
+            },
+            "twist_deg": 19.59836101,
+            "thickness": 0.179942687
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.477813270383
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.998371816139
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.121822690986
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.208177806978
+            },
+            "twist_deg": 19.15091462,
+            "thickness": 0.17460321
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.500566283259
+            },
+            "chord": {
+              "param": "prop_max_chord"
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.122580645161
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.2
+            },
+            "twist_deg": 18.7,
+            "thickness": 0.17
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.524402772938
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.996352779795
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.121986687148
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.18885758214
+            },
+            "twist_deg": 18.198684598,
+            "thickness": 0.166334324
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.548239262617
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.98747680142
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.120532514081
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.174922618231
+            },
+            "twist_deg": 17.693595172,
+            "thickness": 0.163167162
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.572075752296
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.976470588235
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.118709677419
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.16
+            },
+            "twist_deg": 17.2,
+            "thickness": 0.16
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.595912241975
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.961422980715
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.116121434352
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.144773662551
+            },
+            "twist_deg": 16.722340476,
+            "thickness": 0.156419753
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.619748731654
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.941316065521
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.112611532299
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.128312757202
+            },
+            "twist_deg": 16.255408921,
+            "thickness": 0.152839506
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.643585221333
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.920588235294
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.109032258065
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.11
+            },
+            "twist_deg": 15.8,
+            "thickness": 0.15
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.667421711012
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.900939455702
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.105963530489
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.088012047199
+            },
+            "twist_deg": 15.351392309,
+            "thickness": 0.14810435
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.691258200691
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.8806044016
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.102820805919
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.063431501805
+            },
+            "twist_deg": 14.913484207,
+            "thickness": 0.14657907
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.71509469037
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.858823529412
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.098709677419
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.04
+            },
+            "twist_deg": 14.5,
+            "thickness": 0.145
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.736764226442
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.8362499664
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.092467783638
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.021003829233
+            },
+            "twist_deg": 14.147190005,
+            "thickness": 0.143523252
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.758433762513
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.812109024702
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.084173705746
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": 0.002882265304
+            },
+            "twist_deg": 13.81258051,
+            "thickness": 0.141994395
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.780103298585
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.789705882353
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.076129032258
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.015
+            },
+            "twist_deg": 13.5,
+            "thickness": 0.14
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.798522404246
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.774102166291
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.070305285464
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.029992164266
+            },
+            "twist_deg": 13.265665321,
+            "thickness": 0.137328943
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.816941509907
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.75961936
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.064663810159
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.044798843474
+            },
+            "twist_deg": 13.045939337,
+            "thickness": 0.133775814
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.835360615568
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.742647058824
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.058709677419
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.06
+            },
+            "twist_deg": 12.8,
+            "thickness": 0.13
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.850529290819
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.724437016252
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.053574281081
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.07467574083
+            },
+            "twist_deg": 12.550625242,
+            "thickness": 0.126898736
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.865697966069
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.703163728022
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.048156624558
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.089680212757
+            },
+            "twist_deg": 12.273164748,
+            "thickness": 0.123588703
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.880866641319
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.680882352941
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.041935483871
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.1
+            },
+            "twist_deg": 12.0,
+            "thickness": 0.12
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.892784886159
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.663007635678
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.035514403988
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.104794794795
+            },
+            "twist_deg": 11.798438816,
+            "thickness": 0.117065513
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.904703130998
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.644290999727
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.028209016092
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.108508508509
+            },
+            "twist_deg": 11.599851609,
+            "thickness": 0.11387379
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.916621375838
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.625
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.021935483871
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.11
+            },
+            "twist_deg": 11.4,
+            "thickness": 0.11
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.92637266707
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.609273699599
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.017874420641
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.108556832695
+            },
+            "twist_deg": 11.23760383,
+            "thickness": 0.105878304
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.936123958302
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.593066649893
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.014311568684
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.104891443167
+            },
+            "twist_deg": 11.074221969,
+            "thickness": 0.100799512
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.945875249535
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.575
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.011612903226
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.1
+            },
+            "twist_deg": 10.9,
+            "thickness": 0.095
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.952376110356
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.561523115535
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.010366732656
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.0945401094
+            },
+            "twist_deg": 10.773591817,
+            "thickness": 0.090660661
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.958876971178
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.54656265298
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.009356863082
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.086934624931
+            },
+            "twist_deg": 10.639595559,
+            "thickness": 0.085690691
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.965377831999
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.529411764706
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008387096774
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.08
+            },
+            "twist_deg": 10.5,
+            "thickness": 0.08
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.969711739214
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.516072931285
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007584530165
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.076610859441
+            },
+            "twist_deg": 10.401876628,
+            "thickness": 0.075391767
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.974045646428
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.500817475358
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.006803017771
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.07351521993
+            },
+            "twist_deg": 10.300078715,
+            "thickness": 0.070152904
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.978379553642
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.483823529412
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.006451612903
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.07
+            },
+            "twist_deg": 10.2,
+            "thickness": 0.065
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.981413288692
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.471486880219
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.006559766987
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.066816896117
+            },
+            "twist_deg": 10.130685928,
+            "thickness": 0.06195996
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.984447023742
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.45765475574
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.006811290246
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.06326083186
+            },
+            "twist_deg": 10.06239064,
+            "thickness": 0.058970859
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.987480758792
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.439705882353
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007096774194
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.06
+            },
+            "twist_deg": 10.0,
+            "thickness": 0.055
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.989431017039
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.423799242411
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007281914106
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.058328301371
+            },
+            "twist_deg": 9.963846327,
+            "thickness": 0.051089328
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.991381275285
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.402789317337
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007496425425
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.056784270806
+            },
+            "twist_deg": 9.930246014,
+            "thickness": 0.045905024
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.993331533532
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.376470588235
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007741935484
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.055
+            },
+            "twist_deg": 9.9,
+            "thickness": 0.04
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.994631705696
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.355522384309
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.007986696374
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.053103103103
+            },
+            "twist_deg": 9.884711899,
+            "thickness": 0.035642643
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.99593187786
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.328200529037
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008258581162
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.050995995996
+            },
+            "twist_deg": 9.870891303,
+            "thickness": 0.030654655
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.997232050025
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.289705882353
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008387096774
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.05
+            },
+            "twist_deg": 9.85,
+            "thickness": 0.025
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.997665440746
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.268504811785
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008387096774
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.05
+            },
+            "twist_deg": 9.836700337,
+            "thickness": 0.022814815
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.998098831468
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.240134758834
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008387096774
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.05
+            },
+            "twist_deg": 9.818350168,
+            "thickness": 0.020407407
+          },
+          {
+            "radius": {
+              "param": "prop_swept_radius",
+              "scale": 0.998532222189
+            },
+            "chord": {
+              "param": "prop_max_chord",
+              "scale": 0.211764705882
+            },
+            "sweep": {
+              "param": "prop_swept_radius",
+              "scale": 0.008387096774
+            },
+            "z": {
+              "param": "prop_blade_reference_z",
+              "offset": -0.05
+            },
+            "twist_deg": 9.8,
+            "thickness": 0.018
+          }
+        ],
+        "handedness": -1,
+        "profile_segments": 48
+      },
+      "transform": {
+        "rotation_deg": [
+          0,
+          0,
+          240
+        ]
+      },
+      "notes": "PR-01 revision: 61 shape-preserving span stations keep useful outer-span chord, a straighter edge and a broad 1.44 mm terminal cap with short rounded corners. X station coordinates are normalized after full twist/sweep evaluation; no silhouette-changing modifiers."
+    }
+  ]
+}

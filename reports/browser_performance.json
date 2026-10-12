@@ -1,0 +1,296 @@
+{
+  "date": "2026-10-12T01:23:19.253Z",
+  "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+  "three_revision": "186",
+  "assets": {
+    "original": {
+      "sha256": "9b48b97ebc2aceedfd66ec45654f4a34dbcfa91a3f73a3a995a977b34c94e1ec",
+      "bytes": 11850856,
+      "triangles": 534490
+    },
+    "refined_full": {
+      "sha256": "6ea007a2a37bfabe00bc9904472eed24b80cefa485f8d6b97213a1246f8768b8",
+      "bytes": 14935792,
+      "triangles": 488054
+    },
+    "refined_optimized": {
+      "sha256": "8ddbc0195e22c59bc8dcf6de34885021e5cc099aea5b33a08817a11a7b6395a7",
+      "bytes": 10417808,
+      "triangles": 262810
+    }
+  },
+  "buffer": [
+    960,
+    720
+  ],
+  "pixel_ratio": 1,
+  "frame_protocol": {
+    "warmup": 60,
+    "measured": 240,
+    "rounds": 3,
+    "interleaved": true,
+    "depth_buffer": "logarithmic",
+    "shadows": "2048 PCF, updated once per asset",
+    "motion": "identical 0.9pi camera orbit",
+    "battery_visible": false
+  },
+  "timer_extension": true,
+  "invalidated_by_background_or_gpu_disjoint": false,
+  "load_parse_ms": {
+    "original": 41.5,
+    "refined_full": 71.29999999888241,
+    "refined_optimized": 56.09999999962747
+  },
+  "runs": [
+    {
+      "case": "original",
+      "round": 1,
+      "cpu_submission": {
+        "n": 240,
+        "mean_ms": 1.4350000000093133,
+        "median_ms": 1.400000000372529,
+        "p95_ms": 1.900000000372529
+      },
+      "raf_interval": {
+        "n": 240,
+        "mean_ms": 10.451249999999996,
+        "median_ms": 8.400000000000546,
+        "p95_ms": 16.800000000000182
+      },
+      "gpu_elapsed": {
+        "n": 236,
+        "mean_ms": 7.977378533898301,
+        "median_ms": 8.023916,
+        "p95_ms": 8.872124
+      },
+      "mean_fps": 95.68233464896547,
+      "renderer_info": {
+        "draw_calls": 129,
+        "triangles": 1057142
+      }
+    },
+    {
+      "case": "refined_full",
+      "round": 1,
+      "cpu_submission": {
+        "n": 240,
+        "mean_ms": 1.574999999976717,
+        "median_ms": 1.5,
+        "p95_ms": 2.200000001117587
+      },
+      "raf_interval": {
+        "n": 240,
+        "mean_ms": 10.701666666666664,
+        "median_ms": 8.400000000001455,
+        "p95_ms": 16.80000000000109
+      },
+      "gpu_elapsed": {
+        "n": 236,
+        "mean_ms": 7.927072402542371,
+        "median_ms": 7.872999,
+        "p95_ms": 8.953291
+      },
+      "mean_fps": 93.44338888023674,
+      "renderer_info": {
+        "draw_calls": 133,
+        "triangles": 971442
+      }
+    },
+    {
+      "case": "refined_optimized",
+      "round": 1,
+      "cpu_submission": {
+        "n": 240,
+        "mean_ms": 1.1954166666759798,
+        "median_ms": 1.199999999254942,
+        "p95_ms": 1.599999999627471
+      },
+      "raf_interval": {
+        "n": 240,
+        "mean_ms": 8.326249999999996,
+        "median_ms": 8.300000000001091,
+        "p95_ms": 10.299999999999272
+      },
+      "gpu_elapsed": {
+        "n": 237,
+        "mean_ms": 6.377250877637132,
+        "median_ms": 6.344083,
+        "p95_ms": 6.984458
+      },
+      "mean_fps": 120.10208677375775,
+      "renderer_info": {
+        "draw_calls": 133,
+        "triangles": 522754
+      }
+    },
+    {
+      "case": "refined_optimized",
+      "round": 2,
+      "cpu_submission": {
+        "n": 240,
+        "mean_ms": 1.4254166667039196,
+        "median_ms": 1.400000000372529,
+        "p95_ms": 1.900000000372529
+      },
+      "raf_interval": {
+        "n": 240,
+        "mean_ms": 8.333333333333334,
+        "median_ms": 8.299999999999272,
+        "p95_ms": 10.299999999999272
+      },
+      "gpu_elapsed": {
+        "n": 238,
+        "mean_ms": 6.417733226890757,
+        "median_ms": 6.4215,
+        "p95_ms": 7.123041
+      },
+      "mean_fps": 119.99999999999999,
+      "renderer_info": {
+        "draw_calls": 133,
+        "triangles": 522754
+      }
+    },
+    {
+      "case": "refined_full",
+      "round": 2,
+      "cpu_submission": {
+        "n": 240,
+        "mean_ms": 1.3579166666216527,
+        "median_ms": 1.3999999985098839,
+        "p95_ms": 1.900000000372529
+      },
+      "raf_interval": {
+        "n": 240,
+        "mean_ms": 10.389166666666657,
+        "median_ms": 8.400000000001455,
+        "p95_ms": 16.799999999999272
+      },
+      "gpu_elapsed": {
+        "n": 236,
+        "mean_ms": 7.922534334745765,
+        "median_ms": 7.894374,
+        "p95_ms": 8.951333
+      },
+      "mean_fps": 96.25411085265108,
+      "renderer_info": {
+        "draw_calls": 133,
+        "triangles": 971442
+      }
+    },
+    {
+      "case": "original",
+      "round": 2,
+      "cpu_submission": {
+        "n": 240,
+        "mean_ms": 1.2733333333861083,
+        "median_ms": 1.200000001117587,
+        "p95_ms": 1.900000000372529
+      },
+      "raf_interval": {
+        "n": 240,
+        "mean_ms": 10.625,
+        "median_ms": 8.399999999997817,
+        "p95_ms": 16.799999999999272
+      },
+      "gpu_elapsed": {
+        "n": 236,
+        "mean_ms": 7.954640046610165,
+        "median_ms": 7.963541,
+        "p95_ms": 8.900999
+      },
+      "mean_fps": 94.11764705882354,
+      "renderer_info": {
+        "draw_calls": 129,
+        "triangles": 1057142
+      }
+    },
+    {
+      "case": "original",
+      "round": 3,
+      "cpu_submission": {
+        "n": 240,
+        "mean_ms": 1.6512499999565382,
+        "median_ms": 1.599999999627471,
+        "p95_ms": 2.300000000745058
+      },
+      "raf_interval": {
+        "n": 240,
+        "mean_ms": 11.041250000000007,
+        "median_ms": 8.399999999997817,
+        "p95_ms": 16.899999999997817
+      },
+      "gpu_elapsed": {
+        "n": 236,
+        "mean_ms": 7.9837869279661025,
+        "median_ms": 8.014708,
+        "p95_ms": 8.9705
+      },
+      "mean_fps": 90.56945545114904,
+      "renderer_info": {
+        "draw_calls": 129,
+        "triangles": 1057142
+      }
+    },
+    {
+      "case": "refined_full",
+      "round": 3,
+      "cpu_submission": {
+        "n": 240,
+        "mean_ms": 1.5779166667722166,
+        "median_ms": 1.5,
+        "p95_ms": 2.099999999627471
+      },
+      "raf_interval": {
+        "n": 240,
+        "mean_ms": 10.549166666666679,
+        "median_ms": 8.400000000001455,
+        "p95_ms": 16.700000000000728
+      },
+      "gpu_elapsed": {
+        "n": 236,
+        "mean_ms": 7.864517466101694,
+        "median_ms": 7.891625,
+        "p95_ms": 8.821749
+      },
+      "mean_fps": 94.79421755272918,
+      "renderer_info": {
+        "draw_calls": 133,
+        "triangles": 971442
+      }
+    },
+    {
+      "case": "refined_optimized",
+      "round": 3,
+      "cpu_submission": {
+        "n": 240,
+        "mean_ms": 1.3520833333333333,
+        "median_ms": 1.300000000745058,
+        "p95_ms": 1.699999999254942
+      },
+      "raf_interval": {
+        "n": 240,
+        "mean_ms": 8.437916666666661,
+        "median_ms": 8.299999999999272,
+        "p95_ms": 10.200000000000728
+      },
+      "gpu_elapsed": {
+        "n": 236,
+        "mean_ms": 6.121229906779662,
+        "median_ms": 6.145624,
+        "p95_ms": 6.901666
+      },
+      "mean_fps": 118.51266604118324,
+      "renderer_info": {
+        "draw_calls": 133,
+        "triangles": 522754
+      }
+    }
+  ],
+  "notes": [
+    "Frame cadence is requestAnimationFrame based and can be vsync-limited. CPU submission is not end-to-end GPU cost.",
+    "GPU elapsed is optional and excludes unavailable final pending queries. Loading includes local HTTP/parse and warm caches; it is not an internet bandwidth benchmark.",
+    "Original vs refined changes geometry/materials. Refined full vs refined optimized isolates mesh optimization using the same final authored materials.",
+    "This is one local browser/GPU/viewport, not a cross-device performance guarantee."
+  ]
+}

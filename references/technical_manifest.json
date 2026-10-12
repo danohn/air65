@@ -1,0 +1,67 @@
+[
+  {
+    "path": "references/motor_diagram.jpg",
+    "source": {
+      "id": "motor_drawing",
+      "title": "0702 Brushless Motors 2026 dimension image",
+      "url": "https://cdn.shopify.com/s/files/1/1778/6615/files/0702_Brushless_Motors_2026_diagram.jpg?v=1769070401",
+      "kind": "manufacturer_dimensioned_image",
+      "visually_inspected": true
+    },
+    "sha256": "6d1b4a8ea095a46b84829084e3e597b0d83bcfefcedd18fee9fc77dc8458c583",
+    "license": "Manufacturer reference; no redistribution license established.",
+    "use": "Research and comparison; not a texture used in generated geometry."
+  },
+  {
+    "path": "references/camera_diagram.jpg",
+    "source": {
+      "id": "camera_drawing",
+      "title": "C03 FPV Micro Camera V2 dimensional image",
+      "url": "https://cdn.shopify.com/s/files/1/1778/6615/files/C03_FPV_Micro_Camera_V2_diagram.jpg?v=1752743122",
+      "kind": "manufacturer_dimensioned_image",
+      "visually_inspected": true
+    },
+    "sha256": "6682f8589811981baafe0cbf458927c7965c391d01676e3ab09f06fcde924262",
+    "license": "Manufacturer reference; no redistribution license established.",
+    "use": "Research and comparison; not a texture used in generated geometry."
+  },
+  {
+    "path": "references/prop_diagram.jpg",
+    "source": {
+      "id": "prop_drawing",
+      "title": "GF1207 propeller diameter diagram",
+      "url": "https://cdn.shopify.com/s/files/1/1778/6615/files/GF_1207_3B_Props_diagram.jpg?v=1770017008",
+      "kind": "manufacturer_dimensioned_image",
+      "visually_inspected": true
+    },
+    "sha256": "bef9429cc9f81e7a68b75b3d668ae20f56ce60d9cab3f09a6f85610acbb1970c",
+    "license": "Manufacturer reference; no redistribution license established.",
+    "use": "Research and comparison; not a texture used in generated geometry."
+  },
+  {
+    "path": "references/battery_diagram.jpg",
+    "source": {
+      "id": "battery_drawing",
+      "title": "LAVA II 1S 280mAh dimensioned image",
+      "url": "https://cdn.shopify.com/s/files/1/1778/6615/files/LAVA_II_1S_280mAh_Battery_dimensions.jpg?v=1763610020",
+      "kind": "manufacturer_dimensioned_image",
+      "visually_inspected": true
+    },
+    "sha256": "fc6c585508f9280bc7caaa68828df598b1c7aa0716dda9da16a3ce25378de02e",
+    "license": "Manufacturer reference; no redistribution license established.",
+    "use": "Research and comparison; not a texture used in generated geometry."
+  },
+  {
+    "path": "references/fc_diagram.jpg",
+    "source": {
+      "id": "fc_top_image",
+      "title": "Matrix 1S 5IN1 II top/front component image",
+      "url": "https://cdn.shopify.com/s/files/1/1778/6615/files/Matrix_1S_5IN1_II_Brushless_Flight_Controller_top_front_gyro_update.jpg?v=1777532692",
+      "kind": "manufacturer_annotated_image",
+      "visually_inspected": true
+    },
+    "sha256": "76b2799343b8b32cbf3357f11fd3eb685cae04e1872ae8c2940157f4607f102b",
+    "license": "Manufacturer reference; no redistribution license established.",
+    "use": "Research and comparison; not a texture used in generated geometry."
+  }
+]

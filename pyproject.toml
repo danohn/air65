@@ -1,0 +1,13 @@
+[project]
+name = "air65-parametric"
+version = "0.1.0"
+description = "Sourced, deterministic JSON-to-Blender recreation of BETAFPV Air65 II"
+requires-python = ">=3.14"
+dependencies = ["jsonschema>=4.23,<5", "Pillow>=11,<13"]
+
+[dependency-groups]
+dev = ["pytest>=8,<10"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+

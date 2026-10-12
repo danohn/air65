@@ -1,0 +1,16 @@
+{
+  "site_title": "Air65 II — 3D Explorer",
+  "url": "https://air65-ii-explorer.danohn.chatgpt.site",
+  "access_mode": "public",
+  "anonymous_page_http": 200,
+  "anonymous_glb_http": 200,
+  "production_browser_model_loaded": true,
+  "production_browser_errors_or_warnings": 0,
+  "version_number": 1,
+  "project_id": "appgprj_6acc1dd67ef48191a83f2578cef3428e",
+  "version_id": "appgprj_6acc1dd67ef48191a83f2578cef3428e~appgver_0a460b2ed18c8191b6f9c89ed5a042dc",
+  "deployment_id": "appgdep_6acc20faf298819180cdf3755ef436f5",
+  "commit_sha": "4bc161ff50195cb3fdaa0ed4b28ea933f2f309c2",
+  "deployment_status": "succeeded",
+  "updated_at": "2026-10-11T23:51:46.544936+00:00"
+}

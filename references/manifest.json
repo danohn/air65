@@ -1,0 +1,404 @@
+{
+  "captured_date": "2026-10-12",
+  "references": [
+    {
+      "id": "air65_ii_racing_oblique",
+      "path": "references/air65_ii_racing_oblique.webp",
+      "source_page": "https://betafpv.com/products/air65-ii-brushless-whoop-quadcopter",
+      "source_image": "https://betafpv.com/cdn/shop/files/Air65_II_Brushless_Whoop_Quadcopter_Racing_1080x.jpg?v=1779348712",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "Racing",
+      "view": "front-side elevated oblique",
+      "intended_use": "primary",
+      "pixel_size": [
+        1080,
+        1080
+      ],
+      "sha256": "fd7f8eafcd4ffc67594f77095770b7f17ef7b9494a023f51bc96f7f567d0ccdb",
+      "visually_inspected": true
+    },
+    {
+      "id": "air65_ii_racing_propulsion",
+      "path": "references/air65_ii_racing_propulsion.webp",
+      "source_page": "https://betafpv.com/products/air65-ii-brushless-whoop-quadcopter",
+      "source_image": "https://betafpv.com/cdn/shop/files/Air65_II_Brushless_Whoop_Quadcopter_Racing_propulsion_details_1080x.jpg?v=1779348875",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "Racing",
+      "view": "motor and duct closeup",
+      "intended_use": "primary",
+      "pixel_size": [
+        1080,
+        1080
+      ],
+      "sha256": "45f69f122b86ef48baada58f7f37e70a8b13f09e1c59c61f756da91b2921f995",
+      "visually_inspected": true
+    },
+    {
+      "id": "air65_ii_racing_underside",
+      "path": "references/air65_ii_racing_underside.webp",
+      "source_page": "https://betafpv.com/products/air65-ii-brushless-whoop-quadcopter",
+      "source_image": "https://betafpv.com/cdn/shop/files/Air65_II_Brushless_Whoop_Quadcopter_Racing_with_battery_1080x.jpg?v=1769673248",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "Racing",
+      "view": "underside oblique with battery",
+      "intended_use": "primary",
+      "pixel_size": [
+        1080,
+        1080
+      ],
+      "sha256": "c3d82d2240681c876ebffc4a5230c1949c7855e8e7222c9802a4c59cf2af3777",
+      "visually_inspected": true
+    },
+    {
+      "id": "air65_ii_freestyle_oblique",
+      "path": "references/air65_ii_freestyle_oblique.webp",
+      "source_page": "https://betafpv.com/products/air65-ii-brushless-whoop-quadcopter",
+      "source_image": "https://betafpv.com/cdn/shop/files/Air65_II_Brushless_Whoop_Quadcopter_Freestyle_1080x.jpg?v=1779349013",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "Freestyle",
+      "view": "elevated oblique",
+      "intended_use": "variant comparison only",
+      "pixel_size": [
+        1080,
+        1080
+      ],
+      "sha256": "6a281d6a555ce5ac5adaa055b1453c24961296b6fc5c359d2106d809583e9d7b",
+      "visually_inspected": false
+    },
+    {
+      "id": "air65_ii_champion_oblique",
+      "path": "references/air65_ii_champion_oblique.webp",
+      "source_page": "https://betafpv.com/products/air65-ii-brushless-whoop-quadcopter",
+      "source_image": "https://betafpv.com/cdn/shop/files/Air65_II_Brushless_Whoop_Quadcopter_Champion_1080x.jpg?v=1779348978",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "Champion",
+      "view": "elevated oblique",
+      "intended_use": "variant comparison only",
+      "pixel_size": [
+        1080,
+        1080
+      ],
+      "sha256": "a3fc5c3e2b460c5fe430db42846ccea2c4842c31c8db6ffad967d0724aa3d641",
+      "visually_inspected": false
+    },
+    {
+      "id": "air65_ii_electronics",
+      "path": "references/air65_ii_electronics.webp",
+      "source_page": "https://betafpv.com/products/air65-ii-brushless-whoop-quadcopter",
+      "source_image": "https://cdn.shopify.com/s/files/1/1778/6615/files/Air65_II_Brushless_Whoop_Quadcopter_-_Matrix_1S_5IN1_II.jpg?v=1769671763",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "shared Matrix II",
+      "view": "electronics marketing detail",
+      "intended_use": "support",
+      "pixel_size": [
+        1600,
+        900
+      ],
+      "sha256": "779e70a07528885d8b56ec98b099c3c8ccb5cd3e3fcf84e8546d75fca9d5e82b",
+      "visually_inspected": false
+    },
+    {
+      "id": "air65_ii_variants",
+      "path": "references/air65_ii_variants.webp",
+      "source_page": "https://betafpv.com/products/air65-ii-brushless-whoop-quadcopter",
+      "source_image": "https://cdn.shopify.com/s/files/1/1778/6615/files/Air65_II_Brushless_Whoop_Quadcopter_racing_and_freestyle.jpg?v=1779348559",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "Racing and Freestyle",
+      "view": "variant comparison graphic",
+      "intended_use": "support",
+      "pixel_size": [
+        1600,
+        900
+      ],
+      "sha256": "79ab538d69bdf779744fc91635bb7fd3d30771799bc978a08354d6b7edf78375",
+      "visually_inspected": false
+    },
+    {
+      "id": "air65_ii_frame_black_top",
+      "path": "references/air65_ii_frame_black_top.webp",
+      "source_page": "https://betafpv.com/products/air65-ii-brushless-whoop-frame",
+      "source_image": "https://betafpv.com/cdn/shop/files/Air65_II_Brushless_Whoop_Frame_black_top_view_1080x.jpg?v=1750240913",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "standard II frame",
+      "view": "near orthographic top",
+      "intended_use": "primary silhouette",
+      "pixel_size": [
+        1080,
+        1080
+      ],
+      "sha256": "36c3fa611c2c11f028960d793cfd0c0b935cd21f1d201dfb0a1fe45d9a407bdc",
+      "visually_inspected": true
+    },
+    {
+      "id": "air65_ii_frame_purple_top",
+      "path": "references/air65_ii_frame_purple_top.webp",
+      "source_page": "https://betafpv.com/products/air65-ii-brushless-whoop-frame",
+      "source_image": "https://betafpv.com/cdn/shop/files/Air65_II_Brushless_Whoop_Frame_transparent_purple_top_view_1080x.jpg?v=1750819117",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "standard II frame",
+      "view": "near orthographic top",
+      "intended_use": "primary material",
+      "pixel_size": [
+        1080,
+        1080
+      ],
+      "sha256": "aafc6c7fd97668f571823ef3a2be2a4f0d1003a94479deece85758b1c4812a3f",
+      "visually_inspected": false
+    },
+    {
+      "id": "air65_ii_frame_diagram",
+      "path": "references/air65_ii_frame_diagram.webp",
+      "source_page": "https://betafpv.com/products/air65-ii-brushless-whoop-frame",
+      "source_image": "https://cdn.shopify.com/s/files/1/1778/6615/files/Air65_II_Brushless_Whoop_Frame_diagram_600x600.jpg?v=1750838480",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "standard II frame",
+      "view": "dimensioned plan and elevation drawing",
+      "intended_use": "primary dimensions",
+      "pixel_size": [
+        600,
+        600
+      ],
+      "sha256": "404c03064b6fbd2dc6662ec60f50bbea4d76e9989afa3fffa3976be418fc3204",
+      "visually_inspected": true
+    },
+    {
+      "id": "air65_ii_frame_details",
+      "path": "references/air65_ii_frame_details.webp",
+      "source_page": "https://betafpv.com/products/air65-ii-brushless-whoop-frame",
+      "source_image": "https://cdn.shopify.com/s/files/1/1778/6615/files/Air65_II_Brushless_Whoop_Frame_-_details.jpg?v=1750649309",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "standard II frame",
+      "view": "section and feature graphic",
+      "intended_use": "primary topology",
+      "pixel_size": [
+        1600,
+        900
+      ],
+      "sha256": "bed1c147d85e3d7d48265005d6c51722b574bdecd28e585c3f35a91173064ce0",
+      "visually_inspected": true
+    },
+    {
+      "id": "air65_ii_frame_braces_comparison",
+      "path": "references/air65_ii_frame_braces_comparison.webp",
+      "source_page": "https://betafpv.com/products/air65-ii-brushless-whoop-frame",
+      "source_image": "https://cdn.shopify.com/s/files/1/1778/6615/files/Air65_II_Brushless_Whoop_Frame_arm_braces.jpg?v=1750649265",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "II vs original",
+      "view": "comparison graphic",
+      "intended_use": "use II panel only",
+      "pixel_size": [
+        1600,
+        900
+      ],
+      "sha256": "751ff4a3ab05e7756ece15f992be8a56b79c683436ffb226a5aa8538cdfb365e",
+      "visually_inspected": false
+    },
+    {
+      "id": "air65_ii_frame_structure",
+      "path": "references/air65_ii_frame_structure.webp",
+      "source_page": "https://betafpv.com/products/air65-ii-brushless-whoop-frame",
+      "source_image": "https://cdn.shopify.com/s/files/1/1778/6615/files/Air65_II_Brushless_Whoop_Frame_connecting_structure.jpg?v=1750649239",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "standard II frame",
+      "view": "connecting structure graphic",
+      "intended_use": "support",
+      "pixel_size": [
+        1600,
+        900
+      ],
+      "sha256": "043f4e4a2187438a77a468421ed06f389222da052cfe446ca7cef85c1fa24ef4",
+      "visually_inspected": false
+    },
+    {
+      "id": "air_ii_canopy_diagram",
+      "path": "references/air_ii_canopy_diagram.webp",
+      "source_page": "https://betafpv.com/products/air-ii-canopy",
+      "source_image": "https://cdn.shopify.com/s/files/1/1778/6615/files/Air_II_Canopy_Diagram_600x600.jpg?v=1760929267",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "Air II canopy",
+      "view": "unmounted dimensioned plan and oblique",
+      "intended_use": "primary topology",
+      "pixel_size": [
+        600,
+        600
+      ],
+      "sha256": "809ca66442551e5d50015a4f6056035e7f8234cbae57a6bc7d5964ccfe4260d8",
+      "visually_inspected": true
+    },
+    {
+      "id": "air_ii_canopy_black",
+      "path": "references/air_ii_canopy_black.webp",
+      "source_page": "https://betafpv.com/products/air-ii-canopy",
+      "source_image": "https://betafpv.com/cdn/shop/files/Air_II_Canopy_Black_1080x.jpg?v=1760929544",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "Air II canopy",
+      "view": "unmounted oblique",
+      "intended_use": "primary topology",
+      "pixel_size": [
+        1080,
+        1080
+      ],
+      "sha256": "703f5f50ad0dfa45915f91b966be4d483bdd007a7eab46db38fb3e3f61ed4c63",
+      "visually_inspected": true
+    },
+    {
+      "id": "air_ii_canopy_side",
+      "path": "references/air_ii_canopy_side.webp",
+      "source_page": "https://betafpv.com/products/air-ii-canopy",
+      "source_image": "https://cdn.shopify.com/s/files/1/1778/6615/files/Air_II_Canopy_-_reshaped_curve.jpg?v=1761303156",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "Air II left and original right",
+      "view": "mounted side comparison",
+      "intended_use": "use LEFT Air II panel only",
+      "pixel_size": [
+        1600,
+        900
+      ],
+      "sha256": "1c82a1f18b5b2e32518178978cfe99e9986f7bcf9e7d96787fb9836ea369d65b",
+      "visually_inspected": true
+    },
+    {
+      "id": "air_ii_canopy_structure",
+      "path": "references/air_ii_canopy_structure.webp",
+      "source_page": "https://betafpv.com/products/air-ii-canopy",
+      "source_image": "https://cdn.shopify.com/s/files/1/1778/6615/files/Air_II_Canopy_-_structural_updates.jpg?v=1761303185",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "Air II canopy",
+      "view": "reinforcement detail",
+      "intended_use": "support",
+      "pixel_size": [
+        1600,
+        900
+      ],
+      "sha256": "df9e635a99a543f46747e9b63b1c73036a2c73c5ca21797531bf5750a80f7066",
+      "visually_inspected": false
+    },
+    {
+      "id": "air_ii_canopy_angles",
+      "path": "references/air_ii_canopy_angles.webp",
+      "source_page": "https://betafpv.com/products/air-ii-canopy",
+      "source_image": "https://cdn.shopify.com/s/files/1/1778/6615/files/Air_II_Canopy_-_adjustable_camera_angels.jpg?v=1761300246",
+      "source_owner": "BETAFPV",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "manufacturer product reference imagery or technical illustration; capture method not labelled",
+      "variant": "Air II canopy",
+      "view": "camera tilt comparison",
+      "intended_use": "primary angle range",
+      "pixel_size": [
+        1600,
+        900
+      ],
+      "sha256": "a608a5c72d527f949ec3794ec878eb358c019fcb48b195ac88137a041a258099",
+      "visually_inspected": false
+    },
+    {
+      "id": "photo_racing_oblique",
+      "path": "references/photo_racing_oblique.webp",
+      "source_page": "https://thedronevortex.com/betafpv-air65ii-review/",
+      "source_image": "https://thedronevortex.com/wp-content/uploads/2026/06/BETAFPV-Air65-II-Review-Which-Version-Should-You-Buy_3.webp",
+      "source_owner": "Demetrios / The Drone Vortex",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "physical photograph/video still",
+      "variant": "Racing review specimen",
+      "view": "handheld front elevated oblique photograph/video still",
+      "intended_use": "physical cross-check",
+      "pixel_size": [
+        1920,
+        1080
+      ],
+      "sha256": "8ecad0d4f2a78a86ef27599e6cd78b0db32f65c1e16bddb00691736853dd864e",
+      "visually_inspected": true
+    },
+    {
+      "id": "photo_variants_low_front",
+      "path": "references/photo_variants_low_front.webp",
+      "source_page": "https://thedronevortex.com/betafpv-air65ii-review/",
+      "source_image": "https://thedronevortex.com/wp-content/uploads/2026/06/BETAFPV-Air65-II-Review-Which-Version-Should-You-Buy_1.webp",
+      "source_owner": "Demetrios / The Drone Vortex",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "physical photograph/video still",
+      "variant": "Freestyle left, Racing middle, Champion right",
+      "view": "low front oblique photograph/video still",
+      "intended_use": "physical elevation cross-check",
+      "pixel_size": [
+        1920,
+        1080
+      ],
+      "sha256": "76e9263feb3f6dbe2a08f4f91df8e7e02b90c6b6e8535784eca538b6c1e8762e",
+      "visually_inspected": true
+    },
+    {
+      "id": "photo_freestyle_side_oblique",
+      "path": "references/photo_freestyle_side_oblique.webp",
+      "source_page": "https://thedronevortex.com/betafpv-air65ii-review/",
+      "source_image": "https://thedronevortex.com/wp-content/uploads/2026/06/BETAFPV-Air65-II-Review-Which-Version-Should-You-Buy_2.webp",
+      "source_owner": "Demetrios / The Drone Vortex",
+      "downloaded_date": "2026-10-12",
+      "license": "No open-content license identified; copyright retained by source owner. Stored as local research reference, not supplied as a newly licensed asset.",
+      "image_type": "physical photograph/video still",
+      "variant": "Freestyle review specimen",
+      "view": "handheld side-front oblique photograph/video still",
+      "intended_use": "shared canopy and standard frame only",
+      "pixel_size": [
+        1920,
+        1080
+      ],
+      "sha256": "1be4217b78abf00696ecebbce86856bad5e5165a75770eef0ae9606b29eecd71",
+      "visually_inspected": true
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0",
+  "review_id": "visual_review_v2",
+  "date": "2026-10-12",
+  "contract": "air65-ii-racing-v1",
+  "reviewer_role": "independent_visual_reviewer",
+  "model_files_modified": false,
+  "prior_reports_modified": false,
+  "baseline_directory": "output/review_v2",
+  "build_complete_confirmed": true,
+  "reviewed_geometry_fingerprint_sha256": "9276066d5dffff0725766bd5028cfa7f20804a0b37115b33b6252470bb9dd409",
+  "verdict": "major_visual_findings_addressed_accept_with_documented_approximations",
+  "dimensional_certification": false,
+  "further_major_geometry_revision_required_by_review": false,
+  "outstanding_high_severity_visual_findings": 0,
+  "bounded_conclusion": "Good qualitative agreement in global layout and principal component forms; major v1 errors materially corrected. Remaining local contours, polymer finish and electronics are approximations. No photo-exact or manufacturing-tolerance claim.",
+  "method": "Actual image-viewer inspection of eight v2 assembly views, four frame-only views, two propulsion views, three reopened v1 baseline views and nine reopened principal reference images; v1 reference findings retained.",
+  "numerical_validation": {"file": "output/review_v2/validation.json", "read_status": "pass", "read_check_count": 53, "read_pass_count": 53, "independently_rerun": false, "claim_limit": "Specification conformance, including estimates, does not establish physical reconstruction error."},
+  "render_files": ["output/review_v2/hero.png", "output/review_v2/top.png", "output/review_v2/front.png", "output/review_v2/right.png", "output/review_v2/left.png", "output/review_v2/rear.png", "output/review_v2/underside.png", "output/review_v2/reference.png", "output/frame_v2/hero.png", "output/frame_v2/top.png", "output/frame_v2/front.png", "output/frame_v2/underside.png", "output/propulsion_v2/hero.png", "output/propulsion_v2/top.png"],
+  "reopened_baseline_files": ["output/review_v1/hero.png", "output/frame/top.png", "output/propulsion/top.png"],
+  "reopened_reference_source_ids": ["photo_racing_oblique", "photo_freestyle_side_oblique", "air65_ii_racing_oblique", "air65_ii_racing_propulsion", "prop_drawing", "air_ii_canopy_structure", "air_ii_canopy_diagram", "air65_ii_frame_black_top", "air65_ii_frame_diagram"],
+  "finding_dispositions": [
+    {
+      "id": "VR-01", "prior_severity": "high", "remaining_severity": "low", "status": "substantially_addressed_local_contours_estimated", "confidence": "high_improvement_medium_exact_contour",
+      "observation": "Continuous perforated strap with rounded apertures and broader formed collar/shoulders replaces the ladder-like v1 appearance; open side visibility preserved.",
+      "residual": "Cap axial depth, local moulded blends and transition curvature remain estimated and more regular than physical moulding.",
+      "source_ids": ["air_ii_canopy_structure", "air_ii_canopy_diagram", "photo_racing_oblique", "photo_freestyle_side_oblique"],
+      "render_files": ["output/review_v2/top.png", "output/review_v2/rear.png", "output/review_v2/hero.png", "output/review_v2/reference.png"],
+      "further_action": "Optional local contour refinement with better calibrated close-ups; no global camera or mount relocation justified."
+    },
+    {
+      "id": "VR-02", "prior_severity": "medium", "remaining_severity": "low", "status": "addressed_qualitative_planform", "confidence": "high_improvement_medium_exact_surface",
+      "observation": "Outer span retains width and finishes in broad round-cornered paddle ends, with a straighter edge opposite a convex edge.",
+      "residual": "Exact GF1207 chord distribution, camber, airfoil and twist remain unrecovered.",
+      "source_ids": ["prop_drawing", "air65_ii_racing_propulsion"],
+      "render_files": ["output/propulsion_v2/top.png", "output/propulsion_v2/hero.png", "output/review_v2/top.png"],
+      "further_action": "No further major outline correction supported; obtain blade measurements/CAD for exactness."
+    },
+    {
+      "id": "VR-03", "prior_severity": "medium", "remaining_severity": "none_for_original_defect", "status": "resolved_in_reviewed_images", "confidence": "high_visual",
+      "observation": "Motor pads are continuous around bores and center holes; strong black crescents and bridge slivers are absent.",
+      "residual": "Minor hard-edge shading at separate rib/rim joins and sampling texture in underside rim; not the original gross sliver defect.",
+      "source_ids": ["air65_ii_frame_black_top", "frame_drawing"],
+      "render_files": ["output/frame_v2/top.png", "output/frame_v2/hero.png", "output/frame_v2/underside.png", "output/review_v2/underside.png"],
+      "further_action": "No visual blocker; mesh manifoldness/Boolean correctness remains a separate technical audit."
+    },
+    {
+      "id": "VR-04", "prior_severity": "low_to_medium", "remaining_severity": "none_for_missing_windows", "status": "resolved_plan_topology", "confidence": "high_visibility_medium_manufactured_form",
+      "observation": "Two narrow transverse windows now flank the central cradle opening; side views show offset/sloped bands.",
+      "residual": "Exact manufactured curvature and fillets remain estimated.",
+      "source_ids": ["air65_ii_frame_black_top", "frame_drawing"],
+      "render_files": ["output/frame_v2/top.png", "output/frame_v2/underside.png", "output/review_v2/right.png", "output/review_v2/left.png"],
+      "further_action": "No further topology correction requested; retain numerical battery-fit checks."
+    },
+    {
+      "id": "VR-05", "prior_severity": "low", "remaining_severity": "low_unverified_microdetail", "status": "visible_defects_addressed", "confidence": "high_pcb_medium_optics",
+      "observation": "Black camera solder mask and narrow substrate edge are visible; recessed dark/glass optical stack replaces flat green disk.",
+      "residual": "Coating color, optical prescription and microscopic board components are unverified.",
+      "source_ids": ["camera_drawing", "photo_racing_oblique", "photo_freestyle_side_oblique"],
+      "render_files": ["output/review_v2/hero.png", "output/review_v2/front.png", "output/review_v2/rear.png"],
+      "further_action": "No further major camera geometry change; optional optics/material/detail refinement."
+    },
+    {
+      "id": "VR-06", "prior_severity": "low", "remaining_severity": "low", "status": "partially_addressed", "confidence": "high_appearance_medium_cause",
+      "observation": "Prop transmission is substantially improved, while frame/canopy remain uniformly pastel and small electronic/underside details are simplified.",
+      "residual": "Translucent PP appearance, solder-pad/trace density, underside components and cable termination detail.",
+      "source_ids": ["air65_ii_racing_oblique", "air65_ii_racing_propulsion", "air65_ii_electronics", "photo_racing_oblique", "photo_freestyle_side_oblique"],
+      "render_files": ["output/review_v2/hero.png", "output/review_v2/top.png", "output/review_v2/underside.png"],
+      "further_action": "Optional material and evidence-supported small-detail refinement after any better-sourced contour work."
+    },
+    {
+      "id": "PR-01", "prior_severity": "medium", "remaining_severity": "low_surface_uncertainty", "status": "addressed",
+      "observation": "Broader terminal chord and rounded paddle shape clearly visible in revised component top/hero.",
+      "source_ids": ["prop_drawing", "air65_ii_racing_propulsion"],
+      "claim_limit": "Source-informed outline approximation, not recovered production blade surface."
+    },
+    {
+      "id": "PR-02", "prior_severity": "low_to_medium", "remaining_severity": "unverified_estimate", "status": "trial_estimate_accepted",
+      "observation": "Fuller 2.4 mm hub radius improves top and oblique proportion; no further increase supported.",
+      "accepted_parameter": {"id": "prop_hub_radius", "value": 2.4, "unit": "mm", "status": "estimated", "confidence_upgrade": false},
+      "source_ids": ["prop_drawing", "air65_ii_racing_propulsion"],
+      "claim_limit": "Production hub outside diameter has not been measured."
+    },
+    {
+      "id": "PR-03", "prior_severity": "low", "remaining_severity": "low_presentation_difference", "status": "addressed_for_propeller",
+      "observation": "Hub wall/socket/apertures transmit clearly and blades show clear-polymer edge highlights.",
+      "residual": "Grey inspection background leaves some broad blade faces faint compared with white catalog reflections.",
+      "source_ids": ["air65_ii_racing_propulsion", "photo_racing_oblique"],
+      "claim_limit": "Appearance does not establish blade thickness or exact optical material properties."
+    }
+  ],
+  "remaining_work_priority": [
+    {"rank": 1, "type": "evidence", "item": "Calibrated close views/direct measurements for canopy local contours, installed antenna pose and propeller surfaces."},
+    {"rank": 2, "type": "optional_shape_refinement", "item": "Local canopy moulded transitions and frame fillets, preserving shared constraints."},
+    {"rank": 3, "type": "optional_appearance_refinement", "item": "Polymer translucency, electronics/underside density and cable terminations."}
+  ],
+  "scope_exclusions": ["Hidden screw-engagement audit", "Physical metrology", "Manufacturing tolerance certification", "Exact optical/aerodynamic properties", "Replacement-part suitability"],
+  "limitations": ["No calibrated camera registration or silhouette error metric", "Reference images include possible manufacturer renders/retouching", "Physical specimens differ in accent colors and may differ in details", "Camera and antenna installed positions remain estimates", "Optional battery omitted intentionally from reviewed base assembly", "53 numerical checks do not prove photographic or physical exactness"]
+}

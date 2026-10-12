@@ -1,0 +1,23 @@
+{
+  "scope": "GitHub publication preparation; original model validation is recorded separately",
+  "repository": "https://github.com/danohn/air65",
+  "release": "v0.1.0",
+  "status": "preflight_pass",
+  "tracked_file_count": 145,
+  "tracked_bytes": 31327471,
+  "checks": {
+    "no_gitlinks": true,
+    "generated_output_and_archives_excluded": true,
+    "reference_photographs_and_composite_excluded": true,
+    "credential_pattern_scan_no_findings": true,
+    "no_files_at_or_above_100_mib": true,
+    "site_tracked_files_identical_to_published_source": true,
+    "source_contract_validation": "7 components, 12 instances",
+    "tests": "22 passed (16 model contracts plus 6 release boundary/restore tests)",
+    "site_js_syntax": "pass"
+  },
+  "limits": [
+    "Credential pattern scanning is a targeted check, not an exhaustive secret audit.",
+    "Model geometry and public website runtime are unchanged by repository preparation."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "id": "air65-ii-frame-inspection",
+  "architecture": "specs/spatial_architecture.json",
+  "materials": "specs/materials.json",
+  "components": {
+    "frame": "specs/components/frame.json"
+  },
+  "instances": [
+    {
+      "id": "frame",
+      "component": "frame"
+    }
+  ],
+  "notes": [
+    "Motor mounting rotations align frame screw pads. Prop phase is a deterministic presentation choice, not a measured static phase.",
+    "Dry aircraft; optional battery is provided as a separate assembly."
+  ],
+  "views": {
+    "hero": {
+      "position": [
+        110,
+        140,
+        90
+      ],
+      "target": [
+        0,
+        0,
+        7
+      ],
+      "projection": "ORTHO",
+      "scale": 112
+    },
+    "front": {
+      "position": [
+        0,
+        200,
+        7.55
+      ],
+      "target": [
+        0,
+        0,
+        7.55
+      ],
+      "projection": "ORTHO",
+      "scale": 94
+    }
+  }
+}

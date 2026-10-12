@@ -1,0 +1,39 @@
+# Python environment and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node dependencies
+node_modules/
+
+# Generated model artifacts and delivery packages (keep site/dist/)
+/output/
+/dist/
+/site/deployment.tar.gz
+
+# Blender backups
+*.blend[0-9]*
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+
+# Downloaded reference images; retain provenance manifests
+/references/*.png
+/references/*.jpg
+/references/*.jpeg
+/references/*.webp
+/references/*.gif
+
+# Contains a third-party reference photograph
+/reports/visual_comparison.png
