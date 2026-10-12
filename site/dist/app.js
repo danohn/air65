@@ -6,13 +6,13 @@ import { RotorMotion } from './rotor-motion.js';
 
 const $ = (id) => document.getElementById(id);
 const parts = [
-  {id:'frame', label:'Air65 II frame', count:'01', color:'#afa0d4', title:'The ultralight frame', text:'82.6 × 82.6 × 15.1 mm, with a 65 mm motor diagonal and four protective ducts.', tag:'Published outer dimensions'},
-  {id:'canopy', label:'Camera canopy', count:'01', color:'#dadbd2', title:'An open, sculpted canopy', text:'A lightweight arch and four mounting legs surround the camera. Its contours are reconstructed from photographs.', tag:'Reference-based shape estimate'},
-  {id:'camera', label:'FPV camera', count:'01', color:'#444d47', title:'C03 V2 FPV camera', text:'Camera board, lens barrel and optical surfaces. The installed position and detailed contours include estimates.', tag:'Published component · estimated installation'},
-  {id:'electronics', label:'Electronics & wiring', count:'01', color:'#b19d69', title:'The flight electronics', text:'Matrix II board with reference-based silkscreen, chip markings, packages, wiring and antenna. The body outline and small details remain photographic estimates.', tag:'Mixed published and estimated dimensions'},
-  {id:'motor', label:'Brushless motors', count:'04', color:'#919598', title:'Four miniature motors', text:'0702 motors with metal bells, exposed copper windings and purple crowns. The detailed internal geometry is estimated.', tag:'Published motor type · estimated details'},
-  {id:'prop', label:'Three-blade propellers', count:'04', color:'#cbd7df', title:'31 mm propellers', text:'Two clockwise and two counterclockwise propellers. Diameter is published; blade sweep and airfoil are estimated.', tag:'Published diameter · estimated blade profile'},
-  {id:'battery', label:'280 mAh battery', count:'OPT', color:'#cf7549', title:'Optional 1S battery', text:'LAVA II 280 mAh, with a 54 × 10 × 6 mm nominal body, printed wrapper and black BT2.0 terminal. Display pose; the power lead is unplugged.', tag:'Published cell dimensions · display pose'},
+  {id:'frame', label:'Air65 II frame', color:'#afa0d4', title:'Air65 II frame', text:'82.6 × 82.6 × 15.1 mm, with 65 mm between opposite motors. Four ducts surround the 31 mm propellers.', tag:'Outer dimensions from BETAFPV'},
+  {id:'canopy', label:'Camera canopy', color:'#dadbd2', title:'Camera canopy', text:'An arch and four mounting legs surround the camera. The canopy shape is estimated from photos.', tag:'Shape estimated from photos'},
+  {id:'camera', label:'FPV camera', color:'#444d47', title:'C03 V2 FPV camera', text:'The camera board, lens and lens barrel. Their installed position and detailed shapes include estimates from photos.', tag:'Camera type from specs · placement estimated'},
+  {id:'electronics', label:'Electronics & wiring', color:'#b19d69', title:'Matrix II electronics', text:'The flight controller, chip markings, wiring and antenna are based on reference photos. The board outline and small details are estimated.', tag:'Dimensions from specs and photo estimates'},
+  {id:'motor', label:'Brushless motors', count:'×4', color:'#919598', title:'0702 brushless motors', text:'Metal bells, copper windings and purple crowns. The motor type is specified by BETAFPV; the internal geometry is estimated.', tag:'Motor type from specs · details estimated'},
+  {id:'prop', label:'Three-blade propellers', count:'×4', color:'#cbd7df', title:'31 mm propellers', text:'Two clockwise and two counterclockwise propellers. The diameter follows the published spec. Blade sweep and airfoil shape are estimated.', tag:'Diameter from specs · blade shape estimated'},
+  {id:'battery', label:'280 mAh battery', count:'Optional', color:'#cf7549', title:'LAVA II 280 mAh battery', text:'A 1S cell with a nominal 54 × 10 × 6 mm body and a BT2.0 terminal. The battery is shown unplugged.', tag:'Cell dimensions from specs · display pose'},
 ];
 const initialVisibility = Object.fromEntries(parts.map(p => [p.id, p.id !== 'battery']));
 const state = { visibility:{...initialVisibility}, selected:null, explode:0, wireframe:false, view:'perspective', ready:false };
@@ -27,8 +27,8 @@ for (const part of parts) {
   const row = document.createElement('div');
   row.className = 'part-row';
   row.dataset.part = part.id;
-  row.innerHTML = `<button class="part-name" data-model-control disabled aria-label="Inspect ${part.label}"><span class="part-swatch" style="background:${part.color}"></span>${part.label}<span class="part-count">${part.count}</span></button><label class="part-toggle"><input class="switch" type="checkbox" ${initialVisibility[part.id]?'checked':''} aria-label="Show ${part.label}" data-model-control disabled></label>`;
-  row.querySelector('button').addEventListener('click', () => selectPart(part.id));
+  row.innerHTML = `<button class="part-name" data-model-control disabled aria-label="Inspect ${part.label}" aria-expanded="false" aria-controls="part-detail"><span class="part-swatch" style="background:${part.color}"></span><span>${part.label}</span>${part.count ? `<span class="part-count">${part.count}</span>` : ''}</button><label class="part-toggle"><input class="switch" type="checkbox" ${initialVisibility[part.id]?'checked':''} aria-label="Show ${part.label}" data-model-control disabled></label>`;
+  row.querySelector('button').addEventListener('click', () => selectPart(state.selected === part.id ? null : part.id));
   row.querySelector('input').addEventListener('change', e => {
     state.visibility[part.id] = e.target.checked;
     applyVisibility();
@@ -137,15 +137,36 @@ function selectPart(id) {
       }
     });
   }
-  document.querySelectorAll('.part-row').forEach(r => r.classList.toggle('selected', r.dataset.part === id));
+  let selectedRow;
+  document.querySelectorAll('.part-row').forEach(row => {
+    const selected = row.dataset.part === id;
+    row.classList.toggle('selected', selected);
+    row.querySelector('button').setAttribute('aria-expanded', String(selected));
+    if (selected) selectedRow = row;
+  });
   const part = parts.find(p => p.id === id);
-  $('detail-kicker').textContent = part ? 'COMPONENT DETAIL' : 'REFERENCE DIMENSIONS';
-  $('detail-title').textContent = part?.title ?? '65 mm wheelbase';
-  $('detail-text').textContent = part?.text ?? 'Motor-to-motor diagonal. A remarkably small aircraft, built around four 31 mm propellers.';
-  $('detail-tag').textContent = part?.tag ?? 'Published specification';
+  const detail = $('part-detail');
+  detail.hidden = !part;
   if (part) {
+    $('detail-title').textContent = part.title;
+    $('detail-text').textContent = part.text;
+    $('detail-tag').textContent = part.tag;
+    selectedRow.after(detail);
     announce(`Selected ${part.label}. ${part.text}`);
     if (window.matchMedia('(max-width: 800px)').matches) openParts(true);
+    // Wait for the phone sheet to resize before revealing the selected row
+    // and its notes. Scroll only the inspector, preserving the camera view.
+    requestAnimationFrame(() => {
+      if (state.selected !== id) return;
+      const inspector = $('inspector');
+      const panelBounds = inspector.getBoundingClientRect();
+      const rowBounds = selectedRow.getBoundingClientRect();
+      const detailBounds = detail.getBoundingClientRect();
+      const headingHeight = inspector.querySelector('.inspector-heading').getBoundingClientRect().height;
+      if (rowBounds.top < panelBounds.top + headingHeight + 12 || detailBounds.bottom > panelBounds.bottom - 12) {
+        inspector.scrollTop += rowBounds.top - panelBounds.top - headingHeight - 16;
+      }
+    });
   }
   requestRender();
 }
@@ -160,8 +181,8 @@ function explode(value) {
     node.position.add(new THREE.Vector3(...offsets[node.userData.category]).multiplyScalar(amount / 1000));
   }
   $('explode-value').textContent = `${state.explode}%`;
-  $('assembly-label').textContent = state.explode ? 'Exploded · illustrative' : 'Assembled';
-  $('explode-help').textContent = state.explode ? 'Spacing is illustrative, not a measured dimension.' : 'Separate the parts to see how they fit.';
+  $('assembly-label').textContent = state.explode ? 'Parts separated' : 'Assembled';
+  $('explode-help').textContent = state.explode ? 'The gaps are for inspection. They are not measured distances.' : 'Separate the parts to see how they fit.';
   renderer.shadowMap.needsUpdate = true;
   requestRender();
 }
@@ -201,9 +222,9 @@ function syncMotionControls() {
   $('motor-play').setAttribute('aria-pressed', String(playing));
   $('motor-slow').checked = slowMotion;
   $('motor-help').textContent = slowMotion && playing
-    ? `Time slowed 500×: displayed at ${effectiveRPM.toLocaleString('en-US', {maximumFractionDigits:1})} RPM. The slider shows the simulated speed.`
+    ? `Playing at ${effectiveRPM.toLocaleString('en-US', {maximumFractionDigits:1})} RPM, 1/500 of the slider speed.`
     : playing && rpm >= 1000
-      ? 'High-speed blur preview. Use slow motion to see the blade movement.'
+      ? 'Blur is approximate. Turn on slow motion to see the blades.'
       : 'Propellers and motor bells turn together. The airframe stays fixed.';
   document.querySelectorAll('[data-rpm]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.rpm) === rpm)));
 }
@@ -388,7 +409,11 @@ $('motor-play').addEventListener('click', () => {
   previousTime = 0; syncMotionControls(); requestRender();
 });
 $('motor-slow').addEventListener('change', e => { rotorMotion?.setSlowMotion(e.target.checked); syncMotionControls(); requestRender(); });
-$('parts-toggle').addEventListener('click', () => openParts(!$('inspector').classList.contains('open')));
+$('parts-toggle').addEventListener('click', () => {
+  const open = !$('inspector').classList.contains('open');
+  openParts(open);
+  if (open) $('parts-close').focus({preventScroll:true});
+});
 $('parts-close').addEventListener('click', () => {openParts(false); $('parts-toggle').focus();});
 $('about-open').addEventListener('click', () => $('about-dialog').showModal());
 $('accuracy-open').addEventListener('click', () => $('about-dialog').showModal());

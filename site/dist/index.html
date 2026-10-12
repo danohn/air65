@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#eeefeb">
-  <meta name="description" content="Explore the BETAFPV Air65 II Racing in 3D. Rotate, zoom, spin the motors with an RPM slider, and discover the studio photo and animation.">
+  <meta name="description" content="An Air65 II model built with Codex and Blender from published dimensions and reference photos. Rotate the model, inspect its parts and adjust motor RPM.">
   <meta property="og:title" content="Air65 II — 3D Explorer">
-  <meta property="og:description" content="A tiny whoop, in close detail. Rotate, zoom and explore the Air65 II assembly.">
+  <meta property="og:description" content="Built with Codex and Blender from published dimensions and reference photos. Inspect the Air65 II in 3D and adjust motor RPM.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://air65-ii-explorer.danohn.chatgpt.site/assets/studio.webp">
   <title>Air65 II — 3D Explorer</title>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./styles.css?v=motion-1">
+  <link rel="stylesheet" href="./styles.css?v=copy-1">
   <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/examples/jsm/"}}</script>
 </head>
 <body>
@@ -29,14 +29,14 @@
   </defs></svg>
   <header class="app-header">
     <a class="brand" href="./" aria-label="Air65 II Explorer home"><svg class="brand-icon"><use href="#i-drone"/></svg><div><h1>Air65 II<span class="edition">RACING</span></h1><p>3D EXPLORER</p></div></a>
-    <div class="header-actions"><a class="studio-link" href="./studio.html">Studio <span aria-hidden="true">↗</span></a><button class="text-button" id="about-open" aria-label="About the model"><svg class="icon"><use href="#i-info"/></svg><span>About the model</span></button><a class="download-button" aria-label="Download model as GLB" href="./assets/air65-ii.glb?v=motion-1" download="air65-ii.glb"><svg class="icon"><use href="#i-download"/></svg><span>Download model</span></a></div>
+    <div class="header-actions"><a class="studio-link" href="./studio.html">Studio</a><button class="text-button" id="about-open" aria-label="About this model"><svg class="icon"><use href="#i-info"/></svg><span>About this model</span></button><a class="download-button" aria-label="Download model as GLB" href="./assets/air65-ii.glb?v=motion-1" download="air65-ii.glb"><svg class="icon"><use href="#i-download"/></svg><span>Download GLB</span></a></div>
   </header>
   <main class="workspace">
     <section class="viewer" id="viewer" aria-label="Interactive 3D viewer">
       <div id="canvas-mount"></div>
-      <div class="stage-caption"><span class="eyebrow">SMALL SCALE. CLOSE DETAIL.</span><h2>Every angle.<br>Every component.</h2><p id="view-label">Perspective view</p></div>
+      <div class="stage-caption"><p class="build-intro">Built with Codex and Blender from published dimensions and reference photos.</p><p id="view-label">Perspective view</p></div>
       <div class="stage-state"><span class="status-dot"></span><span id="assembly-label">Assembled</span></div>
-      <div class="loading" id="loading" role="status"><img src="./assets/poster.webp" alt="Rendered Air65 II Racing with lavender ducts and a white canopy"><div class="loading-card"><span class="spinner" aria-hidden="true"></span><strong id="loading-title">Preparing your model</strong><span id="loading-progress">Loading 10.0 MiB of detail…</span><button id="retry" hidden>Try again</button></div></div>
+      <div class="loading" id="loading" role="status"><img src="./assets/poster.webp" alt="Rendered Air65 II Racing with lavender ducts and a white canopy"><div class="loading-card"><span class="spinner" aria-hidden="true"></span><strong id="loading-title">Loading the model</strong><span id="loading-progress">Loading 10.0 MiB…</span><button id="retry" hidden>Try again</button></div></div>
       <noscript><div class="no-script">Enable JavaScript to explore the interactive model. You can still download the GLB above.</div></noscript>
       <div class="side-tools" aria-label="Viewer controls">
         <button class="icon-button" id="zoom-in" title="Zoom in (+)" aria-label="Zoom in" data-model-control disabled><svg class="icon"><use href="#i-plus"/></svg></button>
@@ -45,32 +45,42 @@
         <button class="icon-button" id="reset" title="Reset model and view (0)" aria-label="Reset model and view" data-model-control disabled><svg class="icon"><use href="#i-reset"/></svg></button>
         <button class="icon-button" id="fullscreen" title="Full screen" aria-label="Enter full screen"><svg class="icon"><use href="#i-full"/></svg></button>
       </div>
-      <div class="bottom-controls"><div class="view-presets" aria-label="Camera views"><button data-view="perspective" aria-pressed="true" data-model-control disabled>3D</button><button data-view="top" aria-pressed="false" data-model-control disabled>Top</button><button data-view="front" aria-pressed="false" data-model-control disabled>Front</button><button data-view="right" aria-pressed="false" data-model-control disabled>Right</button><button data-view="bottom" aria-pressed="false" data-model-control disabled>Bottom</button></div><button id="auto-rotate" aria-label="Auto rotate" class="rotate-button" aria-pressed="false" data-model-control disabled><svg class="icon"><use href="#i-rotate"/></svg><span>Auto rotate</span></button></div>
+      <div class="bottom-controls"><div class="view-presets" aria-label="Camera views"><button data-view="perspective" aria-pressed="true" data-model-control disabled>3D</button><button data-view="top" aria-pressed="false" data-model-control disabled>Top</button><button data-view="front" aria-pressed="false" data-model-control disabled>Front</button><button data-view="right" aria-pressed="false" data-model-control disabled>Right</button><button data-view="bottom" aria-pressed="false" data-model-control disabled>Bottom</button></div><button id="auto-rotate" aria-label="Rotate view" class="rotate-button" aria-pressed="false" data-model-control disabled><svg class="icon"><use href="#i-rotate"/></svg><span>Rotate view</span></button></div>
       <p class="gesture-hint"><span class="desktop-hint">Drag to rotate <b>·</b> Scroll to zoom <b>·</b> Right-drag to pan</span><span class="touch-hint">One finger to rotate <b>·</b> Pinch to zoom</span></p>
       <button class="mobile-parts" id="parts-toggle" aria-expanded="false" aria-controls="inspector"><svg class="icon"><use href="#i-layers"/></svg>Motors & parts</button>
       <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
     </section>
     <aside class="inspector" id="inspector" aria-label="Model inspector">
-      <div class="inspector-heading"><div><span class="eyebrow">THE ASSEMBLY</span><h2>Take a closer look.</h2></div><button id="parts-close" class="icon-button" aria-label="Close parts panel"><svg class="icon"><use href="#i-close"/></svg></button></div>
+      <div class="inspector-heading"><h2>Motors &amp; parts</h2><button id="parts-close" class="icon-button" aria-label="Close parts panel"><svg class="icon"><use href="#i-close"/></svg></button></div>
       <section class="motor-section" aria-label="Motor animation">
-        <div class="section-label"><label for="motor-rpm">MOTOR SPEED</label><span id="motor-status">Stopped</span></div>
+        <div class="section-label"><label for="motor-rpm">Motor speed</label><span id="motor-status">Stopped</span></div>
         <div class="rpm-readout"><output id="rpm-value" for="motor-rpm">0</output><span>RPM</span><button id="motor-play" aria-label="Spin motors" aria-pressed="false" data-model-control disabled>Spin</button></div>
         <input id="motor-rpm" type="range" min="0" max="60394" step="1" value="0" aria-describedby="motor-help motor-reference" data-model-control disabled>
         <div class="range-labels"><span>0</span><span>60,394 RPM</span></div>
         <div class="rpm-presets" aria-label="Motor speed presets"><button data-rpm="0" aria-pressed="true" data-model-control disabled>Stop</button><button data-rpm="120" aria-label="Inspect at 120 RPM" aria-pressed="false" data-model-control disabled>120</button><button data-rpm="30000" aria-label="30000 RPM" aria-pressed="false" data-model-control disabled>30,000</button><button data-rpm="60394" aria-label="60394 RPM benchmark" aria-pressed="false" data-model-control disabled>Max</button></div>
         <label class="display-option slow-option" for="motor-slow"><span>Slow motion <small>1/500 speed</small></span><input id="motor-slow" type="checkbox" class="switch" data-model-control disabled></label>
         <p id="motor-help" class="microcopy">Propellers and motor bells turn together. The airframe stays fixed.</p>
-        <p id="motor-reference" class="motor-reference"><a href="https://betafpv.com/products/0702-brushless-motors-2026" target="_blank" rel="noopener noreferrer">Maximum: manufacturer bench sample ↗</a></p>
+        <p id="motor-reference" class="motor-reference"><a href="https://betafpv.com/products/0702-brushless-motors-2026" target="_blank" rel="noopener noreferrer">RPM source: BETAFPV motor test ↗</a></p>
       </section>
-      <section class="parts-section"><div class="section-label"><h3>COMPONENTS</h3><button id="show-all" class="small-button" data-model-control disabled>Show all</button></div><div id="parts-list"></div><p class="microcopy">Toggle visibility, or click a part on the model.</p></section>
-      <section class="assembly-section"><div class="section-label"><label for="explode">EXPLODE ASSEMBLY</label><output id="explode-value" for="explode">0%</output></div><input id="explode" type="range" min="0" max="100" value="0" step="1" aria-describedby="explode-help" data-model-control disabled><div class="range-labels"><span>Assembled</span><span>Separated</span></div><p id="explode-help" class="microcopy">Separate the parts to see how they fit.</p></section>
+      <section class="parts-section"><div class="section-label"><h3>Parts</h3><button id="show-all" class="small-button" data-model-control disabled>Show all</button></div><p class="microcopy parts-help">Select a name or click the model for details. Switches show or hide each part.</p><div id="parts-list"><section class="detail-card" id="part-detail" aria-labelledby="detail-title" hidden><h3 id="detail-title"></h3><p id="detail-text"></p><p id="detail-tag" class="detail-tag"></p></section></div></section>
+      <section class="assembly-section"><div class="section-label"><label for="explode">Separate parts</label><output id="explode-value" for="explode">0%</output></div><input id="explode" type="range" min="0" max="100" value="0" step="1" aria-describedby="explode-help" data-model-control disabled><div class="range-labels"><span>Assembled</span><span>Separated</span></div><p id="explode-help" class="microcopy">Separate the parts to see how they fit.</p></section>
       <div class="display-section"><label class="display-option" for="wireframe"><span>Wireframe</span><input id="wireframe" type="checkbox" class="switch" data-model-control disabled></label></div>
-      <section class="detail-card" aria-live="polite"><span class="eyebrow" id="detail-kicker">REFERENCE DIMENSIONS</span><h3 id="detail-title">65 mm wheelbase</h3><p id="detail-text">Motor-to-motor diagonal. A remarkably small aircraft, built around four 31 mm propellers.</p><div id="detail-tag" class="detail-tag">Published specification</div></section>
-      <a class="studio-teaser" href="./studio.html"><img src="./assets/studio.webp" width="80" height="60" alt="" loading="lazy"><span>Under studio lights<small>Photo & 10-second animation ↗</small></span></a>
+      <a class="studio-teaser" href="./studio.html"><img src="./assets/studio.webp" width="80" height="60" alt="" loading="lazy"><span>Studio renders<small>Image &amp; 10-second animation</small></span></a>
     </aside>
   </main>
-  <footer class="app-footer"><span><span class="footer-dot"></span>REFERENCE-BASED RECREATION</span><button id="accuracy-open">About accuracy <span aria-hidden="true">↗</span></button></footer>
-  <dialog id="about-dialog" aria-labelledby="about-title"><div class="dialog-heading"><span class="eyebrow">BEHIND THE MODEL</span><button class="icon-button" id="about-close" aria-label="Close about dialog"><svg class="icon"><use href="#i-close"/></svg></button></div><h2 id="about-title">A tiny whoop,<br>in close detail.</h2><p>This is an independent, parametric recreation of the <strong>BETAFPV Air65 II Racing</strong>, developed from published specifications and reference photographs.</p><dl class="spec-grid"><div><dt>Motor diagonal</dt><dd>65<span>mm</span></dd></div><div><dt>Frame footprint</dt><dd>82.6 × 82.6<span>mm</span></dd></div><div><dt>Frame height</dt><dd>15.1<span>mm</span></dd></div><div><dt>Propeller diameter</dt><dd>31<span>mm</span></dd></div></dl><h3>What the measurements mean</h3><p>The design records 35 published, 39 derived and 48 estimated scalar parameters. Canopy contours, installed component heights, blade profiles and small electronic details include estimates. This is a visual reference model, not a manufacturing drawing or a physical scan.</p><p>The browser asset is a separately optimized export of the editable Blender model. Component positions and selected dimensional anchors are retained; local mesh reductions are checked against documented sampled deviation limits. Lighting and transparent materials can look different in a browser. The exploded view uses illustrative spacing; the optional battery is shown with the power lead unplugged.</p><h3>Motor motion</h3><p>The RPM slider controls all four propellers and motor bells. Adjacent corners turn in opposite directions. The 60,394 RPM upper reference is a manufacturer bench sample, not aircraft telemetry. High-speed blur is a lightweight estimate from the model’s blade outlines; slow motion displays time at 1/500 speed. Wireframe pauses the motors for inspection. The Studio page contains the higher-quality Blender animation.</p><p class="dialog-links"><a href="./studio.html">Studio photo &amp; animation ↗</a><a href="https://github.com/danohn/air65" target="_blank" rel="noopener noreferrer">Source, validation &amp; release downloads ↗</a><a href="https://betafpv.com/products/air65-ii-brushless-whoop-quadcopter" target="_blank" rel="noopener noreferrer">Manufacturer’s Air65 II page ↗</a><a href="./assets/model-metadata.json" target="_blank" rel="noopener">Model export data ↗</a></p><div class="dialog-footnote">Unofficial recreation; no affiliation with BETAFPV. Viewer built with Three.js <a href="./vendor/three/LICENSE">(MIT license)</a>.</div></dialog>
-  <script type="module" src="./app.js?v=motion-1"></script>
+  <footer class="app-footer"><span>65 mm wheelbase · 31 mm props</span><button id="accuracy-open">About this build</button></footer>
+  <dialog id="about-dialog" aria-labelledby="about-title">
+    <div class="dialog-heading"><h2 id="about-title">About this model</h2><button class="icon-button" id="about-close" aria-label="Close about dialog"><svg class="icon"><use href="#i-close"/></svg></button></div>
+    <p>This Air65 II was built with Codex and Blender to test how closely a model could match the drone using BETAFPV’s specs and reference photos.</p>
+    <dl class="spec-grid"><div><dt>Motor diagonal</dt><dd>65<span>mm</span></dd></div><div><dt>Frame footprint</dt><dd>82.6 × 82.6<span>mm</span></dd></div><div><dt>Frame height</dt><dd>15.1<span>mm</span></dd></div><div><dt>Propeller diameter</dt><dd>31<span>mm</span></dd></div></dl>
+    <p>The dimensions above follow published specs. The canopy shape, installed component positions, blade profiles and small electronic details include estimates from photos. The battery is shown unplugged.</p>
+    <p>The Blender files and modelling code are on GitHub. The validation report records the measurements and estimates.</p>
+    <h3>Using the viewer</h3>
+    <p>Separating parts adds gaps for inspection. The browser model is simplified for faster loading, and its lighting and transparent materials can look different from the Blender renders.</p>
+    <p>The RPM limit comes from BETAFPV’s bench data. High-speed blur is approximate. Slow motion plays at 1/500 speed, and the airframe stays fixed. Wireframe pauses the motors.</p>
+    <p class="dialog-links"><a href="./studio.html">Studio renders and animation</a><a href="https://github.com/danohn/air65" target="_blank" rel="noopener noreferrer">Code and Blender files ↗</a><a href="https://github.com/danohn/air65/blob/main/reports/refinement_validation.md" target="_blank" rel="noopener noreferrer">Measurements and validation ↗</a><a href="https://betafpv.com/products/air65-ii-brushless-whoop-quadcopter" target="_blank" rel="noopener noreferrer">BETAFPV’s Air65 II specs ↗</a><a href="./assets/model-metadata.json" target="_blank" rel="noopener">Browser model data</a></p>
+    <div class="dialog-footnote">Unofficial project. Not affiliated with BETAFPV. Built with Three.js <a href="./vendor/three/LICENSE">(MIT license)</a>.</div>
+  </dialog>
+  <script type="module" src="./app.js?v=copy-1"></script>
 </body>
 </html>

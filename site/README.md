@@ -16,14 +16,14 @@ Open http://127.0.0.1:8765. There is no build step. JavaScript syntax check: `np
 
 - Drag to rotate, scroll to zoom, right-drag to pan. Touch: one finger rotates; two fingers zoom and pan.
 - The camera bar offers perspective, top, front, right and bottom views.
-- Click geometry or a component name to inspect it; switches control visibility.
+- Click geometry or a component name to inspect it. Notes appear directly beneath the selected row, and the inspector scrolls them into view. Click the name again to close its notes; switches control visibility.
 - The slider separates component groups with illustrative spacing, and wireframe shows mesh topology.
 - Reset restores the assembled configuration with the optional battery hidden.
 - The motor slider covers 0–60,394 RPM. Presets offer stop, a readable 120 RPM inspection speed, 30,000 RPM and the manufacturer bench-test maximum. Nothing spins automatically on page load.
 - Pause preserves the selected RPM. Slow motion runs at 1/500 time and labels the displayed speed. Reset stops motors and restores their authored phase; wireframe pauses motion for inspection.
 - High-speed props use a lightweight blur derived from the actual blade outlines. The Studio page provides the Cycles photo/video and release download links.
 - With the canvas focused, arrow keys rotate, plus/minus zoom and 0/Home resets.
-- The parts inspector becomes a collapsible sheet on narrow screens.
+- The parts inspector becomes a collapsible sheet on narrow screens. Its close button stays visible while scrolling, and opening/closing it preserves keyboard access to the controls.
 
 ## Assets and accuracy
 
