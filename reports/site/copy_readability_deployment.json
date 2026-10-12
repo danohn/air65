@@ -1,0 +1,43 @@
+{
+  "checked_at": "2026-10-12T05:38:08.964Z",
+  "github": {
+    "repository": "https://github.com/danohn/air65",
+    "source_commit": "3cee99cf41aff3379c23f5fece681ad51666d462"
+  },
+  "site": {
+    "project_id": "appgprj_6acc1dd67ef48191a83f2578cef3428e",
+    "version_number": 4,
+    "version_id": "appgprj_6acc1dd67ef48191a83f2578cef3428e~appgver_6ea71696005881919ac9f450c354e8b0",
+    "source_commit": "702cff1c4850f4a9cbd0feb011b2b3a9d96bea90",
+    "deployment_id": "appgdep_6acc71e1387481918e9733abb23d70c4",
+    "status": "succeeded",
+    "url": "https://air65-ii-explorer.danohn.chatgpt.site",
+    "audience": "public",
+    "archive_sha256": "sha256:bd770046f249354801ca5cf95759a890528e2ef59c2b8e391fdc379f266ac302",
+    "archive_file_count": 24
+  },
+  "validation": {
+    "node_tests": 4,
+    "desktop_viewport": [
+      1365,
+      900
+    ],
+    "mobile_viewports": [
+      [
+        390,
+        844
+      ],
+      [
+        320,
+        740
+      ]
+    ],
+    "component_categories_checked": 7,
+    "local_links_resolve": true,
+    "proof": [
+      "copy_readability_desktop.png",
+      "copy_readability_mobile.png",
+      "copy_readability_studio.png"
+    ]
+  }
+}

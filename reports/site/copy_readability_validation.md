@@ -35,3 +35,13 @@ Text contrast was calculated from the browser's computed foreground and opaque b
 | Footer | 12 px | 5.69:1 |
 
 The audit recorded part instructions at 10 px / 2.92:1 and the phone footer at 7 px / 3.10:1. This is a focused readability and interaction check, not a complete accessibility or cross-browser certification. The phone panel still combines motors and parts in one scrollable panel; separate tabs remain outside this pass.
+
+## Publication
+
+Published as site version 4 at [air65-ii-explorer.danohn.chatgpt.site](https://air65-ii-explorer.danohn.chatgpt.site/). The native deployment returned `succeeded`. The published Explorer was checked with desktop canopy selection and phone camera selection, and the Studio page was inspected after deployment. Source and archive identifiers are recorded in [copy_readability_deployment.json](copy_readability_deployment.json).
+
+![Published desktop component details](copy_readability_desktop.png)
+
+![Published phone component details](copy_readability_mobile.png)
+
+![Published Studio page](copy_readability_studio.png)
