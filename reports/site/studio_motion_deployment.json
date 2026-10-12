@@ -1,0 +1,34 @@
+{
+  "checked_at": "2026-10-12T04:36:42.087937+00:00",
+  "github": {
+    "repository": "https://github.com/danohn/air65",
+    "source_commit": "ac21a289dfc01338634446b0412da3b47efd2e41",
+    "release": "https://github.com/danohn/air65/releases/tag/v0.2.0"
+  },
+  "site": {
+    "project_id": "appgprj_6acc1dd67ef48191a83f2578cef3428e",
+    "version_number": 3,
+    "version_id": "appgprj_6acc1dd67ef48191a83f2578cef3428e~appgver_edfa14f6c5708191bdb44d87b619ebf7",
+    "source_commit": "8bf3cf98796229dec53345c52c34ae98368b5f8d",
+    "deployment_id": "appgdep_6acc63c4ebe48191b1b3160ab61f12b9",
+    "status": "succeeded",
+    "url": "https://air65-ii-explorer.danohn.chatgpt.site",
+    "audience": "public",
+    "archive_sha256": "sha256:0ccd13cdf72064c9ce5da9674b720b1677b3a00a2af8ae86fa30baa9ee735838",
+    "archive_file_count": 24
+  },
+  "validation": {
+    "python_tests": 50,
+    "node_tests": 4,
+    "release_restored_file_count": 19,
+    "desktop_viewport": [
+      1365,
+      900
+    ],
+    "mobile_viewport": [
+      390,
+      844
+    ],
+    "independent_review": "No open actionable findings in the reviewed scope"
+  }
+}

@@ -33,7 +33,7 @@ The tracked WebP/JPEG/MP4/poster plus motion JSON total about **1.1 MB**. The GI
 
 The release ZIP was restored using `scripts/restore_release.py --index releases/v0.2.0.json --from-dir dist/releases/v0.2.0 --destination <temporary-directory>`. All **19 files** passed archive and per-file checksum validation. The temporary directory was removed after validation. The selected GIF is ten seconds with a seamless first/last decoded frame; the MP4 is 960 × 720 at 25 fps. The exact delivered media hashes are pinned in the release index and delivery validation. Independent review found that bottom captions overlapped native video controls. The final GIF/MP4 were re-encoded from the same integrated frames with upper-right RPM/stage captions; all timing and loop checks passed again. Original exploratory encodes remain local.
 
-Publication identities are recorded in `studio_motion_deployment.json` after a successful deployment. The older `deployment.json`, `public_asset_validation.json` and refinement screenshots retain Site version 2 evidence.
+The public [Site version 3](https://air65-ii-explorer.danohn.chatgpt.site/) deployed successfully at 04:36 UTC on 12 October 2026. Its live maximum/slow-motion controls were exercised and the console remained free of warnings/errors. The [published screenshot](published-studio-motion.png) captures that state. [GitHub v0.2.0](https://github.com/danohn/air65/releases/tag/v0.2.0) is published with all nine assets uploaded. Exact source and deployment identities are recorded in [studio_motion_deployment.json](studio_motion_deployment.json). The older `deployment.json`, `public_asset_validation.json` and refinement screenshots retain Site version 2 evidence.
 
 ## Limits
 
