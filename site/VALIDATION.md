@@ -1,4 +1,12 @@
-# Viewer validation — refined delivery
+# Viewer validation
+
+## Current studio and interactive motion update
+
+Checked 12 October 2026 at 1365 × 900 and 390 × 844 in the Codex in-app browser. The motion-aware GLB is 10,441,784 bytes, SHA-256 `4721b58072d8f5cacca84b873e626163061e4317ec158477046d85d49a332b2d`. It preserves the preceding static geometry while separating eight rotor transforms. All 50 Python tests and four Node tests pass. Browser checks cover RPM presets/keyboard adjustment, pause/reset, explicitly labelled 1/500 slow motion, explode/wireframe interaction, the corrected phone split layout, Studio navigation and real ten-second MP4 playback. Final local console warnings/errors were empty.
+
+See the parent project's [current integration report](../reports/site/studio_motion_validation.md), [independent review](../reports/site/studio_motion_review.md), [export validation](../reports/web_motion_export.md) and [studio source validation](../reports/studio_source_validation.md). The new interactive blur is an approximation; no new runtime benchmark is claimed. Deployment identity is recorded in `../reports/site/studio_motion_deployment.json` after publication.
+
+## Historical refined static delivery — Site version 2
 
 Checked 12 October 2026 in the real Codex in-app Chromium browser. The final local viewer was checked at 1365 × 900 and 390 × 844.
 

@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "model": "BETAFPV Air65 II Racing",
+  "source_blend": "output/studio_portrait/air65_ii_studio.blend",
+  "duration_s": 10,
+  "fps": 25,
+  "width": 960,
+  "height": 720,
+  "shutter_s": 0.02,
+  "atlas_phases": 72,
+  "atlas_period_degrees": 120,
+  "cycles_samples": 96,
+  "start_rest_s": 1.5,
+  "ramp_up_s": 2.5,
+  "nominal_hold_s": 3.0,
+  "ramp_down_s": 2.5,
+  "peak_rpm": 60394,
+  "curve": "Cubic smoothstep RPM ramps; analytically integrated angle. Hold duration adjusted by less than one revolution to make loop close at an integer number of full turns.",
+  "source": {
+    "page": "https://betafpv.com/products/0702-brushless-motors-2026",
+    "table_image": "https://cdn.shopify.com/s/files/1/1778/6615/files/0702_Brushless_Motors_2026_load_performance.jpg?v=1769068827",
+    "local_image": "output/prop_spinup/references/motor_load_performance.jpg",
+    "inspected_on": "2026-10-12",
+    "motor": "Racing 0702 30000KV (2026)",
+    "propeller": "GF 1207-3P",
+    "test_rows": [
+      {
+        "throttle_percent": 20,
+        "voltage_v": 3.93,
+        "rpm": 14757
+      },
+      {
+        "throttle_percent": 30,
+        "voltage_v": 3.92,
+        "rpm": 23541
+      },
+      {
+        "throttle_percent": 40,
+        "voltage_v": 3.91,
+        "rpm": 31298
+      },
+      {
+        "throttle_percent": 50,
+        "voltage_v": 3.9,
+        "rpm": 37570
+      },
+      {
+        "throttle_percent": 60,
+        "voltage_v": 3.89,
+        "rpm": 43046
+      },
+      {
+        "throttle_percent": 70,
+        "voltage_v": 3.89,
+        "rpm": 47557
+      },
+      {
+        "throttle_percent": 80,
+        "voltage_v": 3.88,
+        "rpm": 52514
+      },
+      {
+        "throttle_percent": 90,
+        "voltage_v": 3.87,
+        "rpm": 56887
+      },
+      {
+        "throttle_percent": 100,
+        "voltage_v": 3.86,
+        "rpm": 60394
+      }
+    ],
+    "confidence": "High for transcription of manufacturer bench-test sample; not measured telemetry from a particular aircraft.",
+    "qualification": "Manufacturer says the table represents test samples only. Startup/deceleration timing is authored for presentation; exact transient motor response is not claimed.",
+    "local_image_included": false,
+    "table_image_sha256": "a08f26508e8ab86d81c7ab8112e4b679f302ee814216082a53ea93f99a7dfc04"
+  },
+  "motion": {
+    "rotating_motor_parts": [
+      "silver_bell",
+      "bell_lower_rolled_edge",
+      "open_purple_crown_rim",
+      "purple_crown_spoke_1",
+      "purple_crown_spoke_2",
+      "purple_crown_spoke_3",
+      "crown_center_boss",
+      "upper_shaft",
+      "lower_axle_tip"
+    ],
+    "sign_by_corner": {
+      "FL": 1,
+      "FR": -1,
+      "RL": -1,
+      "RR": 1
+    },
+    "sign_note": "Positive is CCW viewed from above. Signs follow numeric blade handedness/pitch, not the historical CW/CCW filenames.",
+    "stationary": "Body, camera, battery, wiring, stators, windings, motor bases, bushings and screws remain stationary.",
+    "simulation_scope": "Synchronized stationary studio spin demonstration, with no takeoff, thrust or independent motor-control simulation."
+  },
+  "exposure_integration": {
+    "method": "Time-weighted scene-linear integration of a Cycles-rendered rotational phase atlas, followed by the saved AgX view transform.",
+    "quadrature_samples_per_frame": 32768,
+    "approximation": "Linear interpolation between 72 rotational phases over the 120-degree symmetry of three blades and three crown spokes. Finite 64/128-sided round meshes are only approximately axisymmetric; their small tessellation mismatch is not a change in dimensions.",
+    "reason": "A high-speed rotor turns more than 20 full revolutions during one exposure. Whole-frame orientation sampling alone can falsely freeze or reverse the blades."
+  },
+  "output_directory": "output/prop_spinup"
+}

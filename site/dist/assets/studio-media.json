@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "description": "Authored studio media. GIF, full PNG and editable Blender projects are GitHub release downloads; no reference photographs are distributed.",
+  "source_files": {
+    "studio.jpg": "output/studio_portrait/air65_ii_studio.jpg",
+    "spinup.mp4": "output/prop_spinup_web/air65_ii_spinup_10s.mp4"
+  },
+  "files": {
+    "studio.jpg": {
+      "bytes": 788315,
+      "sha256": "b5c2b77637f68db8a9115f2001bfc66d7838fac0eae0f3ba0b97d2a53d8309e8"
+    },
+    "spinup.mp4": {
+      "bytes": 208608,
+      "sha256": "8893f54ade25dbbc82a6e77ddcb921327d02964ab6a4361d09e2b1e380d7d7c1"
+    },
+    "studio.webp": {
+      "bytes": 71808,
+      "sha256": "d78eb72f20219ad6bd69bf04b1d1b495f10a6bd0dd0457453557fcd244b05a5c"
+    },
+    "spinup-poster.webp": {
+      "bytes": 33564,
+      "sha256": "c8fdea48115d84aa96682ae14150d84721ad26c16280a19b4dbe68acf1ea9cfb"
+    },
+    "motion.json": {
+      "bytes": 3846,
+      "sha256": "f0402b8123a48798f87c3265003f4a59859fbc1c9e83c32eff9d78b18da58ddb"
+    }
+  }
+}

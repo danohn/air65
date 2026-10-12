@@ -6,17 +6,20 @@ This project distinguishes **published nominal dimensions**, **derived geometry*
 
 The current refinement addresses the user's Sketchfab comparison while retaining the selected Air65 II configuration. It includes a continuous formed canopy, a centrally revised photographic PCB outline, authored board/battery textures and a separately optimized browser asset. Read `reports/refinement_validation.md` and `reports/refinement_independent_visual_review.md` for current results and remaining limits; the prior delivery is preserved under `output/refinement_baseline/`.
 
-Public interactive viewer: **https://air65-ii-explorer.danohn.chatgpt.site**. The `site/` directory contains the buildless Three.js source. The viewer supports rotation, zoom, pan, component visibility, camera presets, an illustrative exploded view and optional battery display.
+Public interactive viewer: **https://air65-ii-explorer.danohn.chatgpt.site**. The `site/` directory contains the buildless Three.js source. The viewer supports rotation, zoom, pan, component visibility, camera presets, an illustrative exploded view and optional battery display. Its motor controls now include a **0–60,394 RPM slider**, pause, speed presets and **1/500 slow motion**. Propellers and motor bells rotate while stators and wiring remain fixed.
 
-GitHub source: **https://github.com/danohn/air65**. Download the editable projects, renders and historical comparison inputs from **[release v0.1.0](https://github.com/danohn/air65/releases/tag/v0.1.0)**. Source, specifications, review evidence and one ready-to-use web model are tracked; generated `output/` files are restored from the release or built locally. See [release restoration](docs/RELEASES.md) and [repository/publishing layout](docs/REPOSITORY.md).
+The **[Studio page](https://air65-ii-explorer.danohn.chatgpt.site/studio.html)** presents a 3200 × 2400 studio portrait and a ten-second motor spin-up. Download the editable studio/animation projects, full PNG, GIF and updated browser model from **[release v0.2.0](https://github.com/danohn/air65/releases/tag/v0.2.0)**. [Studio source, motion accuracy and publication choices](docs/STUDIO_AND_MOTION.md) explain how to reproduce them.
 
-![Air65 II Racing reconstruction](site/dist/assets/poster.webp)
+GitHub source: **https://github.com/danohn/air65**. The original editable projects, renders and historical comparison inputs remain in **[release v0.1.0](https://github.com/danohn/air65/releases/tag/v0.1.0)**. Source, specifications, review evidence, compact media and one ready-to-use web model are tracked; generated `output/` files are restored from releases or built locally. See [release restoration](docs/RELEASES.md) and [repository/publishing layout](docs/REPOSITORY.md).
+
+![Air65 II Racing reconstruction under studio lighting](site/dist/assets/studio.webp)
 
 To populate the artifact paths referenced below after a fresh clone:
 
 ```sh
 uv sync --python 3.14 --frozen
 uv run scripts/restore_release.py
+uv run scripts/restore_release.py --index releases/v0.2.0.json
 ```
 
 ## Open the results
@@ -24,6 +27,8 @@ uv run scripts/restore_release.py
 - `output/final/air65_ii.blend`: editable dry aircraft, separate component collections and cameras.
 - `output/final/hero.png` and seven other views: final 1400px renders, with a combined `multiview.png` contact sheet.
 - `output/with_battery/air65_ii.blend`: optional LAVA II 280mAh battery configuration.
+- `output/studio_portrait/air65_ii_studio.jpg`: finished studio portrait; its `.blend` and full PNG are in the same directory.
+- `output/prop_spinup_web/air65_ii_spinup_10s.gif` and `.mp4`: ten-second looping animation with captions above the player controls; the editable `.blend` is in `output/prop_spinup/`.
 - `output/frame_final/`: final isolated frame inspection views. `output/frame/` preserves the first-review baseline.
 - `output/prototype/`: the deliberately simple prototype retained as evidence of the staged workflow.
 - `reports/validation_report.md`: measurement checks, independent visual review, revisions, and limits.
@@ -124,9 +129,12 @@ Export the detailed source and the separate optimized browser mesh:
 ```sh
 /Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup --python-exit-code 1 --python scripts/export_web_model.py -- --source output/with_battery/air65_ii.blend --output output/web/air65-ii.glb
 /Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup --python-exit-code 1 --python scripts/export_web_model.py -- --source output/with_battery/air65_ii.blend --mode optimized --output output/web_optimized/air65-ii.glb --save-preview-blend
+/Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup --python-exit-code 1 --python scripts/export_web_model.py -- --source output/with_battery/air65_ii.blend --mode optimized --motion-spec specs/studio/motion.json --output output/web_motion/air65-ii.glb
 ```
 
 `output/web/` retains the complete evaluated source geometry. `output/web_optimized/` is the browser representation with a per-object optimization audit, embedded textures and preserved component transforms. The optimized `preview.blend` contains evaluated meshes for comparison; it is not the editable procedural source. The exporter protects shared canopy normals, UV seams and dimensional anchors and reverts candidates that exceed the declared sampled-distance/bounds gates. These are source-to-export checks, not physical accuracy certification.
+
+The current site uses `output/web_motion/air65-ii.glb`: the same optimized geometry partitioned into moving/stationary motor parts and propeller blade/hub groups. Use this motion-aware export when updating `site/dist/assets/`. The earlier static export remains available for historical benchmark comparisons. See [motion export validation](reports/web_motion_export.md).
 
 The browser benchmark is an explicit local page, not an inferred performance score:
 

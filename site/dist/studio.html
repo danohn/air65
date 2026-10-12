@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eeefeb">
+  <meta name="description" content="Studio photography and a ten-second motor spin-up of the parametric Air65 II Racing model. Download the images, animation and editable Blender projects.">
+  <meta property="og:title" content="Air65 II — Studio">
+  <meta property="og:description" content="The same tiny aircraft, under studio lights. A rendered portrait and motor spin-up animation.">
+  <meta property="og:image" content="https://air65-ii-explorer.danohn.chatgpt.site/assets/studio.webp">
+  <title>Air65 II — Studio</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css?v=motion-1">
+</head>
+<body class="studio-page">
+  <header class="app-header">
+    <a class="brand" href="./" aria-label="Air65 II Explorer home"><img class="brand-icon" src="./assets/favicon.svg" alt="" width="38" height="38"><div><h1>Air65 II<span class="edition">RACING</span></h1><p>STUDIO</p></div></a>
+    <nav class="header-actions" aria-label="Site navigation"><a class="studio-link" href="./">← 3D Explorer</a><a class="download-button github-link" href="https://github.com/danohn/air65" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav>
+  </header>
+  <main class="studio-main">
+    <div class="studio-intro"><span class="eyebrow">THE RECONSTRUCTION, RENDERED</span><h2>Small aircraft.<br>Studio light.</h2><p>Our Air65 II Racing model, with soft lighting, clear propellers and close-up detail. A digital studio portrait, made directly from the editable 3D model.</p></div>
+    <figure class="studio-portrait"><a href="./assets/studio.jpg" target="_blank" rel="noopener" aria-label="Open the full resolution studio portrait"><img src="./assets/studio.webp" width="1600" height="1200" alt="A lavender Air65 II Racing drone with transparent propellers, a white canopy and a battery, resting on a charcoal studio surface" fetchpriority="high"></a><figcaption><div><strong>01 / The studio portrait</strong><span>3200 × 2400 · rendered in Blender</span></div><a class="download-button" href="./assets/studio.jpg" download="air65-ii-studio.jpg">Download photo ↓</a></figcaption></figure>
+    <section class="studio-motion" aria-labelledby="motion-title">
+      <div class="motion-copy"><span class="eyebrow">FROM REST TO ROTATION</span><h2 id="motion-title">Watch it spin up.</h2><p>Ten seconds: still, accelerating, at speed, then back to rest. The propellers and motor bells rotate together; the airframe stays in place.</p><p>The peak of <strong>60,394 RPM</strong> comes from BETAFPV’s bench sample for the Racing 0702 30000KV motor and GF1207 three-blade propeller. The ramp timing is chosen for the animation.</p><p>At high speed, a camera sees a soft blur. In the 3D Explorer you can adjust RPM, orbit the model and slow time to see the blades move.</p><a class="primary-link" href="./">Try the RPM slider <span aria-hidden="true">→</span></a><a class="source-link" href="https://betafpv.com/products/0702-brushless-motors-2026" target="_blank" rel="noopener noreferrer">Manufacturer’s motor test data ↗</a></div>
+      <figure class="studio-video"><video controls playsinline loop preload="none" poster="./assets/spinup-poster.webp" width="960" height="720" aria-label="Ten-second Air65 II motor spin-up with RPM counter"><source src="./assets/spinup.mp4" type="video/mp4">Your browser cannot play this video. <a href="./assets/spinup.mp4">Download the MP4.</a></video><figcaption><strong>02 / The motor study</strong><span>10 seconds · 25 fps · 960 × 720</span></figcaption><div class="media-downloads"><a href="./assets/spinup.mp4" download="air65-ii-spinup-10s.mp4">Download MP4 · 209 KB ↓</a><a href="https://github.com/danohn/air65/releases/download/v0.2.0/air65-ii-spinup-10s.gif">Download GIF · 3.8 MB ↓</a></div></figure>
+    </section>
+    <section class="studio-source"><div><span class="eyebrow">OPEN THE PROJECT</span><h2>Keep the editable original.</h2><p>The studio scene, animated Blender project and full-resolution PNG are available with the release. The repository contains the JSON settings, rendering scripts and validation notes.</p></div><div class="studio-source-links"><a href="https://github.com/danohn/air65/releases/tag/v0.2.0" target="_blank" rel="noopener noreferrer">Studio release & downloads ↗</a><a href="https://github.com/danohn/air65/blob/main/docs/STUDIO_AND_MOTION.md" target="_blank" rel="noopener noreferrer">How the motion is made ↗</a></div></section>
+    <p class="studio-footnote">Independent reference-based recreation; no affiliation with BETAFPV. Some model surfaces are estimated. The studio model retains the current assembly, including its unplugged battery display pose. Interactive blur is a lightweight visual approximation; the video uses integrated Blender renders. Neither is a flight or thrust simulation.</p>
+  </main>
+  <footer class="app-footer"><span><span class="footer-dot"></span>REFERENCE-BASED RECREATION</span><a href="./">Return to the 3D Explorer ↗</a></footer>
+</body>
+</html>

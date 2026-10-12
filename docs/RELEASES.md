@@ -2,6 +2,16 @@
 
 The first GitHub release is [v0.1.0](https://github.com/danohn/air65/releases/tag/v0.1.0). The interactive model remains at https://air65-ii-explorer.danohn.chatgpt.site.
 
+The [v0.2.0 studio release](https://github.com/danohn/air65/releases/tag/v0.2.0) adds the studio portrait, ten-second propeller animation, both editable Blender scenes, and the motion-aware browser GLB. Its curated `air65-ii-studio-v0.2.0.zip` restores 19 finished outputs and validation files, without the EXR atlas, 250 source frames, logs or reference photographs. Individual JPEG, full PNG, GIF, MP4, Blender and GLB downloads are also available. The original model and baseline archives remain in v0.1.0.
+
+After restoring the original artifacts below, add the studio delivery with:
+
+```sh
+uv run scripts/restore_release.py --index releases/v0.2.0.json
+```
+
+`releases/v0.2.0.json` pins the new checksums. The source and rebuild commands are described in [Studio and motion](STUDIO_AND_MOTION.md). `scripts/package_studio_release.py` recreates the v0.2.0 packages from an explicit allowlist; the older `scripts/package_release.py` retains its frozen v0.1.0 validation boundary.
+
 The Git repository contains the modelling source and ready-to-run website. Large generated results are release assets:
 
 - `air65-ii-artifacts-v0.1.0.zip`: final dry/optional Blender projects, source renders, full and optimized exports, inspection views, prototype and validation evidence.

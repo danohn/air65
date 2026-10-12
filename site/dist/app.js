@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { RotorMotion } from './rotor-motion.js';
 
 const $ = (id) => document.getElementById(id);
 const parts = [
@@ -16,7 +17,7 @@ const parts = [
 const initialVisibility = Object.fromEntries(parts.map(p => [p.id, p.id !== 'battery']));
 const state = { visibility:{...initialVisibility}, selected:null, explode:0, wireframe:false, view:'perspective', ready:false };
 const componentNodes = [];
-let scene, camera, renderer, controls, model, floor, shadowLight, resizeObserver;
+let scene, camera, renderer, controls, model, floor, shadowLight, resizeObserver, rotorMotion;
 let raf = 0, settling = 0, previousTime = 0, contextLost = false, rendering = false;
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
@@ -46,14 +47,17 @@ function render(time) {
   raf = 0;
   if (document.hidden || contextLost) return;
   rendering = true;
-  const delta = previousTime ? Math.min((time - previousTime) / 1000, .05) : 1/60;
+  const elapsed = previousTime ? Math.max(0, (time - previousTime) / 1000) : 0;
+  const delta = Math.min(elapsed, .05);
   previousTime = time;
+  rotorMotion?.update(elapsed);
+  if (rotorMotion?.active && rotorMotion.effectiveRPM < 1000) renderer.shadowMap.needsUpdate = true;
   controls.update(delta);
   if (floor) floor.visible = camera.position.y > 1 && state.explode === 0 && !state.wireframe;
   renderer.render(scene, camera);
   rendering = false;
   settling--;
-  if (controls.autoRotate || settling > 0) raf = requestAnimationFrame(render);
+  if (controls.autoRotate || rotorMotion?.active || settling > 0) raf = requestAnimationFrame(render);
 }
 
 function resize() {
@@ -121,7 +125,7 @@ function selectPart(id) {
   state.selected = id;
   for (const node of componentNodes) {
     node.traverse(object => {
-      if (!object.isMesh) return;
+      if (!object.isMesh || object.userData.blurProxy) return;
       for (const material of Array.isArray(object.material) ? object.material : [object.material]) {
         if (!material.emissive) continue;
         if (node.userData.category === id) {
@@ -164,8 +168,9 @@ function explode(value) {
 
 function toggleWireframe(enabled) {
   state.wireframe = enabled;
+  if (enabled) { rotorMotion?.pause(); syncMotionControls(); }
   model?.traverse(object => {
-    if (object.isMesh) for (const material of Array.isArray(object.material) ? object.material : [object.material]) {
+    if (object.isMesh && !object.userData.blurProxy) for (const material of Array.isArray(object.material) ? object.material : [object.material]) {
       material.wireframe = enabled;
       if ('transmission' in material) material.transmission = enabled ? 0 : material.userData.originalTransmission;
       material.needsUpdate = true;
@@ -175,16 +180,45 @@ function toggleWireframe(enabled) {
 }
 
 function reset() {
+  rotorMotion?.reset(); syncMotionControls(); previousTime = 0;
   state.visibility = {...initialVisibility};
   document.querySelectorAll('.part-row').forEach(row => row.querySelector('input').checked = state.visibility[row.dataset.part]);
   $('explode').value = 0;
   $('wireframe').checked = false;
   explode(0); toggleWireframe(false); selectPart(null); applyVisibility(); setView('perspective');
-  announce('Model and camera reset. Optional battery hidden.');
+  announce('Model and camera reset. Motors stopped. Optional battery hidden.');
+}
+
+function syncMotionControls() {
+  if (!rotorMotion) return;
+  const {rpm, playing, slowMotion, effectiveRPM} = rotorMotion;
+  $('motor-rpm').value = rpm;
+  $('motor-rpm').setAttribute('aria-valuetext', `${rpm.toLocaleString('en-US')} RPM`);
+  $('rpm-value').textContent = Math.round(rpm).toLocaleString('en-US');
+  $('motor-status').textContent = rpm === 0 ? 'Stopped' : playing ? (slowMotion ? 'Slow motion' : 'Running') : 'Paused';
+  $('motor-play').textContent = playing ? 'Pause' : rpm ? 'Resume' : 'Spin';
+  $('motor-play').setAttribute('aria-label', playing ? 'Pause motors' : rpm ? 'Resume motors' : 'Spin motors');
+  $('motor-play').setAttribute('aria-pressed', String(playing));
+  $('motor-slow').checked = slowMotion;
+  $('motor-help').textContent = slowMotion && playing
+    ? `Time slowed 500×: displayed at ${effectiveRPM.toLocaleString('en-US', {maximumFractionDigits:1})} RPM. The slider shows the simulated speed.`
+    : playing && rpm >= 1000
+      ? 'High-speed blur preview. Use slow motion to see the blade movement.'
+      : 'Propellers and motor bells turn together. The airframe stays fixed.';
+  document.querySelectorAll('[data-rpm]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.rpm) === rpm)));
+}
+
+function changeRPM(value) {
+  if (!rotorMotion) return;
+  if (state.wireframe && Number(value) > 0) { $('wireframe').checked = false; toggleWireframe(false); }
+  rotorMotion.setRPM(Number(value));
+  previousTime = 0;
+  syncMotionControls(); requestRender();
 }
 
 function openParts(open) {
   $('inspector').classList.toggle('open', open);
+  document.querySelector('.workspace').classList.toggle('inspector-open', open);
   $('parts-toggle').setAttribute('aria-expanded', String(open));
 }
 
@@ -251,10 +285,14 @@ async function initialize() {
     floor.rotation.x = -Math.PI/2; floor.position.y = -.15; floor.receiveShadow = true; scene.add(floor);
     resizeObserver = new ResizeObserver(resize); resizeObserver.observe($('canvas-mount')); resize();
     renderer.domElement.addEventListener('webglcontextlost', e => {e.preventDefault(); contextLost = true; showFailure('Your browser paused the graphics context. Reload the viewer to continue.');});
-    const gltf = await new GLTFLoader().loadAsync('./assets/air65-ii.glb', event => {
-      const percent = Math.min(100, Math.round(event.loaded / (event.total || 10417808) * 100));
+    const modelPromise = new GLTFLoader().loadAsync('./assets/air65-ii.glb?v=motion-1', event => {
+      const percent = Math.min(100, Math.round(event.loaded / (event.total || 10441784) * 100));
       $('loading-progress').textContent = percent===100 ? 'Preparing the surfaces…' : `Loading model · ${percent}%`;
     });
+    const [gltf, motionSpecification] = await Promise.all([modelPromise, fetch('./assets/motion.json').then(response => {
+      if (!response.ok) throw new Error('Motion specification unavailable');
+      return response.json();
+    })]);
     model = gltf.scene;
     model.scale.setScalar(1000);
     model.traverse(node => {
@@ -281,6 +319,9 @@ async function initialize() {
     });
     if (componentNodes.length !== 13) throw new Error('Unexpected model component count');
     scene.add(model);
+    rotorMotion = new RotorMotion(componentNodes, motionSpecification);
+    $('motor-rpm').max = motionSpecification.peak_rpm;
+    syncMotionControls();
     state.ready = true;
     applyVisibility(); setView('perspective');
     await renderer.compileAsync(scene,camera);
@@ -297,7 +338,11 @@ async function initialize() {
       const bounds = renderer.domElement.getBoundingClientRect();
       pointer.set((e.clientX-bounds.left)/bounds.width*2-1,-(e.clientY-bounds.top)/bounds.height*2+1);
       raycaster.setFromCamera(pointer,camera);
-      const hit = raycaster.intersectObjects(componentNodes.filter(n=>n.visible),true).find(h=>h.object.userData.part);
+      const pickable = [];
+      for (const node of componentNodes) node.traverseVisible(object => {
+        if (object.isMesh && !object.userData.blurProxy) pickable.push(object);
+      });
+      const hit = raycaster.intersectObjects(pickable, false).find(h=>h.object.userData.part);
       selectPart(hit?.object.userData.part ?? null);
     });
     renderer.domElement.addEventListener('keydown', e => {
@@ -333,6 +378,16 @@ $('show-all').addEventListener('click', () => {for(const part of parts) state.vi
 $('explode').addEventListener('input', e => explode(e.target.value));
 $('explode').addEventListener('change', () => {if(state.explode>40) setView(state.view);});
 $('wireframe').addEventListener('change', e => toggleWireframe(e.target.checked));
+$('motor-rpm').addEventListener('input', e => changeRPM(e.target.value));
+document.querySelectorAll('[data-rpm]').forEach(button => button.addEventListener('click', () => changeRPM(button.dataset.rpm)));
+$('motor-play').addEventListener('click', () => {
+  if (!rotorMotion) return;
+  if (!rotorMotion.rpm) return changeRPM(120);
+  if (rotorMotion.playing) rotorMotion.pause();
+  else { if (state.wireframe) { $('wireframe').checked = false; toggleWireframe(false); } rotorMotion.resume(); }
+  previousTime = 0; syncMotionControls(); requestRender();
+});
+$('motor-slow').addEventListener('change', e => { rotorMotion?.setSlowMotion(e.target.checked); syncMotionControls(); requestRender(); });
 $('parts-toggle').addEventListener('click', () => openParts(!$('inspector').classList.contains('open')));
 $('parts-close').addEventListener('click', () => {openParts(false); $('parts-toggle').focus();});
 $('about-open').addEventListener('click', () => $('about-dialog').showModal());
@@ -347,4 +402,7 @@ document.addEventListener('fullscreenchange', () => {$('fullscreen').setAttribut
 if (!document.fullscreenEnabled) $('fullscreen').hidden = true;
 document.addEventListener('visibilitychange', () => {if(!document.hidden){previousTime=0; requestRender();}else{cancelAnimationFrame(raf);raf=0;}});
 window.addEventListener('pagehide',()=>{cancelAnimationFrame(raf);resizeObserver?.disconnect();});
+window.addEventListener('pageshow', event => {
+  if (event.persisted) { previousTime = 0; raf = 0; resizeObserver?.observe($('canvas-mount')); resize(); requestRender(); }
+});
 initialize();

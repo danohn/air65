@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "version": "v0.2.0",
+  "repository": "danohn/air65",
+  "description": "Studio additions and the motion-aware web export. The original model and historical baseline remain in v0.1.0.",
+  "base_release": "v0.1.0",
+  "public_glb_sha256": "4721b58072d8f5cacca84b873e626163061e4317ec158477046d85d49a332b2d",
+  "archives": [
+    {
+      "name": "air65-ii-studio-v0.2.0.zip",
+      "bytes": 53042228,
+      "sha256": "9b816704c165a4b0244d41741fccb7243a4bed64483dbc155156deb5e65585f0",
+      "file_count": 19,
+      "profile": "artifacts",
+      "url": "https://github.com/danohn/air65/releases/download/v0.2.0/air65-ii-studio-v0.2.0.zip"
+    }
+  ],
+  "downloads": [
+    {
+      "name": "air65-ii-studio.blend",
+      "bytes": 8227356,
+      "sha256": "63b9b5ff66335706b6370b5a19028f91b28a2366c3e85946c9933403cd1061e0",
+      "url": "https://github.com/danohn/air65/releases/download/v0.2.0/air65-ii-studio.blend"
+    },
+    {
+      "name": "air65-ii-studio.jpg",
+      "bytes": 788315,
+      "sha256": "b5c2b77637f68db8a9115f2001bfc66d7838fac0eae0f3ba0b97d2a53d8309e8",
+      "url": "https://github.com/danohn/air65/releases/download/v0.2.0/air65-ii-studio.jpg"
+    },
+    {
+      "name": "air65-ii-studio.png",
+      "bytes": 24538473,
+      "sha256": "caa69add5b37c3a0b6e26b1bf61c22a27264b34fe5fb02688c8407edf73d3985",
+      "url": "https://github.com/danohn/air65/releases/download/v0.2.0/air65-ii-studio.png"
+    },
+    {
+      "name": "air65-ii-spinup.blend",
+      "bytes": 8349253,
+      "sha256": "b0ed97492af1986b7cfe8d368c8e094227a193e298371a70baa676bae5f964aa",
+      "url": "https://github.com/danohn/air65/releases/download/v0.2.0/air65-ii-spinup.blend"
+    },
+    {
+      "name": "air65-ii-spinup-10s.gif",
+      "bytes": 3783232,
+      "sha256": "66cded23fb835f43bada270aa126fa6005f395b6f2d73bf004e3b5b34027688a",
+      "url": "https://github.com/danohn/air65/releases/download/v0.2.0/air65-ii-spinup-10s.gif"
+    },
+    {
+      "name": "air65-ii-spinup-10s.mp4",
+      "bytes": 208608,
+      "sha256": "8893f54ade25dbbc82a6e77ddcb921327d02964ab6a4361d09e2b1e380d7d7c1",
+      "url": "https://github.com/danohn/air65/releases/download/v0.2.0/air65-ii-spinup-10s.mp4"
+    },
+    {
+      "name": "air65-ii.glb",
+      "bytes": 10441784,
+      "sha256": "4721b58072d8f5cacca84b873e626163061e4317ec158477046d85d49a332b2d",
+      "url": "https://github.com/danohn/air65/releases/download/v0.2.0/air65-ii.glb"
+    }
+  ]
+}

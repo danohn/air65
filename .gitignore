@@ -16,7 +16,9 @@ node_modules/
 /dist/
 /site/deployment.tar.gz
 
-# Blender backups
+# Blender projects, render buffers and backups (finished projects are release assets)
+*.blend
+*.exr
 *.blend[0-9]*
 
 # Local configuration and credentials

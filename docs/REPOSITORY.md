@@ -2,6 +2,8 @@
 
 The GitHub repository is https://github.com/danohn/air65. It versions the JSON model, authoring/build/export scripts, tests, exact authored textures, research provenance, review evidence and a working static website. The single optimized model in `site/dist/assets/air65-ii.glb` is deliberately tracked so the website works without Blender.
 
+The studio update also tracks `scripts/studio/`, `specs/studio/`, viewer motion code and about 1.1 MB of selected JPEG/WebP/MP4 assets. The GLB now preserves rotor/stator and blade/hub groups without changing the original static surfaces. Full Blender projects, full PNG and GIF are v0.2.0 release assets; `.blend` files and EXR buffers are explicitly ignored. See [studio publication choices](STUDIO_AND_MOTION.md).
+
 `output/` and the root `dist/` are generated local directories. Editable Blender projects, renders, validation artifacts and the original comparison baseline are distributed through [releases](RELEASES.md). The ignore rule is `/dist/`, anchored at the repository root; `site/dist/` contains the website source and must remain tracked. `uv.lock` is also tracked.
 
 Downloaded third-party reference photographs and `reports/visual_comparison.png`, which includes such a photograph, remain local. Their original URLs, hashes and provenance remain in `references/*.json`. The public release packager also excludes them, including the composite inside the preserved baseline. Third-party software notices remain with the vendored code; see [attribution](ATTRIBUTION.md).

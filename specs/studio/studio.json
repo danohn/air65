@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "model": "BETAFPV Air65 II Racing",
+  "source_blend": "output/with_battery/air65_ii.blend",
+  "output_directory": "output/studio_portrait",
+  "width": 3200,
+  "height_ratio": 0.75,
+  "cycles_samples": 384,
+  "seed": 6512,
+  "presentation_material_overrides": {
+    "prop_clear": {
+      "Transmission Weight": 0.98,
+      "Roughness": 0.065
+    }
+  },
+  "floor": {
+    "half_extent_m": 2.0,
+    "below_model_m": 4e-05,
+    "base_color": [
+      0.025,
+      0.031,
+      0.041,
+      1
+    ],
+    "roughness": 0.48,
+    "metallic": 0.0,
+    "specular_ior_level": 0.26
+  },
+  "world": {
+    "color": [
+      0.52,
+      0.62,
+      0.78,
+      1
+    ],
+    "strength": 0.1
+  },
+  "lights": [
+    {
+      "name": "Key \u2014 broad warm softbox",
+      "position": [
+        -0.085,
+        0.11,
+        0.18
+      ],
+      "target": [
+        0,
+        0,
+        0.015
+      ],
+      "energy": 1.0,
+      "size": 0.13,
+      "size_y": 0.095,
+      "color": [
+        1.0,
+        0.91,
+        0.82
+      ]
+    },
+    {
+      "name": "Rim \u2014 cool rear strip",
+      "position": [
+        0.075,
+        -0.105,
+        0.13
+      ],
+      "target": [
+        0,
+        0,
+        0.018
+      ],
+      "energy": 0.72,
+      "size": 0.11,
+      "size_y": 0.032,
+      "color": [
+        0.74,
+        0.84,
+        1.0
+      ]
+    },
+    {
+      "name": "Fill \u2014 camera-side bounce",
+      "position": [
+        0.125,
+        0.14,
+        0.075
+      ],
+      "target": [
+        0,
+        0,
+        0.022
+      ],
+      "energy": 0.12,
+      "size": 0.14,
+      "size_y": 0.12,
+      "color": [
+        0.88,
+        0.93,
+        1.0
+      ]
+    },
+    {
+      "name": "Edge \u2014 left vertical strip",
+      "position": [
+        -0.14,
+        -0.01,
+        0.065
+      ],
+      "target": [
+        0,
+        0,
+        0.012
+      ],
+      "energy": 0.2,
+      "size": 0.1,
+      "size_y": 0.022,
+      "color": [
+        1.0,
+        0.95,
+        0.89
+      ]
+    }
+  ],
+  "camera": {
+    "lens_mm": 85,
+    "sensor_width_mm": 36,
+    "clip_start_m": 0.001,
+    "clip_end_m": 10,
+    "target_m": [
+      0,
+      0,
+      0.022
+    ],
+    "direction": [
+      0.6,
+      0.86,
+      0.58
+    ],
+    "initial_distance_m": 0.34,
+    "fit_steps": 70,
+    "distance_multiplier": 1.025,
+    "margin_x": 0.095,
+    "margin_y": 0.1,
+    "focus_m": [
+      0,
+      0,
+      0.021
+    ],
+    "f_stop": 64.0,
+    "aperture_blades": 9
+  },
+  "cycles": {
+    "adaptive_threshold": 0.007,
+    "adaptive_min_samples": 64,
+    "preview_adaptive_threshold": 0.025,
+    "preview_adaptive_min_samples": 16,
+    "max_bounces": 16,
+    "transmission_bounces": 12,
+    "glossy_bounces": 8,
+    "diffuse_bounces": 6,
+    "transparent_max_bounces": 16,
+    "sample_clamp_indirect": 8.0,
+    "threads": 8
+  },
+  "color_management": {
+    "view_transform": "AgX",
+    "exposure": 0.2,
+    "gamma": 1.0
+  },
+  "provenance": {
+    "presentation_only": true,
+    "geometry": "Existing with-battery assembly retained. Clear-prop optical overrides are presentation estimates.",
+    "published_reference": {
+      "source_sha256": "1c9424baa3c92dde8e2ff1fc77fa05cf8c3136f20f21e76cee3351ad59b63e8a",
+      "blender": "5.2.2 LTS",
+      "device": "METAL",
+      "resolution": [
+        3200,
+        2400
+      ],
+      "samples": 384,
+      "camera_location_m": [
+        0.18332621455192566,
+        0.2627675533294678,
+        0.19921532273292542
+      ]
+    },
+    "reproduction_limit": "Same geometry, shader parameters and studio layout; pixel or blend-file byte identity across Blender versions/devices is not guaranteed."
+  }
+}

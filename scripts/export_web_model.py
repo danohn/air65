@@ -11,7 +11,7 @@ The source blend is opened read-only and is never saved by this script.
 from __future__ import annotations
 
 import argparse
-from collections import defaultdict
+from collections import Counter, defaultdict
 import copy
 import hashlib
 import json
@@ -20,10 +20,15 @@ from pathlib import Path
 import struct
 import sys
 
-import bpy
-import bmesh
-from mathutils import Vector
-from mathutils.bvhtree import BVHTree
+try:
+    import bpy
+    import bmesh
+    from mathutils import Vector
+    from mathutils.bvhtree import BVHTree
+except ModuleNotFoundError:
+    # Pure authority/GLB validators are also exercised by the uv/pytest suite.
+    # Geometry evaluation still explicitly requires Blender in main().
+    bpy = bmesh = Vector = BVHTree = None
 
 
 def y_up(values):
@@ -48,6 +53,61 @@ def millimetres(box):
 
 def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def load_motion_authority(path):
+    document = json.loads(path.read_text())
+    motion = document.get("motion", {})
+    names = motion.get("rotating_motor_parts", [])
+    signs = motion.get("sign_by_corner", {})
+    if len(names) != 9 or len(set(names)) != 9 or not all(isinstance(name, str) and name for name in names):
+        raise ValueError("Motion authority must identify nine unique motor rotor parts")
+    if signs != {"FL": 1, "FR": -1, "RL": -1, "RR": 1}:
+        raise ValueError("Motion signs must match the Air65 numeric blade pitch")
+    return {"path": str(path), "sha256": sha256(path), "parts": names, "signs": signs, "peak_rpm": document["peak_rpm"]}
+
+
+def motion_role(component, object_name, authority):
+    """Partition by source object identity, never material, height or colour."""
+    if authority is None:
+        return None
+    part = object_name.split(".", 1)[1]
+    if component == "motor":
+        return "rotor" if part in authority["parts"] else "stator"
+    if component.startswith("prop_"):
+        return "blades" if part in {"blade_1", "blade_2", "blade_3"} else "hub"
+    return None
+
+
+def triangle_fingerprint(material_name, vertex_bytes):
+    """Ignore index order but retain winding, material, normals and UV values."""
+    cycles = [b"".join(vertex_bytes[i:] + vertex_bytes[:i]) for i in range(3)]
+    return hashlib.sha256(material_name.encode("utf-8") + b"\0" + min(cycles)).digest()
+
+
+def fingerprints_digest(fingerprints):
+    digest = hashlib.sha256()
+    for value in sorted(fingerprints):
+        digest.update(value)
+    return digest.hexdigest()
+
+
+def check_numeric_pitch(specification, authority):
+    instances = {item["id"]: item for item in specification["assembly"]["instances"]}
+    results = []
+    for corner, sign in authority["signs"].items():
+        component = specification["components"][instances["prop_" + corner]["component"]]
+        blades = [node for node in component["nodes"] if node["op"] == "propeller_blade"]
+        if len(blades) != 3:
+            raise ValueError(f"Expected three parametric blades at {corner}")
+        for node in blades:
+            hand = node["args"]["handedness"]
+            angles = [section["twist_deg"] for section in node["args"]["sections"]]
+            slopes = [hand * math.tan(math.radians(angle)) for angle in angles]
+            if not all(slope * sign > 0 for slope in slopes):
+                raise ValueError(f"Motion authority disagrees with numeric blade pitch: {corner}/{node['id']}")
+        results.append({"corner": corner, "angular_sign": sign, "local_axis": [0, 1, 0], "numeric_pitch_check": "pass"})
+    return results
 
 
 def principled_material(material, writer):
@@ -190,7 +250,7 @@ class GLBWriter:
         path.write_bytes(data)
 
 
-def evaluate_component(parent, depsgraph, textured_materials=None, overrides=None):
+def evaluate_component(parent, depsgraph, textured_materials=None, overrides=None, authority=None):
     textured_materials = textured_materials or set()
     overrides = overrides or {}
     batches = defaultdict(lambda: {"vertices": [], "normals": [], "uvs": [], "indices": [], "lookup": {}})
@@ -198,7 +258,9 @@ def evaluate_component(parent, depsgraph, textured_materials=None, overrides=Non
     origin = parent.matrix_world.translation.copy()
     children = sorted((o for o in parent.children if o.type in {"MESH", "CURVE", "FONT"}), key=lambda o: o.name)
     source_vertices = source_triangles = 0
+    partitions = defaultdict(lambda: {"source_objects": [], "triangle_count": 0, "points": [], "fingerprints": []})
     for obj in children:
+        role = motion_role(parent["component_id"], obj.name, authority)
         evaluated = obj.evaluated_get(depsgraph)
         mesh = overrides.get(obj.name)
         if mesh is None:
@@ -212,6 +274,10 @@ def evaluate_component(parent, depsgraph, textured_materials=None, overrides=Non
         all_world_points.extend(tuple(p) for p in positions)
         source_vertices += len(positions)
         source_triangles += len(mesh.loop_triangles)
+        if role:
+            partitions[role]["source_objects"].append(obj.name)
+            partitions[role]["triangle_count"] += len(mesh.loop_triangles)
+            partitions[role]["points"].extend(y_up(point - origin) for point in positions)
         split_normals = [normal.vector.copy() for normal in mesh.corner_normals]
         if matrix.to_3x3().determinant() <= 0:
             raise ValueError(f"Negative or singular transform requires explicit winding handling: {obj.name}")
@@ -219,7 +285,8 @@ def evaluate_component(parent, depsgraph, textured_materials=None, overrides=Non
             material = mesh.materials[triangle.material_index]
             if material is None:
                 raise ValueError(f"No material on {obj.name}")
-            batch = batches[material.name]
+            batch = batches[(role, material.name) if role else material.name]
+            triangle_bytes = []
             textured = material.name in textured_materials
             if textured and mesh.uv_layers.active is None:
                 raise ValueError(f"Textured mesh has no active UV layer: {obj.name}")
@@ -233,6 +300,8 @@ def evaluate_component(parent, depsgraph, textured_materials=None, overrides=Non
                 uv = (round(uv[0], 6), round(1.0 - uv[1], 6)) if uv is not None else None
                 fmt = "<8f" if textured else "<6f"
                 key = struct.pack(fmt, *position, *normal, *(uv or ()))
+                if role:
+                    triangle_bytes.append(key)
                 index = batch["lookup"].get(key)
                 if index is None:
                     index = len(batch["vertices"])
@@ -243,9 +312,11 @@ def evaluate_component(parent, depsgraph, textured_materials=None, overrides=Non
                         batch["uvs"].append(f32[6:8])
                     batch["lookup"][key] = index
                 batch["indices"].append(index)
+            if role:
+                partitions[role]["fingerprints"].append(triangle_fingerprint(material.name, triangle_bytes))
         if obj.name not in overrides:
             evaluated.to_mesh_clear()
-    return batches, {
+    group = {
         "id": parent.name.removesuffix(".origin"),
         "component_id": parent["component_id"],
         "source_object_count": len(children),
@@ -256,6 +327,33 @@ def evaluate_component(parent, depsgraph, textured_materials=None, overrides=Non
         "translation_y_up_m": list(y_up(origin)),
         "source_objects": [obj.name for obj in children],
     }
+    if partitions:
+        for role, partition in partitions.items():
+            points = partition.pop("points")
+            partition["triangle_surface_sha256"] = fingerprints_digest(partition.pop("fingerprints"))
+            partition["source_object_count"] = len(partition["source_objects"])
+            box = bounds(points)
+            partition["geometry"] = {
+                "local_bounds_y_up_m": box,
+                "inner_vertex_radius_m": min(math.hypot(p[0], p[2]) for p in points),
+                "outer_vertex_radius_m": max(math.hypot(p[0], p[2]) for p in points),
+                "local_y_min_m": box["min"][1], "local_y_max_m": box["max"][1],
+                "local_y_bounds_center_m": (box["min"][1] + box["max"][1]) / 2,
+                "local_y_height_m": box["max"][1] - box["min"][1],
+            }
+        if parent["component_id"] == "motor":
+            expected = {group["id"] + "." + name for name in authority["parts"]}
+            if set(partitions["rotor"]["source_objects"]) != expected:
+                raise ValueError(f"Motor rotor parts missing or incorrect: {group['id']}")
+        else:
+            expected = {group["id"] + f".blade_{i}" for i in range(1, 4)}
+            if set(partitions["blades"]["source_objects"]) != expected:
+                raise ValueError(f"Propeller blade partition is incorrect: {group['id']}")
+        all_names = [name for partition in partitions.values() for name in partition["source_objects"]]
+        if sorted(all_names) != sorted(group["source_objects"]) or len(all_names) != len(set(all_names)):
+            raise ValueError(f"Incomplete or duplicate motion partition: {group['id']}")
+        group["motion_partitions"] = dict(partitions)
+    return batches, group
 
 
 def polyline_keep_indices(points, tolerance):
@@ -556,8 +654,8 @@ def optimize_geometry(parents, config):
     return overrides, records, source_group_bounds, source_group_vertices
 
 
-def validate_glb(path, groups):
-    """Independently parse stored GLB bytes and compare reconstructed group bounds."""
+def read_glb(path):
+    """Read a self-contained GLB using only the Python standard library."""
     raw = path.read_bytes()
     magic, version, length = struct.unpack_from("<4sII", raw)
     if magic != b"glTF" or version != 2 or length != len(raw):
@@ -575,21 +673,131 @@ def validate_glb(path, groups):
         raise ValueError("Binary buffer truncated")
     if any("uri" in item for items in (gltf.get("buffers", []), gltf.get("images", [])) for item in items):
         raise ValueError("GLB is not self contained")
+    return gltf, binary
+
+
+def glb_accessor(gltf, binary, index):
+    accessor = gltf["accessors"][index]
+    view = gltf["bufferViews"][accessor["bufferView"]]
+    element = {5126: "f", 5123: "H", 5125: "I"}[accessor["componentType"]]
+    width = {"SCALAR": 1, "VEC2": 2, "VEC3": 3}[accessor["type"]]
+    size = struct.calcsize("<" + element * width)
+    count = accessor["count"]
+    start = view.get("byteOffset", 0) + accessor.get("byteOffset", 0)
+    if count * size != view["byteLength"] or start + size * count > len(binary):
+        raise ValueError("Accessor length mismatch")
+    values = list(struct.iter_unpack("<" + element * width, binary[start:start + size * count]))
+    if not all(math.isfinite(v) for row in values for v in row):
+        raise ValueError("Nonfinite accessor data")
+    return values
+
+
+def component_primitives(gltf, node_index):
+    """Static export anchors translate; articulation descendants are identity."""
+    anchor = gltf["nodes"][node_index]
+    if "matrix" in anchor or anchor.get("rotation", [0, 0, 0, 1]) != [0, 0, 0, 1] or anchor.get("scale", [1, 1, 1]) != [1, 1, 1]:
+        raise ValueError("Component anchor must retain its baked zero-angle orientation")
+    stack = [node_index]
+    while stack:
+        index = stack.pop()
+        node = gltf["nodes"][index]
+        if index != node_index:
+            if "matrix" in node or node.get("translation", [0, 0, 0]) != [0, 0, 0] or node.get("rotation", [0, 0, 0, 1]) != [0, 0, 0, 1] or node.get("scale", [1, 1, 1]) != [1, 1, 1]:
+                raise ValueError(f"Articulation child changes static geometry: {node['name']}")
+        if "mesh" in node:
+            for primitive in gltf["meshes"][node["mesh"]]["primitives"]:
+                yield index, primitive
+        stack.extend(reversed(node.get("children", [])))
+
+
+def primitive_fingerprints(gltf, binary, primitive):
+    positions = glb_accessor(gltf, binary, primitive["attributes"]["POSITION"])
+    normals = glb_accessor(gltf, binary, primitive["attributes"]["NORMAL"])
+    uvs = glb_accessor(gltf, binary, primitive["attributes"]["TEXCOORD_0"]) if "TEXCOORD_0" in primitive["attributes"] else None
+    keys = [struct.pack("<8f" if uvs is not None else "<6f", *p, *normals[i], *(uvs[i] if uvs is not None else ())) for i, p in enumerate(positions)]
+    indices = [row[0] for row in glb_accessor(gltf, binary, primitive["indices"])]
+    material = gltf["materials"][primitive["material"]]["name"]
+    return [triangle_fingerprint(material, [keys[index] for index in indices[i:i + 3]]) for i in range(0, len(indices), 3)]
+
+
+def glb_surface_identity(path):
+    """Stable comparison of triangle multisets despite new node/mesh batching."""
+    gltf, binary = read_glb(path)
+    components = {}
+    for index in gltf["nodes"][0]["children"]:
+        node = gltf["nodes"][index]
+        fingerprints = []
+        for _, primitive in component_primitives(gltf, index):
+            fingerprints.extend(primitive_fingerprints(gltf, binary, primitive))
+        components[node["name"]] = {"translation": node.get("translation", [0, 0, 0]), "triangles": len(fingerprints), "triangle_surface_sha256": fingerprints_digest(fingerprints)}
+    images = []
+    for image in gltf.get("images", []):
+        view = gltf["bufferViews"][image["bufferView"]]
+        data = binary[view.get("byteOffset", 0):view.get("byteOffset", 0) + view["byteLength"]]
+        images.append({"name": image.get("name"), "mimeType": image["mimeType"], "sha256": hashlib.sha256(data).hexdigest()})
+    return {"components": components, "materials": gltf["materials"], "images": images}
+
+
+def compare_static_glb(path, baseline):
+    current, old = glb_surface_identity(path), glb_surface_identity(baseline)
+    checks = {"component_anchors_and_triangle_attributes_identical": current["components"] == old["components"], "materials_identical": current["materials"] == old["materials"], "embedded_images_identical": current["images"] == old["images"]}
+    return {"status": "pass" if all(checks.values()) else "fail", "baseline_glb": str(baseline), "baseline_sha256": sha256(baseline), "checks": checks, "components": current["components"]}
+
+
+def validate_motion_glb(path, groups, authority):
+    gltf, binary = read_glb(path)
+    nodes = {gltf["nodes"][i]["name"]: (i, gltf["nodes"][i]) for i in gltf["nodes"][0]["children"]}
+    checks = []
+    for group in groups:
+        if "motion_partitions" not in group:
+            continue
+        index, node = nodes[group["id"]]
+        is_motor = group["component_id"] == "motor"
+        corner = group["id"].rsplit("_", 1)[1]
+        if is_motor and node.get("extras", {}).get("motion_role") == "rotor":
+            raise ValueError("A complete motor anchor must never be tagged as a rotor")
+        if not is_motor and (node["extras"].get("motion_role") != "rotor" or node["extras"].get("angular_sign") != authority["signs"][corner]):
+            raise ValueError("Propeller motion metadata disagrees with authority")
+        children = [gltf["nodes"][child] for child in node.get("children", [])]
+        if len(children) != 2 or any("instance_id" in child.get("extras", {}) for child in children):
+            raise ValueError("Expected two semantic children without component-anchor IDs")
+        role_field = "motion_role" if is_motor else "surface_role"
+        roles = {child["extras"][role_field]: child for child in children}
+        if set(roles) != set(group["motion_partitions"]):
+            raise ValueError(f"Missing semantic partition at {group['id']}")
+        all_objects = []
+        for role, child in roles.items():
+            expected = group["motion_partitions"][role]
+            if child["extras"]["source_objects"] != expected["source_objects"]:
+                raise ValueError("Motion partition source provenance changed")
+            if role == "rotor" and (child["extras"].get("angular_sign") != authority["signs"][corner] or child["extras"].get("rotation_axis") != [0, 1, 0]):
+                raise ValueError("Motor rotor direction/axis is incorrect")
+            if role == "rotor":
+                expected_names = {group["id"] + "." + name for name in authority["parts"]}
+                if set(expected["source_objects"]) != expected_names:
+                    raise ValueError("Motor rotor contains stationary or missing source parts")
+            fingerprints = []
+            for _, primitive in component_primitives(gltf, index):
+                # Descendants currently contain one material-batched mesh each.
+                if primitive in gltf["meshes"][child["mesh"]]["primitives"]:
+                    fingerprints.extend(primitive_fingerprints(gltf, binary, primitive))
+            if len(fingerprints) != expected["triangle_count"] or fingerprints_digest(fingerprints) != expected["triangle_surface_sha256"]:
+                raise ValueError(f"Geometry crossed a semantic boundary: {group['id']}/{role}")
+            all_objects.extend(expected["source_objects"])
+        if Counter(all_objects) != Counter(group["source_objects"]):
+            raise ValueError("Motion partition omits or duplicates original objects")
+        checks.append({"component": group["id"], "status": "pass", "roles": {role: {"objects": part["source_object_count"], "triangles": part["triangle_count"]} for role, part in group["motion_partitions"].items()}})
+    if len(checks) != 8:
+        raise ValueError("Expected four motor and four propeller semantic checks")
+    return {"status": "pass", "component_count": len(nodes), "motor_rotor_count": 4, "propeller_rotor_count": 4, "source_rotating_motor_parts": authority["parts"], "zero_angle_child_transforms": "identity", "source_triangle_attributes_preserved_per_role": True, "checks": checks}
+
+
+def validate_glb(path, groups):
+    """Independently parse stored GLB bytes and compare reconstructed group bounds."""
+    gltf, binary = read_glb(path)
 
     def read_accessor(index):
-        accessor = gltf["accessors"][index]
-        view = gltf["bufferViews"][accessor["bufferView"]]
-        element = {5126: "f", 5123: "H", 5125: "I"}[accessor["componentType"]]
-        width = {"SCALAR": 1, "VEC2": 2, "VEC3": 3}[accessor["type"]]
-        size = struct.calcsize("<" + element * width)
-        count = accessor["count"]
-        start = view.get("byteOffset", 0) + accessor.get("byteOffset", 0)
-        if count * size != view["byteLength"] or start + size * count > len(binary):
-            raise ValueError("Accessor length mismatch")
-        values = list(struct.iter_unpack("<" + element * width, binary[start:start + size * count]))
-        if not all(math.isfinite(v) for row in values for v in row):
-            raise ValueError("Nonfinite accessor data")
-        return values
+        return glb_accessor(gltf, binary, index)
 
     groups_by_id = {group["id"]: group for group in groups}
     checks = []
@@ -602,7 +810,8 @@ def validate_glb(path, groups):
         group = groups_by_id[node["name"]]
         positions = []
         triangle_count = 0
-        for primitive in gltf["meshes"][node["mesh"]]["primitives"]:
+        group_primitives = list(component_primitives(gltf, node_index))
+        for _, primitive in group_primitives:
             points = read_accessor(primitive["attributes"]["POSITION"])
             normals = read_accessor(primitive["attributes"]["NORMAL"])
             indices = read_accessor(primitive["indices"])
@@ -622,7 +831,7 @@ def validate_glb(path, groups):
         error_mm = max(abs(actual[edge][axis] - expected[edge][axis]) * 1000 for edge in ("min", "max") for axis in range(3))
         if error_mm > 0.0001 or triangle_count != group["triangles"]:
             raise ValueError(f"Geometry mismatch in {node['name']}: {error_mm} mm, {triangle_count} triangles")
-        group.update({"exported_bounds_y_up_m": actual, "maximum_bound_error_mm": error_mm, "material_primitives": len(gltf["meshes"][node["mesh"]]["primitives"])})
+        group.update({"exported_bounds_y_up_m": actual, "maximum_bound_error_mm": error_mm, "material_primitives": len(group_primitives)})
         checks.append({"group": node["name"], "status": "pass", "maximum_bound_error_mm": error_mm, "triangle_count": triangle_count})
         actual_boxes.append(actual)
         exported_triangles += triangle_count
@@ -637,20 +846,31 @@ def validate_glb(path, groups):
 
 
 def main():
+    if bpy is None:
+        raise RuntimeError("Geometry export must run inside headless Blender; pure validators may be imported by Python")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, default=Path("output/with_battery/air65_ii.blend"))
     parser.add_argument("--output", type=Path)
     parser.add_argument("--mode", choices=("lossless", "optimized"), default="lossless")
     parser.add_argument("--optimization-config", type=Path, default=Path(__file__).with_name("web_optimization.json"))
     parser.add_argument("--save-preview-blend", action="store_true", help="Save the evaluated web meshes with source studio/cameras for visual review; optimized mode only")
+    parser.add_argument("--motion-spec", type=Path, help="Optional shared motion authority; preserves rotor/stator and propeller blade/hub partitions")
+    parser.add_argument("--compare-static-glb", type=Path, help="Require identical triangles, attributes, anchors, materials and textures to this static asset")
     args = parser.parse_args(sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else [])
     source = args.source.resolve()
-    output = (args.output or Path("output/web_optimized/air65-ii.glb" if args.mode == "optimized" else "output/web/air65-ii.glb")).resolve()
+    output = (args.output or Path("output/web_motion/air65-ii.glb" if args.motion_spec else "output/web_optimized/air65-ii.glb" if args.mode == "optimized" else "output/web/air65-ii.glb")).resolve()
     if args.mode == "optimized" and output.is_relative_to(Path(__file__).resolve().parents[1] / "output/web"):
         raise ValueError("Optimized mode cannot overwrite the preserved lossless output/web directory")
     source_sha = sha256(source)
     bpy.ops.wm.open_mainfile(filepath=str(source))
     source_scene = bpy.context.scene
+    authority = load_motion_authority(args.motion_spec) if args.motion_spec else None
+    pitch_checks = None
+    if authority:
+        embedded = bpy.data.texts.get("SOURCE — resolved assembly.json")
+        if embedded is None:
+            raise ValueError("Motion export requires embedded numeric blade geometry")
+        pitch_checks = check_numeric_pitch(json.loads(embedded.as_string()), authority)
     parents = sorted((o for o in bpy.data.objects if "component_id" in o), key=lambda o: o.name)
     if len(parents) != 13:
         raise ValueError(f"Expected 13 components including battery; got {len(parents)}")
@@ -666,7 +886,7 @@ def main():
     writer.gltf["materials"] = [principled_material(bpy.data.materials[name], writer) for name in material_names]
     material_indices = {name: i for i, name in enumerate(material_names)}
     for parent in parents:
-        batches, group = evaluate_component(parent, depsgraph, writer.textured_materials, overrides)
+        batches, group = evaluate_component(parent, depsgraph, writer.textured_materials, overrides, authority)
         if optimization_records:
             selected_records = [record for record in optimization_records if record["component"] == group["id"]]
             group["optimized_bounds_z_up_mm"] = group["source_bounds_z_up_mm"]
@@ -677,11 +897,8 @@ def main():
             group["triangle_reduction_percent"] = 100 * (1 - group["triangles"] / group["source_triangles"])
             group["maximum_sampled_surface_deviation_mm"] = max(record["maximum_sampled_deviation_mm"] for record in selected_records)
             group["bound_delta_mm"] = {edge: [group["optimized_bounds_z_up_mm"][edge][i] - group["source_bounds_z_up_mm"][edge][i] for i in range(3)] for edge in ("min", "max")}
-        primitives = [writer.primitive(batches[name], material_indices[name]) for name in sorted(batches)]
-        mesh_index = len(writer.gltf["meshes"])
-        writer.gltf["meshes"].append({"name": group["id"], "primitives": primitives})
         node = {
-            "name": group["id"], "mesh": mesh_index, "translation": group["translation_y_up_m"],
+            "name": group["id"], "translation": group["translation_y_up_m"],
             "extras": {
                 "instance_id": group["id"], "component_id": group["component_id"],
                 "default_visible": group["component_id"] != "battery",
@@ -689,10 +906,38 @@ def main():
                 "source_bounds_z_up_mm": group["source_bounds_z_up_mm"],
             },
         }
-        writer.gltf["nodes"][0]["children"].append(len(writer.gltf["nodes"]))
-        writer.gltf["nodes"].append(node)
+        if "motion_partitions" in group:
+            is_motor = group["component_id"] == "motor"
+            sign = authority["signs"][group["id"].rsplit("_", 1)[1]]
+            if not is_motor:
+                node["extras"].update({"motion_role": "rotor", "angular_sign": sign, "rotation_axis": [0, 1, 0]})
+            node["children"] = []
+            writer.gltf["nodes"][0]["children"].append(len(writer.gltf["nodes"]))
+            writer.gltf["nodes"].append(node)
+            primitive_count = 0
+            for role in (("rotor", "stator") if is_motor else ("blades", "hub")):
+                keys = sorted(key for key in batches if key[0] == role)
+                primitives = [writer.primitive(batches[key], material_indices[key[1]]) for key in keys]
+                primitive_count += len(primitives)
+                child_name = group["id"] + "_" + role
+                mesh_index = len(writer.gltf["meshes"])
+                writer.gltf["meshes"].append({"name": child_name, "primitives": primitives})
+                part = group["motion_partitions"][role]
+                extras = {"motion_role" if is_motor else "surface_role": role, "source_objects": part["source_objects"], "source_object_count": part["source_object_count"], "triangle_count": part["triangle_count"], "geometry": part["geometry"]}
+                if role == "rotor":
+                    extras.update({"angular_sign": sign, "rotation_axis": [0, 1, 0]})
+                node["children"].append(len(writer.gltf["nodes"]))
+                writer.gltf["nodes"].append({"name": child_name, "mesh": mesh_index, "translation": [0, 0, 0], "extras": extras})
+        else:
+            primitives = [writer.primitive(batches[name], material_indices[name]) for name in sorted(batches)]
+            primitive_count = len(primitives)
+            mesh_index = len(writer.gltf["meshes"])
+            writer.gltf["meshes"].append({"name": group["id"], "primitives": primitives})
+            node["mesh"] = mesh_index
+            writer.gltf["nodes"][0]["children"].append(len(writer.gltf["nodes"]))
+            writer.gltf["nodes"].append(node)
         groups.append(group)
-        print(f"Exported {group['id']}: {group['source_object_count']} source objects, {len(primitives)} material primitives, {group['triangles']} triangles", flush=True)
+        print(f"Exported {group['id']}: {group['source_object_count']} source objects, {primitive_count} material primitives, {group['triangles']} triangles", flush=True)
     writer.gltf["nodes"][0]["extras"].update({
         "source_geometry_fingerprint_sha256": source_scene.get("geometry_fingerprint_sha256", ""),
         "source_blend_sha256": source_sha,
@@ -701,9 +946,16 @@ def main():
     })
     if args.mode == "optimized":
         writer.gltf["nodes"][0]["extras"]["web_optimization"] = optimization_config["name"]
+    if authority:
+        writer.gltf["nodes"][0]["extras"]["motion_authority_sha256"] = authority["sha256"]
     output.parent.mkdir(parents=True, exist_ok=True)
     writer.write(output)
     validation = validate_glb(output, groups)
+    motion_validation = validate_motion_glb(output, groups, authority) if authority else None
+    static_comparison = compare_static_glb(output, args.compare_static_glb) if args.compare_static_glb else None
+    if static_comparison and static_comparison["status"] != "pass":
+        (output.parent / "static-comparison.json").write_text(json.dumps(static_comparison, indent=2) + "\n")
+        raise ValueError("The articulated asset differs from the supplied static geometry/material baseline")
     if sha256(source) != source_sha:
         raise RuntimeError("Source blend changed during export")
     if output.stat().st_size >= 25 * 1024 * 1024:
@@ -733,6 +985,11 @@ def main():
         ],
         "accuracy_note": "The web asset preserves the completed model; it does not increase the certainty of dimensions estimated from uncalibrated reference photographs.",
     }
+    if authority:
+        metadata["motion"] = {"authority": authority["path"], "authority_sha256": authority["sha256"], "peak_rpm_reference": authority["peak_rpm"], "rotation_axis": [0, 1, 0], "sign_by_corner": authority["signs"], "initial_phase": "Already baked into vertices; child transforms are identity", "numeric_pitch_checks": pitch_checks, "validation": motion_validation}
+        if static_comparison:
+            metadata["motion"]["static_comparison"] = static_comparison
+        (output.parent / "motion-validation.json").write_text(json.dumps(metadata["motion"], indent=2, sort_keys=True) + "\n")
     if optimization_records:
         original_triangles = sum(record["source_triangles"] for record in optimization_records)
         optimized_triangles = sum(record["optimized_triangles"] for record in optimization_records)

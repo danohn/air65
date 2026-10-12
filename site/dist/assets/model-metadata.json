@@ -1,8 +1,8 @@
 {
   "accuracy_note": "The web asset preserves the completed model; it does not increase the certainty of dimensions estimated from uncalibrated reference photographs.",
   "asset": "air65-ii.glb",
-  "asset_bytes": 10417808,
-  "asset_sha256": "8ddbc0195e22c59bc8dcf6de34885021e5cc099aea5b33a08817a11a7b6395a7",
+  "asset_bytes": 10441784,
+  "asset_sha256": "4721b58072d8f5cacca84b873e626163061e4317ec158477046d85d49a332b2d",
   "blender_version": "5.2.2 LTS",
   "components": [
     {
@@ -1170,9 +1170,111 @@
         ]
       },
       "id": "motor_FL",
-      "material_primitives": 8,
+      "material_primitives": 10,
       "maximum_bound_error_mm": 0.0,
       "maximum_sampled_surface_deviation_mm": 0.02920739643741399,
+      "motion_partitions": {
+        "rotor": {
+          "geometry": {
+            "inner_vertex_radius_m": 0.0004999989390526548,
+            "local_bounds_y_up_m": {
+              "max": [
+                0.004490366205573082,
+                0.014650000259280205,
+                0.004490366205573082
+              ],
+              "min": [
+                -0.004490366205573082,
+                0.0009449999779462814,
+                -0.004490366205573082
+              ]
+            },
+            "local_y_bounds_center_m": 0.007797500118613243,
+            "local_y_height_m": 0.013705000281333923,
+            "local_y_max_m": 0.014650000259280205,
+            "local_y_min_m": 0.0009449999779462814,
+            "outer_vertex_radius_m": 0.0045000010890275935
+          },
+          "source_object_count": 9,
+          "source_objects": [
+            "motor_FL.bell_lower_rolled_edge",
+            "motor_FL.crown_center_boss",
+            "motor_FL.lower_axle_tip",
+            "motor_FL.open_purple_crown_rim",
+            "motor_FL.purple_crown_spoke_1",
+            "motor_FL.purple_crown_spoke_2",
+            "motor_FL.purple_crown_spoke_3",
+            "motor_FL.silver_bell",
+            "motor_FL.upper_shaft"
+          ],
+          "triangle_count": 2148,
+          "triangle_surface_sha256": "4f6e6412199cc4b2c5b694d14d706d44d4a1db069bef78b3da63554c8f8cee56"
+        },
+        "stator": {
+          "geometry": {
+            "inner_vertex_radius_m": 0.000499999150633812,
+            "local_bounds_y_up_m": {
+              "max": [
+                0.0043199993669986725,
+                0.011249999515712261,
+                0.003895299509167671
+              ],
+              "min": [
+                -0.003539726138114929,
+                0.0010100000072270632,
+                -0.0038953013718128204
+              ]
+            },
+            "local_y_bounds_center_m": 0.006129999761469662,
+            "local_y_height_m": 0.010239999508485198,
+            "local_y_max_m": 0.011249999515712261,
+            "local_y_min_m": 0.0010100000072270632,
+            "outer_vertex_radius_m": 0.0043199993669986725
+          },
+          "source_object_count": 37,
+          "source_objects": [
+            "motor_FL.copper_winding_01",
+            "motor_FL.copper_winding_02",
+            "motor_FL.copper_winding_03",
+            "motor_FL.copper_winding_04",
+            "motor_FL.copper_winding_05",
+            "motor_FL.copper_winding_06",
+            "motor_FL.copper_winding_07",
+            "motor_FL.copper_winding_08",
+            "motor_FL.copper_winding_09",
+            "motor_FL.exposed_lower_stator_neck",
+            "motor_FL.inner_stator_core",
+            "motor_FL.lower_bushing",
+            "motor_FL.lower_mount_center",
+            "motor_FL.mount_ear_1",
+            "motor_FL.mount_ear_2",
+            "motor_FL.mount_ear_3",
+            "motor_FL.mount_screw_head_1",
+            "motor_FL.mount_screw_head_2",
+            "motor_FL.mount_screw_head_3",
+            "motor_FL.mount_screw_shank_1",
+            "motor_FL.mount_screw_shank_2",
+            "motor_FL.mount_screw_shank_3",
+            "motor_FL.mount_web_1",
+            "motor_FL.mount_web_2",
+            "motor_FL.mount_web_3",
+            "motor_FL.stator_tooth_01",
+            "motor_FL.stator_tooth_02",
+            "motor_FL.stator_tooth_03",
+            "motor_FL.stator_tooth_04",
+            "motor_FL.stator_tooth_05",
+            "motor_FL.stator_tooth_06",
+            "motor_FL.stator_tooth_07",
+            "motor_FL.stator_tooth_08",
+            "motor_FL.stator_tooth_09",
+            "motor_FL.terminal_plate_edge",
+            "motor_FL.terminal_plate_face",
+            "motor_FL.upper_bushing"
+          ],
+          "triangle_count": 24688,
+          "triangle_surface_sha256": "62b0f6dd6973d3d2e108d51778d788f8a1d479f0fa0c7d4df62b152155ea66d4"
+        }
+      },
       "optimized_bounds_z_up_mm": {
         "max": [
           -18.490605056285858,
@@ -1296,9 +1398,111 @@
         ]
       },
       "id": "motor_FR",
-      "material_primitives": 8,
+      "material_primitives": 10,
       "maximum_bound_error_mm": 0.0,
       "maximum_sampled_surface_deviation_mm": 0.02920739643741399,
+      "motion_partitions": {
+        "rotor": {
+          "geometry": {
+            "inner_vertex_radius_m": 0.0004999989390526548,
+            "local_bounds_y_up_m": {
+              "max": [
+                0.004490366205573082,
+                0.014650000259280205,
+                0.004490366205573082
+              ],
+              "min": [
+                -0.004490366205573082,
+                0.0009449999779462814,
+                -0.004490366205573082
+              ]
+            },
+            "local_y_bounds_center_m": 0.007797500118613243,
+            "local_y_height_m": 0.013705000281333923,
+            "local_y_max_m": 0.014650000259280205,
+            "local_y_min_m": 0.0009449999779462814,
+            "outer_vertex_radius_m": 0.0045000010890275935
+          },
+          "source_object_count": 9,
+          "source_objects": [
+            "motor_FR.bell_lower_rolled_edge",
+            "motor_FR.crown_center_boss",
+            "motor_FR.lower_axle_tip",
+            "motor_FR.open_purple_crown_rim",
+            "motor_FR.purple_crown_spoke_1",
+            "motor_FR.purple_crown_spoke_2",
+            "motor_FR.purple_crown_spoke_3",
+            "motor_FR.silver_bell",
+            "motor_FR.upper_shaft"
+          ],
+          "triangle_count": 2148,
+          "triangle_surface_sha256": "b5d6e4ce4b5a089ed121d75e82b095c824722fe4c3bc28963ef776b6932a3df5"
+        },
+        "stator": {
+          "geometry": {
+            "inner_vertex_radius_m": 0.000499999150633812,
+            "local_bounds_y_up_m": {
+              "max": [
+                0.003539726138114929,
+                0.011249999515712261,
+                0.003895299509167671
+              ],
+              "min": [
+                -0.0043199993669986725,
+                0.0010100000072270632,
+                -0.0038953013718128204
+              ]
+            },
+            "local_y_bounds_center_m": 0.006129999761469662,
+            "local_y_height_m": 0.010239999508485198,
+            "local_y_max_m": 0.011249999515712261,
+            "local_y_min_m": 0.0010100000072270632,
+            "outer_vertex_radius_m": 0.0043199993669986725
+          },
+          "source_object_count": 37,
+          "source_objects": [
+            "motor_FR.copper_winding_01",
+            "motor_FR.copper_winding_02",
+            "motor_FR.copper_winding_03",
+            "motor_FR.copper_winding_04",
+            "motor_FR.copper_winding_05",
+            "motor_FR.copper_winding_06",
+            "motor_FR.copper_winding_07",
+            "motor_FR.copper_winding_08",
+            "motor_FR.copper_winding_09",
+            "motor_FR.exposed_lower_stator_neck",
+            "motor_FR.inner_stator_core",
+            "motor_FR.lower_bushing",
+            "motor_FR.lower_mount_center",
+            "motor_FR.mount_ear_1",
+            "motor_FR.mount_ear_2",
+            "motor_FR.mount_ear_3",
+            "motor_FR.mount_screw_head_1",
+            "motor_FR.mount_screw_head_2",
+            "motor_FR.mount_screw_head_3",
+            "motor_FR.mount_screw_shank_1",
+            "motor_FR.mount_screw_shank_2",
+            "motor_FR.mount_screw_shank_3",
+            "motor_FR.mount_web_1",
+            "motor_FR.mount_web_2",
+            "motor_FR.mount_web_3",
+            "motor_FR.stator_tooth_01",
+            "motor_FR.stator_tooth_02",
+            "motor_FR.stator_tooth_03",
+            "motor_FR.stator_tooth_04",
+            "motor_FR.stator_tooth_05",
+            "motor_FR.stator_tooth_06",
+            "motor_FR.stator_tooth_07",
+            "motor_FR.stator_tooth_08",
+            "motor_FR.stator_tooth_09",
+            "motor_FR.terminal_plate_edge",
+            "motor_FR.terminal_plate_face",
+            "motor_FR.upper_bushing"
+          ],
+          "triangle_count": 24688,
+          "triangle_surface_sha256": "983738bb4999486bbf2838f0a7f35c587b55008ae40fd2307b5a026d404da503"
+        }
+      },
       "optimized_bounds_z_up_mm": {
         "max": [
           27.471337467432022,
@@ -1422,9 +1626,111 @@
         ]
       },
       "id": "motor_RL",
-      "material_primitives": 8,
+      "material_primitives": 10,
       "maximum_bound_error_mm": 0.0,
       "maximum_sampled_surface_deviation_mm": 0.02920739643741399,
+      "motion_partitions": {
+        "rotor": {
+          "geometry": {
+            "inner_vertex_radius_m": 0.0004999989390526548,
+            "local_bounds_y_up_m": {
+              "max": [
+                0.004490366205573082,
+                0.014650000259280205,
+                0.004490366205573082
+              ],
+              "min": [
+                -0.004490366205573082,
+                0.0009449999779462814,
+                -0.004490366205573082
+              ]
+            },
+            "local_y_bounds_center_m": 0.007797500118613243,
+            "local_y_height_m": 0.013705000281333923,
+            "local_y_max_m": 0.014650000259280205,
+            "local_y_min_m": 0.0009449999779462814,
+            "outer_vertex_radius_m": 0.0045000010890275935
+          },
+          "source_object_count": 9,
+          "source_objects": [
+            "motor_RL.bell_lower_rolled_edge",
+            "motor_RL.crown_center_boss",
+            "motor_RL.lower_axle_tip",
+            "motor_RL.open_purple_crown_rim",
+            "motor_RL.purple_crown_spoke_1",
+            "motor_RL.purple_crown_spoke_2",
+            "motor_RL.purple_crown_spoke_3",
+            "motor_RL.silver_bell",
+            "motor_RL.upper_shaft"
+          ],
+          "triangle_count": 2148,
+          "triangle_surface_sha256": "4f6e6412199cc4b2c5b694d14d706d44d4a1db069bef78b3da63554c8f8cee56"
+        },
+        "stator": {
+          "geometry": {
+            "inner_vertex_radius_m": 0.000499999150633812,
+            "local_bounds_y_up_m": {
+              "max": [
+                0.0043199993669986725,
+                0.011249999515712261,
+                0.003895299509167671
+              ],
+              "min": [
+                -0.003539726138114929,
+                0.0010100000072270632,
+                -0.0038953013718128204
+              ]
+            },
+            "local_y_bounds_center_m": 0.006129999761469662,
+            "local_y_height_m": 0.010239999508485198,
+            "local_y_max_m": 0.011249999515712261,
+            "local_y_min_m": 0.0010100000072270632,
+            "outer_vertex_radius_m": 0.0043199993669986725
+          },
+          "source_object_count": 37,
+          "source_objects": [
+            "motor_RL.copper_winding_01",
+            "motor_RL.copper_winding_02",
+            "motor_RL.copper_winding_03",
+            "motor_RL.copper_winding_04",
+            "motor_RL.copper_winding_05",
+            "motor_RL.copper_winding_06",
+            "motor_RL.copper_winding_07",
+            "motor_RL.copper_winding_08",
+            "motor_RL.copper_winding_09",
+            "motor_RL.exposed_lower_stator_neck",
+            "motor_RL.inner_stator_core",
+            "motor_RL.lower_bushing",
+            "motor_RL.lower_mount_center",
+            "motor_RL.mount_ear_1",
+            "motor_RL.mount_ear_2",
+            "motor_RL.mount_ear_3",
+            "motor_RL.mount_screw_head_1",
+            "motor_RL.mount_screw_head_2",
+            "motor_RL.mount_screw_head_3",
+            "motor_RL.mount_screw_shank_1",
+            "motor_RL.mount_screw_shank_2",
+            "motor_RL.mount_screw_shank_3",
+            "motor_RL.mount_web_1",
+            "motor_RL.mount_web_2",
+            "motor_RL.mount_web_3",
+            "motor_RL.stator_tooth_01",
+            "motor_RL.stator_tooth_02",
+            "motor_RL.stator_tooth_03",
+            "motor_RL.stator_tooth_04",
+            "motor_RL.stator_tooth_05",
+            "motor_RL.stator_tooth_06",
+            "motor_RL.stator_tooth_07",
+            "motor_RL.stator_tooth_08",
+            "motor_RL.stator_tooth_09",
+            "motor_RL.terminal_plate_edge",
+            "motor_RL.terminal_plate_face",
+            "motor_RL.upper_bushing"
+          ],
+          "triangle_count": 24688,
+          "triangle_surface_sha256": "62b0f6dd6973d3d2e108d51778d788f8a1d479f0fa0c7d4df62b152155ea66d4"
+        }
+      },
       "optimized_bounds_z_up_mm": {
         "max": [
           -18.490605056285858,
@@ -1548,9 +1854,111 @@
         ]
       },
       "id": "motor_RR",
-      "material_primitives": 8,
+      "material_primitives": 10,
       "maximum_bound_error_mm": 0.0,
       "maximum_sampled_surface_deviation_mm": 0.02920739643741399,
+      "motion_partitions": {
+        "rotor": {
+          "geometry": {
+            "inner_vertex_radius_m": 0.0004999989390526548,
+            "local_bounds_y_up_m": {
+              "max": [
+                0.004490366205573082,
+                0.014650000259280205,
+                0.004490366205573082
+              ],
+              "min": [
+                -0.004490366205573082,
+                0.0009449999779462814,
+                -0.004490366205573082
+              ]
+            },
+            "local_y_bounds_center_m": 0.007797500118613243,
+            "local_y_height_m": 0.013705000281333923,
+            "local_y_max_m": 0.014650000259280205,
+            "local_y_min_m": 0.0009449999779462814,
+            "outer_vertex_radius_m": 0.0045000010890275935
+          },
+          "source_object_count": 9,
+          "source_objects": [
+            "motor_RR.bell_lower_rolled_edge",
+            "motor_RR.crown_center_boss",
+            "motor_RR.lower_axle_tip",
+            "motor_RR.open_purple_crown_rim",
+            "motor_RR.purple_crown_spoke_1",
+            "motor_RR.purple_crown_spoke_2",
+            "motor_RR.purple_crown_spoke_3",
+            "motor_RR.silver_bell",
+            "motor_RR.upper_shaft"
+          ],
+          "triangle_count": 2148,
+          "triangle_surface_sha256": "b5d6e4ce4b5a089ed121d75e82b095c824722fe4c3bc28963ef776b6932a3df5"
+        },
+        "stator": {
+          "geometry": {
+            "inner_vertex_radius_m": 0.000499999150633812,
+            "local_bounds_y_up_m": {
+              "max": [
+                0.003539726138114929,
+                0.011249999515712261,
+                0.003895299509167671
+              ],
+              "min": [
+                -0.0043199993669986725,
+                0.0010100000072270632,
+                -0.0038953013718128204
+              ]
+            },
+            "local_y_bounds_center_m": 0.006129999761469662,
+            "local_y_height_m": 0.010239999508485198,
+            "local_y_max_m": 0.011249999515712261,
+            "local_y_min_m": 0.0010100000072270632,
+            "outer_vertex_radius_m": 0.0043199993669986725
+          },
+          "source_object_count": 37,
+          "source_objects": [
+            "motor_RR.copper_winding_01",
+            "motor_RR.copper_winding_02",
+            "motor_RR.copper_winding_03",
+            "motor_RR.copper_winding_04",
+            "motor_RR.copper_winding_05",
+            "motor_RR.copper_winding_06",
+            "motor_RR.copper_winding_07",
+            "motor_RR.copper_winding_08",
+            "motor_RR.copper_winding_09",
+            "motor_RR.exposed_lower_stator_neck",
+            "motor_RR.inner_stator_core",
+            "motor_RR.lower_bushing",
+            "motor_RR.lower_mount_center",
+            "motor_RR.mount_ear_1",
+            "motor_RR.mount_ear_2",
+            "motor_RR.mount_ear_3",
+            "motor_RR.mount_screw_head_1",
+            "motor_RR.mount_screw_head_2",
+            "motor_RR.mount_screw_head_3",
+            "motor_RR.mount_screw_shank_1",
+            "motor_RR.mount_screw_shank_2",
+            "motor_RR.mount_screw_shank_3",
+            "motor_RR.mount_web_1",
+            "motor_RR.mount_web_2",
+            "motor_RR.mount_web_3",
+            "motor_RR.stator_tooth_01",
+            "motor_RR.stator_tooth_02",
+            "motor_RR.stator_tooth_03",
+            "motor_RR.stator_tooth_04",
+            "motor_RR.stator_tooth_05",
+            "motor_RR.stator_tooth_06",
+            "motor_RR.stator_tooth_07",
+            "motor_RR.stator_tooth_08",
+            "motor_RR.stator_tooth_09",
+            "motor_RR.terminal_plate_edge",
+            "motor_RR.terminal_plate_face",
+            "motor_RR.upper_bushing"
+          ],
+          "triangle_count": 24688,
+          "triangle_surface_sha256": "983738bb4999486bbf2838f0a7f35c587b55008ae40fd2307b5a026d404da503"
+        }
+      },
       "optimized_bounds_z_up_mm": {
         "max": [
           27.471337467432022,
@@ -1674,9 +2082,73 @@
         ]
       },
       "id": "prop_FL",
-      "material_primitives": 1,
+      "material_primitives": 2,
       "maximum_bound_error_mm": 0.0,
       "maximum_sampled_surface_deviation_mm": 0.03409543205634691,
+      "motion_partitions": {
+        "blades": {
+          "geometry": {
+            "inner_vertex_radius_m": 0.002137326242627353,
+            "local_bounds_y_up_m": {
+              "max": [
+                0.01485833153128624,
+                0.013925885781645775,
+                0.015415553003549576
+              ],
+              "min": [
+                -0.012741690501570702,
+                0.011519990861415863,
+                -0.010911421850323677
+              ]
+            },
+            "local_y_bounds_center_m": 0.012722938321530819,
+            "local_y_height_m": 0.002405894920229912,
+            "local_y_max_m": 0.013925885781645775,
+            "local_y_min_m": 0.011519990861415863,
+            "outer_vertex_radius_m": 0.015500001268085187
+          },
+          "source_object_count": 3,
+          "source_objects": [
+            "prop_FL.blade_1",
+            "prop_FL.blade_2",
+            "prop_FL.blade_3"
+          ],
+          "triangle_count": 4596,
+          "triangle_surface_sha256": "b059e2fbd83498af6afbe76feeb247d357534b0a1f7a1a835de1943a2b916f81"
+        },
+        "hub": {
+          "geometry": {
+            "inner_vertex_radius_m": 0.0004999990208762587,
+            "local_bounds_y_up_m": {
+              "max": [
+                0.0023908670991659164,
+                0.014650000259280205,
+                0.0023908670991659164
+              ],
+              "min": [
+                -0.0023908670991659164,
+                0.011350000277161598,
+                -0.0023908670991659164
+              ]
+            },
+            "local_y_bounds_center_m": 0.013000000268220901,
+            "local_y_height_m": 0.0032999999821186066,
+            "local_y_max_m": 0.014650000259280205,
+            "local_y_min_m": 0.011350000277161598,
+            "outer_vertex_radius_m": 0.0024000009223834767
+          },
+          "source_object_count": 5,
+          "source_objects": [
+            "prop_FL.center_shaft_socket",
+            "prop_FL.hub_radial_web_1",
+            "prop_FL.hub_radial_web_2",
+            "prop_FL.hub_radial_web_3",
+            "prop_FL.outer_hub_barrel"
+          ],
+          "triangle_count": 1284,
+          "triangle_surface_sha256": "6dc6b0a454e5c86c21de4ce511f3146a4c1f777400676e423eb747ee52353507"
+        }
+      },
       "optimized_bounds_z_up_mm": {
         "max": [
           -8.1226397305727,
@@ -1762,9 +2234,73 @@
         ]
       },
       "id": "prop_FR",
-      "material_primitives": 1,
+      "material_primitives": 2,
       "maximum_bound_error_mm": 0.0,
       "maximum_sampled_surface_deviation_mm": 0.03409590135561302,
+      "motion_partitions": {
+        "blades": {
+          "geometry": {
+            "inner_vertex_radius_m": 0.002137326023719501,
+            "local_bounds_y_up_m": {
+              "max": [
+                0.01516730897128582,
+                0.013925885781645775,
+                0.011798392049968243
+              ],
+              "min": [
+                -0.011947696097195148,
+                0.011519990861415863,
+                -0.015229424461722374
+              ]
+            },
+            "local_y_bounds_center_m": 0.012722938321530819,
+            "local_y_height_m": 0.002405894920229912,
+            "local_y_max_m": 0.013925885781645775,
+            "local_y_min_m": 0.011519990861415863,
+            "outer_vertex_radius_m": 0.01550000070098957
+          },
+          "source_object_count": 3,
+          "source_objects": [
+            "prop_FR.blade_1",
+            "prop_FR.blade_2",
+            "prop_FR.blade_3"
+          ],
+          "triangle_count": 4596,
+          "triangle_surface_sha256": "e2024ad37c42d2215230fc52d5cfb9caf3c7d01da14f7c5c4c3c84b53c47fae0"
+        },
+        "hub": {
+          "geometry": {
+            "inner_vertex_radius_m": 0.0004999995830662277,
+            "local_bounds_y_up_m": {
+              "max": [
+                0.002399999648332596,
+                0.014650000259280205,
+                0.002399999648332596
+              ],
+              "min": [
+                -0.002399999648332596,
+                0.011350000277161598,
+                -0.002399999648332596
+              ]
+            },
+            "local_y_bounds_center_m": 0.013000000268220901,
+            "local_y_height_m": 0.0032999999821186066,
+            "local_y_max_m": 0.014650000259280205,
+            "local_y_min_m": 0.011350000277161598,
+            "outer_vertex_radius_m": 0.0024000001857297087
+          },
+          "source_object_count": 5,
+          "source_objects": [
+            "prop_FR.center_shaft_socket",
+            "prop_FR.hub_radial_web_1",
+            "prop_FR.hub_radial_web_2",
+            "prop_FR.hub_radial_web_3",
+            "prop_FR.outer_hub_barrel"
+          ],
+          "triangle_count": 1284,
+          "triangle_surface_sha256": "24fa6195afbe9a063ef553a59e9179a39facb83688c656ddeea03c2f71fd6832"
+        }
+      },
       "optimized_bounds_z_up_mm": {
         "max": [
           38.14828023314476,
@@ -1850,9 +2386,73 @@
         ]
       },
       "id": "prop_RL",
-      "material_primitives": 1,
+      "material_primitives": 2,
       "maximum_bound_error_mm": 0.0,
       "maximum_sampled_surface_deviation_mm": 0.034095111914211884,
+      "motion_partitions": {
+        "blades": {
+          "geometry": {
+            "inner_vertex_radius_m": 0.002137326242627353,
+            "local_bounds_y_up_m": {
+              "max": [
+                0.01107354462146759,
+                0.013925885781645775,
+                0.014940416440367699
+              ],
+              "min": [
+                -0.01537109725177288,
+                0.011519990861415863,
+                -0.01260596513748169
+              ]
+            },
+            "local_y_bounds_center_m": 0.012722938321530819,
+            "local_y_height_m": 0.002405894920229912,
+            "local_y_max_m": 0.013925885781645775,
+            "local_y_min_m": 0.011519990861415863,
+            "outer_vertex_radius_m": 0.015500002145069957
+          },
+          "source_object_count": 3,
+          "source_objects": [
+            "prop_RL.blade_1",
+            "prop_RL.blade_2",
+            "prop_RL.blade_3"
+          ],
+          "triangle_count": 4596,
+          "triangle_surface_sha256": "383577afbe27288d99988bddc20d7b8c317dac3344e786917f752da72358f0cd"
+        },
+        "hub": {
+          "geometry": {
+            "inner_vertex_radius_m": 0.0004999991551302228,
+            "local_bounds_y_up_m": {
+              "max": [
+                0.0023908670991659164,
+                0.014650000259280205,
+                0.0023908670991659164
+              ],
+              "min": [
+                -0.0023908670991659164,
+                0.011350000277161598,
+                -0.0023908670991659164
+              ]
+            },
+            "local_y_bounds_center_m": 0.013000000268220901,
+            "local_y_height_m": 0.0032999999821186066,
+            "local_y_max_m": 0.014650000259280205,
+            "local_y_min_m": 0.011350000277161598,
+            "outer_vertex_radius_m": 0.002400000926867735
+          },
+          "source_object_count": 5,
+          "source_objects": [
+            "prop_RL.center_shaft_socket",
+            "prop_RL.hub_radial_web_1",
+            "prop_RL.hub_radial_web_2",
+            "prop_RL.hub_radial_web_3",
+            "prop_RL.outer_hub_barrel"
+          ],
+          "triangle_count": 1284,
+          "triangle_surface_sha256": "6d0b6e5a11b4c4e382044f532134949691e678d854623592646e1fc4d96c657f"
+        }
+      },
       "optimized_bounds_z_up_mm": {
         "max": [
           -11.90742664039135,
@@ -1938,9 +2538,73 @@
         ]
       },
       "id": "prop_RR",
-      "material_primitives": 1,
+      "material_primitives": 2,
       "maximum_bound_error_mm": 0.0,
       "maximum_sampled_surface_deviation_mm": 0.03409590135561302,
+      "motion_partitions": {
+        "blades": {
+          "geometry": {
+            "inner_vertex_radius_m": 0.002137326023719501,
+            "local_bounds_y_up_m": {
+              "max": [
+                0.011947697028517723,
+                0.013925885781645775,
+                0.011798391118645668
+              ],
+              "min": [
+                -0.015167308039963245,
+                0.011519990861415863,
+                -0.015229424461722374
+              ]
+            },
+            "local_y_bounds_center_m": 0.012722938321530819,
+            "local_y_height_m": 0.002405894920229912,
+            "local_y_max_m": 0.013925885781645775,
+            "local_y_min_m": 0.011519990861415863,
+            "outer_vertex_radius_m": 0.015500001039612861
+          },
+          "source_object_count": 3,
+          "source_objects": [
+            "prop_RR.blade_1",
+            "prop_RR.blade_2",
+            "prop_RR.blade_3"
+          ],
+          "triangle_count": 4596,
+          "triangle_surface_sha256": "9422b3356f62d0daf21f57f916419f833f7a1f8df80816afb91e2bc4acd89ae7"
+        },
+        "hub": {
+          "geometry": {
+            "inner_vertex_radius_m": 0.000499999150633812,
+            "local_bounds_y_up_m": {
+              "max": [
+                0.002399999648332596,
+                0.014650000259280205,
+                0.002399999648332596
+              ],
+              "min": [
+                -0.002399999648332596,
+                0.011350000277161598,
+                -0.002399999648332596
+              ]
+            },
+            "local_y_bounds_center_m": 0.013000000268220901,
+            "local_y_height_m": 0.0032999999821186066,
+            "local_y_max_m": 0.014650000259280205,
+            "local_y_min_m": 0.011350000277161598,
+            "outer_vertex_radius_m": 0.0024000001857297087
+          },
+          "source_object_count": 5,
+          "source_objects": [
+            "prop_RR.center_shaft_socket",
+            "prop_RR.hub_radial_web_1",
+            "prop_RR.hub_radial_web_2",
+            "prop_RR.hub_radial_web_3",
+            "prop_RR.outer_hub_barrel"
+          ],
+          "triangle_count": 1284,
+          "triangle_surface_sha256": "f08ceb8170b0908700bd17f459243ccb86365afae47802a4a0106687adc98343"
+        }
+      },
       "optimized_bounds_z_up_mm": {
         "max": [
           34.92866829037666,
@@ -2029,12 +2693,333 @@
     }
   ],
   "export_mode": "optimized",
-  "export_script_sha256": "42f9606d6ceb579bfe485a22ad608ab12ed41fafc95128db8f2a69b22afd7494",
+  "export_script_sha256": "06d831ff5c1c197b816d024cd32c51c2693276d87b1c22098716871a292fb3b8",
   "gltf_extensions": [
     "KHR_materials_clearcoat",
     "KHR_materials_ior",
     "KHR_materials_transmission"
   ],
+  "motion": {
+    "authority": "specs/studio/motion.json",
+    "authority_sha256": "f0402b8123a48798f87c3265003f4a59859fbc1c9e83c32eff9d78b18da58ddb",
+    "initial_phase": "Already baked into vertices; child transforms are identity",
+    "numeric_pitch_checks": [
+      {
+        "angular_sign": 1,
+        "corner": "FL",
+        "local_axis": [
+          0,
+          1,
+          0
+        ],
+        "numeric_pitch_check": "pass"
+      },
+      {
+        "angular_sign": -1,
+        "corner": "FR",
+        "local_axis": [
+          0,
+          1,
+          0
+        ],
+        "numeric_pitch_check": "pass"
+      },
+      {
+        "angular_sign": -1,
+        "corner": "RL",
+        "local_axis": [
+          0,
+          1,
+          0
+        ],
+        "numeric_pitch_check": "pass"
+      },
+      {
+        "angular_sign": 1,
+        "corner": "RR",
+        "local_axis": [
+          0,
+          1,
+          0
+        ],
+        "numeric_pitch_check": "pass"
+      }
+    ],
+    "peak_rpm_reference": 60394,
+    "rotation_axis": [
+      0,
+      1,
+      0
+    ],
+    "sign_by_corner": {
+      "FL": 1,
+      "FR": -1,
+      "RL": -1,
+      "RR": 1
+    },
+    "static_comparison": {
+      "baseline_glb": "output/web_motion/static_reference.glb",
+      "baseline_sha256": "8ddbc0195e22c59bc8dcf6de34885021e5cc099aea5b33a08817a11a7b6395a7",
+      "checks": {
+        "component_anchors_and_triangle_attributes_identical": true,
+        "embedded_images_identical": true,
+        "materials_identical": true
+      },
+      "components": {
+        "battery": {
+          "translation": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "triangle_surface_sha256": "3cc6ee04e092ccf7a11112ff96c31069e63ecaee7a14eeed5cb3825e35620f45",
+          "triangles": 1434
+        },
+        "camera": {
+          "translation": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "triangle_surface_sha256": "90f6c7a97d04127e09f0c6372425b580c6cbc7182c6c98033227b1b7e811a949",
+          "triangles": 38684
+        },
+        "canopy": {
+          "translation": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "triangle_surface_sha256": "5b5496b2ae200095f299611b40738b8abfa9a712e4ba58bdc76a44968e14948b",
+          "triangles": 20452
+        },
+        "electronics": {
+          "translation": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "triangle_surface_sha256": "d98f2e7d18099a26626dba226cdf320526775e5c511ddf6c88b5bb563a0e776b",
+          "triangles": 44312
+        },
+        "frame": {
+          "translation": [
+            0.0,
+            0.0,
+            -0.0
+          ],
+          "triangle_surface_sha256": "cea03b9f80d3a9f3c0a04ee40a6cf98c9e624369dcd775f34cef13af940c0838",
+          "triangles": 27064
+        },
+        "motor_FL": {
+          "translation": [
+            -0.02298097126185894,
+            0.0,
+            -0.02298097126185894
+          ],
+          "triangle_surface_sha256": "ca4fd4d6c11fe33da276867dd79315ecb49bd895f803af53cffdc75e2b50af66",
+          "triangles": 26836
+        },
+        "motor_FR": {
+          "translation": [
+            0.02298097126185894,
+            0.0,
+            -0.02298097126185894
+          ],
+          "triangle_surface_sha256": "fc406e739817fe8be71a261398dc95e4bf4bc18e10f8013171f93e0d702e6e77",
+          "triangles": 26836
+        },
+        "motor_RL": {
+          "translation": [
+            -0.02298097126185894,
+            0.0,
+            0.02298097126185894
+          ],
+          "triangle_surface_sha256": "ca4fd4d6c11fe33da276867dd79315ecb49bd895f803af53cffdc75e2b50af66",
+          "triangles": 26836
+        },
+        "motor_RR": {
+          "translation": [
+            0.02298097126185894,
+            0.0,
+            0.02298097126185894
+          ],
+          "triangle_surface_sha256": "fc406e739817fe8be71a261398dc95e4bf4bc18e10f8013171f93e0d702e6e77",
+          "triangles": 26836
+        },
+        "prop_FL": {
+          "translation": [
+            -0.02298097126185894,
+            0.0,
+            -0.02298097126185894
+          ],
+          "triangle_surface_sha256": "07118120a4f6decab94d7e2e8d2813f4e59716b77f2d60785cb708086f620a85",
+          "triangles": 5880
+        },
+        "prop_FR": {
+          "translation": [
+            0.02298097126185894,
+            0.0,
+            -0.02298097126185894
+          ],
+          "triangle_surface_sha256": "396df309f79b98e830eaaec9f00b4c0c6fb7824e2b1ff9a9a3b8d7e9ba83d65b",
+          "triangles": 5880
+        },
+        "prop_RL": {
+          "translation": [
+            -0.02298097126185894,
+            0.0,
+            0.02298097126185894
+          ],
+          "triangle_surface_sha256": "6bdb7315939aa43b404497f397e7d35b037b10b84da81abe39b00d76133a84d4",
+          "triangles": 5880
+        },
+        "prop_RR": {
+          "translation": [
+            0.02298097126185894,
+            0.0,
+            0.02298097126185894
+          ],
+          "triangle_surface_sha256": "3d89ee90a7f2f8410bc8cd85b498af68741b21900ecdddaeeffcb307b329b3c5",
+          "triangles": 5880
+        }
+      },
+      "status": "pass"
+    },
+    "validation": {
+      "checks": [
+        {
+          "component": "motor_FL",
+          "roles": {
+            "rotor": {
+              "objects": 9,
+              "triangles": 2148
+            },
+            "stator": {
+              "objects": 37,
+              "triangles": 24688
+            }
+          },
+          "status": "pass"
+        },
+        {
+          "component": "motor_FR",
+          "roles": {
+            "rotor": {
+              "objects": 9,
+              "triangles": 2148
+            },
+            "stator": {
+              "objects": 37,
+              "triangles": 24688
+            }
+          },
+          "status": "pass"
+        },
+        {
+          "component": "motor_RL",
+          "roles": {
+            "rotor": {
+              "objects": 9,
+              "triangles": 2148
+            },
+            "stator": {
+              "objects": 37,
+              "triangles": 24688
+            }
+          },
+          "status": "pass"
+        },
+        {
+          "component": "motor_RR",
+          "roles": {
+            "rotor": {
+              "objects": 9,
+              "triangles": 2148
+            },
+            "stator": {
+              "objects": 37,
+              "triangles": 24688
+            }
+          },
+          "status": "pass"
+        },
+        {
+          "component": "prop_FL",
+          "roles": {
+            "blades": {
+              "objects": 3,
+              "triangles": 4596
+            },
+            "hub": {
+              "objects": 5,
+              "triangles": 1284
+            }
+          },
+          "status": "pass"
+        },
+        {
+          "component": "prop_FR",
+          "roles": {
+            "blades": {
+              "objects": 3,
+              "triangles": 4596
+            },
+            "hub": {
+              "objects": 5,
+              "triangles": 1284
+            }
+          },
+          "status": "pass"
+        },
+        {
+          "component": "prop_RL",
+          "roles": {
+            "blades": {
+              "objects": 3,
+              "triangles": 4596
+            },
+            "hub": {
+              "objects": 5,
+              "triangles": 1284
+            }
+          },
+          "status": "pass"
+        },
+        {
+          "component": "prop_RR",
+          "roles": {
+            "blades": {
+              "objects": 3,
+              "triangles": 4596
+            },
+            "hub": {
+              "objects": 5,
+              "triangles": 1284
+            }
+          },
+          "status": "pass"
+        }
+      ],
+      "component_count": 13,
+      "motor_rotor_count": 4,
+      "propeller_rotor_count": 4,
+      "source_rotating_motor_parts": [
+        "silver_bell",
+        "bell_lower_rolled_edge",
+        "open_purple_crown_rim",
+        "purple_crown_spoke_1",
+        "purple_crown_spoke_2",
+        "purple_crown_spoke_3",
+        "crown_center_boss",
+        "upper_shaft",
+        "lower_axle_tip"
+      ],
+      "source_triangle_attributes_preserved_per_role": true,
+      "status": "pass",
+      "zero_angle_child_transforms": "identity"
+    }
+  },
   "nominal_dimensions_mm": {
     "frame_height": 15.1,
     "frame_length": 82.6,
@@ -2177,10 +3162,10 @@
       }
     ],
     "material_count": 30,
-    "material_primitives": 72,
-    "mesh_count": 13,
+    "material_primitives": 84,
+    "mesh_count": 21,
     "self_contained": true,
-    "single_pass_draw_calls_upper_bound": 72,
+    "single_pass_draw_calls_upper_bound": 84,
     "status": "pass",
     "tolerance_mm": 0.0001
   },
